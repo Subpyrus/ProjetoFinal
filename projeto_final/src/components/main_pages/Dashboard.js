@@ -1,6 +1,5 @@
 import React from 'react';
-import './PagPrinc.css';
-import './App.css';
+import '../../App.css';
 
 class Pag_Principal extends React.Component {
     render() {

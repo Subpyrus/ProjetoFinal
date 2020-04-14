@@ -1,15 +1,16 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Pag_Principal from "./Pag_Principal";
+import Dashboard from "./components/main_pages/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavB from './components/layout/Navbar';
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
         <NavB/>
         <Switch>
-            <Route exact path="/" component={Pag_Principal}/>
+            <Route exact path="/" component={Dashboard}/>
         </Switch>
     </BrowserRouter>
   );

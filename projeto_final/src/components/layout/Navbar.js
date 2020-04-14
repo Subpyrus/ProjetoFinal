@@ -1,6 +1,5 @@
-import React from './node_modules/react';
-import {Navbar, Nav} from './node_modules/react-bootstrap';
-import '../App.css';
+import React from 'react';
+import {Navbar, Nav} from 'react-bootstrap';
 
 function NavB() {
     return (

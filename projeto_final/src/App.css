@@ -21,13 +21,13 @@
 }
 
 .inicial{
-    background-image: url("Imgs/PagI.jpg");
+    background-image: url("imgs/PagI.jpg");
     background-size: 100% auto;
     height:100vh;
     width: 100vw;
 }
 .final{
-    background-image: url("Imgs/imgfooter.jpg");
+    background-image: url("imgs/imgfooter.jpg");
     background-size: 100% auto;
     height: 100vh;
     width: 100vw;
