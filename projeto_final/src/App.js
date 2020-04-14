@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-        <NavB/>
+      <NavB/>
         <Switch>
             <Route exact path="/" component={Dashboard}/>
         </Switch>
