@@ -1,8 +1,102 @@
+
 .navbar{
-  Background-color: black;
-  color: white;
+    font-family: 'Barlow', sans-serif;
+    Background-color: black;
+    color: white;
+    font-size: xx-large;
+  }
+  
+  .logo {
+    letter-spacing: 1.2pt;
+    font-weight: 800;
+    color:#ec9400;
+  }
+  
+  .nav{
+    margin: auto;
+  }
+
+.pagP{
+    overflow: hidden;
 }
 
-.nav{
-  margin: auto;
+.inicial{
+    background-image: url("Imgs/PagI.jpg");
+    background-size: 100% auto;
+    height:100vh;
+    width: 100vw;
+}
+.final{
+    background-image: url("Imgs/imgfooter.jpg");
+    background-size: 100% auto;
+    height: 100vh;
+    width: 100vw;
+}
+
+.conteudo1{
+    background-color: white;
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+}
+.conteudo1:after{
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    content: '';
+    background: inherit;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: skewY(4deg);
+}
+.conteudo2{
+    background-color: #f2f2f2;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+    z-index: -1;
+}
+
+.conteudo2:after{
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    content: '';
+    background: inherit;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform-origin: top right;
+    transform: skewY(-4deg);
+}
+.conteudo3{
+    background-color: white;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+    z-index: -2;
+}
+.conteudo3:after{
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    content: '';
+    background: inherit;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: skewY(4deg);
+}
+.conteudo4{
+    background-color: #f2f2f2;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+    z-index: -3;
 }
