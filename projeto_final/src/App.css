@@ -1,45 +1,167 @@
 
-.navbar{
+.navbar {
     font-family: 'Barlow', sans-serif;
     Background-color: black;
     color: white;
     font-size: xx-large;
-  }
-  
-  .logo {
+}
+
+.logo {
     letter-spacing: 1.2pt;
     font-weight: 800;
-    color:#ec9400;
-  }
-  
-  .nav{
-    margin: auto;
-  }
+    color: #ec9400;
+}
 
-.pagP{
+.nav {
+    margin: auto;
+}
+
+.pagP {
     overflow: hidden;
 }
 
-.inicial{
-    background-image: url("imgs/PagI.jpg");
+.inicial {
+    background-image: url("Imgs/pi.jpg");
     background-size: 100% auto;
-    height:100vh;
-    width: 100vw;
-}
-.final{
-    background-image: url("imgs/imgfooter.jpg");
-    background-size: 100% auto;
-    height: 100vh;
+    background-repeat: no-repeat;
+    height: 91vh;
     width: 100vw;
 }
 
-.conteudo1{
+.final {
+    background-image: url("Imgs/imgfooter.jpg");
+    background-size: 100% auto;
+    background-position: 0 -250px;
+    height: 90vh;
+    width: 100vw;
+}
+
+.P_Ini_Logo{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 4vw;
+}
+
+.P_Ini_texto{
+    float: left;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+    color: white;
+    font-size: 50px;
+    line-height: 120%;
+}
+.P_Ini_button{
+    float: left;
+    font-family: 'Barlow', sans-serif;
+    position: relative;
+    top: 41%;
+    transform: translateY(-41%);
+    background-color: #ec9400;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 70px 15px 70px;
+}
+.P_Ini_button_P{
+    float: left;
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 70px 15px 70px;
+}
+
+.Cartoon{
+    float: right;
+    margin-right: 4vw;
+    position: relative;
+    top: 30%;
+    transform: translateY(-30%);
+    display: inline-block;
+    z-index: 1;
+}
+.Cartoon2{
+    margin-left: 4vw;
+    position: relative;
+    top: 80%;
+    transform: translateY(-80%);
+    display: inline-block;
+    z-index: 1;
+}
+.Cartoon3{
+    float: right;
+    margin-right: 4vw;
+    position: relative;
+    top: 10%;
+    transform: translateY(-10%);
+    display: inline-block;
+    z-index: 1;
+}
+.Cartoon4{
+    margin-left: 4vw;
+    position: relative;
+    top: 60%;
+    transform: translateY(-60%);
+    display: inline-block;
+    z-index: 1;
+}
+
+.texto{
+    position: relative;
+    top: -60%;
+    transform: translateY(60%);
+    display: inline-block;
+    margin-left: 4vw;
+    z-index: 1;
+    max-width: 50vw;
+}
+.texto2{
+    float: right;
+    position: relative;
+    top: -40%;
+    transform: translateY(40%);
+    margin-right: 4vw;
+    display: inline-block;
+    max-width: 50vw;
+    z-index: 1;
+}
+.texto3{
+    position: relative;
+    top: -110%;
+    transform: translateY(110%);
+    display: inline-block;
+    margin-left: 4vw;
+    z-index: 1;
+    max-width: 50vw;
+}
+.texto4{
+    float: right;
+    position: relative;
+    top: -50%;
+    transform: translateY(50%);
+    margin-right: 4vw;
+    display: inline-block;
+    max-width: 50vw;
+    z-index: 1;
+}
+
+.conteudo1 {
+    align-content: center;
     background-color: white;
     width: 100vw;
     height: 60vh;
     position: relative;
+    z-index: 1;
 }
-.conteudo1:after{
+
+.conteudo1:after {
     position: absolute;
     width: 100vw;
     height: 60vh;
@@ -51,16 +173,18 @@
     left: 0;
     transform-origin: top left;
     transform: skewY(4deg);
+    z-index: -1;
 }
-.conteudo2{
+
+.conteudo2 {
     background-color: #f2f2f2;
     width: 100vw;
     height: 70vh;
     position: relative;
-    z-index: -1;
+    z-index: -2;
 }
 
-.conteudo2:after{
+.conteudo2:after {
     position: absolute;
     width: 100vw;
     height: 70vh;
@@ -73,14 +197,16 @@
     transform-origin: top right;
     transform: skewY(-4deg);
 }
-.conteudo3{
+
+.conteudo3 {
     background-color: white;
     width: 100vw;
     height: 70vh;
     position: relative;
-    z-index: -2;
+    z-index: -3;
 }
-.conteudo3:after{
+
+.conteudo3:after {
     position: absolute;
     width: 100vw;
     height: 70vh;
@@ -93,10 +219,11 @@
     transform-origin: top left;
     transform: skewY(4deg);
 }
-.conteudo4{
+
+.conteudo4 {
     background-color: #f2f2f2;
     width: 100vw;
     height: 70vh;
     position: relative;
-    z-index: -3;
+    z-index: -4;
 }
