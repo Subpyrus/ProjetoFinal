@@ -16,6 +16,8 @@
     margin: auto;
 }
 
+/* Página Principal */
+
 .pagP {
     overflow: hidden;
 }
@@ -226,4 +228,39 @@
     height: 70vh;
     position: relative;
     z-index: -4;
+}
+
+
+/* Página de vendas */
+
+.Img_Vendas{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 5vw;
+}
+
+.Body_Vendas {
+    height: 80vh;
+    width: 100vw;
+}
+
+.Texto_Vendas{
+    margin: auto;
+    margin-right: 5vw;
+}
+
+.Titulo_Vendas{
+    font-size: 120px;
+    font-weight: bold;
+}
+
+.Subtitulo_Vendas{
+    margin-top: -20px;
+    font-size: 40px;
+}
+
+.Texto_Vendas_2{
+    margin-top: 20px;
+    font-size: 18px;
 }
