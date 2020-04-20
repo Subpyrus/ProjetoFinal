@@ -84,8 +84,8 @@
     float: right;
     margin-right: 4vw;
     position: relative;
-    top: 30%;
-    transform: translateY(-30%);
+    top: 40%;
+    transform: translateY(-40%);
     display: inline-block;
     z-index: 1;
 }
@@ -101,8 +101,8 @@
     float: right;
     margin-right: 4vw;
     position: relative;
-    top: 10%;
-    transform: translateY(-10%);
+    top: 20%;
+    transform: translateY(-20%);
     display: inline-block;
     z-index: 1;
 }
@@ -152,6 +152,9 @@
     display: inline-block;
     max-width: 50vw;
     z-index: 1;
+}
+.Texto_P_Princ{
+    font-size: 17px;
 }
 
 .conteudo1 {
@@ -247,7 +250,6 @@
 
 .Texto_Vendas{
     margin: auto;
-    margin-right: 5vw;
 }
 
 .Titulo_Vendas{
@@ -264,3 +266,21 @@
     margin-top: 20px;
     font-size: 18px;
 }
+
+/* Filtros */
+
+.filtros{
+    width: 100vw;
+    background-color: white;
+    font-size: x-large;
+    color: black;
+    font-family: 'Barlow Semibold', sans-serif;
+    height: 10vh;
+    box-shadow: -5px 5px 10px 3px rgba(168, 168, 168, 0.76);
+}
+
+.item_Filtro{
+    margin: auto;
+}
+
+/* Projetos */

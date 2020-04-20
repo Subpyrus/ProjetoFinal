@@ -5,7 +5,7 @@ import '../../App.css';
 class Vendas extends React.Component {
     render() {
         return (
-            <div className="row col-12 Body_Vendas">
+            <div className="container-fluid row col-12 Body_Vendas">
                 <div className="col-md-5 offset-1">
                     <img src={Img_Vendas} className="Img_Vendas"/>
                 </div>
@@ -17,6 +17,7 @@ class Vendas extends React.Component {
                         <br/>
                         Vamos oferecer-te um espaço para rentabilizares o teu trabalho!</p>
                 </div>
+                <span className="col-md-1"/>
             </div>
         )
     }
