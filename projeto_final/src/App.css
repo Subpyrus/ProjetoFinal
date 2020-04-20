@@ -1,19 +1,15 @@
-
-.navbar {
-    font-family: 'Barlow', sans-serif;
-    Background-color: black;
-    color: white;
-    font-size: xx-large;
-}
+/*Navbar*/
 
 .logo {
+    font-family: 'Barlow', sans-serif;
+    font-size: xx-large;
     letter-spacing: 1.2pt;
-    font-weight: 800;
+    font-weight: 600;
     color: #ec9400;
 }
-
-.nav {
-    margin: auto;
+.logo:hover{
+    text-decoration: none;
+    color: #ec9400;  
 }
 
 /* Página Principal */
