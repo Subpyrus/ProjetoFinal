@@ -6,6 +6,7 @@ import NavB from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Vendas from './components/main_pages/Venda';
 import Projetos from './components/main_pages/Projeto';
+import SignIn from './components/auth/SignIn';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/" component={Dashboard}/>
             <Route path="/vendas" component={Vendas}/>
             <Route path="/projetos" component={Projetos}/>
+            <Route path="/entrar" component={SignIn}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>
