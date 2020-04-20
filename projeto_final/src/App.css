@@ -352,3 +352,66 @@
 }
 
 /* Projetos */
+
+
+/* SignIn */
+.noscroll {
+    font-family: 'Barlow', sans-serif;
+    overflow: hidden;
+}
+.fundo {
+    background-image: url("Imgs/entrar_registo.jpg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    height: 91vh;
+    width: 100vw;
+}
+.box {
+    color: black;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+.boxIn {
+    background: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 11px 11px 38px 0px rgba(0,0,0,0.30);
+    -moz-box-shadow: 11px 11px 38px 0px rgba(0,0,0,0.30);
+    box-shadow: 11px 11px 38px 0px rgba(0,0,0,0.30);
+}
+
+.titulo {
+    color: #f29f05;
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 24pt;
+}
+.bemvindo {
+    font-size: 13pt;
+}
+.line{
+    border-top: 1px solid #f29f05;
+}
+
+/* label color */
+.input-field input[type]:not([readonly]),
+.input-field input[type]:focus:not([readonly]),
+.input-field textarea:not([readonly]),
+.input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #000000;
+    box-shadow: 0 1px 0 0 #000000;
+}
+
+.input-field input[type]:focus:not([readonly])+label,
+.input-field textarea:focus:not([readonly])+label {
+    color: #F27405;
+}
+
+.btnIn{
+    background-color: #f29f05 !important;
+    border-radius: 4px;
+    color: white !important;
+}
+.btnIn:hover {
+    background-color: #F27405 !important;
+}
