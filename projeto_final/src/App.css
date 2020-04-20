@@ -4,14 +4,14 @@
 
 /*Navbar*/
 .NavbarCont {
-    height: 100px;
-    padding: 20px;
+    height: 120px;
+    padding: 30px;
 }
 .logo {
     font-family: 'Barlow Bold', sans-serif;
     font-size: xx-large;
     letter-spacing: 1.2pt;
-    font-weight: 600;
+    font-weight: 700;
     color: #ec9400;
 }
 .logo:hover{
@@ -20,7 +20,7 @@
 }
 .links {
     font-size: large;
-    margin-right: 3em;
+    margin-right: 2em;
 }
 .links:hover {
     text-decoration: none;
@@ -33,7 +33,7 @@
   width: 100%;
   text-align: left;
   font: normal 16px sans-serif;
-  padding:  20px 30px;
+  padding:  15px 25px;
 }
 .footer-distributed .footer-left{
     margin-top: 10px;
@@ -44,7 +44,6 @@
 }
 .footer-distributed p.footer-links {
   font-size: 18px;
-  font-weight: bold;
   color: #ffffff;
   margin: 0 0 10px;
   padding: 0;
