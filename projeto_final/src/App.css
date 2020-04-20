@@ -1,7 +1,10 @@
-/*Navbar*/
-
-.logo {
+* {
     font-family: 'Barlow', sans-serif;
+}
+
+/*Navbar*/
+.logo {
+    font-family: 'Barlow Bold', sans-serif;
     font-size: xx-large;
     letter-spacing: 1.2pt;
     font-weight: 600;
@@ -11,9 +14,77 @@
     text-decoration: none;
     color: #ec9400;  
 }
+.links {
+    font-size: large;
+    margin-right: 3em;
+}
+.links:hover {
+    text-decoration: none;
+    color: #ec9400;  
+}
+
+/*Footer*/
+.footer-distributed {
+  background-color: black;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 45px 50px;
+}
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+.footer-distributed p.footer-links {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding: 0;
+  transition: ease .25s;
+}
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+.footer-distributed p.footer-links a:hover {
+    text-decoration:none;
+    color: #ec9400;
+}
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color:black;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-top: 5px;
+  margin-left: 10px;
+  transition:all .25s;
+}
+.footer-distributed .footer-right img {
+    margin-top: -10px;
+    margin-left: 10px;
+}
+.footer-distributed .footer-right a:hover {
+    transform:scale(1.1); 
+    -webkit-transform:scale(1.1);
+    color: #ec9400;
+}
 
 /* Página Principal */
-
 .pagP {
     overflow: hidden;
 }
