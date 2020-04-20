@@ -23,7 +23,7 @@
 }
 
 .inicial {
-    background-image: url("Imgs/pi.jpg");
+    background-image: url("imgs/pi.jpg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     height: 91vh;
@@ -31,7 +31,7 @@
 }
 
 .final {
-    background-image: url("Imgs/imgfooter.jpg");
+    background-image: url("imgs/imgfooter.jpg");
     background-size: 100% auto;
     background-position: 0 -250px;
     height: 90vh;

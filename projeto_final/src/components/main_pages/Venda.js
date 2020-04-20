@@ -1,5 +1,5 @@
 import React from 'react';
-import Img_Vendas from '../../Imgs/C_Vendas.png';
+import Img_Vendas from '../../imgs/C_Vendas.png';
 import '../../App.css';
 
 class Vendas extends React.Component {
