@@ -37,7 +37,7 @@ class SignIn extends React.Component {
                                 </button>
                             </div>
                             <div className="text-center mt-3">
-                            <span>Ainda não tens conta? <Link
+                            <span>Ainda não tens conta? <Link to="/registo"
                                 className="text-decoration-none text-dark font-weight-bold">
                                 <ins>A colmeia está à tua espera!</ins>
                             </Link>

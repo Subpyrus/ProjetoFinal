@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 import Vendas from './components/main_pages/Venda';
 import Projetos from './components/main_pages/Projeto';
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/vendas" component={Vendas}/>
             <Route path="/projetos" component={Projetos}/>
             <Route path="/entrar" component={SignIn}/>
+            <Route path="/registo" component={SignUp}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>
