@@ -3,6 +3,10 @@
 }
 
 /*Navbar*/
+.NavbarCont {
+    height: 100px;
+    padding: 20px;
+}
 .logo {
     font-family: 'Barlow Bold', sans-serif;
     font-size: xx-large;
@@ -29,7 +33,7 @@
   width: 100%;
   text-align: left;
   font: normal 16px sans-serif;
-  padding: 40px 50px;
+  padding:  20px 30px;
 }
 .footer-distributed .footer-left{
     margin-top: 10px;
