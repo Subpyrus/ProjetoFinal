@@ -29,12 +29,14 @@
   width: 100%;
   text-align: left;
   font: normal 16px sans-serif;
-  padding: 45px 50px;
+  padding: 40px 50px;
+}
+.footer-distributed .footer-left{
+    margin-top: 10px;
 }
 .footer-distributed .footer-left p {
   color: #8f9296;
   font-size: 14px;
-  margin: 0;
 }
 .footer-distributed p.footer-links {
   font-size: 18px;
@@ -70,7 +72,6 @@
   color: #ffffff;
   text-align: center;
   line-height: 35px;
-  margin-top: 5px;
   margin-left: 10px;
   transition:all .25s;
 }
