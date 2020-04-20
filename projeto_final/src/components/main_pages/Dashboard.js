@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../App.css';
-import C_Projetos from '../../imgs/C_Projetos.png';
-import C_Empregos from '../../imgs/C_Empregos.png';
-import C_Freelance from '../../imgs/C_Freelance.png';
-import C_Criadores from '../../imgs/C_Criadores.png';
-import Logo from '../../imgs/logo.png';
+import C_Projetos from '../../Imgs/C_Projetos.png';
+import C_Empregos from '../../Imgs/C_Empregos.png';
+import C_Freelance from '../../Imgs/C_Freelance.png';
+import C_Criadores from '../../Imgs/C_Criadores.png';
+import Logo from '../../Imgs/logo.png';
 
 
 class Pag_Principal extends React.Component {
