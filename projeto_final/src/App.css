@@ -439,3 +439,22 @@
 .btnIn:hover {
     background-color: #F27405 !important;
 }
+
+/* Escolha */
+
+.escolha {
+    color: black;
+    font-family: "Barlow Medium", sans-serif;
+    font-size: 14pt;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+    border: 2px solid #F27405;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color: #F27405;
+}
