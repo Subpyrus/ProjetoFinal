@@ -344,7 +344,10 @@
     color: black;
     font-family: 'Barlow Semibold', sans-serif;
     height: 10vh;
-    box-shadow: -5px 5px 10px 3px rgba(168, 168, 168, 0.76);
+    -webkit-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    text-align: center;
 }
 
 .item_Filtro{
@@ -352,6 +355,23 @@
 }
 
 /* Projetos */
+.Proj_Body{
+    width: 100vw;
+    height: 70vh;
+    background-color: #f2f2f2;
+}
+
+.Proj_Item{
+    height: 200px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 1.5rem;
+    position: relative;
+    display: block;
+    align-items: end;
+    transition: 0.4s ease-out;
+}
 
 
 /* SignIn */
