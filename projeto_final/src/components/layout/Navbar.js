@@ -6,15 +6,12 @@ import '../../App.css';
 
 const NavB = () => {
     return (
-        <div className="black NavbarCont">
-            <nav className="nav-wrapper black">
-                <div className="container">
-                    <Link to='/' className="logo">HINAMIC</Link>
-                    <SignedOutLinks/>
-                </div>
-            </nav>
-        </div>
-        
+        <nav className="nav-wrapper black">
+            <div className="container">
+                <Link to='/' className="logo">HINAMIC</Link>
+                <SignedOutLinks/>
+            </div>
+        </nav> 
     )
 }
 
