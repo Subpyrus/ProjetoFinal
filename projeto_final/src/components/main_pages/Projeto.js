@@ -8,13 +8,42 @@ class Projetos extends React.Component {
             <div className="container-fluid m-0 p-0 Proj_Body">
                 <Filtros/>
                 <div className="row col-12 justify-content-center mt-5">
-                    <span className="col-2 Proj_Item mr-2">
-                        <h3 className="Proj_Info">Maria betrolina</h3>
-                        <p className="Proj_Info">O meu cão não se cala</p>
-                    </span>
-                    <span className="col-2 Proj_Item mr-2 ml-2">Bom dia</span>
-                    <span className="col-2 Proj_Item mr-2 ml-2">Bom dia</span>
-                    <span className="col-2 Proj_Item ml-2">Bom dia</span>
+                    <div className="col-2 mr-2">
+                        <div className="card m-0 p-0">
+                            <div className="card-body">
+                                <h3 className="card-title Proj_Info">Maria betrolina</h3>
+                                <p className="card-text Proj_Info">O meu cão não se cala</p>
+                            </div>
+                            <div className="card_blur"/>
+                        </div>
+                    </div>
+                    <div className="col-2 mr-2">
+                        <div className="card m-0 p-0">
+                            <div className="card-body">
+                                <h3 className="card-title Proj_Info">Maria betrolina</h3>
+                                <p className="card-text Proj_Info">O meu cão não se cala</p>
+                            </div>
+                            <div className="card_blur"/>
+                        </div>
+                    </div>
+                    <div className="col-2 mr-2">
+                        <div className="card m-0 p-0">
+                            <div className="card-body">
+                                <h3 className="card-title Proj_Info">Maria betrolina</h3>
+                                <p className="card-text Proj_Info">O meu cão não se cala</p>
+                            </div>
+                            <div className="card_blur"/>
+                        </div>
+                    </div>
+                    <div className="col-2 mr-2">
+                        <div className="card m-0 p-0">
+                            <div className="card-body">
+                                <h3 className="card-title Proj_Info">Maria betrolina</h3>
+                                <p className="card-text Proj_Info">O meu cão não se cala</p>
+                            </div>
+                            <div className="card_blur"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
