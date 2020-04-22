@@ -13,7 +13,7 @@ const Footer = () => {
                 <img src={Icone} height="60" width="60"/>
 			</div>
 			<div class="footer-left">
-				<p class="footer-links">2020 Hinamic &emsp;&emsp;&emsp;&emsp; <NavLink to="/">Sobre Nós</NavLink></p>
+				<p class="footer-links">2020 Hinamic &emsp;&emsp;&emsp;&emsp; <NavLink to="/sobre">Sobre Nós</NavLink></p>
 			</div>
 		</footer>
     )
