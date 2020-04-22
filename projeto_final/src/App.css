@@ -531,3 +531,38 @@
     text-align:center;
     margin-top: 40px;
 }
+
+/* Sobre */
+
+.bg {
+    background-color: #f2f2f2;
+}
+.t1sobre {
+    font-family: "Barlow ExtraBold", sans-serif;
+}
+.s1sobre {
+    font-family: "Barlow ExtraBold", sans-serif;
+    color: #f29f05;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+}
+.t2sobre {
+    font-family: "Barlow ExtraBold", sans-serif;
+}
+.nickname {
+    font-family: "Barlow ExtraBold", sans-serif;
+    text-transform: uppercase;
+    color: #f29f05;
+}
+.nsobre {
+    font-family: "Barlow Medium", sans-serif;
+    text-transform: uppercase;
+    color: #8f9296;
+}
+.fsobre {
+    font-family: "Barlow", sans-serif;
+    font-size: 20px;
+}
+.s2sobre {
+    font-family: "Barlow SemiBold", sans-serif;
+}

@@ -9,6 +9,7 @@ import Projetos from './components/main_pages/Projeto';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateCreator from './components/creators/CreateCreator';
+import Sobre from './components/main_pages/Sobre';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/entrar" component={SignIn}/>
             <Route path="/registo" component={SignUp}/>
             <Route path="/profissional" component={CreateCreator}/>
+            <Route path="/sobre" component={Sobre}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>
