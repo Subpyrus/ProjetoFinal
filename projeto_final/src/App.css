@@ -350,8 +350,15 @@
 }
 
 .item_Filtro{
+    font-family: 'Barlow Semibold', sans-serif!important;
     margin: auto;
+    border-right: black solid 2px;
 }
+.item_Filtro2{
+    margin: auto;
+    font-family: 'Barlow Semibold', sans-serif!important;
+}
+
 
 /* Projetos */
 .Proj_Body{
@@ -400,17 +407,6 @@
     transition: 0.5s;
     z-index: 1;
 }
-
-/*.Proj_Item{
-    height: 200px;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    padding: 1.5rem;
-    position: relative;
-    display: block;
-    align-items: end;
-}*/
 
 
 /* SignIn */
