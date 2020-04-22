@@ -17,7 +17,7 @@ class SignIn extends React.Component {
                                 <h4 className="titulo">Entrar</h4>
                                 <p className="bemvindo">Bem-Vindo(a) de volta</p>
                             </div>
-                            <hr className="line mb-4"/>
+                            <hr className="line mb-3"/>
                             <div className="input-field">
                                 <input type="email" id="email"/>
                                 <label htmlFor="email">Endereço de E-mail</label>

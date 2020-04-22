@@ -493,3 +493,41 @@
 [type="radio"].with-gap:checked + span:after {
     background-color: #F27405;
 }
+
+
+
+/* Profissional */
+.area {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.aparece {
+    display: inline;
+}
+
+.of {
+    overflow: auto;
+    justify-content: right;
+}
+.f {
+    float: right;
+}
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 20px;
+    width: 20px;
+    margin: 0 6px;
+    background-color: rgb(255, 133, 0);
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+.step.active {
+    opacity: 1;
+}
+.circulos {
+    text-align:center;
+    margin-top: 40px;
+}

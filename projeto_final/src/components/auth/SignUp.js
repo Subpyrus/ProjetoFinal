@@ -16,13 +16,13 @@ class SignUp extends React.Component {
                                 <h4 className="titulo">Registo</h4>
                                 <p className="bemvindo">Junta-te à nossa Colmeia</p>
                             </div>
-                            <hr className="line mb-4"/>
+                            <hr className="line mb-3"/>
                             <h5 className="font-weight-bolder text-center mb-3">Escolhe o teu tipo de Perfil</h5>
                             <form action="#" className="row text-center">
                                 <div className="col-6">
                                     <p>
                                         <label className="escolha" for="option1">
-                                        <input class="with-gap" name="group1" type="radio" id="option1"/>
+                                        <input class="with-gap" value="profissional" name="group1" type="radio" id="option1"/>
                                             <span className="escolha">Profissional</span>
                                         </label>
                                     </p>
@@ -32,7 +32,7 @@ class SignUp extends React.Component {
                                 <div className="col-6">
                                     <p>
                                         <label for="option2">
-                                        <input class="with-gap" name="group1" type="radio" id="option2"/>
+                                        <input class="with-gap" value="empresa" name="group1" type="radio" id="option2"/>
                                             <span className="escolha">Empresa</span>
                                         </label>
                                     </p>
