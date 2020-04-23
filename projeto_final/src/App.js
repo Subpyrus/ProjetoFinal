@@ -10,6 +10,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateCreator from './components/creators/CreateCreator';
 import Sobre from './components/main_pages/Sobre';
+import ProjetosDetalhes from './components/projects/ProjectDetails';
 import './App.css';
 
 function App() {
@@ -19,11 +20,12 @@ function App() {
         <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/vendas" component={Vendas}/>
-            <Route path="/projetos" component={Projetos}/>
+            <Route exact path="/projetos" component={Projetos}/>
             <Route path="/entrar" component={SignIn}/>
             <Route path="/registo" component={SignUp}/>
             <Route path="/profissional" component={CreateCreator}/>
             <Route path="/sobre" component={Sobre}/>
+            <Route path="/projetos/detalhes" component={ProjetosDetalhes}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

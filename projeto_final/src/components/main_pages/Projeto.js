@@ -1,38 +1,29 @@
 import React, {useState} from 'react';
 import '../../App.css';
 import Filtros from '../layout/Filtros';
-/* alterar isto para abrir outra página */
-import {Modal, Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 
 class Projetos extends React.Component {
-    constructor(props){
-        super(props);
-        this.state ={
-            setShow: false,
-        }
-    }
-
-    handleClose = () => {
-        this.setState({setShow: false})
-    };
-    handleShow = () => {
-        console.log("oi");
-        this.setState({setShow: true})
-    };
-
     render() {
         return (
             <div className="container-fluid m-0 p-0 Proj_Body">
                 <Filtros/>
                 <div className="row col-12 justify-content-center mt-5">
-                    <div className="col-2 mr-2" onClick={this.handleShow}>
+                    <div className="col-2 mr-2">
+                        <Link to="/projetos/detalhes">
                         <div className="card m-0 p-0">
                             <div className="card-body">
-                                <h3 className="card-title Proj_Info">Maria betrolina</h3>
-                                <p className="card-text Proj_Info">O meu cão não se cala</p>
+                                <h5 className="card-text Proj_Info">Maria betrolina</h5>
+                                <span className="card-text Proj_Info2">O meu cão não se cala</span>
+                                <span className="card-text Proj_Info3">
+                                    <i className="fa fa-eye"/>533
+                                    <i className="fa fa-heart"/>42
+                                    <i className="fa fa-comment"/>1
+                                </span>
                             </div>
                             <div className="card_blur"/>
                         </div>
+                        </Link>
                     </div>
                     <div className="col-2 mr-2">
                         <div className="card m-0 p-0">
@@ -62,23 +53,6 @@ class Projetos extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                /* esta parte é só para as fases*/
-                <Modal show={this.state.setShow} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={this.handleClose}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-
             </div>
         )
     }

@@ -367,6 +367,25 @@
     background-color: #f2f2f2;
 }
 
+.Proj_Info{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.Proj_Info2{
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+
+.Proj_Info3{
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+
 .card{
     height: 200px;
     margin: 0;
@@ -408,6 +427,80 @@
     z-index: 1;
 }
 
+
+/* Detalhes dos Projetos */
+.Proj_Det_Body{
+    width: 100vw;
+    background-color: #f2f2f2;
+}
+
+.Proj_Det_Conteudo{
+    background-color: white;
+    padding: 1.5rem;
+}
+
+.Proj_Det_Titulo{
+    display: flex;
+}
+
+.Proj_Det_Titulo1{
+    font-family: 'Barlow Bold', sans-serif!important;
+}
+
+.Proj_Det_Subtitulo{
+    display: flex;
+}
+
+.Proj_Det_Subtitulo_Parte2{
+    position: relative;
+    float: right;
+    margin-left: auto;
+    text-align: end;
+}
+
+.Areas_Trabalho_Proj_Det{
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Barlow Semibold', sans-serif;
+}
+
+.hr{
+    background-color: #ec9400;
+}
+
+.Proj_Det_Likes{
+    display: flex;
+}
+.Proj_Det_Nr_Likes{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 87px;
+    margin-top: -17px;
+    padding: 0;
+}
+
+.Proj_Det_Texto{
+    font-size: 18px;
+    font-family: "Barlow Semibold", sans-serif;
+}
+
+.Proj_Det_Info1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Proj_Det_Info_Texto{
+    font-size: 21px;
+}
+
+.Proj_Det_Info_Texto2{
+    color: #797c80;
+}
+
+.Proj_Det_Texto_Registar{
+    font-size: 19px;
+}
 
 /* SignIn */
 .noscroll {
