@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Modal} from "react-bootstrap";
 import Coracao from '../../Imgs/heart-regular.svg';
+import Coracao2 from '../../Imgs/heart-solid.svg'
 import Conteudo1 from '../../Imgs/Conteudo_Post1.jpg';
 import Conteudo2 from '../../Imgs/Conteudo_Post2.png';
 import Conteudo3 from '../../Imgs/Conteudo_Post3.png';
@@ -11,16 +12,30 @@ class ProjectDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            setShow: false,
+            setShowM: false,
+            setShowC: false,
+            src_Img: Coracao
         }
     }
 
-    handleClose = () => {
-        this.setState({setShow: false})
+    handleCloseM = () => {
+        this.setState({setShowM: false})
+
     };
-    handleShow = () => {
+    handleShowM = () => {
         console.log("oi");
-        this.setState({setShow: true})
+        this.setState({setShowM: true})
+    };
+
+    handleShowC = () => {
+        this.setState({setShowC: !this.state.setShowC});
+        if (this.state.setShowC === true){
+            this.setState({src_Img: Coracao2});
+            console.log(this.state.src_Img);
+        } else {
+            this.setState({src_Img: Coracao});
+            console.log(this.state.src_Img);
+        }
     };
 
     render() {
@@ -72,7 +87,7 @@ class ProjectDetails extends React.Component {
                     <hr className="hr"/>
 
                     <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
-                        <img src={Coracao} width="75px" height="75px"/>
+                        <img src={this.state.src_Img} width="75px" height="75px" onClick={this.handleShowC}/>
                         <h1 className="Proj_Det_Nr_Likes">42</h1>
                     </div>
 
@@ -103,16 +118,16 @@ class ProjectDetails extends React.Component {
 
                 </div>
 
-                <Modal show={this.state.setShow} onHide={this.handleClose}>
+                <Modal show={this.state.setShowM} onHide={this.handleCloseM}>
                     <Modal.Header closeButton>
                         <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
+                        <Button variant="secondary" onClick={this.handleCloseM}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={this.handleClose}>
+                        <Button variant="primary" onClick={this.handleCloseM}>
                             Save Changes
                         </Button>
                     </Modal.Footer>

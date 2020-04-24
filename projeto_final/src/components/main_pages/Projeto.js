@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../../App.css';
 import Filtros from '../layout/Filtros';
 import {Link} from 'react-router-dom';
@@ -16,9 +16,9 @@ class Projetos extends React.Component {
                                 <h5 className="card-text Proj_Info">Maria betrolina</h5>
                                 <span className="card-text Proj_Info2">O meu cão não se cala</span>
                                 <span className="card-text Proj_Info3">
-                                    <i className="fa fa-eye"/>533
-                                    <i className="fa fa-heart"/>42
-                                    <i className="fa fa-comment"/>1
+                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
+                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
+                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
                                 </span>
                             </div>
                             <div className="card_blur"/>
