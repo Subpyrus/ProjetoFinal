@@ -11,6 +11,8 @@ import SignUp from './components/auth/SignUp';
 import CreateCreator from './components/creators/CreateCreator';
 import Sobre from './components/main_pages/Sobre';
 import ProjetosDetalhes from './components/projects/ProjectDetails';
+import SignUpProfissional from './components/creators/CreateCreator';
+import SignUpEmpresas from './components/enterprise/CreateEnterprise';
 import './App.css';
 
 function App() {
@@ -22,10 +24,12 @@ function App() {
             <Route path="/vendas" component={Vendas}/>
             <Route exact path="/projetos" component={Projetos}/>
             <Route path="/entrar" component={SignIn}/>
-            <Route path="/registo" component={SignUp}/>
+            <Route exact path="/registo" component={SignUp}/>
             <Route path="/profissional" component={CreateCreator}/>
             <Route path="/sobre" component={Sobre}/>
             <Route path="/projetos/detalhes" component={ProjetosDetalhes}/>
+            <Route path="/registo/profissional" component={SignUpProfissional}/>
+            <Route path="/registo/empresa" component={SignUpEmpresas}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

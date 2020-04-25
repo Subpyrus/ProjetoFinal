@@ -5,6 +5,18 @@ import {Link} from 'react-router-dom';
 
 class SignUp extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            escolha: ""
+        }
+    }
+
+    escolhaP = (tipo) => {
+        console.log(tipo);
+        this.setState({escolha: tipo});
+    };
+
     render() {
         return (
             <div className="container-fluid noscroll fundo">
@@ -22,7 +34,8 @@ class SignUp extends React.Component {
                                 <div className="col-6">
                                     <p>
                                         <label className="escolha" for="option1">
-                                        <input class="with-gap" value="profissional" name="group1" type="radio" id="option1"/>
+                                            <input class="with-gap" value="profissional" name="group1" type="radio"
+                                                   id="option1" onClick={() => this.escolhaP("profissional")}/>
                                             <span className="escolha">Profissional</span>
                                         </label>
                                     </p>
@@ -32,7 +45,8 @@ class SignUp extends React.Component {
                                 <div className="col-6">
                                     <p>
                                         <label for="option2">
-                                        <input class="with-gap" value="empresa" name="group1" type="radio" id="option2"/>
+                                            <input class="with-gap" value="empresa" name="group1" type="radio"
+                                                   id="option2" onClick={() => this.escolhaP("empresa")}/>
                                             <span className="escolha">Empresa</span>
                                         </label>
                                     </p>
@@ -41,9 +55,18 @@ class SignUp extends React.Component {
                                 </div>
                             </form>
                             <div className="text-center pt-2">
+                                {this.state.escolha == "" &&
                                 <button className="btn btnIn w-100"
-                                        type="submit">AVANÇAR
+                                        type="submit" disabled>AVANÇAR
                                 </button>
+                                }
+                                {this.state.escolha !== "" &&
+                                <Link to={`registo/${this.state.escolha}`}>
+                                    <button className="btn btnIn w-100"
+                                            type="submit">AVANÇAR
+                                    </button>
+                                </Link>
+                                }
                             </div>
                             <div className="text-center mt-3">
                             <span>Já tens conta?

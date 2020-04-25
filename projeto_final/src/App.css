@@ -420,7 +420,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     color: white;
     opacity: 1;
     transition: 0.5s;
@@ -591,6 +593,11 @@
     margin-bottom: 70px;
 }
 
+.registo{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 .aparece {
     display: inline;
 }
@@ -602,6 +609,7 @@
 .f {
     float: right;
 }
+
 /* Make circles that indicate the steps of the form: */
 .step {
     height: 20px;
