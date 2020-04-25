@@ -46,13 +46,24 @@ class FormUserPart1 extends React.Component {
                 <div className="row justify-content-end of">
                     <div className="f">
                         <div className="col s6">
-                            <button
-                                className="btn btnIn"
-                                type="button"
-                                id="nextBtn"
-                                onClick={this.continuar}>
-                                Próximo
-                            </button>
+                            {valores.PrimeiroNome == "" || valores.UltimoNome == "" || valores.DataNascimento == "" ?
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}
+                                    disabled>
+                                    Próximo
+                                </button>
+                                :
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}>
+                                    Próximo
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>

@@ -31,13 +31,13 @@ class FormUserPart3 extends React.Component {
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            id="data"
-                            type="Password"
+                            id="first_name"
+                            type="password"
                             className="validate"
                             onChange={handleChange('Password')}
                             defaultValue={valores.Password}
                         />
-                        <label htmlFor="data">Password</label>
+                        <label htmlFor="first_name">Password</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">
@@ -52,13 +52,24 @@ class FormUserPart3 extends React.Component {
                             </button>
                         </div>
                         <div className="col s6">
-                            <button
-                                className="btn btnIn"
-                                type="button"
-                                id="nextBtn"
-                                onClick={this.continuar}>
-                                Finalizar
-                            </button>
+                            {valores.Email == "" || valores.Password == "" ?
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}
+                                    disabled>
+                                    Finalizar
+                                </button>
+                                :
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}>
+                                    Finalizar
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>

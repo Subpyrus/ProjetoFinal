@@ -43,7 +43,7 @@ class SignUp extends React.Component {
                                         a oportunidades de freelance. </p>
                                 </div>
                                 <div className="col-6">
-                                    <p>
+                                    <p className="pb-1">
                                         <label for="option2">
                                             <input class="with-gap" value="empresa" name="group1" type="radio"
                                                    id="option2" onClick={() => this.escolhaP("empresa")}/>

@@ -5,9 +5,10 @@ class FormUserPart1 extends React.Component {
         e.preventDefault();
         this.props.nextStep();
     };
-    render(){
-        const { valores, handleChange } = this.props;
-        return(
+
+    render() {
+        const {valores, handleChange} = this.props;
+        return (
             <div>
                 <div className="row">
                     <div className="input-field col s12">
@@ -46,13 +47,24 @@ class FormUserPart1 extends React.Component {
                 <div className="row justify-content-end of">
                     <div className="f">
                         <div className="col s6">
-                            <button
-                                className="btn btnIn"
-                                type="button"
-                                id="nextBtn"
-                                onClick={this.continuar}>
-                                Próximo
-                            </button>
+                            {valores.NomeEmpresa == "" || valores.TamanhoEmpresa == "" || valores.DataCriacao == "" ?
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}
+                                    disabled>
+                                    Próximo
+                                </button>
+                                :
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.continuar}>
+                                    Próximo
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>

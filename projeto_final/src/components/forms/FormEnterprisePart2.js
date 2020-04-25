@@ -79,6 +79,16 @@ class FormUserPart2 extends React.Component {
                             </button>
                         </div>
                         <div className="col s6">
+                        {valores.Pais == "" || valores.Localidade == "" || valores.AreaTrabalho == "" || valores.Ocupacao == "" ?
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.continuar}
+                                disabled>
+                                Próximo
+                            </button>
+                            :
                             <button
                                 className="btn btnIn"
                                 type="button"
@@ -86,6 +96,7 @@ class FormUserPart2 extends React.Component {
                                 onClick={this.continuar}>
                                 Próximo
                             </button>
+                        }
                         </div>
                     </div>
                 </div>
