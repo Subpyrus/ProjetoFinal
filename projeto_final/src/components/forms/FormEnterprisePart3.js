@@ -1,6 +1,15 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 class FormUserPart3 extends React.Component {
+    estilo = {
+        textAlign: "center",
+        marginTop: "40px"
+    };
+    escolhido = {
+        opacity: 1
+    };
+
     //POSSIVELMENTE AQUI PASSA A SER FINALIZAR E DEPOIS ENVIA AS COISAS E VAI PRA HOMEPAGE
     continuar = e => {
         e.preventDefault();
@@ -25,7 +34,7 @@ class FormUserPart3 extends React.Component {
                             onChange={handleChange('Email')}
                             defaultValue={valores.Email}
                         />
-                        <label htmlFor="data">Endereço de E-mail</label>
+                        <label htmlFor="data" className={valores.Email != "" ? "active" : ""}>Endereço de E-mail</label>
                     </div>
                 </div>
                 <div className="row">
@@ -37,7 +46,7 @@ class FormUserPart3 extends React.Component {
                             onChange={handleChange('Password')}
                             defaultValue={valores.Password}
                         />
-                        <label htmlFor="first_name">Password</label>
+                        <label htmlFor="first_name" className={valores.Password != "" ? "active" : ""}>Password</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">
@@ -72,6 +81,19 @@ class FormUserPart3 extends React.Component {
                             }
                         </div>
                     </div>
+                </div>
+                <div style={this.estilo}>
+                    <span className="step"/>
+                    <span className="step"/>
+                    <span className="step" style={this.escolhido}/>
+                </div>
+                <div className="text-center mt-3">
+                            <span>Já tens conta?
+                                <Link to="/entrar"
+                                      className="text-decoration-none text-dark font-weight-bold">
+                                <ins> Entra aqui!</ins>
+                            </Link>
+                                </span>
                 </div>
             </div>
         )

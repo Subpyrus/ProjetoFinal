@@ -621,13 +621,6 @@
     display: inline-block;
     opacity: 0.5;
 }
-.step.active {
-    opacity: 1;
-}
-.circulos {
-    text-align:center;
-    margin-top: 40px;
-}
 
 /* Sobre */
 

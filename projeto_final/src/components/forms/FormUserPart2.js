@@ -1,6 +1,15 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 class FormUserPart2 extends React.Component {
+    estilo = {
+        textAlign: "center",
+        marginTop: "40px"
+    };
+    escolhido = {
+        opacity: 1
+    };
+
     continuar = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -64,7 +73,7 @@ class FormUserPart2 extends React.Component {
                             onChange={handleChange('Ocupacao')}
                             defaultValue={valores.Ocupacao}
                         />
-                        <label htmlFor="last_name">Ocupação</label>
+                        <label htmlFor="last_name" className={valores.Ocupacao != "" ? "active" : ""}>Ocupação</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">
@@ -99,6 +108,19 @@ class FormUserPart2 extends React.Component {
                             }
                         </div>
                     </div>
+                </div>
+                <div style={this.estilo}>
+                    <span className="step"/>
+                    <span className="step" style={this.escolhido}/>
+                    <span className="step"/>
+                </div>
+                <div className="text-center mt-3">
+                            <span>Já tens conta?
+                                <Link to="/entrar"
+                                      className="text-decoration-none text-dark font-weight-bold">
+                                <ins> Entra aqui!</ins>
+                            </Link>
+                                </span>
                 </div>
             </div>
         )
