@@ -13,6 +13,7 @@ import Sobre from './components/main_pages/Sobre';
 import ProjetosDetalhes from './components/projects/ProjectDetails';
 import SignUpProfissional from './components/creators/CreateCreator';
 import SignUpEmpresas from './components/enterprise/CreateEnterprise';
+import Perfil from './components/creators/CreatorDetails';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/projetos/detalhes" component={ProjetosDetalhes}/>
             <Route path="/registo/profissional" component={SignUpProfissional}/>
             <Route path="/registo/empresa" component={SignUpEmpresas}/>
+            <Route path="/perfil" component={Perfil}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

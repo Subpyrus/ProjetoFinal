@@ -386,7 +386,7 @@
     padding-top: 0;
 }
 
-.card{
+.card_Projetos{
     height: 200px;
     margin: 0;
     padding: 0;
@@ -406,7 +406,7 @@
     transition: opacity 0.15s ease-in;
 }
 
-.card:hover .card_blur {
+.card_Projetos:hover .card_blur {
     opacity: 0.5;
 }
 
@@ -416,7 +416,7 @@
     color: white;
 }
 
-.card:hover .card-body{
+.card_Projetos:hover .card-body{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -655,4 +655,234 @@
 }
 .s2sobre {
     font-family: "Barlow SemiBold", sans-serif;
+}
+
+/* Perfil */
+.Perfil_Body{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.Perfil_Inicial{
+    height: 100vh;
+    width: auto;
+    background-color: #ec9400;
+}
+
+.Perfil_Info_Inicial{
+    background-color: white;
+    height: 70vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    -moz-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+}
+
+.Perfil_Info_Inicial_Esq{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Perfil_Info_Inicial_Dir{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Perfil_But_Seguir{
+    float: left;
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+}
+
+.Perfil_Localizacao{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 20px;
+    margin-left: 7px;
+}
+.Icone_Localizacao{
+    position: relative;
+    bottom: 5px;
+}
+
+.Perfil_Info_Intro{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 30px;
+}
+.Perfil_Info_Nome{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 40px;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+.Perfil_Info_Trabalho{
+    margin-bottom: 25px;
+    color: #ec9400;
+}
+.Perfil_Info_Texto{
+    font-size: 18px;
+    font-family: "Barlow Semibold", sans-serif;
+}
+.Perfil_Info_Areas{
+    color: #797c80;
+    font-size: 14px;
+    font-family: "Barlow Semibold", sans-serif;
+}
+.Foto_Perfil{
+    width: auto;
+    height: 300px;
+    border-radius: 10px;
+    margin-top: -70px;
+    -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+}
+.Perfil_Seguidores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Seguidores{
+    font-family: 'Barlow Bold', sans-serif;
+    font-size: 20px;
+}
+.Texto_Seguir{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 12px;
+    margin-top: -5px;
+}
+.Perfil_Website{
+    font-size: 18px;
+    font-family: 'Barlow Semibold', sans-serif;
+    color: #ec9400;
+}
+
+.Perfil_Projetos{
+    height: 100vh;
+    width: auto;
+    background-color: #f2f2f2;
+}
+
+.Perfil_Info_Projetos{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Perfil_Testemunhos{
+    height: 80vh;
+    width: auto;
+    background-color: #ec9400;
+}
+
+.Perfil_Info_Testemunhos{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Testemunhos_Esquerda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Titulo_Testemunhos{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 45px;
+    padding-bottom: 3vh;
+    color: white;
+    margin-top: -3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Testemunhos_Direita{
+    background-color: white;
+    height: 35vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    -moz-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+}
+
+.icones_perfil{
+    color: #ec9400;
+}
+
+.Texto_Testemunho{
+    font-size: 25px;
+    font-family: "Barlow Semibold", sans-serif;
+}
+
+.Perfil_Formacao{
+    background-color: #f2f2f2;
+    height: 70vh;
+}
+
+.Perfil_Info_Formacao{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Titulo_Formacao{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 45px;
+    color: #ec9400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Formacao_Parte_2{
+    background-color: white;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    -moz-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+}
+
+.Ano_Formacao{
+    font-size: 35px;
+    font-family: "Barlow Semibold", sans-serif;
+    margin-bottom: 3vh;
+}
+.Tipo_Formacao1{
+    font-size: 25px;
+}
+.Tipo_Formacao2{
+    font-size: 25px;
+    font-family: "Barlow Semibold", sans-serif;
+    margin-top: -1vh;
+    margin-bottom: 3vh;
+}
+.Local_Formacao{
+    font-size: 25px;
+    margin-bottom: 3vh;
+}
+.Formacao_Concluida{
+    font-size: 25px;
+    font-family: "Barlow Semibold", sans-serif;
+    color: #ec9400;
 }
