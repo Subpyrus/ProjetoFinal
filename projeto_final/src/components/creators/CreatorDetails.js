@@ -43,7 +43,7 @@ class Perfil extends React.Component {
     render() {
         return (
             <div className="Perfil_Body">
-                <div className="row">
+                <div className="row mb-0">
                     <div className="Perfil_Inicial mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Inicial col-9 m-auto row">
                             <div className="col-4">
@@ -92,7 +92,9 @@ class Perfil extends React.Component {
                     </div>
                     <div className="Perfil_Projetos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Projetos row col-10 m-auto">
-                            <h1>Projetos</h1>
+                            <span className="col-12">
+                                <h1 className="Titulo_Formacao mb-5">PROJETOS</h1>
+                            </span>
                             <div className="col-12">
 
                             </div>
