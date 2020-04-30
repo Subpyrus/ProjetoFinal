@@ -4,18 +4,40 @@ import localizacao from '../../Imgs/map-marker-alt-solid.svg'
 import perfil from '../../Imgs/Perfil.jpg';
 
 class Perfil extends React.Component {
+    state = {
+        valorB: 1
+    };
     card_Testemunhos = {
-        height: "90px",
-        width: "90px",
-        margin: 0,
-        padding: 0,
-        overflow: "hidden",
-        boxShadow: "none",
-        border: "0!important",
         backgroundImage: `url(${perfil})`,
         backgroundSize: "calc(100% + 2px) calc(100% + 2px)",
         backgroundPositionX: "-1px",
         backgroundPositionY: "-1px",
+        height: "70px",
+        width: "70px",
+        margin: "0",
+        padding: "0",
+        opacity: "0.5",
+        overflow: "hidden",
+        boxShadow: "none",
+        border: "0!important"
+    };
+    card_Testemunhos_Active = {
+        backgroundImage: `url(${perfil})`,
+        backgroundSize: "calc(100% + 2px) calc(100% + 2px)",
+        backgroundPositionX: "-1px",
+        backgroundPositionY: "-1px",
+        height: "90px",
+        width: "90px",
+        margin: "0",
+        padding: "0",
+        opacity: "1",
+        overflow: "hidden",
+        boxShadow: "none",
+        border: "0!important"
+    };
+
+    testemunhoB = (valor) => {
+        this.setState({valorB: valor})
     };
 
     render() {
@@ -78,23 +100,23 @@ class Perfil extends React.Component {
                     </div>
                     <div className="Perfil_Testemunhos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Testemunhos row col-10 m-auto">
+                            <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
                             <div className="col-3">
-                                <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
                                 <div className="Testemunhos_Esquerda">
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4" style={this.card_Testemunhos}>
+                                        <div className="btn m-0 p-0 mb-4" style={this.state.valorB == 1 ? this.card_Testemunhos_Active : this.card_Testemunhos} onClick={() => this.testemunhoB(1)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4" style={this.card_Testemunhos}>
+                                        <div className="btn m-0 p-0 mb-4" style={this.state.valorB == 2 ? this.card_Testemunhos_Active : this.card_Testemunhos} onClick={() => this.testemunhoB(2)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4" style={this.card_Testemunhos}>
+                                        <div className="btn m-0 p-0 mb-4" style={this.state.valorB == 3 ? this.card_Testemunhos_Active : this.card_Testemunhos} onClick={() => this.testemunhoB(3)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0" style={this.card_Testemunhos}>
+                                        <div className="btn m-0 p-0 mb-4" style={this.state.valorB == 4 ? this.card_Testemunhos_Active : this.card_Testemunhos} onClick={() => this.testemunhoB(4)}>
                                         </div>
                                     </span>
                                 </div>
@@ -105,7 +127,14 @@ class Perfil extends React.Component {
                                         <i className="fa fa-quote-right fa-3x icones_perfil"/>
                                     </span>
                                     <span className="col-8 my-auto Texto_Testemunho">
-                                        Excelente profissional. Muito criativa, com excelentes capacidades no design gráfico. Cumpriu o prazo sem falta!
+                                        {this.state.valorB == 1 ?
+                                            "Excelente profissional. Muito criativa, com excelentes capacidades no design gráfico. Cumpriu o prazo sem falta!" :
+                                             this.state.valorB == 2 ?
+                                                 "Excelente profissional. Pena cheirar mal dos pés" :
+                                                 this.state.valorB == 3 ?
+                                                     "Excelente profissional. Muito criativa, com excelentes capacidades de programação. Cumpriu tudo o que pedi!" :
+                                                     "Fez um excelente trabalho!"
+                                        }
                                     </span>
                                 </div>
                             </div>
