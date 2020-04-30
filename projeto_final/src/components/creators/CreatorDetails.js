@@ -130,7 +130,7 @@ class Perfil extends React.Component {
                                         {this.state.valorB == 1 ?
                                             "Excelente profissional. Muito criativa, com excelentes capacidades no design gráfico. Cumpriu o prazo sem falta!" :
                                              this.state.valorB == 2 ?
-                                                 "Excelente profissional. Pena cheirar mal dos pés" :
+                                                 "Excelente profissional." :
                                                  this.state.valorB == 3 ?
                                                      "Excelente profissional. Muito criativa, com excelentes capacidades de programação. Cumpriu tudo o que pedi!" :
                                                      "Fez um excelente trabalho!"
