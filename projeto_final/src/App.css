@@ -756,6 +756,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+.Projetos_seccao1{
+    display: none!important;
+}
+
 .Seguidores{
     font-family: 'Barlow Bold', sans-serif;
     font-size: 20px;
@@ -772,9 +777,48 @@
 }
 
 .Perfil_Projetos{
-    height: 100vh;
-    width: auto;
+    height: auto;
+    width: 100vw;
     background-color: #f2f2f2;
+}
+
+.Separador_Projetos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Adicionar_Projeto{
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    border: 0!important;
+    background-color: #ec9400;
+    border-radius: 5px;
+}
+
+.Alinhamento_Titulo{
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Titulo_But_Adicionar_Projeto{
+    text-align: center;
+    color: white;
+    font-family: 'Barlow Semibold', sans-serif;
+}
+
+.Titulo_But_Adicionar_Projeto_2{
+    text-align: center;
+    color: white;
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 50px;
 }
 
 .Perfil_Info_Projetos{
@@ -784,8 +828,8 @@
 }
 
 .Perfil_Testemunhos{
-    height: 80vh;
-    width: auto;
+    height: auto;
+    width: 100vw;
     background-color: #ec9400;
 }
 
@@ -806,7 +850,7 @@
     font-size: 45px;
     padding-bottom: 3vh;
     color: white;
-    margin-top: -3vh;
+    margin-top: -5vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -834,7 +878,7 @@
 
 .Perfil_Formacao{
     background-color: #f2f2f2;
-    height: 70vh;
+    height: auto;
 }
 
 .Perfil_Info_Formacao{
@@ -854,7 +898,7 @@
 
 .Formacao_Parte_2{
     background-color: white;
-    height: 40vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
