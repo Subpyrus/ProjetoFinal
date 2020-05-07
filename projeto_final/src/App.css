@@ -930,3 +930,88 @@
     font-family: "Barlow Semibold", sans-serif;
     color: #ec9400;
 }
+
+/*Empregos*/
+
+.Body_Empregos{
+    background-color: #f2f2f2;
+}
+
+.Emprego_Listado{
+    background-color: white;
+    padding: 15px 0;
+    border-radius: 10px;
+}
+
+.Emprego_List_Info_Princ{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Emprego_List_Info_Princ_Final{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.Emprego_List_Info_Princ_Imagem{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Area_Emprego{
+    padding: 5px 20px;
+    background-color: #f2f2f2;
+    font-family: 'Barlow Semibold', sans-serif;
+    border-radius: 5px;
+}
+
+.Titulo_Emprego_List{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 17px;
+}
+
+.Info_Emprego_List{
+    font-family: 'Barlow Semibold', sans-serif;
+    color: #797c80;
+}
+
+.Empregos_Criar_Conta{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Imgs/Bee_Empregos.jpeg");
+    background-size: 100% auto;
+    background-position: center;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+}
+
+.Empregos_Criar_Conta_Titulo{
+    margin-bottom: 8vh;
+    font-family: 'Barlow ExtraBold', sans-serif;
+}
+
+.Empregos_Criar_Conta_Texto{
+    font-size: 18px;
+}
+
+.Emprego_But_Criar_Conta{
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+}
+
+.Empregos_List_Imagem{
+    height: 120px;
+    width: auto;
+    border-radius: 60px;
+}
