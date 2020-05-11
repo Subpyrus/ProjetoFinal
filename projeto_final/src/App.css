@@ -363,7 +363,7 @@
 /* Projetos */
 .Proj_Body{
     width: 100vw;
-    height: 70vh;
+    min-height: 79.6vh;
     background-color: #f2f2f2;
 }
 
@@ -935,6 +935,7 @@
 
 .Body_Empregos{
     background-color: #f2f2f2;
+    min-height: 69.6vh;
 }
 
 .Emprego_Listado{
@@ -1036,7 +1037,7 @@
 
 .Body_Detalhes_Empregos{
     background-color: #f2f2f2;
-    min-height: 80vh;
+    min-height: 79.6vh;
     overflow: hidden;
 }
 

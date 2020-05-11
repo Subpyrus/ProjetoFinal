@@ -16,6 +16,8 @@ import SignUpEmpresas from './components/enterprise/CreateEnterprise';
 import Perfil from './components/creators/CreatorDetails';
 import Empregos from './components/main_pages/Emprego';
 import EmpregosDetalhes from './components/jobs/JobDetails';
+import Freelance from './components/main_pages/Freelance';
+import FreelanceDetalhes from './components/freelances/FreelanceDetails';
 import './App.css';
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path="/perfil" component={Perfil}/>
             <Route exact path="/empregos" component={Empregos}/>
             <Route path="/empregos/detalhes" component={EmpregosDetalhes}/>
+            <Route exact path="/freelance" component={Freelance}/>
+            <Route path="/freelance/detalhes" component={FreelanceDetalhes}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>
