@@ -1,13 +1,33 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import Seta from "../../Imgs/Seta1.svg";
+import Seta2 from "../../Imgs/Seta2.svg";
 
 class EmpregosDetalhes extends React.Component {
+    estilo = {
+        color: "inherit",
+        textDecoration: "inherit"
+    };
+    rodar = {
+        width: "25px",
+        height: "auto",
+    };
+    rodar2 = {
+        width: "15px",
+        height: "auto",
+        verticalAlign: "text-bottom"
+    };
     render() {
         return (
             <div>
                 <div className="container-fluid Body_Detalhes_Empregos">
                     <div className="row col-12 mb-0 justify-content-center">
-                        <div className="col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5">
+                        <span className="col-10 mt-4 ml-3">
+                            <Link to="/empregos" style={this.estilo}>
+                                <img src={Seta} style={this.rodar2} className="mr-1"/><span className="voltar">VOLTAR</span>
+                            </Link>
+                        </span>
+                        <div className="col-lg-7 mt-4 mb-sm-2 mb-lg-4 ml-5">
                             <div className="Main_Detalhes_Emprego">
 
                                 <div className="col-12 row justify-content-center">
@@ -48,13 +68,13 @@ class EmpregosDetalhes extends React.Component {
 
                                 <div className="col-12 row justify-content-center">
                                     <Link to="/registo">
-                                        <button className="Emprego_Det_But_Criar_Conta mt-3 ">Queres-te candidatar? Inscreve-te já na Hinamic!</button>
+                                        <button className="Emprego_Det_But_Criar_Conta mt-3 ">Queres-te candidatar? Inscreve-te já na Hinamic!<img src={Seta2} className="ml-2" style={this.rodar}/></button>
                                     </Link>
                                 </div>
 
                             </div>
                         </div>
-                        <div className="col-sm-6 col-lg-3 mt-5 ml-4 mb-5">
+                        <div className="col-sm-6 col-lg-3 mt-4 ml-4 mb-5">
                             <div className="Empregos_Criar_Conta px-3 py-4">
                                 <h2 className="Empregos_Criar_Conta_Titulo">Ainda não fazes parte da nossa colmeia?</h2>
                                 <span className="Empregos_Criar_Conta_Texto">

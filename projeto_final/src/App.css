@@ -1050,3 +1050,9 @@
     color: white;
     padding: 12px 50px;
 }
+
+.voltar{
+    font-size: 20px;
+    font-family: 'Barlow Semibold', sans-serif;
+    vertical-align: middle;
+}
