@@ -5,6 +5,12 @@ import Seta from '../../Imgs/Seta1.svg';
 import Seta2 from '../../Imgs/Seta2.svg';
 
 class FreelanceDetalhes extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            login: "Off"
+        }
+    }
     estilo = {
         color: "inherit",
         textDecoration: "inherit"
@@ -23,12 +29,12 @@ class FreelanceDetalhes extends React.Component {
             <div>
                 <div className="container-fluid Body_Detalhes_Empregos">
                     <div className="row col-12 mb-0 justify-content-center">
-                        <span className="col-10 mt-4 ml-3">
+                        <span className={this.state.login == "Off" ? "col-9 mt-4 ml-4" : "col-10 mt-4 ml-3"}>
                             <Link to="/freelance" style={this.estilo}>
                                 <img src={Seta} style={this.rodar2} className="mr-1"/><span className="voltar">VOLTAR</span>
                             </Link>
                         </span>
-                        <div className="col-lg-7 mt-4 mb-sm-2 mb-lg-4 ml-5">
+                        <div className={this.state.login == "Off" ? "col-9 mt-4 mb-sm-2 mb-lg-4 ml-4" : "col-lg-7 mt-4 mb-sm-2 mb-lg-4 ml-5"}>
                             <div className="Main_Detalhes_Emprego">
                                 <div className="col-12 row justify-content-center">
                                      <span className="col-10 pl-4 Emprego_List_Info_Princ">
@@ -65,7 +71,7 @@ class FreelanceDetalhes extends React.Component {
 
                             </div>
                         </div>
-                        <div className="col-sm-6 col-lg-3 mt-4 ml-4 mb-5">
+                        <div className="col-sm-6 col-lg-3 mt-4 ml-4 mb-5" style={this.state.login == "Off" ? {display : "none"} : {display: "block"}}>
                             <div className="Empregos_Criar_Conta px-3 py-4">
                                 <h2 className="Empregos_Criar_Conta_Titulo">Ainda não fazes parte da nossa colmeia?</h2>
                                 <span className="Empregos_Criar_Conta_Texto">
