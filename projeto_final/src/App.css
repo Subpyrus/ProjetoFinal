@@ -1056,3 +1056,155 @@
     font-family: 'Barlow Semibold', sans-serif;
     vertical-align: middle;
 }
+
+/* Criar Anúncio Freelance */
+
+.Criar_Freelance {
+    background-color: #f2f2f2;
+    width: 100vw;
+}
+
+.Criar_Freelance_Inicial{
+    text-align: center;
+}
+
+.Criar_Freelance_Titulo{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    color: #ec9400;
+}
+
+.Criar_Freelance_Texto{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 17px;
+}
+
+.Criar_Freelance_Meio{
+    background-color: white;
+}
+
+.Criar_Freelance_Meio_Itens{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.Criar_Freelance_Meio_Texto{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.Criar_Freelance_Meio_Texto2{
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.Criar_Freelance_Final_Imagem{
+    max-height: 300px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.Escolha_Area {
+    background-color:#ffffff;
+    border-radius:10px;
+    border:1px solid #000000;
+    color:#000000;
+    font-size:17px;
+    padding:5px 0;
+    text-decoration:none;
+    font-family: "Barlow Semibold", sans-serif;
+}
+.Escolha_Area:hover {
+    background-color:#ffffff;
+}
+
+.Criar_Freelance_Final_Escolha_Titulo{
+    font-family: "Barlow Semibold", sans-serif;
+    font-size:17px;
+    margin-bottom: -10px;
+}
+
+.fila_botoes {
+    margin-left: 0;
+    padding-left: 0;
+    display: flex;
+}
+
+.Criar_Freelance_Inicial_2{
+    background-image: url("Imgs/imgfooter.jpg");
+    background-size: 100% auto;
+    height: 50vh;
+    width: auto;
+    text-align: center;
+}
+
+.Criar_Freelance_Inicial_Centrar{
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Criar_Freelance_Titulo_2{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    color: #ec9400;
+}
+
+.Criar_Freelance_Texto_2{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+
+.Criar_Freelance_Meio_2{
+    background-color: white;
+    border-radius: 10px;
+    margin-top: -10vh;
+}
+
+.Criar_Freelance_Meio_2_Inicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Criar_Freelance_Meio_2_Inicial_Titulo{
+    font-family: 'Barlow Semibold', sans-serif;
+}
+
+.Criar_Freelance_Meio_2_Inicial_Anuncio{
+    margin-bottom: -10px;
+    margin-top: 5px;
+}
+
+.Criar_Freelance_Meio_2_Info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Area_Freelance{
+    padding: 7px 30px;
+    background-color: white;
+    border: #ec9400 solid 1px;
+    font-family: 'Barlow Semibold', sans-serif;
+    border-radius: 5px;
+}
+
+.Titulo_Emprego_List_2{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 21px;
+}
+
+.Titulo_Emprego_List_3{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 19px;
+}
+
+.Info_Emprego_List_2{
+    font-family: 'Barlow Semibold', sans-serif;
+}
