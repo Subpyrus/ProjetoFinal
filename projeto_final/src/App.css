@@ -337,7 +337,7 @@
 /* Filtros */
 
 .filtros{
-    width: 100vw;
+    max-width: 100vw;
     background-color: white;
     font-size: x-large;
     color: black;
@@ -351,11 +351,14 @@
 
 .item_Filtro{
     font-family: 'Barlow Semibold', sans-serif!important;
-    margin: auto;
-    border-right: black solid 2px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 15px;
+    /*border-right: black solid 2px;*/
 }
 .item_Filtro2{
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     font-family: 'Barlow Semibold', sans-serif!important;
 }
 

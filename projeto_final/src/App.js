@@ -20,6 +20,7 @@ import Freelance from './components/main_pages/Freelance';
 import FreelanceDetalhes from './components/freelances/FreelanceDetails';
 import CreateFreelance1 from './components/freelances/CreateFreelance';
 import CreateFreelance2 from './components/freelances/CreateFreelance2';
+import EditarPerfil from './components/creators/EditCreator';
 import './App.css';
 
 function App() {
@@ -37,13 +38,14 @@ function App() {
             <Route path="/projetos/detalhes" component={ProjetosDetalhes}/>
             <Route path="/registo/profissional" component={SignUpProfissional}/>
             <Route path="/registo/empresa" component={SignUpEmpresas}/>
-            <Route path="/perfil" component={Perfil}/>
+            <Route exact path="/perfil" component={Perfil}/>
             <Route exact path="/empregos" component={Empregos}/>
             <Route path="/empregos/detalhes" component={EmpregosDetalhes}/>
             <Route exact path="/freelance" component={Freelance}/>
             <Route path="/freelance/detalhes" component={FreelanceDetalhes}/>
             <Route exact path="/freelance/criar" component={CreateFreelance1}/>
             <Route path="/freelance/criar/:id" component={CreateFreelance2}/>
+            <Route path="/perfil/editar" component={EditarPerfil}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

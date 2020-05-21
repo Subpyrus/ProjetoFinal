@@ -8,7 +8,7 @@ class Freelance extends React.Component {
     render() {
         return (
             <div>
-                <Filtros/>
+                <Filtros pagina="freelance"/>
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5">

@@ -7,7 +7,7 @@ class Projetos extends React.Component {
     render() {
         return (
             <div className="container-fluid m-0 p-0 Proj_Body">
-                <Filtros/>
+                <Filtros pagina="projeto"/>
                 <ListaProjetos/>
             </div>
         )
