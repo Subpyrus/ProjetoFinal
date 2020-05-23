@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../App.css';
-import FormCreateFreelance1 from '../forms/FormCreateFreelance1';
-import FormCreateFreelance2 from '../forms/FormCreateFreelance2';
+import FormCreateEmprego1 from '../forms/FormCreateEmprego1';
+import FormCreateEmprego2 from '../forms/FormCreateEmprego2';
 
-class CreateFreelance2 extends React.Component {
+class CreateJob2 extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -12,12 +12,14 @@ class CreateFreelance2 extends React.Component {
         TipoAnuncio: this.props.location.state.valor,
         Step: 1,
         NomeAnuncio: '',
-        Orcamento: '',
-        DataEntrega: '',
+        Salario: '',
+        TipoTrabalho: '',
         NumeroCandidatos: '',
         AreaTrabalho:'',
         DescricaoTrabalho: '',
-        Ficheiro: ''
+        Localizacao: '',
+        Requisitos: '',
+        Beneficios: ''
     };
 
     // Próximo Step
@@ -39,8 +41,8 @@ class CreateFreelance2 extends React.Component {
     render() {
 
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho};
+        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, Localizacao, Requisitos, Beneficios} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, Localizacao, Requisitos, Beneficios};
 
         switch (Step) {
             case 1:
@@ -50,7 +52,7 @@ class CreateFreelance2 extends React.Component {
                             <div className="row col-12 mb-0 mr-0 ml-0 pr-0 pl-0 justify-content-center">
                                 <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0">
                                     <div className="Criar_Freelance_Inicial_Centrar">
-                                        <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio Freelance</h1>
+                                        <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                         <span
                                             className="Criar_Freelance_Texto_2">Vais encontrar os melhores profissionais aqui!</span>
                                     </div>
@@ -62,7 +64,7 @@ class CreateFreelance2 extends React.Component {
                                         <h3 className="Criar_Freelance_Meio_2_Inicial_Anuncio">Anúncio</h3>
                                     </div>
                                     <hr className="line mx-4"/>
-                                    <FormCreateFreelance1
+                                    <FormCreateEmprego1
                                         nextStep={this.nextStep}
                                         handleChange={this.handleChange}
                                         valores={valores}
@@ -80,7 +82,7 @@ class CreateFreelance2 extends React.Component {
                             <div className="row col-12 mb-0 mr-0 ml-0 pr-0 pl-0 justify-content-center">
                                 <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0">
                                     <div className="Criar_Freelance_Inicial_Centrar">
-                                        <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio Freelance</h1>
+                                        <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio Emprego</h1>
                                         <span
                                             className="Criar_Freelance_Texto_2">Vais encontrar os melhores profissionais aqui!</span>
                                     </div>
@@ -92,7 +94,7 @@ class CreateFreelance2 extends React.Component {
                                         <h3 className="Criar_Freelance_Meio_2_Inicial_Anuncio">Publicar</h3>
                                     </div>
                                     <hr className="line mx-4"/>
-                                    <FormCreateFreelance2
+                                    <FormCreateEmprego2
                                         prevStep={this.prevStep}
                                         nextStep={this.nextStep}
                                         handleChange={this.handleChange}
@@ -108,4 +110,4 @@ class CreateFreelance2 extends React.Component {
 
 }
 
-export default CreateFreelance2
+export default CreateJob2
