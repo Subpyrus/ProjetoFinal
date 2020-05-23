@@ -79,10 +79,9 @@ class FormCreateFreelance1 extends React.Component{
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
-                        <input
+                        <textarea
                             id="Descricao"
-                            type="text"
-                            className="validate"
+                            className="materialize-textarea"
                             onChange={handleChange('DescricaoTrabalho')}
                             defaultValue={valores.DescricaoTrabalho}
                         />

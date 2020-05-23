@@ -1211,3 +1211,57 @@
 .Info_Emprego_List_2{
     font-family: 'Barlow Semibold', sans-serif;
 }
+
+/* Editar perfil */
+
+.Editar_Perfil_Body{
+    background-color: #f2f2f2;
+    width: 100vw;
+    min-height: 79.6vh;
+}
+
+.Escolha_Editar_Perfil{
+    background-color: white;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Editar_Perfil_Main{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.Item_Escolha_Editar_Perfil{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 16px;
+    border-bottom: #f2f2f2 solid 1px;
+    width: 100%;
+}
+
+.Div_But_Adicionar_Campos{
+    text-align: center;
+}
+
+.But_Adicionar_Campos {
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #000000;
+    display:inline-block;
+    text-align: center;
+    cursor:pointer;
+    color:#000000;
+    font-family:'Barlow Semibold', sans-serif;
+    font-size:17px;
+    padding:10px 0;
+    text-decoration:none;
+}
+.But_Adicionar_Campos:active {
+    position:relative;
+    top:1px;
+}
+
+.Editar_Perfil_Titulo{
+    font-family: 'Barlow Semibold', sans-serif;
+}
