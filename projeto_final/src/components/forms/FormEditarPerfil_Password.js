@@ -4,6 +4,7 @@ import '../../App.css';
 class FormEditarPerfil_Password extends React.Component{
 
     render() {
+        const {valores, handleChange} = this.props;
         return (
             <div className="row col-12">
                 <span className="col-12 mt-3">
@@ -16,8 +17,10 @@ class FormEditarPerfil_Password extends React.Component{
                                 id="passwordAtual"
                                 type="password"
                                 className="validate"
+                                onChange={handleChange('passwordAtual')}
+                                defaultValue={valores.passwordAtual}
                             />
-                            <label htmlFor="passwordAtual">Palavra-Passe atual</label>
+                            <label htmlFor="passwordAtual" className={valores.passwordAtual != "" ? "active" : ""}>Palavra-Passe atual</label>
                         </div>
                     </div>
                     <div className="row">
@@ -26,10 +29,11 @@ class FormEditarPerfil_Password extends React.Component{
                                 id="novaPassword"
                                 type="password"
                                 className="validate"
+                                onChange={handleChange('passwordNova')}
+                                defaultValue={valores.passwordNova}
                             />
-                            <label htmlFor="novaPassword">Nova Palavra-Passe</label>
-                            <span className="helper-text" data-error="wrong"
-                                  data-success="right">Mínimo 8 caracteres</span>
+                            <label htmlFor="novaPassword" className={valores.passwordNova != "" ? "active" : ""}>Nova Palavra-Passe</label>
+                            <span className="helper-text">Mínimo 8 caracteres</span>
                         </div>
                     </div>
                 </div>

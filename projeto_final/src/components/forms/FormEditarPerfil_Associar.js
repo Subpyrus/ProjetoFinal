@@ -4,6 +4,7 @@ import '../../App.css';
 class FormEditarPerfil_Associar extends React.Component{
 
     render() {
+        const {valores, handleChange} = this.props;
         return (
             <div className="row col-12">
                 <span className="col-12 mt-3">
@@ -16,8 +17,10 @@ class FormEditarPerfil_Associar extends React.Component{
                                 id="website"
                                 type="text"
                                 className="validate"
+                                onChange={handleChange('website')}
+                                defaultValue={valores.website}
                             />
-                            <label htmlFor="Website">Website</label>
+                            <label htmlFor="website" className={valores.website != "" ? "active" : ""}>Website</label>
                         </div>
                     </div>
                     <div className="row">
@@ -26,8 +29,10 @@ class FormEditarPerfil_Associar extends React.Component{
                                 id="Instagram"
                                 type="text"
                                 className="validate"
+                                onChange={handleChange('instagram')}
+                                defaultValue={valores.instagram}
                             />
-                            <label htmlFor="Instagram">Instagram</label>
+                            <label htmlFor="Instagram" className={valores.instagram != "" ? "active" : ""}>Instagram</label>
                         </div>
                     </div>
                     <div className="row">
@@ -36,8 +41,10 @@ class FormEditarPerfil_Associar extends React.Component{
                                 id="LinkedIn"
                                 type="text"
                                 className="validate"
+                                onChange={handleChange('linkedin')}
+                                defaultValue={valores.linkedin}
                             />
-                            <label htmlFor="LinkedIn">LinkedIn</label>
+                            <label htmlFor="LinkedIn" className={valores.linkedin != "" ? "active" : ""}>LinkedIn</label>
                         </div>
                     </div>
                     <div className="row">
@@ -46,8 +53,10 @@ class FormEditarPerfil_Associar extends React.Component{
                                 id="Facebook"
                                 type="text"
                                 className="validate"
+                                onChange={handleChange('facebook')}
+                                defaultValue={valores.facebook}
                             />
-                            <label htmlFor="Facebook">Facebook</label>
+                            <label htmlFor="Facebook" className={valores.facebook != "" ? "active" : ""}>Facebook</label>
                         </div>
                     </div>
                 </div>

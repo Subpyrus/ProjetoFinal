@@ -14,8 +14,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                             className="validate"
                         />
                         <label htmlFor="Faculdade">Faculdade/Universidade</label>
-                        <span className="helper-text" data-error="wrong"
-                              data-success="right">Ex: Universidade de Aveiro</span>
+                        <span className="helper-text">Ex: Universidade de Aveiro</span>
                     </div>
                 </div>
                 <div className="row">
@@ -26,8 +25,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                             className="validate"
                         />
                         <label htmlFor="Curso">Curso</label>
-                        <span className="helper-text" data-error="wrong"
-                              data-success="right">Ex: Novas Tecnologias da Comunicação</span>
+                        <span className="helper-text">Ex: Novas Tecnologias da Comunicação</span>
                     </div>
                 </div>
                 <div className="row">
@@ -38,8 +36,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                             className="validate"
                         />
                         <label htmlFor="Ano">Ano</label>
-                        <span className="helper-text" data-error="wrong"
-                              data-success="right">Ex: Licenciatura, Mestrado, etc</span>
+                        <span className="helper-text">Ex: Licenciatura, Mestrado, etc</span>
                     </div>
                 </div>
                 <div className="row">

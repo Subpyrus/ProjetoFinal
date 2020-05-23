@@ -96,8 +96,7 @@ class FormEditarPerfil_Geral extends React.Component {
                                 defaultValue={valores.ocupacao}
                             />
                             <label htmlFor="Ocupacao" className={valores.ocupacao != "" ? "active" : ""}>Ocupação</label>
-                            <span className="helper-text" data-error="wrong"
-                                  data-success="right">Ex: Web Designer</span>
+                            <span className="helper-text">Ex: Web Designer</span>
                         </div>
                     </div>
                     <div className="row">

@@ -20,7 +20,13 @@ class EditarPerfil extends React.Component{
             localidade: "",
             areaTrabalho: "",
             ocupacao: "",
-            sobre: ""
+            sobre: "",
+            passwordAtual: "",
+            passwordNova: "",
+            website: "",
+            instagram: "",
+            linkedin: "",
+            facebook: ""
         }
     }
 
@@ -35,8 +41,10 @@ class EditarPerfil extends React.Component{
     };
 
     render() {
-        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre} = this.state;
+        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook} = this.state;
         const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre};
+        const valores2 = {passwordAtual, passwordNova};
+        const valores3 = {website, instagram, linkedin, facebook};
 
         return (
             <div className="container-fluid Editar_Perfil_Body">
@@ -83,9 +91,15 @@ class EditarPerfil extends React.Component{
                                 <FormEditarPerfil_Formacao/>
                                 :
                                 this.state.selecionado == 3 ?
-                                    <FormEditarPerfil_Password/>
+                                    <FormEditarPerfil_Password
+                                        handleChange={this.handleChange}
+                                        valores={valores2}
+                                    />
                                     :
-                                    <FormEditarPerfil_Associar/>
+                                    <FormEditarPerfil_Associar
+                                        handleChange={this.handleChange}
+                                        valores={valores3}
+                                    />
                         }
                     </div>
                 </div>
