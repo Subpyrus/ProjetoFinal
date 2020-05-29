@@ -1265,3 +1265,58 @@
 .Editar_Perfil_Titulo{
     font-family: 'Barlow Semibold', sans-serif;
 }
+
+/* Perfil Empresa */
+
+.Perfil_Empresa_Inicial{
+    min-height: 100vh;
+    width: auto;
+}
+
+.Perfil_Empresa_Info_Inicial{
+    background-color: black;
+    color: white;
+    height: auto;
+    position: relative;
+    top: 50%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    -moz-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+    box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
+}
+
+.Foto_Perfil_Empresa{
+    width: auto;
+    height: 300px;
+    border-radius: 150px;
+    margin-top: -70px;
+    -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+}
+
+.Ver_Candidatos_Perfil{
+    position: absolute;
+    bottom: 0;
+}
+
+.Area_Emprego2{
+    padding: 5px 30px;
+    background-color: #ec9400;
+    color: white;
+    font-family: 'Barlow Semibold', sans-serif;
+    border-radius: 5px;
+}
+
+.Empresa_But_Criar_Anuncio{
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+    float: right;
+}
