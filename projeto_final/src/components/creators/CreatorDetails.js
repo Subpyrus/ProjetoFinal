@@ -73,7 +73,7 @@ class Perfil extends React.Component {
             <div className="Perfil_Body">
                 <div className="row mb-0">
                     <div className="Perfil_Inicial mb-0 col-12 justify-content-center">
-                        <div className="Perfil_Info_Inicial col-9 m-auto row">
+                        <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-sm-5 mb-sm-5 mx-sm-auto">
                             <div className="col-sm-12 col-lg-4">
                                 <span className="m-auto Perfil_Info_Inicial_Esq">
                                     <img src={perfil} className="Foto_Perfil"/>

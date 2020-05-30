@@ -668,17 +668,19 @@
 }
 
 .Perfil_Inicial{
-    height: 100vh;
+    min-height: 100vh;
     width: auto;
     background-color: #ec9400;
 }
 
 .Perfil_Info_Inicial{
     background-color: white;
-    height: 70vh;
+    height: auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     -webkit-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
     -moz-box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
     box-shadow: 7px 9px 13px -1px rgba(0,0,0,0.51);
