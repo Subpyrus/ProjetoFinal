@@ -2,12 +2,13 @@ import React from 'react';
 import '../../App.css';
 import localizacao from '../../Imgs/map-marker-alt-solid.svg'
 import perfil from '../../Imgs/Perfil.jpg';
-import {Link} from "react-router-dom";
+import ListProjectsPerfil from './ListProjectsPerfil';
+import ListFavouritesPerfil from './ListFavouritesPerfil';
 
 class Perfil extends React.Component {
     state = {
         valorB: 1,
-        valorP: 1
+        valorF: 1
     };
     card_Testemunhos = {
         backgroundImage: `url(${perfil})`,
@@ -41,39 +42,15 @@ class Perfil extends React.Component {
     testemunhoB = (valor) => {
         this.setState({valorB: valor})
     };
-
-    opacidadeN = {
-        height: "20px",
-        width: "20px",
-        margin: "0 6px",
-        backgroundColor: "rgb(255, 133, 0)",
-        border: "none",
-        borderRadius: "50%",
-        display: "inline-block",
-        opacity: "0.5"
+    escolha_Projetos = (valor) => {
+        this.setState({valorF: valor})
     };
-
-    opacidadeS = {
-        height: "20px",
-        width: "20px",
-        margin: "0 6px",
-        backgroundColor: "rgb(255, 133, 0)",
-        border: "none",
-        borderRadius: "50%",
-        display: "inline-block",
-        opacity: "1"
-    };
-
-    seccao_escolhida = (valor) => {
-        this.setState({valorP: valor})
-    };
-
     render() {
         return (
             <div className="Perfil_Body">
                 <div className="row mb-0">
-                    <div className="Perfil_Inicial mb-0 col-12 justify-content-center">
-                        <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-sm-5 mb-sm-5 mx-sm-auto">
+                    <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-sm-5 pb-lg-0">
+                        <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-sm-5 mx-sm-auto">
                             <div className="col-sm-12 col-lg-4">
                                 <span className="m-auto Perfil_Info_Inicial_Esq">
                                     <img src={perfil} className="Foto_Perfil"/>
@@ -120,199 +97,17 @@ class Perfil extends React.Component {
                     </div>
                     <div className="Perfil_Projetos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Projetos row col-10 m-auto">
-                            <span className="col-12">
-                                <h1 className="Titulo_Formacao mb-4 mt-5">PROJETOS</h1>
+                            <span className="col-12" style={{display: "flex"}}>
+                                <h1 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao mb-4 mt-5 pr-3" : "btn-flat Titulo_Formacao_2 mb-4 mt-5 pr-3" } onClick={() => this.escolha_Projetos(1)}>PROJETOS</h1><h3 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao_2 mb-4 mt-5 pl-3" : "btn-flat Titulo_Formacao_3 mb-4 mt-5 pl-3"} onClick={() => this.escolha_Projetos(2)}>PROJETOS FAVORITOS</h3>
                             </span>
-                            <span className="col-12 row justify-content-center">
-                                <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(1)}>
-                                    <span style={this.state.valorP == 1 ? this.opacidadeS : this.opacidadeN}/>
-                                    <span>Design Gráfico</span>
-                                </span>
-                                <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(2)}>
-                                    <span style={this.state.valorP == 2 ? this.opacidadeS : this.opacidadeN}/>
-                                    <span>Programação</span>
-                                </span>
-                                <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(3)}>
-                                    <span style={this.state.valorP == 3 ? this.opacidadeS : this.opacidadeN}/>
-                                    <span>Vídeo e Fotografia</span>
-                                </span>
+                            <span className="col-12 justify-content-center mt-3">
+                                {
+                                    this.state.valorF == 1 ?
+                                        <ListProjectsPerfil/>
+                                        :
+                                        <ListFavouritesPerfil/>
+                                }
                             </span>
-                            <div className="col-12 mt-4 mb-5">
-                                <span className={this.state.valorP == 1 ? "row" : "Projetos_seccao1 row"}>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <div className="Adicionar_Projeto m-0 p-0">
-                                            <span className="Alinhamento_Titulo">
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto_2">+</h3>
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto">Adicionar Projeto</h3>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </span>
-                                <span className={this.state.valorP == 2 ? "row" : "Projetos_seccao1 row"}>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <div className="Adicionar_Projeto m-0 p-0">
-                                            <span className="Alinhamento_Titulo">
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto_2">+</h3>
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto">Adicionar Projeto</h3>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </span>
-                                <span className={this.state.valorP == 3 ? "row" : "Projetos_seccao1 row"}>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <div className="Adicionar_Projeto m-0 p-0">
-                                            <span className="Alinhamento_Titulo">
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto_2">+</h3>
-                                                <h3 className="m-0 p-0 Titulo_But_Adicionar_Projeto">Adicionar Projeto</h3>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3 mb-2">
-                                        <Link to="/projetos/detalhes">
-                                            <div className="card card_Projetos m-0 p-0">
-                                                <div className="card-body">
-                                                    <h5 className="card-text Proj_Info">Maria betrolina</h5>
-                                                    <span className="card-text Proj_Info2">O meu cão não se cala</span>
-                                                    <span className="card-text Proj_Info3">
-                                                    <i className="fa fa-eye mr-1"/><span className="mr-2">533</span>
-                                                    <i className="fa fa-heart mr-1"/><span className="mr-2">42</span>
-                                                    <i className="fa fa-comment mr-1"/><span className="mr-2">1</span>
-                                                </span>
-                                                </div>
-                                                <div className="card_blur"/>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </span>
-                            </div>
                         </div>
                     </div>
                     <div className="Perfil_Testemunhos mb-0 col-12 justify-content-center">
