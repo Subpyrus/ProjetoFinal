@@ -93,7 +93,7 @@
     background-image: url("Imgs/pi.jpg");
     background-size: 100% auto;
     background-repeat: no-repeat;
-    height: 91vh;
+    min-height: 91vh;
     width: 100vw;
 }
 
@@ -101,7 +101,7 @@
     background-image: url("Imgs/imgfooter.jpg");
     background-size: 100% auto;
     background-position: 0 -250px;
-    height: 90vh;
+    min-height: 90vh;
     width: 100vw;
 }
 
@@ -149,75 +149,43 @@
 
 .Cartoon{
     float: right;
-    margin-right: 4vw;
-    position: relative;
-    top: 40%;
-    transform: translateY(-40%);
-    display: inline-block;
+    margin: auto 4vw auto auto;
     z-index: 1;
 }
 .Cartoon2{
-    margin-left: 4vw;
+    margin: auto auto auto 4vw;
+    z-index: 2;
     position: relative;
-    top: 80%;
-    transform: translateY(-80%);
-    display: inline-block;
-    z-index: 1;
 }
 .Cartoon3{
     float: right;
-    margin-right: 4vw;
+    margin: auto 4vw auto auto;
     position: relative;
-    top: 20%;
-    transform: translateY(-20%);
-    display: inline-block;
     z-index: 1;
 }
 .Cartoon4{
-    margin-left: 4vw;
+    margin: auto auto auto 4vw;
     position: relative;
-    top: 60%;
-    transform: translateY(-60%);
-    display: inline-block;
     z-index: 1;
 }
 
 .texto{
-    position: relative;
-    top: -60%;
-    transform: translateY(60%);
-    display: inline-block;
-    margin-left: 4vw;
+    margin: auto auto auto 4vw;
     z-index: 1;
-    max-width: 50vw;
 }
 .texto2{
     float: right;
-    position: relative;
-    top: -40%;
-    transform: translateY(40%);
-    margin-right: 4vw;
-    display: inline-block;
-    max-width: 50vw;
+    margin: auto 4vw auto auto;
     z-index: 1;
 }
 .texto3{
-    position: relative;
-    top: -110%;
-    transform: translateY(110%);
     display: inline-block;
-    margin-left: 4vw;
+    margin: auto auto auto 4vw;
     z-index: 1;
-    max-width: 50vw;
 }
 .texto4{
     float: right;
-    position: relative;
-    top: -50%;
-    transform: translateY(50%);
-    margin-right: 4vw;
-    display: inline-block;
-    max-width: 50vw;
+    margin: auto 4vw auto auto;
     z-index: 1;
 }
 .Texto_P_Princ{
@@ -228,15 +196,16 @@
     align-content: center;
     background-color: white;
     width: 100vw;
-    height: 60vh;
+    height: auto;
     position: relative;
+    padding-top: 5vh;
     z-index: 1;
 }
 
 .conteudo1:after {
     position: absolute;
     width: 100vw;
-    height: 60vh;
+    min-height: 60vh;
     content: '';
     background: inherit;
     top: 0;
@@ -249,17 +218,18 @@
 }
 
 .conteudo2 {
+    align-content: center;
     background-color: #f2f2f2;
     width: 100vw;
-    height: 70vh;
+    height: auto;
     position: relative;
-    z-index: -2;
+    padding-top: 20vh;
 }
 
 .conteudo2:after {
     position: absolute;
     width: 100vw;
-    height: 70vh;
+    min-height: 70vh;
     content: '';
     background: inherit;
     top: 0;
@@ -273,9 +243,10 @@
 .conteudo3 {
     background-color: white;
     width: 100vw;
-    height: 70vh;
+    height: auto;
     position: relative;
     z-index: -3;
+    padding-top: 15vh;
 }
 
 .conteudo3:after {
@@ -295,9 +266,12 @@
 .conteudo4 {
     background-color: #f2f2f2;
     width: 100vw;
-    height: 70vh;
+    height: auto;
     position: relative;
     z-index: -4;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+    margin-bottom: 0;
 }
 
 
