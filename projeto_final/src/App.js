@@ -24,6 +24,7 @@ import EditarPerfil from './components/creators/EditCreator';
 import CreateJob1 from './components/jobs/CreateJob';
 import CreateJob2 from './components/jobs/CreateJob2';
 import PerfilEmpresa from './components/enterprise/EnterpriseDetails';
+import Criador from './components/main_pages/Criador';
 import './App.css';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/empregos/criar" component={CreateJob1}/>
             <Route path="/empregos/criar/:id" component={CreateJob2}/>
             <Route path="/perfil/empresa" component={PerfilEmpresa}/>
+            <Route path="/criadores" component={Criador}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

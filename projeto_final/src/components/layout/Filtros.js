@@ -42,7 +42,7 @@ class Filtros extends React.Component {
                             <option value="Apple">Apple</option>
                         </select>
                     </span>
-                    {this.state.pagina == "projeto" ?
+                    {this.state.pagina == "projeto" || this.state.pagina == "criador" ?
                     <span className="col-2 item_Filtro">
                         <select
                             className="aparece"

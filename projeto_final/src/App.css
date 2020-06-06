@@ -364,7 +364,8 @@
 }
 
 .card_Projetos{
-    height: 200px;
+    min-height: 200px;
+    width: auto;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -387,13 +388,13 @@
     opacity: 0.5;
 }
 
-.card-body{
+.card_body1{
     opacity: 0;
     background: none;
     color: white;
 }
 
-.card_Projetos:hover .card-body{
+.card_Projetos:hover .card_body1{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1314,4 +1315,72 @@
     color: white;
     padding: 12px 50px;
     float: right;
+}
+
+/* Criadores */
+
+.Body_Criadores{
+    background-color: #f2f2f2;
+    min-height: 69.6vh;
+}
+
+.card_Criadores{
+    background-color: white;
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    border: none;
+}
+
+.card_Imagem{
+    height: auto;
+    width: 70%;
+    border-radius: 7px;
+}
+
+.card_body2{
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.card_body2_P2{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-family: "Barlow Semibold", sans-serif;
+    color: #8f9296;
+}
+
+.card_PT2{
+    position: relative;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    display: none;
+}
+
+.card_Criadores:hover .card_PT2{
+    display: flex;
+    background-color: white!important;
+    color: black!important;
+}
+
+.card_Criadores:hover .card_body2{
+    background-color: #ec9400;
+}
+
+.card_Criadores:hover .card_body2_P2{
+    color: white;
+}
+
+.Criador_But_Ver_Perfil{
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 30px;
 }
