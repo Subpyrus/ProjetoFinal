@@ -1384,3 +1384,33 @@
     color: white;
     padding: 7px 30px;
 }
+
+/* Criar Projeto */
+
+.body_CriarProjeto{
+    background-color: #f2f2f2;
+    height: auto;
+}
+
+.but_Adicionar_arquivo{
+    background-color: white;
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+
+.area_PreVisualizar{
+    background-color: white;
+    height: auto;
+    border-radius: 10px;
+}
+
+.titulo_NovoProjeto{
+    font-family: "Barlow ExtraBold", sans-serif;
+    font-size: 70px;
+}
+
+.titulo_SubtituloProjeto{
+    font-family: "Barlow SemiBold", sans-serif;
+    font-size: 25px;
+}

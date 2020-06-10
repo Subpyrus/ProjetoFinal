@@ -25,6 +25,7 @@ import CreateJob1 from './components/jobs/CreateJob';
 import CreateJob2 from './components/jobs/CreateJob2';
 import PerfilEmpresa from './components/enterprise/EnterpriseDetails';
 import Criador from './components/main_pages/Criador';
+import CreateProject from './components/projects/CreateProject';
 import './App.css';
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
             <Route path="/empregos/criar/:id" component={CreateJob2}/>
             <Route path="/perfil/empresa" component={PerfilEmpresa}/>
             <Route path="/criadores" component={Criador}/>
+            <Route path="/projetos/criar" component={CreateProject}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>
