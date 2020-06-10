@@ -26,6 +26,22 @@ class CreateProject extends React.Component {
         //console.log(this.state.ficheirosEnviar);
     };
 
+    handleApagar = valor => {
+        this.state.ficheirosEnviar.splice(valor, 1);
+        this.state.ficheirosAmostra.splice(valor, 1);
+        if (this.state.ficheirosAmostra.length > 0 && this.state.ficheirosEnviar.length > 0) {
+            this.setState({
+                verificacaoFicheiros: true
+            });
+            console.log("ohyeye");
+        } else {
+            this.setState({
+                verificacaoFicheiros: false
+            });
+            console.log("ohnono");
+        }
+    };
+
     // Próximo Step
     nextStep = () => {
         const { Step } = this.state;
@@ -52,6 +68,7 @@ class CreateProject extends React.Component {
                                 nextStep={this.nextStep}
                                 valores={valores}
                                 handleChange={this.handleChange}
+                                handleApagar={this.handleApagar}
                             />
                         </div>
                     </div>

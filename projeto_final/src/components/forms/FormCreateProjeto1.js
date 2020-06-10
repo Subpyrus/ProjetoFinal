@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App';
 
-const TamanhoMaximo = 100000000; //bytes
+const TamanhoMaximo = 20971520; //bytes
 const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
     return item.trim()
@@ -46,24 +46,38 @@ class FormCreateProjeto1 extends React.Component{
         }
     };
 
+    apagar = valor => {
+        this.props.handleApagar(valor);
+    };
+
     render() {
         const {valores} = this.props;
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
                 <div className="col-lg-3 mb-3 mb-lg-0">
-                    <span className="btn-flat but_Adicionar_arquivo text-center"
-                          onClick={() => this.adicionarImagem()}>Enviar arquivo</span>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                          onClick={() => this.adicionarImagem()}>Enviar arquivos</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3">Texto</span>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3">Link</span>
                 </div>
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
                         valores.ficheirosAmostra && valores.ficheirosAmostra.map((imagens, index) => {
+                            console.log(index);
                             return (
                                 <span>
                                     <img src={imagens} style={{width: "100%"}}/>
+                                    <button
+                                        className="btn btnIn mt-2 mb-2"
+                                        type="button"
+                                        id="BtnApagar"
+                                        onClick={() => this.apagar(index)}>
+                                        APAGAR
+                                    </button>
                                 </span>
-                            )
+                            );
                         })
                         :
                         <span>
