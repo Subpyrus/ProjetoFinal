@@ -33,12 +33,12 @@ class CreateProject extends React.Component {
             this.setState({
                 verificacaoFicheiros: true
             });
-            console.log("ohyeye");
+            //console.log("ohyeye");
         } else {
             this.setState({
                 verificacaoFicheiros: false
             });
-            console.log("ohnono");
+            //console.log("ohnono");
         }
     };
 

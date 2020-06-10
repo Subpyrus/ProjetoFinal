@@ -65,7 +65,7 @@ class FormCreateProjeto1 extends React.Component{
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
                         valores.ficheirosAmostra && valores.ficheirosAmostra.map((imagens, index) => {
-                            console.log(index);
+                            //console.log(index);
                             return (
                                 <span>
                                     <img src={imagens} style={{width: "100%"}}/>
