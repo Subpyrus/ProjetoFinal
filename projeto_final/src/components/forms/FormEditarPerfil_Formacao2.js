@@ -12,6 +12,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                             id="Faculdade"
                             type="text"
                             className="validate"
+                            name={ `document-${ this.props.index }-document` }
                         />
                         <label htmlFor="Faculdade">Faculdade/Universidade</label>
                         <span className="helper-text">Ex: Universidade de Aveiro</span>
@@ -42,8 +43,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                 <div className="row">
                     <div className="input-field col s6">
                         <select
-                            className="aparece"
-                        >
+                            className="aparece">
                             <option value="" disabled selected>Estado</option>
                             <option value="Mango">A decorrer</option>
                             <option value="Orange">Concluído</option>
@@ -58,6 +58,7 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                         <label htmlFor="AnoConclusao">Ano de Conclusão</label>
                     </div>
                 </div>
+            <hr/>
             </div>
         );
     }
