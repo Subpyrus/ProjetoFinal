@@ -5,7 +5,7 @@ import FormEnterprisePart1 from '../forms/FormEnterprisePart1';
 import FormEnterprisePart2 from '../forms/FormEnterprisePart2';
 import FormEnterprisePart3 from '../forms/FormEnterprisePart3';
 
-class CreateCreator extends React.Component {
+class CreateEnterprise extends React.Component {
     state = {
         Step: 1,
         NomeEmpresa: '',
@@ -32,7 +32,6 @@ class CreateCreator extends React.Component {
     //Mudança de campos
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-        console.log(this.state);
     };
 
     render() {
@@ -107,4 +106,4 @@ class CreateCreator extends React.Component {
     }
 }
 
-export default CreateCreator;
+export default CreateEnterprise;
