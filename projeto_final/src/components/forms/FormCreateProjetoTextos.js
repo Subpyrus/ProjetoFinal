@@ -4,6 +4,7 @@ import '../../App.css';
 class FormCreateProjetoTextos extends React.Component {
 
     render() {
+        //console.log(this.props.escreve);
         if (this.props.tipo == "texto") {
             return (
                 <div className="row">
@@ -12,7 +13,8 @@ class FormCreateProjetoTextos extends React.Component {
                             id={`Texto${this.props.index}`}
                             type="text"
                             className="validate"
-                            name={`document-${ this.props.index }-document`}
+                            name={`document-${this.props.index }-document`}
+                            onChange={this.props.escreve[0](`Texto${this.props.index}`, this.props.escreve[1])}
                         />
                         <label htmlFor={`Texto${this.props.index}`}>Texto</label>
                     </div>
@@ -27,6 +29,7 @@ class FormCreateProjetoTextos extends React.Component {
                             type="text"
                             className="validate"
                             name={`document-${ this.props.index }-document`}
+                            onChange={this.props.escreve[0](`Texto${this.props.index}`, this.props.escreve[1])}
                         />
                         <label htmlFor={`Link${this.props.index}`}>Link</label>
                     </div>
