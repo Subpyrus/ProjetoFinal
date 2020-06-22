@@ -35,7 +35,6 @@ class CreateJob2 extends React.Component {
     //Mudança de campos
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-        console.log(this.state);
     };
 
     render() {
@@ -109,5 +108,7 @@ class CreateJob2 extends React.Component {
     }
 
 }
+
+
 
 export default CreateJob2

@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../App.css';
+import {connect} from 'react-redux'
+import  { createJob } from '../../store/actions/jobActions'
 
 class FormCreateEmprego2 extends React.Component{
     estilo = {
@@ -12,7 +14,7 @@ class FormCreateEmprego2 extends React.Component{
 
     continuar = e => {
         e.preventDefault();
-        this.props.nextStep();
+        this.props.createJob(this.props.valores)
     };
 
     voltar = e => {
@@ -84,7 +86,7 @@ class FormCreateEmprego2 extends React.Component{
                                     type="button"
                                     id="nextBtn"
                                     onClick={this.continuar}>
-                                    Próximo
+                                    Publicar
                                 </button>
                             }
                         </div>
@@ -101,4 +103,11 @@ class FormCreateEmprego2 extends React.Component{
 
 }
 
-export default FormCreateEmprego2
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createJob: (job) => dispatch(createJob(job))
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(FormCreateEmprego2)
