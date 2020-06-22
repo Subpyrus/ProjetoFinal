@@ -4,7 +4,21 @@ import sg from '../../Imgs/sg.png';
 import {Link} from 'react-router-dom';
 
 class SignIn extends React.Component {
-    state = {};
+    state = {
+        email: '',
+        password: ''
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state)
+    }
 
     render() {
         return (
@@ -18,29 +32,28 @@ class SignIn extends React.Component {
                                 <p className="bemvindo">Bem-Vindo(a) de volta</p>
                             </div>
                             <hr className="line mb-3"/>
-                            <div className="input-field">
-                                <input type="email" id="email"/>
-                                <label htmlFor="email">Endereço de E-mail</label>
-                            </div>
-                            <div className="input-field ">
-                                <input type="password" id="password"/>
-                                <label htmlFor="password">Palavra-Passe</label>
-                            </div>
-                            <div className="text-center mb-3">
-                                <Link  className="text-decoration-none text-black-50">
-                                    <ins>Esqueci-me da palavra-passe.</ins>
-                                </Link>
-                            </div>
-                            <div className="text-center pt-2">
-                                <button className="btn btnIn w-100"
-                                        type="submit">ENTRAR
-                                </button>
-                            </div>
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="input-field">
+                                    <input type="email" id="email" onChange={this.handleChange}/>
+                                    <label htmlFor="email">Endereço de E-mail</label>
+                                </div>
+                                <div className="input-field ">
+                                    <input type="password" id="password" onChange={this.handleChange}/>
+                                    <label htmlFor="password">Palavra-Passe</label>
+                                </div>
+                                <div className="text-center mb-3">
+                                    <Link to=''  className="text-decoration-none text-black-50">
+                                        <ins>Esqueci-me da palavra-passe.</ins>
+                                    </Link>
+                                </div>
+                                <div className="text-center pt-2">
+                                    <button className="btn btnIn w-100"
+                                            type="submit">ENTRAR
+                                    </button>
+                                </div>
+                            </form>
                             <div className="text-center mt-3">
-                            <span>Ainda não tens conta? <Link to="/registo"
-                                className="text-decoration-none text-dark font-weight-bold">
-                                <ins>A colmeia está à tua espera!</ins>
-                            </Link>
+                            <span>Ainda não tens conta? <Link to="/registo" className="text-decoration-none text-dark font-weight-bold"> <ins>A colmeia está à tua espera!</ins> </Link>
                                 </span>
                             </div>
                         </div>

@@ -9,34 +9,34 @@ class FormEditarPerfil_Formacao2 extends React.Component{
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            id="Faculdade"
+                            id={`Faculdade${this.props.index}`}
                             type="text"
                             className="validate"
                             name={ `document-${ this.props.index }-document` }
                         />
-                        <label htmlFor="Faculdade">Faculdade/Universidade</label>
+                        <label htmlFor={`Faculdade${this.props.index}`}>Faculdade/Universidade</label>
                         <span className="helper-text">Ex: Universidade de Aveiro</span>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            id="Curso"
+                            id={`Curso${this.props.index}`}
                             type="text"
                             className="validate"
                         />
-                        <label htmlFor="Curso">Curso</label>
+                        <label htmlFor={`Curso${this.props.index}`}>Curso</label>
                         <span className="helper-text">Ex: Novas Tecnologias da Comunicação</span>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
-                            id="Ano"
+                            id={`Ano${this.props.index}`}
                             type="text"
                             className="validate"
                         />
-                        <label htmlFor="Ano">Ano</label>
+                        <label htmlFor={`Ano${this.props.index}`}>Ano</label>
                         <span className="helper-text">Ex: Licenciatura, Mestrado, etc</span>
                     </div>
                 </div>

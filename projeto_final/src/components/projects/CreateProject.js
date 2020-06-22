@@ -11,19 +11,65 @@ class CreateProject extends React.Component {
             ficheirosEnviar: [],
             Step: 1
         };
+
     }
 
     //Mudança de campos
-    handleChange = (tipo, imagem, enviar) => {
+    handleChange = (tipo, ficheiro, enviar) => {
         if (tipo == "imagem"){
-            this.state.ficheirosEnviar.push(enviar);
-            this.state.ficheirosAmostra.push(imagem);
+            let arrayEnvio = [];
+            let arrayUpload = [];
+            arrayEnvio.push(tipo, ficheiro);
+            arrayUpload.push(tipo, enviar);
+            this.state.ficheirosEnviar.push(arrayUpload);
+            this.state.ficheirosAmostra.push(arrayEnvio);
             this.setState({
                 verificacaoFicheiros: true
-            })
+            });
+        } else if (tipo == "texto") {
+            let arrayEnvio = [];
+            let arrayUpload = [];
+            arrayEnvio.push(tipo, ficheiro);
+            //alterar o envio acima para só enviar a info
+            arrayUpload.push(tipo, ficheiro);
+            this.state.ficheirosEnviar.push(arrayUpload);
+            this.state.ficheirosAmostra.push(arrayEnvio);
+            this.setState({
+                verificacaoFicheiros: true
+            });
+        } else if (tipo == "link") {
+            let arrayEnvio = [];
+            let arrayUpload = [];
+            arrayEnvio.push(tipo, ficheiro);
+            //alterar o envio acima para só enviar a info
+            arrayUpload.push(tipo, ficheiro);
+            this.state.ficheirosEnviar.push(arrayUpload);
+            this.state.ficheirosAmostra.push(arrayEnvio);
+            this.setState({
+                verificacaoFicheiros: true
+            });
         }
         //console.log(this.state.ficheirosAmostra);
         //console.log(this.state.ficheirosEnviar);
+    };
+
+    handleApagar = valor => {
+        //console.log(valor);
+        this.state.ficheirosEnviar.splice(valor, 1);
+        this.state.ficheirosAmostra.splice(valor, 1);
+        if (this.state.ficheirosAmostra.length > 0 && this.state.ficheirosEnviar.length > 0) {
+            this.setState({
+                verificacaoFicheiros: true
+            });
+            //console.log(this.state.ficheirosAmostra);
+            //console.log("ohyeye");
+        } else {
+            this.setState({
+                verificacaoFicheiros: false
+            });
+            //console.log(this.state.ficheirosAmostra);
+            //console.log("ohnono");
+        }
     };
 
     // Próximo Step
@@ -52,6 +98,7 @@ class CreateProject extends React.Component {
                                 nextStep={this.nextStep}
                                 valores={valores}
                                 handleChange={this.handleChange}
+                                handleApagar={this.handleApagar}
                             />
                         </div>
                     </div>

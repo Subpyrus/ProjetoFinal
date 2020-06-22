@@ -13,7 +13,6 @@ class SignUp extends React.Component {
     }
 
     escolhaP = (tipo) => {
-        console.log(tipo);
         this.setState({escolha: tipo});
     };
 
@@ -33,8 +32,8 @@ class SignUp extends React.Component {
                             <form action="#" className="row text-center">
                                 <div className="col-6">
                                     <p>
-                                        <label className="escolha" for="option1">
-                                            <input class="with-gap" value="profissional" name="group1" type="radio"
+                                        <label className="escolha" htmlFor="option1">
+                                            <input className="with-gap" value="profissional" name="group1" type="radio"
                                                    id="option1" onClick={() => this.escolhaP("profissional")}/>
                                             <span className="escolha">Profissional</span>
                                         </label>
@@ -44,8 +43,8 @@ class SignUp extends React.Component {
                                 </div>
                                 <div className="col-6">
                                     <p className="pb-1">
-                                        <label for="option2">
-                                            <input class="with-gap" value="empresa" name="group1" type="radio"
+                                        <label htmlFor="option2">
+                                            <input className="with-gap" value="empresa" name="group1" type="radio"
                                                    id="option2" onClick={() => this.escolhaP("empresa")}/>
                                             <span className="escolha">Empresa</span>
                                         </label>

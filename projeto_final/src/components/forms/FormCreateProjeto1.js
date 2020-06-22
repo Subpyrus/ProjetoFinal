@@ -1,13 +1,26 @@
 import React from 'react';
-import '../../App';
+import '../../App.css';
+import FormCreateProjetoTextos from './FormCreateProjetoTextos';
+import Back from '../../Imgs/back.svg';
+import Text from '../../Imgs/text.svg';
+import Link from '../../Imgs/link.svg';
 
-const TamanhoMaximo = 100000000; //bytes
+const TamanhoMaximo = 20971520; //bytes
 const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
     return item.trim()
 });
 
 class FormCreateProjeto1 extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            campos: []
+        };
+        this.addTexto = this.addTexto.bind(this);
+        this.addLink = this.addLink.bind(this);
+    }
 
     verificarFicheiro = (file) => {
         if (file && file.size > TamanhoMaximo) {
@@ -26,7 +39,7 @@ class FormCreateProjeto1 extends React.Component{
     };
 
     escolhaImagem = event => {
-        console.log(event.target.files);
+        //console.log(event.target.files);
         /*this.setState({
             ficheiros: event.target.files[0]
         });*/
@@ -46,33 +59,106 @@ class FormCreateProjeto1 extends React.Component{
         }
     };
 
+    addTexto() {
+        //console.log("texto", FormCreateProjetoTextos);
+        this.props.handleChange("texto", FormCreateProjetoTextos);
+    }
+
+    addLink() {
+        //console.log("texto", FormCreateProjetoTextos);
+        this.props.handleChange("link", FormCreateProjetoTextos);
+    }
+
+    apagar = valor => {
+        this.props.handleApagar(valor);
+    };
+
     render() {
         const {valores} = this.props;
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
                 <div className="col-lg-3 mb-3 mb-lg-0">
-                    <span className="btn-flat but_Adicionar_arquivo text-center"
-                          onClick={() => this.adicionarImagem()}>Enviar arquivo</span>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                          onClick={() => this.adicionarImagem()}>Enviar arquivos</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                           onClick={this.addTexto}>Texto</span>
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                          onClick={this.addLink}>Link</span>
                 </div>
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
-                        valores.ficheirosAmostra && valores.ficheirosAmostra.map((imagens, index) => {
-                            return (
-                                <span>
-                                    <img src={imagens} style={{width: "100%"}}/>
-                                </span>
-                            )
+                        valores.ficheirosAmostra && valores.ficheirosAmostra.map((ficheiro, index) => {
+                            //console.log(ficheiro);
+                            if (ficheiro[0] == "imagem") {
+                                //console.log(index);
+                                //console.log(ficheiro);
+                                //console.log(valores.ficheirosAmostra);
+                                return (
+                                    <span>
+                                        <img src={ficheiro[1]} style={{width: "100%"}}/>
+                                        <button
+                                            className="btn btnIn mt-2 mb-2"
+                                            type="button"
+                                            id="BtnApagar"
+                                            onClick={() => this.apagar(index)}>
+                                            APAGAR
+                                        </button>
+                                    </span>
+                                );
+                            } else if (ficheiro[0] == "texto"){
+                                //console.log("aqui");
+                                const Campo = ficheiro[1];
+                                return(
+                                    <span>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]}/>
+                                        <button
+                                            className="btn btnIn mt-2 mb-2"
+                                            type="button"
+                                            id="BtnApagar"
+                                            onClick={() => this.apagar(index)}>
+                                            APAGAR
+                                        </button>
+                                    </span>
+                                )
+                            } else if (ficheiro[0] == "link"){
+                                //console.log("aqui");
+                                const Campo = ficheiro[1];
+                                return(
+                                    <span>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]}/>
+                                        <button
+                                            className="btn btnIn mt-2 mb-2"
+                                            type="button"
+                                            id="BtnApagar"
+                                            onClick={() => this.apagar(index)}>
+                                            APAGAR
+                                        </button>
+                                    </span>
+                                )
+                            }
                         })
                         :
                         <span>
                             <h1 className="titulo_NovoProjeto">NOVO PROJETO</h1>
                             <span className="titulo_SubtituloProjeto">Começa já a construir o teu projeto</span>
                             <div className="row justify-content-center mt-5">
-                                <span className="col-2">Enviar Projeto</span>
-                                <span className="col-2">Texto</span>
-                                <span className="col-2">Link</span>
+                                <span className="col-2 icones_botoes_NovoProjeto">
+                                    <img src={Back} style={{width: "40%", transform: "rotate(90deg)"}}/>
+                                    <span className="btn btn-flat botoes_NovoProjeto"
+                                          onClick={() => this.adicionarImagem()}>Enviar Projeto</span>
+                                </span>
+                                <span className="col-2 icones_botoes_NovoProjeto">
+                                    <img src={Text} style={{width: "40%"}}/>
+                                    <span className="btn btn-flat botoes_NovoProjeto"
+                                          onClick={this.addTexto}>Texto</span>
+                                </span>
+                                <span className="col-2 icones_botoes_NovoProjeto">
+                                    <img src={Link} style={{width: "40%"}}/>
+                                    <span className="btn btn-flat botoes_NovoProjeto"
+                                          onClick={this.addLink}>Link</span>
+                                </span>
                             </div>
                         </span>
                     }
