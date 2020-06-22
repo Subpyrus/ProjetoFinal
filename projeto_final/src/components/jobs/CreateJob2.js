@@ -16,7 +16,7 @@ class CreateJob2 extends React.Component {
         TipoTrabalho: '',
         NumeroCandidatos: '',
         AreaTrabalho:'',
-        DescricaoTrabalho: '',
+        Descricao: '',
         Localizacao: '',
         Requisitos: '',
         Beneficios: ''
@@ -40,8 +40,8 @@ class CreateJob2 extends React.Component {
     render() {
 
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, Localizacao, Requisitos, Beneficios} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, Localizacao, Requisitos, Beneficios};
+        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios};
 
         switch (Step) {
             case 1:

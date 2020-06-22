@@ -4,6 +4,8 @@ import '../../App.css'
 import {Link} from 'react-router-dom';
 import ListaEmpregos from '../jobs/JobList';
 import  { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux' 
 
 class Empregos extends React.Component{
     render () {
@@ -37,9 +39,15 @@ class Empregos extends React.Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        jobs: state.job.jobs
+        jobs: state.firestore.ordered.jobs
     }
 }
 
-export default connect(mapStateToProps)(Empregos)
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'jobs' }
+    ])
+)(Empregos)
