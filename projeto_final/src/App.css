@@ -128,6 +128,7 @@
     font-family: 'Barlow', sans-serif;
     position: relative;
     top: 41%;
+    text-transform: uppercase;
     transform: translateY(-41%);
     background-color: #ec9400;
     font-size: 20px;
@@ -135,22 +136,26 @@
     border-radius: 10px;
     color: white;
     padding: 15px 70px 15px 70px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out 0s;
+    letter-spacing: 0.5px;
 }
 .P_Ini_button_P{
     float: left;
     font-family: 'Barlow', sans-serif;
     background-color: #ec9400;
-    font-size: 20px;
+    font-size: 17px;
     border: none;
     border-radius: 10px;
     color: white;
     padding: 15px 70px 15px 70px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+    margin-top: 15px;
 }
 
 .Cartoon{
-    float: right;
-    margin: auto 4vw auto auto;
-    z-index: 1;
+
 }
 .Cartoon2{
     margin: auto auto auto 4vw;
@@ -170,110 +175,26 @@
 }
 
 .texto{
-    margin: auto auto auto 4vw;
-    z-index: 1;
+    margin: auto;
 }
+
 .texto2{
-    float: right;
-    margin: auto 4vw auto auto;
-    z-index: 1;
+    margin: auto;
 }
-.texto3{
-    display: inline-block;
-    margin: auto auto auto 4vw;
-    z-index: 1;
-}
-.texto4{
-    float: right;
-    margin: auto 4vw auto auto;
-    z-index: 1;
-}
+
 .Texto_P_Princ{
     font-size: 17px;
 }
 
 .conteudo1 {
-    align-content: center;
     background-color: white;
-    width: 100vw;
-    height: auto;
-    position: relative;
-    padding-top: 5vh;
-    z-index: 1;
-}
-
-.conteudo1:after {
-    position: absolute;
-    width: 100vw;
-    min-height: 60vh;
-    content: '';
-    background: inherit;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transform-origin: top left;
-    transform: skewY(4deg);
-    z-index: -1;
+    padding: 30px 0 30px 0;
 }
 
 .conteudo2 {
-    align-content: center;
     background-color: #f2f2f2;
-    width: 100vw;
-    height: auto;
-    position: relative;
-    padding-top: 20vh;
+    padding: 30px 0 30px 0;
 }
-
-.conteudo2:after {
-    position: absolute;
-    width: 100vw;
-    min-height: 70vh;
-    content: '';
-    background: inherit;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transform-origin: top right;
-    transform: skewY(-4deg);
-}
-
-.conteudo3 {
-    background-color: white;
-    width: 100vw;
-    height: auto;
-    position: relative;
-    z-index: -3;
-    padding-top: 15vh;
-}
-
-.conteudo3:after {
-    position: absolute;
-    width: 100vw;
-    height: 70vh;
-    content: '';
-    background: inherit;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transform-origin: top left;
-    transform: skewY(4deg);
-}
-
-.conteudo4 {
-    background-color: #f2f2f2;
-    width: 100vw;
-    height: auto;
-    position: relative;
-    z-index: -4;
-    padding-top: 10vh;
-    padding-bottom: 5vh;
-    margin-bottom: 0;
-}
-
 
 /* Página de vendas */
 
@@ -283,7 +204,11 @@
     transform: translateY(-50%);
     margin-left: 5vw;
 }
-
+.cenas{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .Body_Vendas {
     height: 80vh;
     width: 100vw;
@@ -1389,7 +1314,7 @@
 
 .body_CriarProjeto{
     background-color: #f2f2f2;
-    height: auto;
+    min-height: 69.6vh;
 }
 
 .but_Adicionar_arquivo{
@@ -1415,15 +1340,113 @@
     font-size: 25px;
 }
 
-.botoes_NovoProjeto{
-    font-family: "Barlow Semibold", sans-serif;
-}
-.botoes_NovoProjeto:hover{
-    background-color: white;
-}
 
-.icones_botoes_NovoProjeto{
+.explicacaoCriarProjeto{
+    border: black solid 1px;
+    border-radius: 10px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+}
+
+.barra_criar{
+    max-width: 100vw;
+    background-color: white;
+    font-size: x-large;
+    color: black;
+    min-height: 10vh;
+    -webkit-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
+    text-align: center;
+}
+
+.botoes_barra_criar:hover{
+    background-color: #ffffff;
+}
+
+/* Animações */
+    /* BOTÕES */
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+.P_Ini_button:hover {
+    background: #d56d00;
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(0, 0, 0, 0.92);
+    box-shadow: 0px 11px 20px -3px rgba(0, 0, 0, 0.92);
+    transition: all 0.4s ease-in-out;
+}
+
+.P_Ini_button:hover:before{opacity: 1; transform: translate(0,0);}
+.P_Ini_button:before{
+    content: attr(data-hover);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    left: 20%;
+    position: absolute;
+    text-align: center;
+    font-family: "Barlow SemiBold";
+    transition: all 0.4s ease-in-out;
+}
+
+.P_Ini_button:hover div {
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+.P_Ini_button div{
+    transition: all 0.4s ease-in-out;
+}
+.P_Ini_button_P:hover {
+    background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+}
+@media only screen and (max-width: 1024px) {
+
+}
+@media only screen and (max-width: 976px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 375px) {
+
 }

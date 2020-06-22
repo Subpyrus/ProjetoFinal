@@ -61,31 +61,51 @@ class FormCreateProjeto1 extends React.Component{
 
     addTexto() {
         //console.log("texto", FormCreateProjetoTextos);
-        this.props.handleChange("texto", FormCreateProjetoTextos);
+        this.props.handleChange("texto1", FormCreateProjetoTextos);
     }
 
     addLink() {
         //console.log("texto", FormCreateProjetoTextos);
-        this.props.handleChange("link", FormCreateProjetoTextos);
+        this.props.handleChange("link1", FormCreateProjetoTextos);
     }
 
-    apagar = valor => {
-        this.props.handleApagar(valor);
+    escrito = (input, numero) => e => {
+        //console.log(e.target.value);
+        //console.log(numero);
+        this.props.handleChange("texto2", e.target.value, numero)
+    };
+
+    escritoLink = (input, numero) => e => {
+        //console.log(e.target.value);
+        //console.log(numero);
+        this.props.handleChange("link2", e.target.value, numero)
+    };
+
+    apagar = (tipo, valor) => {
+        console.log(tipo);
+        console.log(valor);
+        this.props.handleApagar(tipo, valor);
     };
 
     render() {
         const {valores} = this.props;
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
-                <div className="col-lg-3 mb-3 mb-lg-0">
-                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                <div className="col-lg-3 mb-3">
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
                           onClick={() => this.adicionarImagem()}>Enviar arquivos</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
-                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
                            onClick={this.addTexto}>Texto</span>
-                    <span className="btn-flat but_Adicionar_arquivo text-center mb-lg-3"
+                    <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
                           onClick={this.addLink}>Link</span>
+                    <div className="explicacaoCriarProjeto">
+                        <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir no teu Projeto.</span>
+                        <span className="mb-2"><b>1. Enviar arquivos</b>: Permite submeter imagens, áudios e vídeos.</span>
+                        <span className="mb-2"><b>2. Texto</b>: Permite que escrevas o que pretenderes. Este não pode ser formatado.</span>
+                        <span><b>3. Links</b>: Permite partilhar um link. Por exemplo, se tiveres um vídeo no Youtube ou no Vimeo podes colocar o link aqui diretamente em vez de enviares um arquivo.</span>
+                    </div>
                 </div>
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
@@ -93,7 +113,7 @@ class FormCreateProjeto1 extends React.Component{
                             //console.log(ficheiro);
                             if (ficheiro[0] == "imagem") {
                                 //console.log(index);
-                                //console.log(ficheiro);
+                                //console.log(ficheiro[0]);
                                 //console.log(valores.ficheirosAmostra);
                                 return (
                                     <span>
@@ -102,7 +122,7 @@ class FormCreateProjeto1 extends React.Component{
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(index)}>
+                                            onClick={() => this.apagar(ficheiro[0], index)}>
                                             APAGAR
                                         </button>
                                     </span>
@@ -112,12 +132,12 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>
                                         <button
-                                            className="btn btnIn mt-2 mb-2"
+                                            className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(index)}>
+                                            onClick={() => this.apagar(ficheiro[0], index)}>
                                             APAGAR
                                         </button>
                                     </span>
@@ -127,12 +147,12 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(index)}>
+                                            onClick={() => this.apagar(ficheiro[0], index)}>
                                             APAGAR
                                         </button>
                                     </span>
@@ -147,7 +167,7 @@ class FormCreateProjeto1 extends React.Component{
                                 <span className="col-2 icones_botoes_NovoProjeto">
                                     <img src={Back} style={{width: "40%", transform: "rotate(90deg)"}}/>
                                     <span className="btn btn-flat botoes_NovoProjeto"
-                                          onClick={() => this.adicionarImagem()}>Enviar Projeto</span>
+                                          onClick={() => this.adicionarImagem()}>Enviar Arquivos</span>
                                 </span>
                                 <span className="col-2 icones_botoes_NovoProjeto">
                                     <img src={Text} style={{width: "40%"}}/>
