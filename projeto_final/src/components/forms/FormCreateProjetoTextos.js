@@ -10,11 +10,13 @@ class FormCreateProjetoTextos extends React.Component {
                 <div className="row">
                     <div className="input-field col s12">
                         <input
+                            key={this.props.escreve[1]}
                             id={`Texto${this.props.index}`}
                             type="text"
                             className="validate"
                             name={`document-${this.props.index }-document`}
                             onChange={this.props.escreve[0](`Texto${this.props.index}`, this.props.escreve[1])}
+                            defaultValue={this.props.escreve[0]}
                         />
                         <label htmlFor={`Texto${this.props.index}`}>Texto</label>
                     </div>

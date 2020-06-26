@@ -7,7 +7,7 @@ class FormCreateProjeto4 extends React.Component{
         const {valores} = this.props;
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
-                <div className="col-lg-12 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
+                <div className="col-lg-11 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     <div className="text-left">
                         <h4>Informações Gerais do Projeto</h4>
                         <span>Estas informações vão servir para que seja mais fácil encontrarem o teu Projeto. Podes a qualquer momento editá-las.</span>
@@ -33,7 +33,7 @@ class FormCreateProjeto4 extends React.Component{
                                 onChange={this.props.handleChange('areaTrabalhoProjeto')}
                                 defaultValue={valores.areaTrabalhoProjeto}
                             />
-                            <label htmlFor="Nome" className={valores.areaTrabalhoProjeto != "" ? "active" : ""}>Àreas de trabalho</label>
+                            <label htmlFor="areaTrabalhoProjeto" className={valores.areaTrabalhoProjeto != "" ? "active" : ""}>Àreas de trabalho</label>
                         </div>
                     </div>
                     <div className="row">
@@ -45,7 +45,7 @@ class FormCreateProjeto4 extends React.Component{
                                 onChange={this.props.handleChange('ferramentasUsadas')}
                                 defaultValue={valores.ferramentasUsadas}
                             />
-                            <label htmlFor="Nome" className={valores.ferramentasUsadas != "" ? "active" : ""}>Ferramentas Usadas</label>
+                            <label htmlFor="ferramentasUsadas" className={valores.ferramentasUsadas != "" ? "active" : ""}>Ferramentas Usadas</label>
                         </div>
                     </div>
                     <div className="input-field col s12">
@@ -69,6 +69,18 @@ class FormCreateProjeto4 extends React.Component{
                             defaultValue={valores.descricaoProjeto}
                         />
                             <label htmlFor="descricaoProjeto" className={valores.descricaoProjeto != "" ? "active" : ""}>Descrição do Projeto</label>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input
+                                id="EmpresasProjeto"
+                                type="text"
+                                className="validate"
+                                onChange={this.props.handleChange('EmpresasProjeto')}
+                                defaultValue={valores.EmpresasProjeto}
+                            />
+                            <label htmlFor="EmpresasProjeto" className={valores.EmpresasProjeto != "" ? "active" : ""}>Empresas, marcas, etc</label>
                         </div>
                     </div>
                 </div>

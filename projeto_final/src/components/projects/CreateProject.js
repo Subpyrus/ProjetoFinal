@@ -9,7 +9,7 @@ class CreateProject extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Step: 4,
+            Step: 1,
             verificacaoFicheiros: false,
             ficheirosAmostra: [],
             ficheirosEnviar: [],
@@ -19,6 +19,7 @@ class CreateProject extends React.Component {
             verificacaoFicheirosCapa: false,
             ficheirosAmostraCapa: [],
             ficheirosEnviarCapa: [],
+            imgCortadaMostrar: "",
             nomeProjeto: "",
             areaTrabalhoProjeto: "",
             ferramentasUsadas: "",
@@ -31,7 +32,7 @@ class CreateProject extends React.Component {
 
     //Mudança de campos
     handleChange = (tipo, ficheiro, enviar) => {
-        if (tipo == "imagem") {
+        if (tipo == "imagem" || tipo == "video" || tipo == "audio") {
             let arrayEnvio = [];
             let arrayUpload = [];
             arrayEnvio.push(tipo, ficheiro);
@@ -81,13 +82,13 @@ class CreateProject extends React.Component {
                 });
             }
         }
-        //console.log(this.state.ficheirosAmostra);
-        //console.log(this.state.ficheirosEnviar);
+        console.log(this.state.ficheirosAmostra);
+        console.log(this.state.ficheirosEnviar);
     };
 
     handleApagar = (tipo, valor) => {
-        console.log(valor);
-        if (tipo == "imagem") {
+        //console.log(valor);
+        if (tipo == "imagem" || tipo == "video" || tipo == "audio") {
             this.state.ficheirosEnviar.splice(valor, 1);
             this.state.ficheirosAmostra.splice(valor, 1);
             if (this.state.ficheirosAmostra.length > 0) {
@@ -111,7 +112,8 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheiros: true
                 });
-                //console.log(this.state.ficheirosAmostra);
+                console.log(this.state.ficheirosAmostra);
+                console.log(this.state.ficheirosEnviar);
                 //console.log("ohyeye");
             } else {
                 this.setState({
@@ -160,7 +162,7 @@ class CreateProject extends React.Component {
     };
 
     handleApagarFases = (tipo, valor) => {
-        console.log(valor);
+        //console.log(valor);
         if (tipo == "imagem") {
             this.state.ficheirosEnviarFases.splice(valor, 1);
             this.state.ficheirosAmostraFases.splice(valor, 1);
@@ -201,34 +203,53 @@ class CreateProject extends React.Component {
     handleChangeCapa = (tipo, ficheiro, enviar) => {
         if (tipo == "imagem") {
             let arrayEnvio = [];
-            let arrayUpload = [];
             arrayEnvio.push(tipo, ficheiro);
-            arrayUpload.push(tipo, enviar);
-            this.state.ficheirosEnviarCapa.push(arrayUpload);
             this.state.ficheirosAmostraCapa.push(arrayEnvio);
             this.setState({
                 verificacaoFicheirosCapa: true
             });
+        } else {
+            if (this.state.ficheirosEnviarCapa.length == 0) {
+                //console.log("ola");
+                let arrayUpload = [];
+                arrayUpload.push("imagem", ficheiro);
+                this.state.ficheirosEnviarCapa.push(arrayUpload);
+                this.setState({
+                    verificacaoFicheirosCapa: true
+                });
+            } else if (this.state.ficheirosEnviarCapa.length > 0) {
+                let arrayUpload = [];
+                arrayUpload.push("imagem", ficheiro);
+                this.state.ficheirosEnviarCapa.splice(enviar, 1, arrayUpload);
+                this.setState({
+                    verificacaoFicheirosCapa: true
+                });
+            }
         }
         //console.log(this.state.ficheirosAmostraCapa);
         //console.log(this.state.ficheirosEnviarCapa);
     };
 
-    //Campos Finais
-    handleChangeFinal = input => e => {
-        this.setState({[input]: e.target.value});
-        console.log(this.state);
+    guardaCorte = (imagem) => {
+        this.setState({imgCortadaMostrar: imagem});
     };
 
     handleApagarCapa = (tipo, valor) => {
-        console.log(valor);
+        //console.log(valor);
         this.state.ficheirosEnviarCapa.splice(valor, 1);
         this.state.ficheirosAmostraCapa.splice(valor, 1);
         this.setState({
-            verificacaoFicheirosCapa: false
+            verificacaoFicheirosCapa: false,
+            imgCortadaMostrar: ""
         });
         //console.log(this.state.ficheirosAmostraCapa);
         //console.log("ohnono");
+    };
+
+    //Campos Finais
+    handleChangeFinal = input => e => {
+        this.setState({[input]: e.target.value});
+        //console.log(this.state);
     };
 
     // Próximo Step
@@ -246,8 +267,8 @@ class CreateProject extends React.Component {
     };
 
     render() {
-        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto} = this.state;
-        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto};
+        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar} = this.state;
+        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar};
         switch (this.state.Step) {
             case 1:
                 return (
@@ -346,9 +367,15 @@ class CreateProject extends React.Component {
                                 <span className="mr-3" style={{fontFamily: "'Barlow Semibold', sans-serif"}}>
                                     >
                                 </span>
-                                <span className="btn btn-flat botoes_barra_criar mr-3" style={{textAlign: "center", verticalAlign: "middle"}}  onClick={this.nextStep}>
+                                {this.state.ficheirosEnviarCapa.length > 0 ?
+                                <span className="btn btn-flat botoes_barra_criar mr-3" style={{textAlign: "center", verticalAlign: "middle"}} onClick={this.nextStep}>
                                     <span style={{fontFamily: "'Barlow Semibold', sans-serif", fontSize: "x-large", textTransform: "capitalize" , lineHeight: "80%"}}>4. Publicar</span>
                                 </span>
+                                    :
+                                    <span className="btn btn-flat botoes_barra_criar mr-3" style={{textAlign: "center", verticalAlign: "middle"}}>
+                                        <span style={{fontFamily: "'Barlow Semibold', sans-serif", fontSize: "x-large", textTransform: "capitalize" , lineHeight: "80%"}}>4. Publicar</span>
+                                    </span>
+                                }
                             </div>
                         </div>
                         <div className="body_CriarProjeto">
@@ -356,6 +383,7 @@ class CreateProject extends React.Component {
                                 valores={valores}
                                 handleChange={this.handleChangeCapa}
                                 handleApagar={this.handleApagarCapa}
+                                guardarCorte={this.guardaCorte}
                             />
                         </div>
                     </div>

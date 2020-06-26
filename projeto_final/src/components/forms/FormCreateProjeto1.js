@@ -6,7 +6,7 @@ import Text from '../../Imgs/text.svg';
 import Link from '../../Imgs/link.svg';
 
 const TamanhoMaximo = 20971520; //bytes
-const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
+const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg, audio/mpeg, video/mp4';
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
     return item.trim()
 });
@@ -27,7 +27,7 @@ class FormCreateProjeto1 extends React.Component{
             alert("Este ficheiro não é permitido. " + file.size + " bytes é demasiado grande.");
             return false
         } else if (!arrayTiposAceites.includes(file.type)) {
-            alert("Este ficheiro não é permitido. Por favor seleciona uma imagem.");
+            alert("Este ficheiro não é permitido. Por favor seleciona uma imagem, vídeo formato mp4 ou àudio mp3.");
             return false
         } else {
             return true
@@ -45,16 +45,33 @@ class FormCreateProjeto1 extends React.Component{
         });*/
         //imageBase64Data
         let currentFile = event.target.files[0];
+        console.log(currentFile.type);
         const verificar = this.verificarFicheiro(currentFile);
         if (verificar) {
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                //console.log(reader.result);
-                this.props.handleChange("imagem", reader.result, currentFile);
-            }, false);
+            if (currentFile.type == "image/x-png" || currentFile.type == "image/png" || currentFile.type == "image/jpg" || currentFile.type == "image/jpeg") {
+                const reader = new FileReader();
+                reader.addEventListener("load", () => {
+                    //console.log(reader.result);
+                    this.props.handleChange("imagem", reader.result, currentFile);
+                }, false);
+                reader.readAsDataURL(currentFile);
+            } else if (currentFile.type == "video/mp4") {
+                const reader = new FileReader();
+                reader.addEventListener("load", () => {
+                    console.log(reader.result);
+                    this.props.handleChange("video", reader.result, currentFile);
+                }, false);
+                reader.readAsDataURL(currentFile);
+            } else if (currentFile.type == "audio/mpeg"){
+                const reader = new FileReader();
+                reader.addEventListener("load", () => {
+                    console.log(reader.result);
+                    this.props.handleChange("audio", reader.result, currentFile);
+                }, false);
+                reader.readAsDataURL(currentFile);
+            }
 
             //console.log(this.props.verificacaoFicheiros);
-            reader.readAsDataURL(currentFile);
             //console.log(this.state.ficheirosEnviar);
         }
     };
@@ -132,6 +149,7 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
+                                        {console.log(<Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>)}
                                         <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
@@ -147,7 +165,7 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index, ficheiro[1]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
@@ -157,6 +175,36 @@ class FormCreateProjeto1 extends React.Component{
                                         </button>
                                     </span>
                                 )
+                            } else if (ficheiro[0] == "video"){
+                                return (
+                                    <span>
+                                        <video width={"100%"} controls>
+                                            <source src={ficheiro[1]} style={{width: "100%"}} type={"video/mp4"}/>
+                                        </video>
+                                        <button
+                                            className="btn btnIn mt-2 mb-2"
+                                            type="button"
+                                            id="BtnApagar"
+                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            APAGAR
+                                        </button>
+                                    </span>
+                                );
+                            } else if (ficheiro[0] == "audio"){
+                                return (
+                                    <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                                        <audio width={"100%"} controls>
+                                            <source src={ficheiro[1]} style={{width: "100%"}} type={"audio/mpeg"}/>
+                                        </audio>
+                                        <button
+                                            className="btn btnIn mt-2 mb-2"
+                                            type="button"
+                                            id="BtnApagar"
+                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            APAGAR
+                                        </button>
+                                    </span>
+                                );
                             }
                         })
                         :
