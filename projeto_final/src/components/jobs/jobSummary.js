@@ -19,6 +19,11 @@ const JobSummary = ({job}) => {
             <span className="col-2 Emprego_List_Info_Princ_Final">
                 <span className="Info_Emprego_List pr-4"></span>
             </span>
+            <div className="go-corner">
+                <div className="go-arrow">
+                    →
+                </div>
+            </div>
         </div>
     </Link>
     )

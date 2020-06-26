@@ -24,6 +24,11 @@ class ListaFreelance extends React.Component {
                         <span className="col-2 Emprego_List_Info_Princ_Final">
                         <span className="Info_Emprego_List pr-4">3 de Março</span>
                     </span>
+                        <div className="go-corner">
+                            <div className="go-arrow">
+                                →
+                            </div>
+                        </div>
                     </div>
                 </Link>
 
@@ -42,6 +47,11 @@ class ListaFreelance extends React.Component {
                         <span className="col-2 Emprego_List_Info_Princ_Final">
                         <span className="Info_Emprego_List pr-4">3 de Março</span>
                     </span>
+                        <div className="go-corner">
+                            <div className="go-arrow">
+                                →
+                            </div>
+                        </div>
                     </div>
                 </Link>
 
@@ -60,6 +70,11 @@ class ListaFreelance extends React.Component {
                         <span className="col-2 Emprego_List_Info_Princ_Final">
                         <span className="Info_Emprego_List pr-4">3 de Março</span>
                     </span>
+                        <div className="go-corner">
+                            <div className="go-arrow">
+                                →
+                            </div>
+                        </div>
                     </div>
                 </Link>
             </div>
