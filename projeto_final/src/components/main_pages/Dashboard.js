@@ -6,10 +6,12 @@ import C_Freelance from '../../Imgs/C_Freelance.png';
 import C_Criadores from '../../Imgs/C_Criadores.png';
 import Logo from '../../Imgs/logo.png';
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 class Pag_Principal extends React.Component {
     render() {
+        //console.log(this.props)
         return (
             <div className="pagP container-fluid m-0 p-0">
                 <div className="inicial row m-0 justify-content-center">
@@ -84,4 +86,10 @@ class Pag_Principal extends React.Component {
     }
 }
 
-export default Pag_Principal;
+const mapStateToProps = (state) => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps)(Pag_Principal);

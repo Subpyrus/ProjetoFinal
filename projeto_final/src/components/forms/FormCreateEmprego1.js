@@ -83,10 +83,10 @@ class FormCreateEmprego1 extends React.Component{
                         <textarea
                             id="Descricao"
                             className="materialize-textarea"
-                            onChange={handleChange('DescricaoTrabalho')}
-                            defaultValue={valores.DescricaoTrabalho}
+                            onChange={handleChange('Descricao')}
+                            defaultValue={valores.Descricao}
                         />
-                        <label htmlFor="Descricao" className={valores.DescricaoTrabalho != "" ? "active" : ""}>Descrição do Trabalho</label>
+                        <label htmlFor="Descricao" className={valores.Descricao != "" ? "active" : ""}>Descrição do Trabalho</label>
                     </div>
                 </div>
                 <div className="row">
