@@ -52,9 +52,9 @@ class Perfil extends React.Component {
                     <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-sm-5 pb-lg-0">
                         <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-sm-5 mx-sm-auto">
                             <div className="col-sm-12 col-lg-4">
-                                <span className="m-auto Perfil_Info_Inicial_Esq">
+                                <span className="ml-auto Perfil_Info_Inicial_Esq">
                                     <img src={perfil} className="Foto_Perfil"/>
-                                    <button className="Perfil_But_Seguir mt-4" disabled>Seguir</button>
+                                    <button className="Perfil_But_Seguir mt-5 text-uppercase" disabled>Seguir</button>
                                     <span className="mt-3">
                                         <img src={localizacao} className="Icone_Localizacao" height="20px"
                                              width="20px"/><span className="Perfil_Localizacao">Aveiro, Aveiro</span>
@@ -72,7 +72,7 @@ class Perfil extends React.Component {
                                 </span>
                             </div>
                             <div className="col-sm-12 col-lg-7">
-                                <span className="Perfil_Info_Inicial_Dir">
+                                <span className="ml-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
                                     <h1 className="Perfil_Info_Nome">Sou a Beatriz Pais</h1>
                                     <h3 className="Perfil_Info_Trabalho">Front-End Developer</h3>
@@ -88,8 +88,9 @@ class Perfil extends React.Component {
                                         <span className="Perfil_Website">website</span>
                                     </span>
                                     <span>
-                                        <button className="Perfil_But_Seguir mt-4 mr-4" disabled>Transferir CV</button>
-                                        <button className="Perfil_But_Seguir mt-4" disabled>Mensagem</button>
+                                        <a href="">
+                                            <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
+                                        </a>
                                     </span>
                                 </span>
                             </div>
@@ -113,37 +114,37 @@ class Perfil extends React.Component {
                     <div className="Perfil_Testemunhos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Testemunhos row col-10 my-5 mx-auto">
                             <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
-                            <div className="col-sm-12 col-lg-3">
-                                <div className="Testemunhos_Esquerda mb-5">
+                            <div className="col-lg-12 col-xl-3 justify-content-center">
+                                <div className="Testemunhos_Esquerda d-flex flex-xl-column flex-md-row mb-3">
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4"
+                                        <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 1 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(1)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4"
+                                        <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 2 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(2)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4"
+                                        <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 3 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(3)}>
                                         </div>
                                     </span>
                                     <span>
-                                        <div className="btn m-0 p-0 mb-4"
+                                        <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 4 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(4)}>
                                         </div>
                                     </span>
                                 </div>
                             </div>
-                            <div className="col-sm-12 col-lg-9 mb-5">
-                                <div className="Testemunhos_Direita justify-content-center m-auto row">
-                                    <span className="col-sm-1 col-lg-1 my-auto">
+                            <div className="col-lg-12 col-xl-9 mb-5">
+                                <div className="Testemunhos_Direita pt-5 pb-5 justify-content-center m-auto row">
+                                    <span className="col-sm-1 col-lg-1 mr-2 my-auto">
                                         <i className="fa fa-quote-right fa-3x icones_perfil"/>
                                     </span>
                                     <span className="col-sm-6 col-lg-8 my-auto Texto_Testemunho">
@@ -163,11 +164,11 @@ class Perfil extends React.Component {
                     <div className="Perfil_Formacao mb-0 col-12">
                         <div className="col-10 row Perfil_Info_Formacao mx-auto justify-content-center my-4">
                             <span className="col-12">
-                                <h1 className="Titulo_Formacao mb-4">FORMAÇÃO</h1>
+                                <h1 className="Titulo_Formacao_3 mb-4">FORMAÇÃO</h1>
                             </span>
                             <span className="row col-12 pl-0 mb-5">
                                 <div className="col-sm-12 col-lg-6">
-                                <div className="Formacao_Parte_2 justify-content-center m-auto row">
+                                <div className="Formacao_Parte_2 mb-sm-5 mr-5 pb-2 justify-content-center row">
                                     <span className="Ano_Formacao ml-5 mr-5 mt-2">
                                         2018
                                     </span>
@@ -185,8 +186,8 @@ class Perfil extends React.Component {
                                     </span>
                                 </div>
                             </div>
-                                <div className="col-sm-12 col-lg-6 mt-lg-0 mt-sm-4">
-                                <div className="Formacao_Parte_2 justify-content-center m-auto row">
+                                <div className="col-sm-12 pl-0 col-lg-6 mt-lg-0 mt-sm-5">
+                                <div className="Formacao_Parte_2 pb-2 justify-content-center m-auto row">
                                     <span className="Ano_Formacao ml-5 mr-5 mt-2">
                                         2016
                                     </span>
