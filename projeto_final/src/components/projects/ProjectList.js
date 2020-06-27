@@ -5,6 +5,7 @@ import Imagem4 from '../../Imgs/T2.jpg'
 import Imagem5 from '../../Imgs/T3.jpg'
 import Imagem6 from '../../Imgs/T4.jpg'
 import Imagem7 from '../../Imgs/T5.png'
+import Adicionar from '../../Imgs/Adicionar.png'
 import $ from 'jquery';
 import {Link} from "react-router-dom";
 
@@ -26,6 +27,21 @@ class ListaProjetos extends React.Component {
             <div>
                 <div className="container-fluid justify-content-center mt-5">
                     <div className="row col-12 m-0">
+                        <div className="col-12 col-md-6 col-lg-3">
+                            <div className="card">
+                                <div className="card-image">
+                                    <Link to="/projetos/criar">
+                                        <img className="img-fluid" src={Adicionar}/>
+                                    </Link>
+                                </div>
+                                <div className="card-content text-center ">
+                                    <div>
+                                        <span className="card-title Adicionar_Projeto">
+                                            Adicionar Projeto</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="col-12 col-md-6 col-lg-3">
                             <div className="card">
                                 <div className="card-image">

@@ -78,7 +78,8 @@ class Perfil extends React.Component {
                                     <h3 className="Perfil_Info_Trabalho">Front-End Developer</h3>
                                     <span className="Perfil_Info_Texto mb-2">
                                         Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
-                                        Atualmente trabalho como front-end developer, mas tenho um enorme pelo Design Digital, UX e Design de Comunicação.
+                                        Atualmente trabalho como front-end developer, mas tenho um enorme pelo
+                                        Design Digital, UX e Design de Comunicação.
                                     </span>
                                     <span className="Perfil_Info_Areas mb-4">Design Gráfico, CSS, Javascript</span>
                                     <span>

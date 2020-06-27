@@ -778,14 +778,9 @@
 }
 
 .Adicionar_Projeto{
-    height: 200px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: none;
-    border: 0!important;
-    background-color: #ec9400;
-    border-radius: 5px;
+    text-transform: uppercase;
+    font-family: 'Barlow ExtraBold', sans-serif !important;
+    color: #d34f00 !important;
 }
 
 .Alinhamento_Titulo{
