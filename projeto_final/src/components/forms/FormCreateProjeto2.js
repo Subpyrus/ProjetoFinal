@@ -80,7 +80,7 @@ class FormCreateProjeto2 extends React.Component {
             <div className="row col-12 justify-content-center m-0 pt-5">
                 <div className="col-lg-3 mb-3">
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
-                          onClick={() => this.adicionarImagem()}>Enviar arquivos</span>
+                          onClick={() => this.adicionarImagem()}>Enviar Imagens</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
@@ -116,7 +116,7 @@ class FormCreateProjeto2 extends React.Component {
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index, valores.ficheirosEnviarFases[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
@@ -136,7 +136,7 @@ class FormCreateProjeto2 extends React.Component {
                                 <span className="col-2 icones_botoes_NovoProjeto">
                                     <img src={Back} style={{width: "40%", transform: "rotate(90deg)"}}/>
                                     <span className="btn btn-flat botoes_NovoProjeto"
-                                          onClick={() => this.adicionarImagem()}>Enviar Arquivos</span>
+                                          onClick={() => this.adicionarImagem()}>Enviar Imagens</span>
                                 </span>
                                 <span className="col-2 icones_botoes_NovoProjeto">
                                     <img src={Text} style={{width: "40%"}}/>

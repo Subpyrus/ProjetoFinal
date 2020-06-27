@@ -187,7 +187,7 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
-                //console.log(this.state.ficheirosAmostraFases);
+                console.log(this.state.ficheirosAmostraFases);
                 //console.log("ohyeye");
             } else {
                 this.setState({
@@ -267,8 +267,8 @@ class CreateProject extends React.Component {
     };
 
     render() {
-        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar} = this.state;
-        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar};
+        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases} = this.state;
+        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases};
         switch (this.state.Step) {
             case 1:
                 return (
@@ -281,9 +281,15 @@ class CreateProject extends React.Component {
                                 <span className="mr-3" style={{fontFamily: "'Barlow Semibold', sans-serif"}}>
                                     >
                                 </span>
+                                {this.state.ficheirosAmostra.length > 0 && this.state.ficheirosEnviar.length > 0 ?
                                 <span className="btn btn-flat botoes_barra_criar mr-3" style={{textAlign: "center", verticalAlign: "middle"}} onClick={this.nextStep}>
                                     <span style={{fontFamily: "'Barlow Semibold', sans-serif", fontSize: "x-large", textTransform: "capitalize", lineHeight: "80%"}}>2. Desenvolvimento</span>
                                 </span>
+                                    :
+                                    <span className="btn btn-flat botoes_barra_criar mr-3" style={{textAlign: "center", verticalAlign: "middle"}} onClick={() => alert("Tens que preencher a estrutura do teu projeto com algo!")}>
+                                    <span style={{fontFamily: "'Barlow Semibold', sans-serif", fontSize: "x-large", textTransform: "capitalize", lineHeight: "80%"}}>2. Desenvolvimento</span>
+                                </span>
+                                }
                                 <span className="mr-3" style={{fontFamily: "'Barlow Semibold', sans-serif"}}>
                                     >
                                 </span>

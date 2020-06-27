@@ -15,8 +15,8 @@ class FormCreateProjetoTextos extends React.Component {
                             type="text"
                             className="validate"
                             name={`document-${this.props.index }-document`}
+                            value={this.props.escreve[2][1]}
                             onChange={this.props.escreve[0](`Texto${this.props.index}`, this.props.escreve[1])}
-                            defaultValue={this.props.escreve[0]}
                         />
                         <label htmlFor={`Texto${this.props.index}`}>Texto</label>
                     </div>
@@ -31,6 +31,7 @@ class FormCreateProjetoTextos extends React.Component {
                             type="text"
                             className="validate"
                             name={`document-${ this.props.index }-document`}
+                            value={this.props.escreve[2][1]}
                             onChange={this.props.escreve[0](`Texto${this.props.index}`, this.props.escreve[1])}
                         />
                         <label htmlFor={`Link${this.props.index}`}>Link</label>

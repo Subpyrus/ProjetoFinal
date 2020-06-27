@@ -149,8 +149,7 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        {console.log(<Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>)}
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index, valores.ficheirosEnviar[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
@@ -165,7 +164,7 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro[1];
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index, ficheiro[1]]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index, valores.ficheirosEnviar[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
