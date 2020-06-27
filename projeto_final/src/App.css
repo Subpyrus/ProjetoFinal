@@ -262,6 +262,95 @@
 
 
 /* Projetos */
+.card .card-image{
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.card .card-image img{
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.card .card-image:hover img{
+    -webkit-transform: scale(1.2) rotate(-7deg);
+    -moz-transform: scale(1.2) rotate(-7deg);
+    -ms-transform: scale(1.2) rotate(-7deg);
+    -o-transform: scale(1.2) rotate(-7deg);
+    transform: scale(1.2) rotate(-7deg);
+}
+.card{
+    font-family: 'Barlow Medium', sans-serif;
+    border:none;
+    margin-top: 10px;
+    position: relative;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .card-content {
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+.card .card-content .card-title, .card-reveal .card-title{
+    display: inline;
+    font-size: 20px;
+    font-weight: 200;
+}
+.nums {
+    font-family: "Barlow Medium";
+}
+.card-title {
+    color: black;
+    font-family: "Barlow Semibold", sans-serif;
+}
+.card .card-reveal{
+    padding: 20px;
+    position: absolute;
+    background-color: #FFF;
+    width: 100%;
+    left:0;
+    bottom:0;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    top: 0;
+}
+
+.card .card-reveal .card-title{
+    color: rgba(0, 0, 0, 0.71);
+    margin:10px;
+    font-size:2.2rem;
+    font-family: "Barlow Semibold", sans-serif;
+}
+
+.card .card-reveal p{
+    color: rgba(0, 0, 0, 0.71);
+    margin:10px;
+    font-size:1.2rem;
+}
+.btn-custom {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    font-size:18px;
+}
+.btn-custom:hover {
+    background-color: transparent;
+    box-shadow: none;
+}
+.fa-ellipsis-v:hover {
+    color: #F27405;
+}
 .Proj_Body{
     width: 100vw;
     min-height: 79.6vh;
@@ -282,9 +371,10 @@
 
 .Proj_Info3{
     font-size: 13px;
-    margin-top: 0;
+    margin-top: 3px;
     margin-bottom: 5px;
     padding-top: 0;
+    color: black;
 }
 
 .card_Projetos{
@@ -344,11 +434,7 @@
 }
 
 .Proj_Det_Titulo{
-    display: flex;
-}
-
-.Proj_Det_Titulo1{
-    font-family: 'Barlow Bold', sans-serif!important;
+    font-family: 'Barlow ExtraBold',  sans-serif!important;
 }
 
 .Proj_Det_Subtitulo{
@@ -356,10 +442,7 @@
 }
 
 .Proj_Det_Subtitulo_Parte2{
-    position: relative;
-    float: right;
     margin-left: auto;
-    text-align: end;
 }
 
 .Areas_Trabalho_Proj_Det{
@@ -381,6 +464,10 @@
     font-size: 87px;
     margin-top: -17px;
     padding: 0;
+    color: black;
+}
+.like:hover {
+    cursor: pointer;
 }
 
 .Proj_Det_Texto{

@@ -29,7 +29,7 @@ class ProjectDetails extends React.Component {
 
     handleShowC = () => {
         this.setState({setShowC: !this.state.setShowC});
-        if (this.state.setShowC === true){
+        if (this.state.setShowC === true) {
             this.setState({src_Img: Coracao2});
             console.log(this.state.src_Img);
         } else {
@@ -42,28 +42,30 @@ class ProjectDetails extends React.Component {
         return (
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
                 <div className="Proj_Det_Conteudo col-10 pl-5 pr-5">
-                    <div className="Proj_Det_Titulo">
-                        <h2 className="pr-4 Proj_Det_Titulo1">Website 2018</h2>
-                        <h2 className="Proj_Det_Titulo1">Beatriz Pais</h2>
-                    </div>
-
-                    <div className="Proj_Det_Subtitulo mt-3 mb-4">
-                        <section className="Proj_Det_Subtitulo_Parte1">
-                            <span className="Areas_Trabalho_Proj_Det mr-4">UI/UI & Web Design</span>
-                            <span className="Areas_Trabalho_Proj_Det mr-4">Programação</span>
-                            <span className="Areas_Trabalho_Proj_Det">Design Gráfico</span>
-                        </section>
-                        <section className="Proj_Det_Subtitulo_Parte2">
-                            <span>15 de Julho, 2018</span>
-                            <br/>
-                            <span>
-                                <i className="fa fa-eye mr-1"/><span className="mr-3">533</span>
-                                <i className="fa fa-heart mr-1"/><span className="mr-3">42</span>
-                                <i className="fa fa-comment mr-1"/><span>1</span>
+                    <div className="row col-12">
+                        <div className="d-flex flex-column col-md-12 col-lg-9">
+                            <h2 className="Proj_Det_Titulo">Website 2018 - Beatriz Pais</h2>
+                            <div className="Proj_Det_Subtitulo d-none d-md-block mt-md-1 mt-lg-4 mb-4">
+                                <section className="Proj_Det_Subtitulo_Parte1 mt-3">
+                                    <span className="Areas_Trabalho_Proj_Det mr-4">UI/UI & Web Design</span>
+                                    <span className="Areas_Trabalho_Proj_Det mr-4">Programação</span>
+                                    <span className="Areas_Trabalho_Proj_Det">Design Gráfico</span>
+                                </section>
+                            </div>
+                        </div>
+                        <div className="align-items-lg-end d-flex flex-column col-md-12 col-lg-3">
+                            <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2">Fases do Projeto</button>
+                            <div className="Proj_Det_Subtitulo_Parte2 align-items-lg-end
+                             d-flex flex-lg-column flex-md-row mt-4">
+                                <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
+                                <span className="mt-1">
+                                <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">533</span>
+                                <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">42</span>
+                                <i className="fa fa-comment-o fa-lg mr-1"/><span>1</span>
                             </span>
-                        </section>
+                            </div>
+                        </div>
                     </div>
-
                     <hr className="hr"/>
 
                     <div className="Proj_Det_Main mt-4 mb-4">
@@ -87,8 +89,8 @@ class ProjectDetails extends React.Component {
                     <hr className="hr"/>
 
                     <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
-                        <img src={this.state.src_Img} width="75px" height="75px" onClick={this.handleShowC}/>
-                        <h1 className="Proj_Det_Nr_Likes">42</h1>
+                        <img className="like" src={this.state.src_Img} width="75px" height="75px" onClick={this.handleShowC}/>
+                        <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
                     </div>
 
                     <hr className="hr"/>
@@ -103,7 +105,8 @@ class ProjectDetails extends React.Component {
                         <div className="col-7 offset-1 Proj_Det_Info1">
                             <h4 className="mb-3 Proj_Det_Info_Texto">
                                 Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
-                                Atualmente trabalho como front-end developer, mas tenho um enorme pelo Design Digital, UX e Design de Comunicação.
+                                Atualmente trabalho como front-end developer, mas tenho um enorme pelo Design
+                                Digital, UX e Design de Comunicação.
                             </h4>
                             <span className="Proj_Det_Info_Texto2">Design Gráfico, Css e JavaScript</span>
                             <span className="Proj_Det_Info_Texto2">Visita o <b>meu perfil</b> para veres no que é que trabalho mais.</span>

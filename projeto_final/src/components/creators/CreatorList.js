@@ -10,7 +10,7 @@ class CreatorList extends React.Component {
         return (
             <div className="container-fluid justify-content-center m-0 pt-5">
                 <div className="row col-12 m-0">
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 card_PT1 text-center">
                                 <div className="text-center">
@@ -35,7 +35,7 @@ class CreatorList extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 text-center">
                                 <div className="text-center">
@@ -52,7 +52,7 @@ class CreatorList extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 text-center">
                                 <div className="text-center">
@@ -69,7 +69,7 @@ class CreatorList extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 text-center">
                                 <div className="text-center">
@@ -86,9 +86,7 @@ class CreatorList extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="row col-12 m-0">
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 text-center">
                                 <div className="text-center">
@@ -105,7 +103,7 @@ class CreatorList extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-sm-4 col-lg-3 mb-3">
+                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
                         <div className="card card_Criadores">
                             <div className="card-body card_body2 text-center">
                                 <div className="text-center">
