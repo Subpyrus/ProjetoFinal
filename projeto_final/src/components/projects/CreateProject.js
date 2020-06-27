@@ -82,8 +82,8 @@ class CreateProject extends React.Component {
                 });
             }
         }
-        console.log(this.state.ficheirosAmostra);
-        console.log(this.state.ficheirosEnviar);
+        //console.log(this.state.ficheirosAmostra);
+        //console.log(this.state.ficheirosEnviar);
     };
 
     handleApagar = (tipo, valor) => {
@@ -112,8 +112,8 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheiros: true
                 });
-                console.log(this.state.ficheirosAmostra);
-                console.log(this.state.ficheirosEnviar);
+                //console.log(this.state.ficheirosAmostra);
+                //console.log(this.state.ficheirosEnviar);
                 //console.log("ohyeye");
             } else {
                 this.setState({
@@ -187,7 +187,7 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
-                console.log(this.state.ficheirosAmostraFases);
+                //console.log(this.state.ficheirosAmostraFases);
                 //console.log("ohyeye");
             } else {
                 this.setState({

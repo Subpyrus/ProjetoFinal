@@ -45,7 +45,7 @@ class FormCreateProjeto1 extends React.Component{
         });*/
         //imageBase64Data
         let currentFile = event.target.files[0];
-        console.log(currentFile.type);
+        //console.log(currentFile.type);
         const verificar = this.verificarFicheiro(currentFile);
         if (verificar) {
             if (currentFile.type == "image/x-png" || currentFile.type == "image/png" || currentFile.type == "image/jpg" || currentFile.type == "image/jpeg") {
@@ -58,14 +58,14 @@ class FormCreateProjeto1 extends React.Component{
             } else if (currentFile.type == "video/mp4") {
                 const reader = new FileReader();
                 reader.addEventListener("load", () => {
-                    console.log(reader.result);
+                    //console.log(reader.result);
                     this.props.handleChange("video", reader.result, currentFile);
                 }, false);
                 reader.readAsDataURL(currentFile);
             } else if (currentFile.type == "audio/mpeg"){
                 const reader = new FileReader();
                 reader.addEventListener("load", () => {
-                    console.log(reader.result);
+                    //console.log(reader.result);
                     this.props.handleChange("audio", reader.result, currentFile);
                 }, false);
                 reader.readAsDataURL(currentFile);
@@ -99,8 +99,8 @@ class FormCreateProjeto1 extends React.Component{
     };
 
     apagar = (tipo, valor) => {
-        console.log(tipo);
-        console.log(valor);
+        //console.log(tipo);
+        //console.log(valor);
         this.props.handleApagar(tipo, valor);
     };
 

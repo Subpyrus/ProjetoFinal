@@ -69,8 +69,8 @@ class FormCreateProjeto2 extends React.Component {
     };
 
     apagar = (tipo, valor) => {
-        console.log(tipo);
-        console.log(valor);
+        //console.log(tipo);
+        //console.log(valor);
         this.props.handleApagar(tipo, valor);
     };
 
