@@ -1190,7 +1190,6 @@
 }
 
 .Criar_Freelance_Inicial_2{
-    background-image: url("Imgs/imgfooter.jpg");
     background-size: 100% auto;
     height: 50vh;
     width: auto;
@@ -1213,6 +1212,7 @@
     font-family: 'Barlow Semibold', sans-serif;
     font-size: 17px;
     color: white;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.58);
 }
 
 .Criar_Freelance_Meio_2{
