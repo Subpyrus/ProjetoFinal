@@ -19,17 +19,17 @@ class CreateFreelance1 extends React.Component{
                         </div>
 
                         <div className="Criar_Freelance_Meio col-12 justify-content-center row mr-0 ml-0 pr-0 pl-0">
-                            <div className="col-2 Criar_Freelance_Meio_Itens">
+                            <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens">
                                 <span><img src={Notas}/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Escolhe a área de trabalho</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Depois de escolheres a área de trabalho, preenche os campos do nosso formulário de acordo com o que necessitas.</span>
                             </div>
-                            <div className="col-2 Criar_Freelance_Meio_Itens ml-5 mr-5">
+                            <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens ml-5 mr-5">
                                 <span><img src={Pesquisa}/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Recebe diferentes orçamentos</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Recebe diferentes orçamentos, compara-os e estuda bem cada perfil.</span>
                             </div>
-                            <div className="col-2 Criar_Freelance_Meio_Itens">
+                            <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens">
                                 <span><img src={Cumprimento}/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Contrata o teu profissional</span>
                                 <span className="Criar_Freelance_Meio_Texto2">No fim de tudo, contrata o melhor Profissional. Cria vinculos para crescerem juntos!</span>
@@ -37,13 +37,14 @@ class CreateFreelance1 extends React.Component{
                         </div>
 
                         <div className="Criar_Freelance_Final col-12 row justify-content-center mr-0 ml-0 pr-0 pl-0 mt-2">
-                            <div className="col-sm-12 col-lg-3">
+                            <div className="col-lg-3 d-none d-xl-block">
                                 <img src={Projetos} className="Criar_Freelance_Final_Imagem"/>
                             </div>
                             <div className="col-sm-12 col-lg-7 row Criar_Freelance_Final_Escolha">
-                                <span className="col-12 Criar_Freelance_Final_Escolha_Titulo">Escolha a área de atuação necessária</span>
+                                <span className="col-12 text-lg-center Criar_Freelance_Final_Escolha_Titulo">
+                                    Escolha a área de atuação necessária</span>
                                 <span className="col-12 fila_botoes">
-                                    <div className="col-4 pl-0">
+                                    <div className="col-lg-4 pl-0">
                                         <Link to={{
                                             pathname: "/freelance/criar/3DAnimacao",
                                             state: {
@@ -53,7 +54,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">3D e Animação</button>
                                         </Link>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-lg-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/ArtesPerformativas",
                                             state: {
@@ -63,7 +64,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Artes Performativas</button>
                                         </Link>
                                     </div>
-                                    <span className="col-4">
+                                    <span className="col-lg-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/ArtesPlasticas",
                                             state: {
@@ -75,7 +76,7 @@ class CreateFreelance1 extends React.Component{
                                     </span>
                                 </span>
                                 <span className="col-12 fila_botoes">
-                                    <div className="col-4 pl-0">
+                                    <div className="col-lg-4 pl-0">
                                         <Link to={{
                                             pathname: "/freelance/criar/CinemaVideo",
                                             state: {
