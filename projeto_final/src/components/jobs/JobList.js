@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import JobSummary from "./jobSummary";
+import { Link } from 'react-router-dom'
 
 const ListaEmpregos = ({ jobs }) =>  {
     
@@ -10,9 +11,9 @@ const ListaEmpregos = ({ jobs }) =>  {
             
             { jobs && jobs.map(job => {
                 return(
-                    <div>
+                    <Link to={'/empregos/detalhes/' + job.id}>
                         <JobSummary job={job} key={job.id}/>
-                    </div>
+                    </Link>
                 )               
             })}
         </div>

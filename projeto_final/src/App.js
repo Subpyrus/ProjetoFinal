@@ -45,7 +45,7 @@ function App() {
             <Route path="/registo/empresa" component={SignUpEmpresas}/>
             <Route exact path="/perfil" component={Perfil}/>
             <Route exact path="/empregos" component={Empregos}/>
-            <Route path="/empregos/detalhes" component={EmpregosDetalhes}/>
+            <Route path="/empregos/detalhes/:id" component={EmpregosDetalhes}/>
             <Route exact path="/freelance" component={Freelance}/>
             <Route path="/freelance/detalhes" component={FreelanceDetalhes}/>
             <Route exact path="/freelance/criar" component={CreateFreelance1}/>

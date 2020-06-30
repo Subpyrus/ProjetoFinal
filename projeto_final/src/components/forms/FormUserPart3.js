@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
+
 class FormUserPart3 extends React.Component {
     estilo = {
         textAlign: "center",
@@ -10,12 +11,11 @@ class FormUserPart3 extends React.Component {
         opacity: 1
     };
 
-    //POSSIVELMENTE AQUI PASSA A SER FINALIZAR E DEPOIS ENVIA AS COISAS E VAI PRA HOMEPAGE
     continuar = e => {
         e.preventDefault();
-        //ENVIAR A INFO PARA A FIREBASE
         this.props.nextStep();
     };
+
     voltar = e => {
         e.preventDefault();
         this.props.prevStep();
@@ -99,5 +99,6 @@ class FormUserPart3 extends React.Component {
         )
     }
 }
+
 
 export default FormUserPart3;

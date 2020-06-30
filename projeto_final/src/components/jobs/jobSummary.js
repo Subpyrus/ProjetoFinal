@@ -1,11 +1,9 @@
 import React from 'react'
 import Imagem from "../../Imgs/Logo_Ubi.jpg";
-import {Link} from "react-router-dom";
 
 const JobSummary = ({job}) => {
 
     return (
-    <Link to="/emprego/detalhes" style={{color:'inherit',textDecoration:'inherit'}}>
         <div className="Emprego_Listado row">
             <span className="col-3 mr-0 pr-0 Emprego_List_Info_Princ_Imagem">
                 <img src={Imagem} className="Empregos_List_Imagem"/>
@@ -25,7 +23,6 @@ const JobSummary = ({job}) => {
                 </div>
             </div>
         </div>
-    </Link>
     )
 }
 
