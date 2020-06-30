@@ -4,6 +4,9 @@ import sg from '../../Imgs/sg.png';
 import FormUserPart1 from '../forms/FormUserPart1';
 import FormUserPart2 from '../forms/FormUserPart2';
 import FormUserPart3 from '../forms/FormUserPart3';
+import {signUpUser} from "../../store/actions/authActions"
+import {connect} from "react-redux"
+import { Redirect } from 'react-router'
 
 class CreateCreator extends React.Component {
     state = {
@@ -32,8 +35,12 @@ class CreateCreator extends React.Component {
     //Mudança de campos
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-        console.log(this.state);
     };
+
+    handleSubmit = (e) => {
+        console.log(this.state)
+        this.props.signUpUser(this.state);
+    }
 
     render() {
         const { Step } = this.state;
@@ -103,8 +110,25 @@ class CreateCreator extends React.Component {
                         </div>
                     </div>
                 )
+            case 4:
+                {this.handleSubmit()}
+                return (
+                    <Redirect to="/" />
+                )
         }
     }
 }
 
-export default CreateCreator;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        signUpUser: (newUser) => dispatch(signUpUser(newUser))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreateCreator);
