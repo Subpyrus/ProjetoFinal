@@ -16,7 +16,7 @@ const SignedOutLinks = () => {
 
             <ul className="sidenav" id="mobile-demo">
                 <li><NavLink className="links" to='/projetos'>PROJETOS</NavLink></li>
-                <li><NavLink className="links" to='/'>CRIADORES</NavLink></li>
+                <li><NavLink className="links" to='/criadores'>CRIADORES</NavLink></li>
                 <li><NavLink className="links" to='/freelance'>FREELANCE</NavLink></li>
                 <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
                 <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
