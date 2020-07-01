@@ -5,7 +5,7 @@ import Back from '../../Imgs/back.svg';
 import Text from '../../Imgs/text.svg';
 import Link from '../../Imgs/link.svg';
 
-const TamanhoMaximo = 20971520; //bytes
+const TamanhoMaximo = 104857600; //bytes
 const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg, audio/mpeg, video/mp4';
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
     return item.trim()
