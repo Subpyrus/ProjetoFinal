@@ -38,7 +38,6 @@ class CreateCreator extends React.Component {
     };
 
     handleSubmit = (e) => {
-        console.log(this.state)
         this.props.signUpUser(this.state);
     }
 
@@ -46,6 +45,8 @@ class CreateCreator extends React.Component {
         const { Step } = this.state;
         const {PrimeiroNome, UltimoNome, DataNascimento, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password} = this.state;
         const valores = {PrimeiroNome, UltimoNome, DataNascimento, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password};
+
+        const {authError} = this.props;
 
         switch (Step) {
             case 1:
@@ -112,9 +113,15 @@ class CreateCreator extends React.Component {
                 )
             case 4:
                 {this.handleSubmit()}
-                return (
-                    <Redirect to="/" />
-                )
+                if(authError == null) {
+                    return (
+                        <Redirect to="/" />
+                    )
+                }else {
+                    return (
+                        <Redirect to="/" />
+                    )
+                }
         }
     }
 }
