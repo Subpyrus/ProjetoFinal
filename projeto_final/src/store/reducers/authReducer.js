@@ -1,5 +1,3 @@
-import { Redirect } from "react-router";
-
 const initState = {
     authError: null
 }
@@ -10,7 +8,7 @@ const authReducer = (state = initState, action) => {
         case 'LOGIN_ERROR':
             return {
                 ...state,
-                authError:'Login Falhado'
+                authError: 'Login Falhado'
             }
         case 'LOGIN_SUCCESS':
             return {
@@ -22,12 +20,13 @@ const authReducer = (state = initState, action) => {
         case 'SIGNUPUSER_SUCCESS':
             return {
                 ...state,
-                authError:null
+                authError: null
             }
         case 'SIGNUPUSER_ERROR':
+            console.log(action.err)
             return{
                 ...state,
-                authError:action.err.message
+                authError: action.err.message
             }
         default:
             return state;

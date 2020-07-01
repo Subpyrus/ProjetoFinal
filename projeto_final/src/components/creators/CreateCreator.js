@@ -6,7 +6,6 @@ import FormUserPart2 from '../forms/FormUserPart2';
 import FormUserPart3 from '../forms/FormUserPart3';
 import {signUpUser} from "../../store/actions/authActions"
 import {connect} from "react-redux"
-import { Redirect } from 'react-router'
 
 class CreateCreator extends React.Component {
     state = {
@@ -105,23 +104,13 @@ class CreateCreator extends React.Component {
                                     prevStep={this.prevStep}
                                     nextStep={this.nextStep}
                                     handleChange={this.handleChange}
+                                    handleSubmit={this.handleSubmit}
                                     valores={valores}
                                 />
                             </div>
                         </div>
                     </div>
-                )
-            case 4:
-                {this.handleSubmit()}
-                if(authError == null) {
-                    return (
-                        <Redirect to="/" />
-                    )
-                }else {
-                    return (
-                        <Redirect to="/" />
-                    )
-                }
+                );
         }
     }
 }

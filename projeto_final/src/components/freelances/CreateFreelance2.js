@@ -17,9 +17,6 @@ import Outros from "../../Imgs/PagI.jpg"
 
 
 class CreateFreelance2 extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         TipoAnuncio: this.props.location.state.valor,

@@ -20,17 +20,17 @@ class CreateFreelance1 extends React.Component{
 
                         <div className="Criar_Freelance_Meio col-12 justify-content-center row mr-0 ml-0 pr-0 pl-0">
                             <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens">
-                                <span><img src={Notas}/></span>
+                                <span><img src={Notas} alt=""/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Escolhe a área de trabalho</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Depois de escolheres a área de trabalho, preenche os campos do nosso formulário de acordo com o que necessitas.</span>
                             </div>
                             <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens ml-5 mr-5">
-                                <span><img src={Pesquisa}/></span>
+                                <span><img src={Pesquisa} alt=""/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Recebe diferentes orçamentos</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Recebe diferentes orçamentos, compara-os e estuda bem cada perfil.</span>
                             </div>
                             <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens">
-                                <span><img src={Cumprimento}/></span>
+                                <span><img src={Cumprimento} alt=""/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Contrata o teu profissional</span>
                                 <span className="Criar_Freelance_Meio_Texto2">No fim de tudo, contrata o melhor Profissional. Cria vinculos para crescerem juntos!</span>
                             </div>
@@ -38,7 +38,7 @@ class CreateFreelance1 extends React.Component{
 
                         <div className="Criar_Freelance_Final col-12 row justify-content-center mr-0 ml-0 pr-0 pl-0 mt-2">
                             <div className="col-lg-3 d-none d-xl-block">
-                                <img src={Projetos} className="Criar_Freelance_Final_Imagem"/>
+                                <img src={Projetos} alt="" className="Criar_Freelance_Final_Imagem"/>
                             </div>
                             <div className="col-sm-12 col-lg-7 row Criar_Freelance_Final_Escolha">
                                 <span className="col-12 text-lg-center Criar_Freelance_Final_Escolha_Titulo">

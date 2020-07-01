@@ -11,12 +11,11 @@ import { connect } from 'react-redux'
 
 class Pag_Principal extends React.Component {
     render() {
-        console.log(this.props)
         return (
             <div className="pagP container-fluid m-0 p-0">
                 <div className="inicial row m-0 justify-content-center">
                     <span className="col-4 logoimg text-sm-center">
-                        <img src={Logo} width="auto" height="300px" className="P_Ini_Logo pl-4"/>
+                        <img src={Logo} alt="" width="auto" height="300px" className="P_Ini_Logo pl-4"/>
                     </span>
                     <div className="col-6 col-xs-12 text-sm-center text-lg-left justify-content-sm-center justify-content-lg-start">
                         <span className="P_Ini_texto">Bem Vindos à Colmeia de Criadores Artísticos</span>
@@ -38,12 +37,12 @@ class Pag_Principal extends React.Component {
                             </Link>
                         </div>
                         <div className="text-center mr-4 col-md-5 d-none d-md-block">
-                            <img className="Cartoon" src={C_Projetos} width="290px" height="290px"/>
+                            <img className="Cartoon" alt="" src={C_Projetos} width="290px" height="290px"/>
                         </div>
                     </div>
                 <div className="conteudo2 row m-0">
                     <div className="text-center col-md-5 d-none d-md-block">
-                        <img className="Cartoon2" src={C_Criadores} width="290px" height="290px"/>
+                        <img className="Cartoon2" alt="" src={C_Criadores} width="290px" height="290px"/>
                     </div>
                     <div className="texto2 col-md-5 col-sm-12">
                         <h1 className="font-weight-bold">Criadores</h1>
@@ -64,12 +63,12 @@ class Pag_Principal extends React.Component {
                             </Link>
                         </div>
                         <div className="text-center mr-4 col-md-5 d-none d-md-block">
-                            <img className="Cartoon" src={C_Freelance} width="290px" height="290px"/>
+                            <img className="Cartoon" alt="" src={C_Freelance} width="290px" height="290px"/>
                         </div>
                     </div>
                 <div className="conteudo2 row m-0">
                     <div className="text-center ol-md-5 d-none d-md-block">
-                        <img className="Cartoon2" src={C_Empregos} width="290px" height="290px"/>
+                        <img className="Cartoon2" alt="" src={C_Empregos} width="290px" height="290px"/>
                     </div>
                     <div className="texto2 col-md-5 col-sm-12">
                         <h1 className="font-weight-bold">Emprego</h1>

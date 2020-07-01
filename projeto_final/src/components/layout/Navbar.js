@@ -7,10 +7,6 @@ import { connect } from 'react-redux'
 
 class NavB extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount(){
         const M = window.M;
         document.addEventListener('DOMContentLoaded', function() {

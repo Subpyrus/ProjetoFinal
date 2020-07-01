@@ -8,7 +8,7 @@ class Vendas extends React.Component {
             <div className="container-fluid Body_Vendas">
                 <div className="row m-0 cenas p-0 justify-content-center">
                     <div className="text-center col-md-6 d-none d-md-block">
-                        <img src={Img_Vendas} className="Img_Vendas m-0"  width="350px" height="350px"/>
+                        <img src={Img_Vendas} alt="" className="Img_Vendas m-0"  width="350px" height="350px"/>
                     </div>
                     <div className="col-md-6 col-sm-12 Texto_Vendas">
                         <h1 className="Titulo_Vendas">Bzzz!</h1>

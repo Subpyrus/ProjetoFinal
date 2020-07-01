@@ -10,7 +10,7 @@ const Footer = () => {
 				<a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/hinamic_/">
 					<i className="fa fa-instagram fa-lg"></i></a>
 				&emsp;
-                <img src={Icone} height="45" width="45"/>
+                <img src={Icone} alt="" height="45" width="45"/>
 			</div>
 			<div className="footer-left">
 				<p className="footer-links">2020 Hinamic &emsp;&emsp;&emsp;&emsp; <NavLink to="/sobre">Sobre Nós</NavLink></p>

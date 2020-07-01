@@ -12,7 +12,7 @@ class FormEditarPerfil_Geral extends React.Component {
                     <h3 className="Editar_Perfil_Titulo">Informações gerais</h3>
                 </span>
                 <div className="col-sm-12 col-md-3 mt-2" style={{textAlign: "center"}}>
-                    <img src={Imagem} style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
+                    <img src={Imagem} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
                     <span className="btn-flat mt-1" style={{fontFamily: "Barlow Semibold, sans-serif"}}>Mudar Foto de perfil</span>
                 </div>
                 <div className="col-sm-12 col-md-9 mb-4 mt-2" style={{borderLeft: "#ec9400 solid 1px"}}>
