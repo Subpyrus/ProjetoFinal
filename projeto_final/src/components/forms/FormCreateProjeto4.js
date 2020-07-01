@@ -83,6 +83,28 @@ class FormCreateProjeto4 extends React.Component{
                             <label htmlFor="EmpresasProjeto" className={valores.EmpresasProjeto != "" ? "active" : ""}>Empresas, marcas, etc</label>
                         </div>
                     </div>
+                    <div className="col s12">
+                        {valores.nomeProjeto == "" || valores.areaTrabalhoProjeto == "" || valores.ferramentasUsadas == "" || valores.descricaoProjeto == "" || valores.EmpresasProjeto == "" ?
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.continuar}
+                                disabled
+                            >
+                                Publicar
+                            </button>
+                            :
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.props.publicar}
+                            >
+                                Publicar
+                            </button>
+                        }
+                    </div>
                 </div>
             </div>
         );

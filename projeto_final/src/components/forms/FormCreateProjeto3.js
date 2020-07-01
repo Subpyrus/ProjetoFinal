@@ -5,6 +5,9 @@ import 'react-image-crop/dist/ReactCrop.css';
 
 const TamanhoMaximo = 20971520; //bytes
 const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
+const minHeight = 600;
+const minWidth = 800;
+var resultadoImg = false;
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
     return item.trim()
 });
@@ -15,13 +18,18 @@ class FormCreateProjeto3 extends React.Component{
         super(props);
         this.state = {
             crop: {
-                aspect: 1/1
+                x: 0,
+                y: 0,
+                width: 800,
+                height: 600
             },
-            imgSrcCriada: null
+            imgSrcCriada: null,
+            tamanhoCorreto: false
         }
     }
 
-    verificarFicheiro = (file) => {
+    verificarFicheiro = async (file) => {
+        //console.log(file);
         if (file && file.size > TamanhoMaximo) {
             alert("Este ficheiro não é permitido. " + file.size + " bytes é demasiado grande.");
             return false
@@ -32,6 +40,26 @@ class FormCreateProjeto3 extends React.Component{
             return true
         }
     };
+
+    /*verificaImagem(file) {
+        let reader = new FileReader();
+        return new Promise((resolve, reject) => {
+        reader.onload = function (e) {
+            let img = new Image();
+            img.src = e.target.result;
+            img.onload = function () {
+                let w = this.width;
+                let h = this.height;
+                if (w >= minWidth && h >= minHeight) {
+                    return resolve("Verdadeiro");
+                } else {
+                    return reject("Falso");
+                }
+            }
+        };
+        reader.readAsDataURL(file);
+        })
+    };*/
 
     adicionarImagem = () => {
         document.getElementById('AddImagem').click();
@@ -109,7 +137,6 @@ class FormCreateProjeto3 extends React.Component{
                 crop,
                 'newFile.jpeg'
             );
-            this.props.valores.CancelaGuardado = croppedImageUrl;
             let extensao = this.extractImageFileExtensionFromBase64(this.props.valores.ficheirosAmostraCapa[0][1]);
             this.setState({ croppedImageUrl, imgSrcCriada: extensao });
             this.props.guardarCorte(croppedImageUrl);
