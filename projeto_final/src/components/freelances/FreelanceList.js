@@ -16,8 +16,8 @@ class ListaFreelance extends React.Component {
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
                         <span className="row mb-0 pl-3">
-                            <span className="Area_Emprego mr-3">Design Gráfico</span>
-                            <span className="Area_Emprego mr-3">Edição de vídeo</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego">Ilustração</span>
                         </span>
                     </span>
@@ -39,8 +39,8 @@ class ListaFreelance extends React.Component {
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
                         <span className="row mb-0 pl-3">
-                            <span className="Area_Emprego mr-3">Design Gráfico</span>
-                            <span className="Area_Emprego mr-3">Edição de vídeo</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego">Ilustração</span>
                         </span>
                     </span>
@@ -62,8 +62,8 @@ class ListaFreelance extends React.Component {
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
                         <span className="row mb-0 pl-3">
-                            <span className="Area_Emprego mr-3">Design Gráfico</span>
-                            <span className="Area_Emprego mr-3">Edição de vídeo</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
+                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego">Ilustração</span>
                         </span>
                     </span>

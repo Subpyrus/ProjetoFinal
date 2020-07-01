@@ -12,7 +12,6 @@ class CreateFreelance1 extends React.Component{
             <div>
                 <div className="container-fluid Criar_Freelance pr-0 pl-0">
                     <div className="row col-12 mb-0 mr-0 ml-0 pr-0 pl-0 justify-content-center">
-
                         <div className="col-12 Criar_Freelance_Inicial mt-4 mb-4">
                             <h1 className="Criar_Freelance_Titulo">Criar Anúncio Freelance</h1>
                             <span className="Criar_Freelance_Texto">Como funciona o processo de contratação?</span>
@@ -41,10 +40,10 @@ class CreateFreelance1 extends React.Component{
                                 <img src={Projetos} alt="" className="Criar_Freelance_Final_Imagem"/>
                             </div>
                             <div className="col-sm-12 col-lg-7 row Criar_Freelance_Final_Escolha">
-                                <span className="col-12 text-lg-center Criar_Freelance_Final_Escolha_Titulo">
+                                <span className="col-12 text-center Criar_Freelance_Final_Escolha_Titulo">
                                     Escolha a área de atuação necessária</span>
-                                <span className="col-12 fila_botoes">
-                                    <div className="col-lg-4 pl-0">
+                                <span className="row m-0 p-0 col-12 fila_botoes mt-3">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/3DAnimacao",
                                             state: {
@@ -54,7 +53,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">3D e Animação</button>
                                         </Link>
                                     </div>
-                                    <div className="col-lg-4">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/ArtesPerformativas",
                                             state: {
@@ -64,7 +63,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Artes Performativas</button>
                                         </Link>
                                     </div>
-                                    <span className="col-lg-4">
+                                    <span className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/ArtesPlasticas",
                                             state: {
@@ -74,9 +73,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Artes Plásticas</button>
                                         </Link>
                                     </span>
-                                </span>
-                                <span className="col-12 fila_botoes">
-                                    <div className="col-lg-4 pl-0">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/CinemaVideo",
                                             state: {
@@ -86,7 +83,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Cinema e vídeo</button>
                                         </Link>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/DesenhoIlustracoes",
                                             state: {
@@ -96,7 +93,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Desenho e Ilustrações</button>
                                         </Link>
                                     </div>
-                                    <span className="col-4">
+                                    <span className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/DesignGrafico",
                                             state: {
@@ -106,9 +103,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Design Gráfico</button>
                                         </Link>
                                     </span>
-                                </span>
-                                <span className="col-12 fila_botoes">
-                                    <div className="col-4 pl-0">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/DesignProdutos",
                                             state: {
@@ -118,7 +113,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Design de Produtos</button>
                                         </Link>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/Fotografia",
                                             state: {
@@ -128,7 +123,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Fotografia</button>
                                         </Link>
                                     </div>
-                                    <span className="col-4">
+                                    <span className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/Musica",
                                             state: {
@@ -138,9 +133,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Música</button>
                                         </Link>
                                     </span>
-                                </span>
-                                <span className="col-12 fila_botoes">
-                                    <div className="col-4 pl-0">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/Pintura",
                                             state: {
@@ -150,7 +143,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Pintura</button>
                                         </Link>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/Programacao",
                                             state: {
@@ -160,7 +153,7 @@ class CreateFreelance1 extends React.Component{
                                             <button className="Escolha_Area mt-3 col-12">Programação</button>
                                         </Link>
                                     </div>
-                                    <span className="col-4">
+                                    <span className="col-6 col-md-4">
                                         <Link to={{
                                             pathname: "/freelance/criar/OutrosTrabalhos",
                                             state: {

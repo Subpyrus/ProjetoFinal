@@ -99,9 +99,19 @@
 .final {
     background-image: url("Imgs/imgfooter.jpg");
     background-size: 100% auto;
-    background-position: 0 -250px;
-    min-height: 90vh;
+    background-position: center;
+    min-height: 70vh;
     width: 100vw;
+    position: relative;
+}
+
+.conteudo_final{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
 }
 
 .P_Ini_Logo{
@@ -1029,6 +1039,8 @@
 }
 
 .Empregos_Criar_Conta{
+    height: auto;
+    width: 100%;
     background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Imgs/Bee_Empregos.jpeg");
     background-size: 100% auto;
     background-position: center;
@@ -1041,18 +1053,19 @@
 }
 
 .Empregos_Criar_Conta_Titulo{
-    margin-bottom: 8vh;
+    margin-bottom: 30%;
     font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 2vw;
 }
 
 .Empregos_Criar_Conta_Texto{
-    font-size: 18px;
+    font-size: 1vw;
 }
 
 .Emprego_But_Criar_Conta{
     font-family: 'Barlow', sans-serif;
     background-color: #ec9400;
-    font-size: 15px;
+    font-size: 1vw;
     border: none;
     border-radius: 5px;
     color: white;
@@ -1068,9 +1081,9 @@
     transition: all 0.4s ease-in-out;
 }
 .Empregos_List_Imagem{
-    height: 120px;
-    width: auto;
-    border-radius: 60px;
+    height: auto;
+    width: 75%;
+    border-radius: 50%;
 }
 
 /* Detalhes Emprego */
@@ -1159,8 +1172,8 @@
 }
 
 .Criar_Freelance_Final_Imagem{
-    max-height: 300px;
-    width: auto;
+    height: auto;
+    width: 85%;
     border-radius: 5px;
 }
 
@@ -1169,7 +1182,7 @@
     border-radius:10px;
     border:1px solid #000000;
     color:#000000;
-    font-size:17px;
+    font-size:15px;
     padding:5px 0;
     text-decoration:none;
     font-family: "Barlow Semibold", sans-serif;

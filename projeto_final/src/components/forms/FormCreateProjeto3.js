@@ -18,10 +18,7 @@ class FormCreateProjeto3 extends React.Component{
         super(props);
         this.state = {
             crop: {
-                x: 0,
-                y: 0,
-                width: 800,
-                height: 600
+                aspect: 4/3
             },
             imgSrcCriada: null,
             tamanhoCorreto: false
@@ -91,7 +88,7 @@ class FormCreateProjeto3 extends React.Component{
         //console.log(valor);
         this.props.handleApagar(tipo, valor);
         this.setState({crop: undefined});
-        this.setState({crop: {aspect: 1/1}});
+        this.setState({crop: {aspect: 4/3}});
         this.setState({croppedImageUrl: undefined});
         this.setState({imgSrcCriada: null});
     };
