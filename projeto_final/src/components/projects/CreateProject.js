@@ -4,28 +4,9 @@ import FormCreateProjeto1 from '../forms/FormCreateProjeto1';
 import FormCreateProjeto2 from '../forms/FormCreateProjeto2';
 import FormCreateProjeto3 from '../forms/FormCreateProjeto3';
 import FormCreateProjeto4 from '../forms/FormCreateProjeto4';
-import img1 from '../../Imgs/defaults/p1.png';
-import img2 from '../../Imgs/defaults/p2.png';
-import img3 from '../../Imgs/defaults/p3.png';
-import img4 from '../../Imgs/defaults/p4.png';
-import img5 from '../../Imgs/defaults/p5.png';
-import img6 from '../../Imgs/defaults/p6.png';
-import img7 from '../../Imgs/defaults/p7.png';
-import img8 from '../../Imgs/defaults/p8.png';
-import img9 from '../../Imgs/defaults/p9.png';
-import img10 from '../../Imgs/defaults/p10.png';
-import img11 from '../../Imgs/defaults/p11.png';
-import img12 from '../../Imgs/defaults/p12.png';
-import img13 from '../../Imgs/defaults/p13.png';
-import img14 from '../../Imgs/defaults/p14.png';
-import img15 from '../../Imgs/defaults/p15.png';
-import img16 from '../../Imgs/defaults/p16.png';
-import img17 from '../../Imgs/defaults/p17.png';
-import img18 from '../../Imgs/defaults/p18.png';
-import img19 from '../../Imgs/defaults/p19.png';
-import img20 from '../../Imgs/defaults/p20.png';
-
-const imagens = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20];
+import {createProject} from "../../store/actions/projectActions";
+import {connect} from 'react-redux';
+import {createJob} from "../../store/actions/jobActions";
 
 class CreateProject extends React.Component {
     constructor(props) {
@@ -47,8 +28,7 @@ class CreateProject extends React.Component {
             ferramentasUsadas: "",
             equipa: "",
             descricaoProjeto: "",
-            EmpresasProjeto: "",
-            imgPerfil: ""
+            EmpresasProjeto: ""
         };
 
     }
@@ -289,30 +269,9 @@ class CreateProject extends React.Component {
         this.setState({Step: valor});
     };
     Publicar = () => {
-        console.log(this.state.ficheirosEnviar, this.state.ficheirosEnviarFases, this.state.ficheirosEnviarCapa, this.state.nomeProjeto, this.state.areaTrabalhoProjeto, this.state.ferramentasUsadas, this.state.descricaoProjeto, this.state.EmpresasProjeto, this.state.imgPerfil);
-    };
-
-    componentDidMount() {
-        window.addEventListener('load', this.escolheImagemPerfil)
-    }
-
-    //Imagem de Perfil
-    escolheImagemPerfil = () => {
-        let valor = Math.floor(Math.random() * (20 + 1));
-        let imagem = imagens[valor];
-        console.log(imagem);
-        /*if(imagem){
-            return new Promise ((resolve, reject) => {
-                resolve(imagem.toDataURL('image/jpeg', 1.0));
-            })
-        }*/
-        /*if (imagem){
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                console.log(reader.result);
-            }, false);
-            reader.readAsDataURL(imagem);
-        }*/
+        let objeto = [{conteudo: this.state.ficheirosEnviar, fases: this.state.ficheirosEnviarFases, capa: this.state.ficheirosEnviarCapa, nomeProjeto: this.state.nomeProjeto, areaTrabalho: this.state.areaTrabalhoProjeto, ferramentas: this.state.ferramentasUsadas, descricaoProjeto: this.state.descricaoProjeto, empresasProjeto: this.state.EmpresasProjeto}];
+        //this.props.createProject(objeto);
+        console.log(objeto);
     };
 
     render() {
@@ -485,4 +444,10 @@ class CreateProject extends React.Component {
 
 }
 
-export default CreateProject
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (project) => dispatch(createJob(project))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateProject)
