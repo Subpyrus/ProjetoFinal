@@ -41,7 +41,12 @@ export const signUpUser = (newUser) => {
                 Ocupation:newUser.Ocupacao
             })
         }).then(() => {
-            dispatch({type: 'SIGNUPUSER_SUCCESS'})
+            firebase.auth().signInWithEmailAndPassword(
+                newUser.Email,
+                newUser.Password
+            ).then(() => {
+                dispatch({type: 'SIGNUPUSER_SUCCESS'})
+            })
         }).catch((err) => {
             dispatch({type: 'SIGNUPUSER_ERROR', err})
         })
