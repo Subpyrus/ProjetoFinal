@@ -13,12 +13,11 @@ class Pag_Principal extends React.Component {
     render() {
         return (
             <div className="pagP container-fluid m-0 p-0">
-                <div className="inicial row m-0 justify-content-center">
-                    <span className="col-lg-4 logoimg text-sm-center">
-                        <img src={Logo} alt="" width="auto" height="300px" className="P_Ini_Logo pl-4"/>
+                <div className="inicial row m-0 p-0 justify-content-center">
+                    <span className="col-4 text-center pt-3 pt-lg-0" style={{width: "100%"}}>
+                        <img src={Logo} alt="" className="P_Ini_Logo m-auto"/>
                     </span>
-                    <div
-                        className="col-lg-6 text-sm-center text-lg-left justify-content-sm-center justify-content-lg-start" style={{width: "100%"}}>
+                    <div className="col-lg-6 text-center text-lg-left justify-content-lg-start P_Ini_seg">
                         <span className="P_Ini_texto">Bem Vindos à Colmeia de Criadores Artísticos</span>
                         <Link to="/registo">
                             <button className="P_Ini_button" data-hover="Junta-te a Nós!">

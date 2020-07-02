@@ -92,8 +92,12 @@
     background-image: url("Imgs/pi.jpg");
     background-size: 100% auto;
     background-repeat: no-repeat;
-    min-height: 91vh;
-    width: 100vw;
+    height: auto;
+    width: auto;
+}
+
+.P_Ini_seg{
+    padding-bottom: 4vh;
 }
 
 .final {
@@ -117,6 +121,8 @@
 .P_Ini_Logo{
     position: relative;
     top: 50%;
+    width: 80%;
+    height: auto;
     transform: translateY(-50%);
     margin-left: 4vw;
 }
@@ -125,20 +131,16 @@
     float: left;
     font-family: 'Barlow', sans-serif;
     font-weight: bold;
-    position: relative;
-    top: 40%;
-    transform: translateY(-40%);
     color: white;
-    font-size: 50px;
+    font-size: 6vw;
     line-height: 120%;
 }
 .P_Ini_button{
-    float: left;
     font-family: 'Barlow', sans-serif;
     position: relative;
-    top: 41%;
+    top: 10%;
+    transform: translateY(-10%);
     text-transform: uppercase;
-    transform: translateY(-41%);
     background-color: #ec9400;
     font-size: 20px;
     border: none;
@@ -274,6 +276,7 @@
 /* Projetos */
 .card .card-image{
     overflow: hidden;
+    max-height: 200px;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
@@ -1005,7 +1008,7 @@
 .Emprego_List_Info_Princ{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: start;
 }
 
 .Emprego_List_Info_Princ_Final{
@@ -1605,8 +1608,37 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
-
 }
+
+@media only screen and (min-width: 976px) {
+    .P_Ini_texto{
+        float: left;
+        font-family: 'Barlow', sans-serif;
+        font-weight: bold;
+        color: white;
+        font-size: 50px;
+        line-height: 120%;
+        position: relative;
+        top: 40%;
+        transform: translateY(-40%);
+    }
+    .P_Ini_button{
+        position: relative;
+        top: 41%;
+        transform: translateY(-41%);
+    }
+    .P_Ini_Logo{
+        width: 60%;
+        height: auto;
+    }
+    .inicial{
+        height: 91vh;
+    }
+    .P_Ini_seg{
+        padding-bottom: 0;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
 
 }
@@ -1617,6 +1649,19 @@
 @media only screen and (max-width: 768px) {
 
 }
+@media only screen and (max-width: 575px) {
+    .Empregos_List_Imagem{
+        height: auto;
+        width: 50%;
+        border-radius: 50%;
+    }
+    .Emprego_List_Info_Princ{
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
 @media only screen and (max-width: 375px) {
-
 }
