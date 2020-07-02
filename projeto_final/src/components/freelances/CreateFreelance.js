@@ -23,7 +23,7 @@ class CreateFreelance1 extends React.Component{
                                 <span className="Criar_Freelance_Meio_Texto">Escolhe a área de trabalho</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Depois de escolheres a área de trabalho, preenche os campos do nosso formulário de acordo com o que necessitas.</span>
                             </div>
-                            <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens ml-5 mr-5">
+                            <div className="col-md-12 col-lg-2 pt-md-0 pt-lg-5 Criar_Freelance_Meio_Itens ml-lg-5 mr-lg-5">
                                 <span><img src={Pesquisa} alt=""/></span>
                                 <span className="Criar_Freelance_Meio_Texto">Recebe diferentes orçamentos</span>
                                 <span className="Criar_Freelance_Meio_Texto2">Recebe diferentes orçamentos, compara-os e estuda bem cada perfil.</span>
