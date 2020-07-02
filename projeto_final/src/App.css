@@ -121,9 +121,9 @@
 .P_Ini_Logo{
     position: relative;
     top: 50%;
+    transform: translateY(-50%);
     width: 80%;
     height: auto;
-    transform: translateY(-50%);
     margin-left: 4vw;
 }
 
@@ -790,6 +790,18 @@
     align-items: center;
 }
 
+.dropdownProjetos{
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+}
+.dropdownProjetos:hover{
+    background-color: white;
+    width: 100%;
+    text-align: center;
+}
+
 .Adicionar_Projeto{
     text-transform: uppercase;
     font-family: 'Barlow ExtraBold', sans-serif !important;
@@ -1357,9 +1369,9 @@
 }
 
 .Foto_Perfil_Empresa{
-    width: auto;
-    height: 300px;
-    border-radius: 150px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
     margin-top: -70px;
     -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
     -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
@@ -1369,6 +1381,14 @@
 .Ver_Candidatos_Perfil{
     position: absolute;
     bottom: 0;
+}
+.Titulo_Formacao_Empresa{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 45px;
+    color: #ec9400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .Area_Emprego2{
@@ -1387,7 +1407,6 @@
     border-radius: 5px;
     color: white;
     padding: 12px 50px;
-    float: right;
 }
 
 /* Criadores */
@@ -1608,6 +1627,9 @@
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+    .editar_perfil_Geral{
+        border-left: #ec9400 solid 1px;
+    }
 }
 
 @media only screen and (min-width: 976px) {
@@ -1643,7 +1665,15 @@
 
 }
 @media only screen and (max-width: 976px) {
-
+    .Foto_Perfil_Empresa{
+        width: 50%;
+        height: auto;
+        border-radius: 50%;
+        margin-top: -70px;
+        -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+        -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+        box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -1662,6 +1692,20 @@
         align-items: center;
         text-align: center;
     }
+    .Foto_Perfil{
+        width: 100%;
+        height: auto;
+    }
+    .Foto_Perfil_Empresa{
+        width: 70%;
+        height: auto;
+        border-radius: 50%;
+        margin-top: -70px;
+        -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+        -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+        box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    }
 }
 @media only screen and (max-width: 375px) {
+
 }

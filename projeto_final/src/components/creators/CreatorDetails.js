@@ -49,8 +49,8 @@ class Perfil extends React.Component {
         return (
             <div className="Perfil_Body">
                 <div className="row mb-0">
-                    <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-sm-5 pb-lg-0">
-                        <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-sm-5 mx-sm-auto">
+                    <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
+                        <div className="Perfil_Info_Inicial col-9 m-lg-auto row mt-5 mx-auto">
                             <div className="col-sm-12 col-lg-4">
                                 <span className="ml-auto Perfil_Info_Inicial_Esq">
                                     <img src={perfil} className="Foto_Perfil"/>
@@ -72,7 +72,7 @@ class Perfil extends React.Component {
                                 </span>
                             </div>
                             <div className="col-sm-12 col-lg-7">
-                                <span className="ml-5 Perfil_Info_Inicial_Dir">
+                                <span className="ml-lg-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
                                     <h1 className="Perfil_Info_Nome">Sou a Beatriz Pais</h1>
                                     <h3 className="Perfil_Info_Trabalho">Front-End Developer</h3>
@@ -167,45 +167,45 @@ class Perfil extends React.Component {
                             <span className="col-12">
                                 <h1 className="Titulo_Formacao_3 mb-4">FORMAÇÃO</h1>
                             </span>
-                            <span className="row col-12 pl-0 mb-5">
-                                <div className="col-sm-12 col-lg-6">
-                                <div className="Formacao_Parte_2 mb-sm-5 mr-5 pb-2 justify-content-center row">
-                                    <span className="Ano_Formacao ml-5 mr-5 mt-2">
-                                        2018
-                                    </span>
-                                    <span className="Tipo_Formacao1 ml-5 mr-5">
-                                        Mestrado
-                                    </span>
-                                    <span className="Tipo_Formacao2 ml-5 mr-5">
-                                        Design
-                                    </span>
-                                    <span className="Local_Formacao ml-5 mr-5">
-                                        Universidade de Aveiro
-                                    </span>
-                                    <span className="Formacao_Concluida ml-5 mr-5 mb-2">
-                                        CONCLUÍDO
-                                    </span>
+                            <span className="row col-12 pl-0 pr-0 mb-5">
+                                <div className="col-sm-12 col-lg-6 px-0">
+                                    <div className="Formacao_Parte_2 mr-lg-5 pb-2 justify-content-center m-auto row">
+                                        <span className="Ano_Formacao ml-5 mr-5 mt-2">
+                                            2018
+                                        </span>
+                                        <span className="Tipo_Formacao1 ml-5 mr-5">
+                                            Mestrado
+                                        </span>
+                                        <span className="Tipo_Formacao2 ml-5 mr-5">
+                                            Design
+                                        </span>
+                                        <span className="Local_Formacao ml-5 mr-5">
+                                            Universidade de Aveiro
+                                        </span>
+                                        <span className="Formacao_Concluida ml-5 mr-5 mb-2">
+                                            CONCLUÍDO
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                                <div className="col-sm-12 pl-0 col-lg-6 mt-lg-0 mt-sm-5">
-                                <div className="Formacao_Parte_2 pb-2 justify-content-center m-auto row">
-                                    <span className="Ano_Formacao ml-5 mr-5 mt-2">
-                                        2016
-                                    </span>
-                                    <span className="Tipo_Formacao1 ml-5 mr-5">
-                                        Mestrado
-                                    </span>
-                                    <span className="Tipo_Formacao2 ml-5 mr-5">
-                                        Novas Tecnologias da Comunicação
-                                    </span>
-                                    <span className="Local_Formacao ml-5 mr-5">
-                                        Universidade de Aveiro
-                                    </span>
-                                    <span className="Formacao_Concluida ml-5 mr-5 mb-2">
-                                        CONCLUÍDO
-                                    </span>
+                                <div className="col-sm-12 px-0 col-lg-6 mt-lg-0 mt-5">
+                                    <div className="Formacao_Parte_2 pb-2 justify-content-center m-auto row">
+                                        <span className="Ano_Formacao ml-5 mr-5 mt-2">
+                                            2016
+                                        </span>
+                                        <span className="Tipo_Formacao1 ml-5 mr-5">
+                                            Mestrado
+                                        </span>
+                                        <span className="Tipo_Formacao2 ml-5 mr-5">
+                                            Novas Tecnologias da Comunicação
+                                        </span>
+                                        <span className="Local_Formacao ml-5 mr-5">
+                                            Universidade de Aveiro
+                                        </span>
+                                        <span className="Formacao_Concluida ml-5 mr-5 mb-2">
+                                            CONCLUÍDO
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
                             </span>
                         </div>
                     </div>

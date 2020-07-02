@@ -15,9 +15,9 @@ class FormEditarPerfil_Geral extends React.Component {
                     <img src={Imagem} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
                     <span className="btn-flat mt-1" style={{fontFamily: "Barlow Semibold, sans-serif"}}>Mudar Foto de perfil</span>
                 </div>
-                <div className="col-sm-12 col-md-9 mb-4 mt-2" style={{borderLeft: "#ec9400 solid 1px"}}>
+                <div className="col-sm-12 col-md-9 mb-4 mt-2 editar_perfil_Geral">
                     <div className="row">
-                        <div className="input-field col s6">
+                        <div className="input-field col-12 col-md-6">
                             <input
                                 id="PrimeiroNome"
                                 type="text"
@@ -25,9 +25,9 @@ class FormEditarPerfil_Geral extends React.Component {
                                 onChange={handleChange('primeiroNome')}
                                 defaultValue={valores.primeiroNome}
                             />
-                            <label htmlFor="PrimeiroNome" className={valores.primeiroNome != "" ? "active" : ""}>Primeiro Nome</label>
+                            <label htmlFor="PrimeiroNome" className={valores.primeiroNome != "" ? "col-12 col-md-6 active" : "col-12 col-md-6"}>Primeiro Nome</label>
                         </div>
-                        <div className="input-field col s6">
+                        <div className="input-field col s12 m6">
                             <input
                                 id="UltimoNome"
                                 type="text"
@@ -51,7 +51,7 @@ class FormEditarPerfil_Geral extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="input-field col s6">
+                        <div className="input-field col-12 col-md-6">
                             <input
                                 id="Conselho"
                                 type="text"
@@ -59,9 +59,9 @@ class FormEditarPerfil_Geral extends React.Component {
                                 onChange={handleChange('conselho')}
                                 defaultValue={valores.conselho}
                             />
-                            <label htmlFor="Conselho" className={valores.conselho != "" ? "active" : ""}>Conselho</label>
+                            <label htmlFor="Conselho" className={valores.conselho != "" ? "col-12 col-md-6 active" : "col-12 col-md-6"}>Conselho</label>
                         </div>
-                        <div className="input-field col s6">
+                        <div className="input-field col-12 col-md-6">
                             <input
                                 id="Cidade"
                                 type="text"
@@ -69,7 +69,7 @@ class FormEditarPerfil_Geral extends React.Component {
                                 onChange={handleChange('localidade')}
                                 defaultValue={valores.localidade}
                             />
-                            <label htmlFor="Cidade" className={valores.localidade != "" ? "active" : ""}>Localidade/Cidade</label>
+                            <label htmlFor="Cidade" className={valores.localidade != "" ? "col-12 col-md-6 active" : "col-12 col-md-6"}>Localidade/Cidade</label>
                         </div>
                     </div>
                     <div className="row">

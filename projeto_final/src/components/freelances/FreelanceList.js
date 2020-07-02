@@ -11,11 +11,11 @@ class ListaFreelance extends React.Component {
             <div>
                 <Link to="/freelance/detalhes" style={this.estilo}>
                     <div className="Emprego_Listado row">
-                    <span className="col-10 pl-4 ml-0 pl-0 Emprego_List_Info_Princ">
+                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
                         <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-3 justify-content-xs-center justify-content-left">
+                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>
@@ -34,11 +34,11 @@ class ListaFreelance extends React.Component {
 
                 <Link to="/freelance/detalhes" style={this.estilo}>
                     <div className="Emprego_Listado row">
-                    <span className="col-10 pl-4 ml-0 pl-0 Emprego_List_Info_Princ">
+                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
                         <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-3">
+                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>
@@ -57,11 +57,11 @@ class ListaFreelance extends React.Component {
 
                 <Link to="/freelance/detalhes" style={this.estilo}>
                     <div className="Emprego_Listado row">
-                    <span className="col-10 pl-4 ml-0 pl-0 Emprego_List_Info_Princ">
+                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
                         <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
                         <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
                         <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-3">
+                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
                             <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
                             <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>

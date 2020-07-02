@@ -49,25 +49,41 @@ class ListProjectsPerfil extends React.Component {
             $(this).parent().slideToggle('slow'); //find the nearest parent and close it
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            const M = window.M;
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems);
+        });
+
     };
 
     render() {
         return (
             <div>
-                <span className="col-12 row justify-content-center">
-                    <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(1)}>
+                <span className="col-12 row justify-content-center hide-on-med-and-down">
+                    <span className="col-4 col-lg-3 Separador_Projetos" onClick={() => this.seccao_escolhida(1)}>
                         <span style={this.state.valorP == 1 ? this.opacidadeS : this.opacidadeN}/>
                         <span>Design Gráfico</span>
                     </span>
-                    <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(2)}>
+                    <span className="col-4 col-lg-3 Separador_Projetos" onClick={() => this.seccao_escolhida(2)}>
                         <span style={this.state.valorP == 2 ? this.opacidadeS : this.opacidadeN}/>
                         <span>Programação</span>
                     </span>
-                    <span className="col-2 Separador_Projetos" onClick={() => this.seccao_escolhida(3)}>
+                    <span className="col-4 col-lg-3 Separador_Projetos" onClick={() => this.seccao_escolhida(3)}>
                         <span style={this.state.valorP == 3 ? this.opacidadeS : this.opacidadeN}/>
                         <span>Vídeo e Fotografia</span>
                     </span>
                 </span>
+
+                <a className='dropdown-trigger btn btn-flat dropdownProjetos hide-on-large-only' href='#' data-target='dropdown1'>
+                    {this.state.valorP == 1 ? "Design Gráfico" : this.state.valorP == 2 ? "Programação" : "Vídeo e Fotografia"}
+                </a>
+                <ul id='dropdown1' className='dropdown-content'>
+                    <li onClick={() => this.seccao_escolhida(1)} className="valign-wrapper">Design Gráfico</li>
+                    <li onClick={() => this.seccao_escolhida(2)} className="valign-wrapper">Programação</li>
+                    <li onClick={() => this.seccao_escolhida(3)} className="valign-wrapper">Vídeo e Fotografia</li>
+                </ul>
+
                 <div className="row col-12 mt-4 mb-5">
                     <span className={this.state.valorP == 1 ? "row" : "Projetos_seccao1 row"}>
                         <div className="col-12 col-md-6 col-lg-3">

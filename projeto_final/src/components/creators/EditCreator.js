@@ -26,13 +26,15 @@ class EditarPerfil extends React.Component{
             website: "",
             instagram: "",
             linkedin: "",
-            facebook: ""
+            facebook: "",
+            formacao: [],
+            adicionaFormacao: false
         }
     }
 
     muda = (valor) => {
         this.setState({selecionado: valor});
-        console.log(this.state.selecionado);
+        //console.log(this.state.selecionado);
     };
 
     handleChange = input => e => {
@@ -40,17 +42,41 @@ class EditarPerfil extends React.Component{
         console.log(this.state);
     };
 
+    guardaCampo = () => {
+        let objetoGuadado = {faculdade: "", curso: "", ano: "", estado: "", anoConclusao: ""};
+        this.state.formacao.push(objetoGuadado);
+        this.setState({adicionaFormacao: true});
+        //console.log(this.state);
+    };
+
+    alteraFormacao = (index, input, escrito) => {
+        let clone = [...this.state.formacao];
+        clone[index][input] = escrito;
+        this.setState({formacao: clone});
+        console.log(this.state);
+    };
+
+    apagaFormacao = (index) => {
+        this.state.formacao.splice(index, 1);
+        if (this.state.formacao.length == 0) {
+            this.setState({adicionaFormacao: false});
+        } else {
+            this.setState({adicionaFormacao: true});
+        }
+        console.log(this.state);
+    };
+
     render() {
-        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook} = this.state;
+        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao} = this.state;
         const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre};
         const valores2 = {passwordAtual, passwordNova};
         const valores3 = {website, instagram, linkedin, facebook};
-
+        const valores4 = {formacao};
         return (
             <div className="container-fluid Editar_Perfil_Body">
                 <div className="row col-12 mb-0 justify-content-center">
-                    <span className="col-sm-12 col-xl-3">
-                        <div className="Escolha_Editar_Perfil mt-5  px-0">
+                    <span className="col-12 col-xl-3">
+                        <div className="Escolha_Editar_Perfil mt-5 px-0">
                             <span
                                 className="btn-flat pl-4 Item_Escolha_Editar_Perfil"
                                 onClick={() => this.muda(1)}
@@ -88,7 +114,12 @@ class EditarPerfil extends React.Component{
                             />
                             :
                             this.state.selecionado == 2 ?
-                                <FormEditarPerfil_Formacao/>
+                                <FormEditarPerfil_Formacao
+                                    valores={valores4}
+                                    guardaCampo={this.guardaCampo}
+                                    handleChange={this.alteraFormacao}
+                                    handleApagar={this.apagaFormacao}
+                                />
                                 :
                                 this.state.selecionado == 3 ?
                                     <FormEditarPerfil_Password
