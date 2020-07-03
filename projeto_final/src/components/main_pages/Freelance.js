@@ -3,16 +3,22 @@ import '../../App.css';
 import Filtros from '../layout/Filtros';
 import ListaFreelance from '../freelances/FreelanceList';
 import {Link} from "react-router-dom";
+import  { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux' 
 
 class Freelance extends React.Component {
     render() {
+
+        const { freelances } = this.props;
+
         return (
             <div>
                 <Filtros pagina="freelance"/>
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5">
-                            <ListaFreelance/>
+                            <ListaFreelance freelances={freelances}/>
                         </div>
                         <div className="col-sm-6 col-lg-3 mt-5 ml-4 mb-5 d-lg-block d-none">
                             <div className="Empregos_Criar_Conta px-3 py-4">
@@ -32,4 +38,15 @@ class Freelance extends React.Component {
     }
 }
 
-export default Freelance
+const mapStateToProps = (state) => {
+    return {
+        freelances: state.firestore.ordered.freelances
+    }
+}
+
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'freelances' }
+    ])
+)(Freelance)

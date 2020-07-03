@@ -1,85 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import FreelanceSummary from "./freelanceSummary";
 
-class ListaFreelance extends React.Component {
-    estilo = {
-        color: "inherit",
-        textDecoration: "inherit"
-    };
-    render() {
-        return (
-            <div>
-                <Link to="/freelance/detalhes" style={this.estilo}>
-                    <div className="Emprego_Listado row">
-                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
-                        <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
-                        <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
-                        <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
-                            <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>
-                        </span>
-                    </span>
-                    <span className="col-2 Emprego_List_Info_Princ_Final d-sm-block d-none">
-                        <span className="Info_Emprego_List pr-4">3 de Março</span>
-                    </span>
-                        <div className="go-corner">
-                            <div className="go-arrow">
-                                →
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/freelance/detalhes" style={this.estilo}>
-                    <div className="Emprego_Listado row">
-                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
-                        <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
-                        <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
-                        <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
-                            <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>
-                        </span>
-                    </span>
-                        <span className="col-2 Emprego_List_Info_Princ_Final d-sm-block d-none">
-                        <span className="Info_Emprego_List pr-4">3 de Março</span>
-                    </span>
-                        <div className="go-corner">
-                            <div className="go-arrow">
-                                →
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/freelance/detalhes" style={this.estilo}>
-                    <div className="Emprego_Listado row">
-                    <span className="col-12 col-sm-10 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
-                        <span className="mb-1 Titulo_Emprego_List">Edição de vídeo musical</span>
-                        <span className="mb-1 Info_Emprego_List">Orçamento: 400€</span>
-                        <span className="mb-3 Info_Emprego_List">Data de entrega: 30/04/2020</span>
-                        <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left">
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Design Gráfico</span>
-                            <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">Edição de vídeo</span>
-                            <span className="Area_Emprego mb-sm-0 mb-2">Ilustração</span>
-                        </span>
-                    </span>
-                        <span className="col-2 Emprego_List_Info_Princ_Final d-sm-block d-none">
-                        <span className="Info_Emprego_List pr-4">3 de Março</span>
-                    </span>
-                        <div className="go-corner">
-                            <div className="go-arrow">
-                                →
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-            </div>
-        )
-    }
+const ListaFreelance = ({ freelances }) =>  {
+    
+    return (
+        <div>
+            
+            { freelances && freelances.map(freelance => {
+                return(
+                    <Link to={'/freelance/detalhes/' + freelance.id}>
+                        <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                    </Link>
+                )               
+            })}
+        </div>
+    )
 }
+
+
 
 export default ListaFreelance

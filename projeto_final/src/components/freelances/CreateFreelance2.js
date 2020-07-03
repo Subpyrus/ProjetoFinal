@@ -43,7 +43,6 @@ class CreateFreelance2 extends React.Component {
     //Mudança de campos
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-        console.log(this.state);
     };
 
     render() {

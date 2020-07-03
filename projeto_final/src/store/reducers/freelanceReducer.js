@@ -1,9 +1,15 @@
 const initState = {}
 
-
-const freelanceReducer = (state = initState, action) => {
-    return state
+const jobReducer = (state = initState, action) => {
+    switch (action.type) {
+        case "CREATE_FREE":
+            return state;
+        case "CREATE_FREE_ERROR":
+            return state;
+        default :
+            return state;
+    }
 }
 
 
-export default freelanceReducer
+export default jobReducer

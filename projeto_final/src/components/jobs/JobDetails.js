@@ -10,7 +10,6 @@ const EmpregosDetalhes = (props) => {
     const login = "Off";
     const { job } = props;
     if (job) {
-        console.log(new Date(job.ListingTime.seconds*1000))
         const data = new Date(job.ListingTime.seconds*1000);
         return (
             <div>

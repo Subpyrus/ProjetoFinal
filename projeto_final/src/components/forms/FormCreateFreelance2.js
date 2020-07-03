@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../App.css';
+import {connect} from 'react-redux'
+import  { createFreelance } from '../../store/actions/freelanceActions'
 
 class FormCreateFreelance2 extends React.Component{
     estilo = {
@@ -12,7 +14,7 @@ class FormCreateFreelance2 extends React.Component{
 
     continuar = e => {
         e.preventDefault();
-        this.props.nextStep();
+        this.props.createFreelance(this.props.valores)
     };
 
     voltar = e => {
@@ -39,13 +41,6 @@ class FormCreateFreelance2 extends React.Component{
                 <div className="px-5 row Criar_Freelance_Meio_2_Info">
                     <span className="mb-1 Titulo_Emprego_List_3">Descrição do Projeto</span>
                     <span className="mb-1 Info_Emprego_List_2">{valores.DescricaoTrabalho}</span>
-                </div>
-
-                <hr className="line mx-4"/>
-
-                <div className="px-5 row Criar_Freelance_Meio_2_Info">
-                    <span className="mb-1 Titulo_Emprego_List_3">Descrição do Projeto</span>
-                    <span className="mb-1 Info_Emprego_List_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                 </div>
 
                 <div className="px-5 row justify-content-end of">
@@ -93,4 +88,10 @@ class FormCreateFreelance2 extends React.Component{
 
 }
 
-export default FormCreateFreelance2
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createFreelance: (freelance) => dispatch(createFreelance(freelance))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(FormCreateFreelance2)

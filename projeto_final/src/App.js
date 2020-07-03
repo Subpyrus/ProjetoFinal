@@ -47,7 +47,7 @@ function App() {
             <Route exact path="/empregos" component={Empregos}/>
             <Route path="/empregos/detalhes/:id" component={EmpregosDetalhes}/>
             <Route exact path="/freelance" component={Freelance}/>
-            <Route path="/freelance/detalhes" component={FreelanceDetalhes}/>
+            <Route path="/freelance/detalhes/:id" component={FreelanceDetalhes}/>
             <Route exact path="/freelance/criar" component={CreateFreelance1}/>
             <Route path="/freelance/criar/:id" component={CreateFreelance2}/>
             <Route path="/perfil/editar" component={EditarPerfil}/>
