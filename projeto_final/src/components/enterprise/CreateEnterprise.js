@@ -4,6 +4,8 @@ import sg from '../../Imgs/sg.png';
 import FormEnterprisePart1 from '../forms/FormEnterprisePart1';
 import FormEnterprisePart2 from '../forms/FormEnterprisePart2';
 import FormEnterprisePart3 from '../forms/FormEnterprisePart3';
+import {signUpEnterprise} from "../../store/actions/authActions"
+import {connect} from "react-redux"
 
 class CreateEnterprise extends React.Component {
     state = {
@@ -33,6 +35,10 @@ class CreateEnterprise extends React.Component {
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
     };
+
+    handleSubmit = (e) => {
+        this.props.signUpEnterprise(this.state);
+    }
 
     render() {
         const { Step } = this.state;
@@ -96,6 +102,7 @@ class CreateEnterprise extends React.Component {
                                     prevStep={this.prevStep}
                                     nextStep={this.nextStep}
                                     handleChange={this.handleChange}
+                                    handleSubmit={this.handleSubmit}
                                     valores={valores}
                                 />
                             </div>
@@ -106,4 +113,17 @@ class CreateEnterprise extends React.Component {
     }
 }
 
-export default CreateEnterprise;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth,
+        authError: state.firebase.authError
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        signUpEnterprise: (newEnterprise) => dispatch(signUpEnterprise(newEnterprise))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreateEnterprise);

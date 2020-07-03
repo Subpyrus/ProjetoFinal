@@ -10,7 +10,6 @@ import { compose } from 'redux'
 const FreelanceDetalhes = (props) => {
     const login = "Off";
     const { freelance } = props;
-    console.log("ola")
     if(freelance) {
         const data = new Date(freelance.ListingTime.seconds*1000);
         return (

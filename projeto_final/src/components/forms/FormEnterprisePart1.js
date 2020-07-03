@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-class FormUserPart1 extends React.Component {
+class FormEnterprisePart1 extends React.Component {
     estilo = {
         textAlign: "center",
         marginTop: "40px"
@@ -98,4 +98,4 @@ class FormUserPart1 extends React.Component {
     }
 }
 
-export default FormUserPart1;
+export default FormEnterprisePart1;

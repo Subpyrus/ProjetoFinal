@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux"
+import { Redirect } from 'react-router'
 
-class FormUserPart3 extends React.Component {
+class FormEnterprisePart3 extends React.Component {
     estilo = {
         textAlign: "center",
         marginTop: "40px"
@@ -10,94 +12,104 @@ class FormUserPart3 extends React.Component {
         opacity: 1
     };
 
-    //POSSIVELMENTE AQUI PASSA A SER FINALIZAR E DEPOIS ENVIA AS COISAS E VAI PRA HOMEPAGE
-    continuar = e => {
-        e.preventDefault();
-        //ENVIAR A INFO PARA A FIREBASE
-        this.props.nextStep();
-    };
     voltar = e => {
         e.preventDefault();
         this.props.prevStep();
     };
 
     render() {
-        const {valores, handleChange} = this.props;
-        return (
-            <div>
-                <div className="row">
-                    <div className="input-field col s12">
-                        <input
-                            id="data"
-                            type="text"
-                            className="validate"
-                            onChange={handleChange('Email')}
-                            defaultValue={valores.Email}
-                        />
-                        <label htmlFor="data" className={valores.Email != "" ? "active" : ""}>Endereço de E-mail</label>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="input-field col s12">
-                        <input
-                            id="first_name"
-                            type="password"
-                            className="validate"
-                            onChange={handleChange('Password')}
-                            defaultValue={valores.Password}
-                        />
-                        <label htmlFor="first_name" className={valores.Password != "" ? "active" : ""}>Password</label>
-                    </div>
-                </div>
-                <div className="row justify-content-end of">
-                    <div className="f">
-                        <div className="col s6">
-                            <button
-                                className="btn btnIn"
-                                type="button"
-                                id="prevBtn"
-                                onClick={this.voltar}>
-                                Anterior
-                            </button>
+        const {valores, handleChange, handleSubmit,auth,authError} = this.props;
+        if(auth.uid == null) {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input
+                                id="data"
+                                type="text"
+                                className="validate"
+                                onChange={handleChange('Email')}
+                                defaultValue={valores.Email}
+                            />
+                            <label htmlFor="data" className={valores.Email != "" ? "active" : ""}>Endereço de E-mail</label>
                         </div>
-                        <div className="col s6">
-                            {valores.Email == "" || valores.Password == "" ?
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input
+                                id="first_name"
+                                type="password"
+                                className="validate"
+                                onChange={handleChange('Password')}
+                                defaultValue={valores.Password}
+                            />
+                            <label htmlFor="first_name" className={valores.Password != "" ? "active" : ""}>Password</label>
+                        </div>
+                    </div>
+                    <div className="row justify-content-end of">
+                        <div className="red-text center">
+                            {authError ? <p>{authError}</p> : null}
+                        </div>
+                        <div className="f">
+                            <div className="col s6">
                                 <button
                                     className="btn btnIn"
                                     type="button"
-                                    id="nextBtn"
-                                    onClick={this.continuar}
-                                    disabled>
-                                    Finalizar
+                                    id="prevBtn"
+                                    onClick={this.voltar}>
+                                    Anterior
                                 </button>
-                                :
-                                <button
-                                    className="btn btnIn"
-                                    type="button"
-                                    id="nextBtn"
-                                    onClick={this.continuar}>
-                                    Finalizar
-                                </button>
-                            }
+                            </div>
+                            <div className="col s6">
+                                {valores.Email == "" || valores.Password == "" ?
+                                    <button
+                                        className="btn btnIn"
+                                        type="button"
+                                        id="nextBtn"
+                                        onClick={handleSubmit}
+                                        disabled>
+                                        Finalizar
+                                    </button>
+                                    :
+                                    <button
+                                        className="btn btnIn"
+                                        type="button"
+                                        id="nextBtn"
+                                        onClick={handleSubmit}>
+                                        Finalizar
+                                    </button>
+                                }
+                            </div>
                         </div>
                     </div>
+                    <div style={this.estilo}>
+                        <span className="step"/>
+                        <span className="step"/>
+                        <span className="step" style={this.escolhido}/>
+                    </div>
+                    <div className="text-center mt-3">
+                                <span>Já tens conta?
+                                    <Link to="/entrar"
+                                          className="text-decoration-none text-dark font-weight-bold">
+                                    <ins> Entra aqui!</ins>
+                                </Link>
+                                    </span>
+                    </div>
                 </div>
-                <div style={this.estilo}>
-                    <span className="step"/>
-                    <span className="step"/>
-                    <span className="step" style={this.escolhido}/>
-                </div>
-                <div className="text-center mt-3">
-                            <span>Já tens conta?
-                                <Link to="/entrar"
-                                      className="text-decoration-none text-dark font-weight-bold">
-                                <ins> Entra aqui!</ins>
-                            </Link>
-                                </span>
-                </div>
-            </div>
-        )
+            )
+        }else{
+            return(
+                <Redirect to="/" />
+            )
+        }
     }
 }
 
-export default FormUserPart3;
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(FormEnterprisePart3);

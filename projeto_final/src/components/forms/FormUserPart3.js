@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux"
 import { Redirect } from 'react-router'
 
-
 class FormUserPart3 extends React.Component {
     estilo = {
         textAlign: "center",
@@ -102,8 +101,7 @@ class FormUserPart3 extends React.Component {
             return(
                 <Redirect to="/" />
             )
-        }
-        
+        }   
     }
 }
 

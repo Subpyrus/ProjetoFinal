@@ -38,7 +38,8 @@ export const signUpUser = (newUser) => {
                 Country:newUser.Pais,
                 Local:newUser.Localidade,
                 AreaTrabalho:newUser.AreaTrabalho,
-                Ocupation:newUser.Ocupacao
+                Ocupation:newUser.Ocupacao,
+                TipoUtilizador: 1
             })
         }).then(() => {
             firebase.auth().signInWithEmailAndPassword(
@@ -52,4 +53,41 @@ export const signUpUser = (newUser) => {
         })
 
     }
+}
+
+export const signUpEnterprise = (newEnterprise) => {
+
+    return (dispatch,getState,{getFirebase,getFirestore}) => {
+        const firebase = getFirebase();
+        const firestore = getFirestore();
+        firebase.auth().createUserWithEmailAndPassword(
+            newEnterprise.Email,
+            newEnterprise.Password
+        ).then((resp) => {
+            return firestore.collection('users').doc(resp.user.uid).set({
+                NomeEmpresa:newEnterprise.NomeEmpresa,
+                TamanhoEmpresa:newEnterprise.TamanhoEmpresa,
+                DataCriacao:newEnterprise.DataCriacao,
+                Country:newEnterprise.Pais,
+                Local:newEnterprise.Localidade,
+                AreaTrabalho:newEnterprise.AreaTrabalho,
+                Ocupation:newEnterprise.Ocupacao,
+                TipoUtilizador: 2
+            })
+        }).then(() => {
+            firebase.auth().signInWithEmailAndPassword(
+                newEnterprise.Email,
+                newEnterprise.Password
+            ).then(() => {
+                dispatch({type: 'SIGNUPENTERPRISE_SUCCESS'})
+            })
+        }).catch((err) => {
+            dispatch({type: 'SIGNUPENTERPRISE_ERROR', err})
+        })
+
+    }
+
+
+
+
 }
