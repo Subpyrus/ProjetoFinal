@@ -20,8 +20,8 @@ class SignUp extends React.Component {
         return (
             <div className="container-fluid noscroll fundo">
                 <div className="container box">
-                    <div className="row justify-content-center">
-                        <div className="boxIn p-5 col-6">
+                    <div className="row justify-content-center mb-0">
+                        <div className="boxIn p-5 col-12 col-md-8 col-lg-6">
                             <div className="text-center">
                                 <img src={sg} width="auto" className="mb-3"/>
                                 <h4 className="titulo">Registo</h4>
@@ -30,26 +30,26 @@ class SignUp extends React.Component {
                             <hr className="line mb-3"/>
                             <h5 className="font-weight-bolder text-center mb-3">Escolhe o teu tipo de Perfil</h5>
                             <form action="#" className="row text-center">
-                                <div className="col-6">
-                                    <p>
-                                        <label className="escolha" htmlFor="option1">
+                                <div className="col-12 col-md-6 text-center">
+                                    <p className="pb-1 mb-sm-auto m-0">
+                                        <label htmlFor="option1">
                                             <input className="with-gap" value="profissional" name="group1" type="radio"
                                                    id="option1" onClick={() => this.escolhaP("profissional")}/>
                                             <span className="escolha">Profissional</span>
                                         </label>
                                     </p>
-                                    <p>Promove a tua criatividade, talento e candidata-te a empregos e
+                                    <p className="d-sm-block d-none">Promove a tua criatividade, talento e candidata-te a empregos e
                                         a oportunidades de freelance. </p>
                                 </div>
-                                <div className="col-6">
-                                    <p className="pb-1">
+                                <div className="col-12 col-md-6 text-center">
+                                    <p className="pb-1 mb-sm-auto m-0">
                                         <label htmlFor="option2">
                                             <input className="with-gap" value="empresa" name="group1" type="radio"
                                                    id="option2" onClick={() => this.escolhaP("empresa")}/>
                                             <span className="escolha">Empresa</span>
                                         </label>
                                     </p>
-                                    <p>Publiquem os vossos anúncios de emprego para recrutrar
+                                    <p className="d-sm-block d-none">Publiquem os vossos anúncios de emprego para recrutrar
                                         Criadores Artísticos.</p>
                                 </div>
                             </form>

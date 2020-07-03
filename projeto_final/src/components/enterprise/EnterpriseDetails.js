@@ -18,7 +18,7 @@ class PerfilEmpresa extends React.Component {
                 <div className="container-fluid Perfil_Body">
                     <div className="row mb-0">
                         <div className="Perfil_Empresa_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
-                            <div className="Perfil_Empresa_Info_Inicial col-9 m-lg-auto row mt-5 mx-auto">
+                            <div className="Perfil_Empresa_Info_Inicial col-11 col-sm-10 col-md-9 m-lg-auto row mt-5 mx-auto">
                                 <div className="col-sm-12 col-lg-4">
                                 <span className="m-auto Perfil_Info_Inicial_Esq">
                                     <img src={perfil} className="Foto_Perfil_Empresa"/>
@@ -66,7 +66,7 @@ class PerfilEmpresa extends React.Component {
                                 <span className="col-12">
                                     <h1 className="Titulo_Formacao_Empresa mb-4 mt-5">ANÚNCIOS DE EMPREGO</h1>
                                 </span>
-                                <div className="col-sm-12 col-lg-10 mt-4 mb-sm-2 mb-lg-4 ml-lg-5 m-auto">
+                                <div className="col-sm-12 col-lg-10 mt-4 mb-sm-2 mb-lg-4 ml-lg-5 m-auto text-center text-md-left">
                                     <Link to="/empregos/criar">
                                         <button className="Empresa_But_Criar_Anuncio mt-2 mb-3">+ NOVO ANÚNCIO</button>
                                     </Link>

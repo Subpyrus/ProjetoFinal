@@ -19,7 +19,7 @@ class FormUserPart1 extends React.Component {
         return(
             <div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="first_name"
                             type="text"
@@ -27,9 +27,9 @@ class FormUserPart1 extends React.Component {
                             onChange={handleChange('PrimeiroNome')}
                             defaultValue={valores.PrimeiroNome}
                         />
-                        <label htmlFor="first_name" className={valores.PrimeiroNome != "" ? "active" : ""}>Primeiro Nome</label>
+                        <label htmlFor="first_name" className={valores.PrimeiroNome != "" ? "active col-12" : "col-12"}>Primeiro Nome</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="last_name"
                             type="text"
@@ -37,11 +37,11 @@ class FormUserPart1 extends React.Component {
                             onChange={handleChange('UltimoNome')}
                             defaultValue={valores.UltimoNome}
                         />
-                        <label htmlFor="last_name" className={valores.UltimoNome != "" ? "active" : ""}>Último Nome</label>
+                        <label htmlFor="last_name" className={valores.UltimoNome != "" ? "active col-12" : "col-12"}>Último Nome</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <input
                             id="data"
                             type="date"
@@ -49,7 +49,7 @@ class FormUserPart1 extends React.Component {
                             onChange={handleChange('DataNascimento')}
                             defaultValue={valores.DataNascimento}
                         />
-                        <label htmlFor="data" className={valores.DataNascimento != "" ? "active" : ""}>Data de Nascimento</label>
+                        <label htmlFor="data" className={valores.DataNascimento != "" ? "active col-12" : "col-12"}>Data de Nascimento</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">

@@ -16,12 +16,20 @@ class ListaEmpregosEmpresa extends React.Component{
                             <span className="mb-1 Titulo_Emprego_List">Web Designer UI/UX</span>
                             <span className="mb-1 Info_Emprego_List">Localização: Santo Ovídeo, Vila Nova de Gaia</span>
                             <span className="mb-3 Info_Emprego_List">Tempo Inteiro</span>
-                            <span className="Area_Emprego">Design Gráfico</span>
+                            <span className="row mb-0 pl-4 pr-4 pl-sm-3 pr-sm-3 justify-content-center justify-content-sm-left alinha_categorias_Empresas">
+                                <span className="Area_Emprego">Design Gráfico</span>
+                                <span className="Area_Emprego2 d-md-none d-block mt-2">Ver Candidatos</span>
+                            </span>
                         </span>
-                        <span className="col-12 col-md-3 Emprego_List_Info_Princ_Final pr-4">
-                            <span className="Info_Emprego_List d-sm-block d-none">3 de Março</span>
+                        <span className="col-12 col-md-3 Emprego_List_Info_Princ_Final pr-4 d-md-inline-flex d-none">
+                            <span className="Info_Emprego_List">3 de Março</span>
                             <span className="Area_Emprego2 Ver_Candidatos_Perfil">Ver Candidatos</span>
                         </span>
+                        <div className="go-corner">
+                            <div className="go-arrow">
+                                →
+                            </div>
+                        </div>
                     </div>
                 </Link>
             </div>

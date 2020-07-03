@@ -90,19 +90,20 @@
 
 .inicial {
     background-image: url("Imgs/pi.jpg");
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
     height: auto;
     width: auto;
 }
 
 .P_Ini_seg{
-    padding-bottom: 4vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 .final {
     background-image: url("Imgs/imgfooter.jpg");
-    background-size: 100% auto;
+    background-size: cover;
     background-position: center;
     min-height: 70vh;
     width: 100vw;
@@ -132,7 +133,7 @@
     font-family: 'Barlow', sans-serif;
     font-weight: bold;
     color: white;
-    font-size: 6vw;
+    font-size: 8vw;
     line-height: 120%;
 }
 .P_Ini_button{
@@ -142,7 +143,7 @@
     transform: translateY(-10%);
     text-transform: uppercase;
     background-color: #ec9400;
-    font-size: 20px;
+    font-size: 3.5vw;
     border: none;
     border-radius: 10px;
     color: white;
@@ -513,16 +514,14 @@
 }
 .fundo {
     background-image: url("Imgs/entrar_registo.jpg");
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 91vh;
     width: 100vw;
 }
 .box {
     color: black;
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
 }
 
 .boxIn {
@@ -1034,6 +1033,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.alinha_categorias_Empresas{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .Area_Emprego{
@@ -1612,6 +1617,23 @@
     .col-s-11 {width: 91.66%;}
     .col-s-12 {width: 100%;}
 
+    .P_Ini_button{
+        font-family: 'Barlow', sans-serif;
+        position: relative;
+        top: 10%;
+        transform: translateY(-10%);
+        text-transform: uppercase;
+        background-color: #ec9400;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 70px 15px 70px;
+        overflow: hidden;
+        transition: all 0.4s ease-in-out 0s;
+        letter-spacing: 0.5px;
+    }
+
 }
 @media only screen and (min-width: 768px) {
     /* For desktop: */
@@ -1629,6 +1651,14 @@
     .col-12 {width: 100%;}
     .editar_perfil_Geral{
         border-left: #ec9400 solid 1px;
+    }
+    .P_Ini_texto{
+        float: left;
+        font-family: 'Barlow', sans-serif;
+        font-weight: bold;
+        color: white;
+        font-size: 6vw;
+        line-height: 120%;
     }
 }
 
@@ -1657,6 +1687,7 @@
         height: 91vh;
     }
     .P_Ini_seg{
+        padding-top: 0;
         padding-bottom: 0;
     }
 }
@@ -1664,7 +1695,7 @@
 @media only screen and (max-width: 1024px) {
 
 }
-@media only screen and (max-width: 976px) {
+@media only screen and (max-width: 991px) {
     .Foto_Perfil_Empresa{
         width: 50%;
         height: auto;
@@ -1677,7 +1708,11 @@
 }
 
 @media only screen and (max-width: 768px) {
-
+    .box {
+        width: 90%;
+        color: black;
+        padding-top: 20px;
+    }
 }
 @media only screen and (max-width: 575px) {
     .Empregos_List_Imagem{
@@ -1704,6 +1739,17 @@
         -webkit-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
         -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
         box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
+    }
+
+    .alinha_categorias_Empresas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .P_Ini_seg{
+        padding-top: 5vh;
+        padding-bottom: 5vh;
     }
 }
 @media only screen and (max-width: 375px) {

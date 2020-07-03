@@ -30,7 +30,7 @@ class SignIn extends React.Component {
             return (
                 <div className="container-fluid noscroll fundo">
                     <div className="container box">
-                        <div className="row justify-content-center">
+                        <div className="row justify-content-center mb-0">
                             <div className="boxIn p-5">
                                 <div className="text-center">
                                     <img src={sg} width="auto" className="mb-3"/>

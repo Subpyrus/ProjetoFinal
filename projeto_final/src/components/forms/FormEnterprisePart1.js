@@ -19,8 +19,8 @@ class FormEnterprisePart1 extends React.Component {
         const {valores, handleChange} = this.props;
         return (
             <div>
-                <div className="row">
-                    <div className="input-field col s12">
+                <div className="row mb-0">
+                    <div className="input-field col-12">
                         <input
                             id="data"
                             type="text"
@@ -28,12 +28,12 @@ class FormEnterprisePart1 extends React.Component {
                             onChange={handleChange('NomeEmpresa')}
                             defaultValue={valores.NomeEmpresa}
                         />
-                        <label htmlFor="data" className={valores.NomeEmpresa != "" ? "active" : ""}>Nome da
+                        <label htmlFor="data" className={valores.NomeEmpresa != "" ? "active col-12" : "col-12"}>Nome da
                             Empresa</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="first_name"
                             type="text"
@@ -41,10 +41,10 @@ class FormEnterprisePart1 extends React.Component {
                             onChange={handleChange('TamanhoEmpresa')}
                             defaultValue={valores.TamanhoEmpresa}
                         />
-                        <label htmlFor="first_name" className={valores.TamanhoEmpresa != "" ? "active" : ""}>Tamanho da
+                        <label htmlFor="first_name" className={valores.TamanhoEmpresa != "" ? "active col-12" : "col-12"}>Tamanho da
                             Empresa</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="last_name"
                             type="date"
@@ -52,7 +52,7 @@ class FormEnterprisePart1 extends React.Component {
                             onChange={handleChange('DataCriacao')}
                             defaultValue={valores.DataCriacao}
                         />
-                        <label htmlFor="last_name" className={valores.DataCriacao != "" ? "active" : ""}>Ano de
+                        <label htmlFor="last_name" className={valores.DataCriacao != "" ? "active col-12" : "col-12"}>Ano de
                             Fundação</label>
                     </div>
                 </div>

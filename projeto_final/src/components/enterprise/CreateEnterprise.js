@@ -49,19 +49,21 @@ class CreateEnterprise extends React.Component {
             case 1:
                 return(
                     <div className="container-fluid fundo">
-                        <div className="row box justify-content-center">
-                            <div className="boxIn p-5 col-6">
-                                <div className="text-center">
-                                    <img src={sg} width="auto" className="mb-3"/>
-                                    <h4 className="titulo">Registo</h4>
-                                    <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                        <div className="container box">
+                            <div className="row justify-content-center mb-0">
+                                <div className="boxIn p-5 col-12 col-md-8 col-lg-6">
+                                    <div className="text-center">
+                                        <img src={sg} width="auto" className="mb-3"/>
+                                        <h4 className="titulo">Registo</h4>
+                                        <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                                    </div>
+                                    <hr className="line mb-3"/>
+                                    <FormEnterprisePart1
+                                        nextStep={this.nextStep}
+                                        handleChange={this.handleChange}
+                                        valores={valores}
+                                    />
                                 </div>
-                                <hr className="line mb-3"/>
-                                <FormEnterprisePart1
-                                    nextStep={this.nextStep}
-                                    handleChange={this.handleChange}
-                                    valores={valores}
-                                />
                             </div>
                         </div>
                     </div>
@@ -69,20 +71,22 @@ class CreateEnterprise extends React.Component {
             case 2:
                 return(
                     <div className="container-fluid fundo">
-                        <div className="row box justify-content-center">
-                            <div className="boxIn p-5 col-6">
-                                <div className="text-center">
-                                    <img src={sg} width="auto" className="mb-3"/>
-                                    <h4 className="titulo">Registo</h4>
-                                    <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                        <div className="container box">
+                            <div className="row justify-content-center mb-0">
+                                <div className="boxIn p-5 col-12 col-md-8 col-lg-6">
+                                    <div className="text-center">
+                                        <img src={sg} width="auto" className="mb-3"/>
+                                        <h4 className="titulo">Registo</h4>
+                                        <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                                    </div>
+                                    <hr className="line mb-3"/>
+                                    <FormEnterprisePart2
+                                        prevStep={this.prevStep}
+                                        nextStep={this.nextStep}
+                                        handleChange={this.handleChange}
+                                        valores={valores}
+                                    />
                                 </div>
-                                <hr className="line mb-3"/>
-                                <FormEnterprisePart2
-                                    prevStep={this.prevStep}
-                                    nextStep={this.nextStep}
-                                    handleChange={this.handleChange}
-                                    valores={valores}
-                                />
                             </div>
                         </div>
                     </div>
@@ -90,21 +94,23 @@ class CreateEnterprise extends React.Component {
             case 3:
                 return(
                     <div className="container-fluid fundo">
-                        <div className="row box justify-content-center">
-                            <div className="boxIn p-5 col-6">
-                                <div className="text-center">
-                                    <img src={sg} width="auto" className="mb-3"/>
-                                    <h4 className="titulo">Registo</h4>
-                                    <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                        <div className="container box">
+                            <div className="row justify-content-center mb-0">
+                                <div className="boxIn p-5 col-12 col-md-8 col-lg-6">
+                                    <div className="text-center">
+                                        <img src={sg} width="auto" className="mb-3"/>
+                                        <h4 className="titulo">Registo</h4>
+                                        <p className="bemvindo">Junta-te à nossa Colmeia</p>
+                                    </div>
+                                    <hr className="line mb-3"/>
+                                    <FormEnterprisePart3
+                                        prevStep={this.prevStep}
+                                        nextStep={this.nextStep}
+                                        handleChange={this.handleChange}
+                                        handleSubmit={this.handleSubmit}
+                                        valores={valores}
+                                    />
                                 </div>
-                                <hr className="line mb-3"/>
-                                <FormEnterprisePart3
-                                    prevStep={this.prevStep}
-                                    nextStep={this.nextStep}
-                                    handleChange={this.handleChange}
-                                    handleSubmit={this.handleSubmit}
-                                    valores={valores}
-                                />
                             </div>
                         </div>
                     </div>

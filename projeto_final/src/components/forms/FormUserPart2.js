@@ -24,7 +24,7 @@ class FormUserPart2 extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col s6">
+                    <div className="col-12 col-md-6">
                         <label>País</label>
                         <select
                             className="aparece"
@@ -37,7 +37,7 @@ class FormUserPart2 extends React.Component {
                             <option value="3">Apple</option>
                         </select>
                     </div>
-                    <div className="col s6">
+                    <div className="col-12 col-md-6">
                         <label>Localidade</label>
                         <select
                             className="aparece"
@@ -52,7 +52,7 @@ class FormUserPart2 extends React.Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s6">
+                    <div className="col-12 col-md-6">
                         <label>Área de trabalho</label>
                         <select
                             className="aparece"
@@ -65,7 +65,7 @@ class FormUserPart2 extends React.Component {
                             <option value="3">Apple</option>
                         </select>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="last_name"
                             type="text"
@@ -73,7 +73,7 @@ class FormUserPart2 extends React.Component {
                             onChange={handleChange('Ocupacao')}
                             defaultValue={valores.Ocupacao}
                         />
-                        <label htmlFor="last_name" className={valores.Ocupacao != "" ? "active" : ""}>Ocupação</label>
+                        <label htmlFor="last_name" className={valores.Ocupacao != "" ? "active col-12" : "col-12"}>Ocupação</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">
