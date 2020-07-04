@@ -877,7 +877,7 @@
 }
 
 .Texto_Testemunho{
-    font-size: 25px;
+    font-size: 4.5vw;
     font-family: "Barlow Semibold", sans-serif;
 }
 
@@ -1632,6 +1632,10 @@
         overflow: hidden;
         transition: all 0.4s ease-in-out 0s;
         letter-spacing: 0.5px;
+    }
+    .Texto_Testemunho{
+        font-size: 25px;
+        font-family: "Barlow Semibold", sans-serif;
     }
 
 }

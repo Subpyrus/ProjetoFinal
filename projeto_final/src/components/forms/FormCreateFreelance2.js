@@ -71,7 +71,7 @@ class FormCreateFreelance2 extends React.Component{
                                     type="button"
                                     id="nextBtn"
                                     onClick={this.continuar}>
-                                    Próximo
+                                    Publicar
                                 </button>
                             }
                         </div>

@@ -20,7 +20,7 @@ class FormCreateEmprego1 extends React.Component{
         return (
             <div className="px-5">
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <input
                             id="Nome"
                             type="text"
@@ -28,11 +28,11 @@ class FormCreateEmprego1 extends React.Component{
                             onChange={handleChange('NomeAnuncio')}
                             defaultValue={valores.NomeAnuncio}
                         />
-                        <label htmlFor="Nome" className={valores.NomeAnuncio != "" ? "active" : ""}>Nome do Anúncio</label>
+                        <label htmlFor="Nome" className={valores.NomeAnuncio != "" ? "active col-12" : "col-12"}>Nome do Anúncio</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="Salario"
                             type="text"
@@ -40,9 +40,9 @@ class FormCreateEmprego1 extends React.Component{
                             onChange={handleChange('Salario')}
                             defaultValue={valores.Salario}
                         />
-                        <label htmlFor="Salario" className={valores.Salario != "" ? "active" : ""}>Salario</label>
+                        <label htmlFor="Salario" className={valores.Salario != "" ? "active col-12" : "col-12"}>Salario</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <select
                             className="aparece"
                             onChange={handleChange('TipoTrabalho')}
@@ -55,7 +55,7 @@ class FormCreateEmprego1 extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="NumeroCandidatos"
                             type="text"
@@ -63,9 +63,9 @@ class FormCreateEmprego1 extends React.Component{
                             onChange={handleChange('NumeroCandidatos')}
                             defaultValue={valores.NumeroCandidatos}
                         />
-                        <label htmlFor="NumeroCandidatos" className={valores.NumeroCandidatos != "" ? "active" : ""}>Número máximo de Candidatos</label>
+                        <label htmlFor="NumeroCandidatos" className={valores.NumeroCandidatos != "" ? "active col-12" : "col-12"}>Número máximo de Candidatos</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <select
                             className="aparece"
                             onChange={handleChange('AreaTrabalho')}
@@ -79,47 +79,47 @@ class FormCreateEmprego1 extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <textarea
                             id="Descricao"
                             className="materialize-textarea"
                             onChange={handleChange('Descricao')}
                             defaultValue={valores.Descricao}
                         />
-                        <label htmlFor="Descricao" className={valores.Descricao != "" ? "active" : ""}>Descrição do Trabalho</label>
+                        <label htmlFor="Descricao" className={valores.Descricao != "" ? "active col-12" : "col-12"}>Descrição do Trabalho</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <textarea
                             id="Localizacao"
                             className="materialize-textarea"
                             onChange={handleChange('Localizacao')}
                             defaultValue={valores.Localizacao}
                         />
-                        <label htmlFor="Localizacao" className={valores.Localizacao != "" ? "active" : ""}>Localização</label>
+                        <label htmlFor="Localizacao" className={valores.Localizacao != "" ? "active col-12" : "col-12"}>Localização</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <textarea
                             id="Requisitos"
                             className="materialize-textarea"
                             onChange={handleChange('Requisitos')}
                             defaultValue={valores.Requisitos}
                         />
-                        <label htmlFor="Requisitos" className={valores.Requisitos != "" ? "active" : ""}>Requisitos</label>
+                        <label htmlFor="Requisitos" className={valores.Requisitos != "" ? "active col-12" : "col-12"}>Requisitos</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <textarea
                             id="Beneficios"
                             className="materialize-textarea"
                             onChange={handleChange('Beneficios')}
                             defaultValue={valores.Beneficios}
                         />
-                        <label htmlFor="beneficios" className={valores.Beneficios != "" ? "active" : ""}>Benefícios</label>
+                        <label htmlFor="Beneficios" className={valores.Beneficios != "" ? "active col-12" : "col-12"}>Benefícios</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">

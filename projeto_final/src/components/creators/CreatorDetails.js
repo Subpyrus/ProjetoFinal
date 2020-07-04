@@ -145,10 +145,10 @@ class Perfil extends React.Component {
                             </div>
                             <div className="col-lg-12 col-xl-9 mb-5 p-0">
                                 <div className="Testemunhos_Direita pt-5 pb-5 justify-content-center m-auto row">
-                                    <span className="col-sm-1 col-lg-1 mr-2 my-auto">
+                                    <span className="col-md-1 col-lg-1 mr-2 px-4 px-md-0 my-auto">
                                         <i className="fa fa-quote-right fa-3x icones_perfil"/>
                                     </span>
-                                    <span className="col-sm-6 col-lg-8 my-auto Texto_Testemunho">
+                                    <span className="col-md-6 col-lg-8 my-auto px-4 px-md-0 Texto_Testemunho">
                                         {this.state.valorB == 1 ?
                                             "Excelente profissional. Muito criativa, com excelentes capacidades no design gráfico. Cumpriu o prazo sem falta!" :
                                             this.state.valorB == 2 ?

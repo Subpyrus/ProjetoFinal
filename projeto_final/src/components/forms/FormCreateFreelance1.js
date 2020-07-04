@@ -20,7 +20,7 @@ class FormCreateFreelance1 extends React.Component{
         return (
             <div className="px-5">
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <input
                             id="Nome"
                             type="text"
@@ -28,11 +28,11 @@ class FormCreateFreelance1 extends React.Component{
                             onChange={handleChange('NomeAnuncio')}
                             defaultValue={valores.NomeAnuncio}
                         />
-                        <label htmlFor="Nome" className={valores.NomeAnuncio != "" ? "active" : ""}>Nome do Anúncio</label>
+                        <label htmlFor="Nome" className={valores.NomeAnuncio != "" ? "active col-12" : "col-12"}>Nome do Anúncio</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="Orcamento"
                             type="text"
@@ -40,9 +40,9 @@ class FormCreateFreelance1 extends React.Component{
                             onChange={handleChange('Orcamento')}
                             defaultValue={valores.Orcamento}
                         />
-                        <label htmlFor="Orcamento" className={valores.Orcamento != "" ? "active" : ""}>Orçamento</label>
+                        <label htmlFor="Orcamento" className={valores.Orcamento != "" ? "active col-12" : "col-12"}>Orçamento</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="DataEntrega"
                             type="date"
@@ -50,11 +50,11 @@ class FormCreateFreelance1 extends React.Component{
                             onChange={handleChange('DataEntrega')}
                             defaultValue={valores.DataEntrega}
                         />
-                        <label htmlFor="DataEntrega" className={valores.DataEntrega != "" ? "active" : ""}>Data de Entrega</label>
+                        <label htmlFor="DataEntrega" className={valores.DataEntrega != "" ? "active col-12" : "col-12"}>Data de Entrega</label>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <input
                             id="NumeroCandidatos"
                             type="text"
@@ -62,9 +62,9 @@ class FormCreateFreelance1 extends React.Component{
                             onChange={handleChange('NumeroCandidatos')}
                             defaultValue={valores.NumeroCandidatos}
                         />
-                        <label htmlFor="NumeroCandidatos" className={valores.NumeroCandidatos != "" ? "active" : ""}>Número máximo de Candidatos</label>
+                        <label htmlFor="NumeroCandidatos" className={valores.NumeroCandidatos != "" ? "active col-12" : "col-12"}>Número máximo de Candidatos</label>
                     </div>
-                    <div className="input-field col s6">
+                    <div className="input-field col-12 col-md-6">
                         <select
                             className="aparece"
                             onChange={handleChange('AreaTrabalho')}
@@ -78,14 +78,14 @@ class FormCreateFreelance1 extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col-12">
                         <textarea
                             id="Descricao"
                             className="materialize-textarea"
                             onChange={handleChange('DescricaoTrabalho')}
                             defaultValue={valores.DescricaoTrabalho}
                         />
-                        <label htmlFor="Descricao" className={valores.DescricaoTrabalho != "" ? "active" : ""}>Descrição do Trabalho</label>
+                        <label htmlFor="Descricao" className={valores.DescricaoTrabalho != "" ? "active col-12" : "col-12"}>Descrição do Trabalho</label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">

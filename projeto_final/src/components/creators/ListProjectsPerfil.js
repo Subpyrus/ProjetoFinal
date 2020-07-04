@@ -84,7 +84,7 @@ class ListProjectsPerfil extends React.Component {
                     <li onClick={() => this.seccao_escolhida(3)} className="valign-wrapper">Vídeo e Fotografia</li>
                 </ul>
 
-                <div className="row col-12 mt-4 mb-5">
+                <div className="row col-12 mt-4 mb-5 m-auto">
                     <span className={this.state.valorP == 1 ? "row" : "Projetos_seccao1 row"}>
                         <div className="col-12 col-md-6 col-lg-3">
                             <div className="card">
