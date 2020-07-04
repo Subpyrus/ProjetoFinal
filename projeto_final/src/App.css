@@ -1233,8 +1233,8 @@
 .Criar_Freelance_Inicial_Centrar{
     display: inline-block;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
+    transform: translateY(-40%);
 }
 
 .Criar_Freelance_Titulo_2{
