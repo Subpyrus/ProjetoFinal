@@ -6,6 +6,7 @@ import Conteudo1 from '../../Imgs/Conteudo_Post1.jpg';
 import Conteudo2 from '../../Imgs/Conteudo_Post2.png';
 import Conteudo3 from '../../Imgs/Conteudo_Post3.png';
 import Conteudo4 from '../../Imgs/Conteudo_Post4.png';
+import $ from "jquery";
 
 
 class ProjectDetails extends React.Component {
@@ -54,7 +55,8 @@ class ProjectDetails extends React.Component {
                             </div>
                         </div>
                         <div className="align-items-lg-end d-flex flex-column col-md-12 col-lg-3">
-                            <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2">Fases do Projeto</button>
+                            <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2"
+                                    onClick={this.handleShowM}>Fases do Projeto</button>
                             <div className="Proj_Det_Subtitulo_Parte2 align-items-lg-end
                              d-flex flex-lg-column flex-md-row mt-4">
                                 <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
@@ -121,20 +123,74 @@ class ProjectDetails extends React.Component {
 
                 </div>
 
-                <Modal show={this.state.setShowM} onHide={this.handleCloseM}>
+                <Modal
+                    className="bg-transparent mh-100"
+                    size="xl"
+                    show={this.state.setShowM}
+                    onHide={this.handleCloseM}
+                    backdrop="static"
+                    keyboard={false}
+                    aria-labelledby="example-modal-sizes-title-xl">
+
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title id="example-modal-sizes-title-xl" className="titulomodal">
+                            Fases do Projeto</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleCloseM}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={this.handleCloseM}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
+                    <Modal.Body id="modalbody">
+                        <div className="container cont-fases">
+                            <ul className="timeline">
+                                <li>
+                                    <div className="timeline-badge primary">
+                                    </div>
+                                    <div className="timeline-panel mr-xl-5 mr-md-0">
+                                        <div className="timeline-heading">
+                                            <img className="img-responsive" src="http://lorempixel.com/1600/500/sports/2" />
+                                        </div>
+                                        <div className="timeline-body">
+                                            <h4 className="titulofase">Primeira Fase</h4>
+                                            <img src={Conteudo1} width="100%" height="auto"/>
+                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
+                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
+                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
+                                                amistosis quis leo.</p>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li  className="timeline-inverted">
+                                    <div className="timeline-badge primary">
+                                    </div>
+                                    <div className="timeline-panel ml-5">
+                                        <div className="timeline-body">
+                                            <h4 className="titulofase">Segunda Fase</h4>
+                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
+                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
+                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
+                                                amistosis quis leo.</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div className="timeline-badge primary">
+                                    </div>
+                                    <div className="timeline-panel mr-xl-5 mr-md-0">
+                                        <div className="timeline-body">
+                                            <h4 className="titulofase">Terceira Fase</h4>
+                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
+                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
+                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
+                                                amistosis quis leo.</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </Modal.Body>
                 </Modal>
+
             </div>
         );
     }
