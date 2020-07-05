@@ -911,6 +911,16 @@
     align-items: flex-start;
 }
 
+.Titulo_Formacao_4{
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 45px;
+    color: #ec9400;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: 2px solid #ec9400;
+}
+
 .Titulo_Formacao_2{
     font-family: 'Barlow ExtraBold', sans-serif;
     font-size: 27px;
@@ -1697,6 +1707,14 @@
     }
 }
 
+@media only screen and (min-width: 1200px) {
+    .Testemunhos_Esquerda{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
 
 }
@@ -1721,6 +1739,15 @@
         width: 90%;
         color: black;
         padding-top: 20px;
+    }
+    .Titulo_Formacao{
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 45px;
+        color: #ec9400;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-right: none;
     }
 }
 @media only screen and (max-width: 575px) {
@@ -1760,6 +1787,54 @@
         padding-top: 5vh;
         padding-bottom: 5vh;
     }
+
+    .Titulo_Testemunhos {
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 10vw;
+        padding-bottom: 3vh;
+        color: white;
+        margin-top: -5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Titulo_Formacao_3{
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 10vw;
+        color: #ec9400;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Titulo_Formacao{
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 10vw;
+        color: #ec9400;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-right: none;
+    }
+
+    .Titulo_Formacao_2{
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 6vw;
+        color: #b9b9b9;
+        align-self: flex-end;
+        padding-bottom: 4px;
+    }
+
+    .Titulo_Formacao_Empresa{
+        font-family: 'Barlow ExtraBold', sans-serif;
+        font-size: 9vw;
+        color: #ec9400;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }
 
 #modalbody {

@@ -38,6 +38,20 @@ class Perfil extends React.Component {
         boxShadow: "none",
         border: "0!important"
     };
+    card_Testemunhos_Active2 = {
+        backgroundImage: `url(${perfil})`,
+        backgroundSize: "calc(100% + 2px) calc(100% + 2px)",
+        backgroundPositionX: "-1px",
+        backgroundPositionY: "-1px",
+        height: "70px",
+        width: "70px",
+        margin: "0",
+        padding: "0",
+        opacity: "1",
+        overflow: "hidden",
+        boxShadow: "none",
+        border: "0!important"
+    };
 
     testemunhoB = (valor) => {
         this.setState({valorB: valor})
@@ -99,8 +113,11 @@ class Perfil extends React.Component {
                     </div>
                     <div className="Perfil_Projetos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Projetos row col-10 m-auto">
-                            <span className="col-12" style={{display: "flex"}}>
-                                <h1 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao mb-4 mt-5 pr-3" : "btn-flat Titulo_Formacao_2 mb-4 mt-5 pr-3" } onClick={() => this.escolha_Projetos(1)}>PROJETOS</h1><h3 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao_2 mb-4 mt-5 pl-3" : "btn-flat Titulo_Formacao_3 mb-4 mt-5 pl-3"} onClick={() => this.escolha_Projetos(2)}>PROJETOS FAVORITOS</h3>
+                            <span className="col-12 d-none d-md-flex" style={{display: "flex"}}>
+                                <h1 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao mb-4 mt-5 pr-3" : "btn-flat Titulo_Formacao_2 mb-4 mt-5 pr-3" } onClick={() => this.escolha_Projetos(1)}>PROJETOS</h1><h3 className={this.state.valorF == 1 ? "btn-flat Titulo_Formacao_2 mb-4 mt-5 pl-3" : "btn-flat Titulo_Formacao_4 mb-4 mt-5 pl-3"} onClick={() => this.escolha_Projetos(2)}>PROJETOS FAVORITOS</h3>
+                            </span>
+                            <span className="col-12 d-block d-md-none" style={{display: "flex"}}>
+                                <h1 className={"btn-flat Titulo_Formacao mb-4 mt-5 pr-3"}>PROJETOS</h1>
                             </span>
                             <span className="col-12 justify-content-center mt-3">
                                 {
@@ -110,34 +127,66 @@ class Perfil extends React.Component {
                                         <ListFavouritesPerfil/>
                                 }
                             </span>
+                            <span className="col-12 d-block d-md-none" style={{display: "flex"}}>
+                                <h3 className={"btn-flat Titulo_Formacao_3 mb-4 mt-2 pl-3"}>PROJETOS FAVORITOS</h3>
+                            </span>
+                            <span className="col-12 justify-content-center mt-3 d-block d-md-none">
+                                <ListFavouritesPerfil/>
+                            </span>
                         </div>
                     </div>
                     <div className="Perfil_Testemunhos mb-0 col-12 justify-content-center">
                         <div className="Perfil_Info_Testemunhos row col-10 my-5 mx-auto">
                             <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
                             <div className="col-lg-12 col-xl-3 justify-content-center">
-                                <div className="Testemunhos_Esquerda d-flex flex-xl-column flex-md-row mb-3">
-                                    <span>
+                                <div className="Testemunhos_Esquerda mb-3 text-center d-none d-md-block">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 1 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(1)}>
                                         </div>
                                     </span>
-                                    <span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 2 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(2)}>
                                         </div>
                                     </span>
-                                    <span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 3 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(3)}>
                                         </div>
                                     </span>
-                                    <span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 4 ? this.card_Testemunhos_Active : this.card_Testemunhos}
+                                             onClick={() => this.testemunhoB(4)}>
+                                        </div>
+                                    </span>
+                                </div>
+                                <div className="Testemunhos_Esquerda mb-3 text-center d-block d-md-none">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                        <div className="btn mr-0 p-0 mb-4"
+                                             style={this.state.valorB == 1 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
+                                             onClick={() => this.testemunhoB(1)}>
+                                        </div>
+                                    </span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                        <div className="btn mr-0 p-0 mb-4"
+                                             style={this.state.valorB == 2 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
+                                             onClick={() => this.testemunhoB(2)}>
+                                        </div>
+                                    </span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                        <div className="btn mr-0 p-0 mb-4"
+                                             style={this.state.valorB == 3 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
+                                             onClick={() => this.testemunhoB(3)}>
+                                        </div>
+                                    </span>
+                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                        <div className="btn mr-0 p-0 mb-4"
+                                             style={this.state.valorB == 4 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(4)}>
                                         </div>
                                     </span>
