@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Modal} from "react-bootstrap";
+import {Modal} from "react-bootstrap";
 import Coracao from '../../Imgs/heart-regular.svg';
 import Coracao2 from '../../Imgs/heart-solid.svg'
 import Conteudo1 from '../../Imgs/Conteudo_Post1.jpg';
@@ -42,7 +42,7 @@ class ProjectDetails extends React.Component {
     render() {
         return (
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
-                <div className="Proj_Det_Conteudo col-10 pl-5 pr-5">
+                <div className="Proj_Det_Conteudo col-lg-10 col-md-12 pl-5 pr-5">
                     <div className="row col-12">
                         <div className="d-flex flex-column col-md-12 col-lg-9">
                             <h2 className="Proj_Det_Titulo">Website 2018 - Beatriz Pais</h2>
@@ -56,7 +56,8 @@ class ProjectDetails extends React.Component {
                         </div>
                         <div className="align-items-lg-end d-flex flex-column col-md-12 col-lg-3">
                             <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2"
-                                    onClick={this.handleShowM}>Fases do Projeto</button>
+                                    onClick={this.handleShowM}>Fases do Projeto
+                            </button>
                             <div className="Proj_Det_Subtitulo_Parte2 align-items-lg-end
                              d-flex flex-lg-column flex-md-row mt-4">
                                 <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
@@ -91,7 +92,8 @@ class ProjectDetails extends React.Component {
                     <hr className="hr"/>
 
                     <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
-                        <img className="like" src={this.state.src_Img} width="75px" height="75px" onClick={this.handleShowC}/>
+                        <img className="like" src={this.state.src_Img} width="75px" height="75px"
+                             onClick={this.handleShowC}/>
                         <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
                     </div>
 
@@ -123,78 +125,67 @@ class ProjectDetails extends React.Component {
 
                 </div>
 
-                <Modal
-                    className="bg-transparent mh-100"
-                    size="xl"
-                    show={this.state.setShowM}
-                    onHide={this.handleCloseM}
-                    backdrop="static"
-                    keyboard={false}
-                    aria-labelledby="example-modal-sizes-title-xl">
-
-                    <Modal.Header closeButton>
-                        <Modal.Title id="example-modal-sizes-title-xl" className="titulomodal">
-                            Fases do Projeto</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body id="modalbody">
-                        <div className="container cont-fases">
-                            <ul className="timeline">
-                                <li>
-                                    <div className="timeline-badge primary">
-                                    </div>
-                                    <div className="timeline-panel mr-xl-5 mr-md-0">
-                                        <div className="timeline-heading">
-                                            <img className="img-responsive" src="http://lorempixel.com/1600/500/sports/2" />
+                <div id="myModal" className="modal fade">
+                    <Modal
+                        className="bg-transparent mh-100"
+                        size="xl"
+                        show={this.state.setShowM}
+                        onHide={this.handleCloseM}
+                        backdrop="static"
+                        keyboard={false}
+                        aria-labelledby="example-custom-modal-styling-title">
+                        <Modal.Header closeButton>
+                            <Modal.Title id="example-custom-modal-styling-title"
+                                         className="titulomodal">
+                                Fases do Projeto</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body id="modalbody">
+                            <div className="container p-0 mt-3 cont-fases">
+                                <ul className="timeline">
+                                    <li>
+                                        <div className="timeline-badge primary">
                                         </div>
-                                        <div className="timeline-body">
-                                            <h4 className="titulofase">Primeira Fase</h4>
-                                            <img src={Conteudo1} width="100%" height="auto"/>
-                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
-                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
-                                                amistosis quis leo.</p>
+                                        <div className="timeline-panel mr-xl-5 mr-md-0">
+                                            <div className="timeline-heading">
+                                                <img className="img-responsive" src="http://lorempixel.com/1600/500/sports/2" />
+                                            </div>
+                                            <div className="timeline-body">
+                                                <h4 className="titulofase">Primeira Fase</h4>
+                                                <img src={Conteudo1} width="100%" height="auto"/>
+                                                <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
+                                                    Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
+                                                    Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
+                                                    amistosis quis leo.</p>
+                                            </div>
+
                                         </div>
+                                    </li>
 
-                                    </div>
-                                </li>
-
-                                <li  className="timeline-inverted">
-                                    <div className="timeline-badge primary">
-                                    </div>
-                                    <div className="timeline-panel ml-5">
-                                        <div className="timeline-body">
-                                            <h4 className="titulofase">Segunda Fase</h4>
-                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
-                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
-                                                amistosis quis leo.</p>
+                                    <li  className="timeline-inverted">
+                                        <div className="timeline-badge primary">
                                         </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div className="timeline-badge primary">
-                                    </div>
-                                    <div className="timeline-panel mr-xl-5 mr-md-0">
-                                        <div className="timeline-body">
-                                            <h4 className="titulofase">Terceira Fase</h4>
-                                            <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
-                                                Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
-                                                Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
-                                                amistosis quis leo.</p>
+                                        <div className="timeline-panel ml-5">
+                                            <div className="timeline-body">
+                                                <h4 className="titulofase">Segunda Fase</h4>
+                                                <p className="textofase">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
+                                                    Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
+                                                    Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é
+                                                    amistosis quis leo.</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
 
-                            </ul>
-                        </div>
-                    </Modal.Body>
-                </Modal>
 
+
+                                    <li className="clearfix" style={{float: 'none'}}></li>
+                                </ul>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+                </div>
             </div>
         );
     }
-
 }
 
 export default ProjectDetails;

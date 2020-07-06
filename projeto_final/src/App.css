@@ -1840,10 +1840,18 @@
 #modalbody {
     padding: 0;
 }
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .titulomodal {
     text-transform: uppercase;
     font-family: 'Barlow ExtraBold',  sans-serif!important;
-    font-size: 30px;
+    font-size: 40px;
     color: #ff8500;
 }
 .titulofase {
@@ -1869,7 +1877,7 @@
     position: absolute;
     content: " ";
     width: 3px;
-    background-color: #d5d5d5;
+    background-color: #ff8500;
     left: 50%;
     margin-left: -1.5px;
 }
