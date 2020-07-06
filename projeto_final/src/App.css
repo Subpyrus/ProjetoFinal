@@ -253,7 +253,7 @@
     font-size: x-large;
     color: black;
     font-family: 'Barlow Semibold', sans-serif;
-    height: 10vh;
+    height: auto;
     -webkit-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
     -moz-box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
     box-shadow: 0px 10px 56px -16px rgba(0,0,0,0.31);
@@ -1110,11 +1110,54 @@
     box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
     transition: all 0.4s ease-in-out;
 }
+.Emprego_But_Criar_Anuncio_Freelance{
+    font-family: 'Barlow', sans-serif;
+    background-color: #ec9400;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+.Emprego_But_Criar_Anuncio_Freelance:hover {
+    background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
 .Empregos_List_Imagem{
     height: auto;
     width: 75%;
     border-radius: 50%;
 }
+.area_meus_anuncios{
+    border-radius: 10px;
+    background-color: white;
+}
+
+.area_meus_anuncios_inicial{
+    background-color: red;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    font-family: 'Barlow Semibold', sans-serif;
+}
+.area_meus_anuncios_inicial_texto{
+    font-family: "Barlow Semibold", sans-serif;
+    font-size: 17px;
+}
+.area_meus_anuncios_inicial_texto_1{
+    font-family: "Barlow Semibold", sans-serif;
+    font-size: 20px;
+}
+.area_meus_anuncios_candidatos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 
 /* Detalhes Emprego */
 
@@ -1835,15 +1878,29 @@
         align-items: flex-start;
     }
 
+    .area_meus_anuncios_candidatos{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
 }
 
 #modalbody {
     padding: 0;
 }
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .titulomodal {
     text-transform: uppercase;
     font-family: 'Barlow ExtraBold',  sans-serif!important;
-    font-size: 30px;
+    font-size: 40px;
     color: #ff8500;
 }
 .titulofase {
@@ -1869,7 +1926,7 @@
     position: absolute;
     content: " ";
     width: 3px;
-    background-color: #d5d5d5;
+    background-color: #ff8500;
     left: 50%;
     margin-left: -1.5px;
 }
