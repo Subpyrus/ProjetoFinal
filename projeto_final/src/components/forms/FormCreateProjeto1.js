@@ -98,10 +98,10 @@ class FormCreateProjeto1 extends React.Component{
         this.props.handleChange("link2", e.target.value, numero)
     };
 
-    apagar = (tipo, valor) => {
+    apagar = (tipo, valor, refChild) => {
         //console.log(tipo);
         //console.log(valor);
-        this.props.handleApagar(tipo, valor);
+        this.props.handleApagar(tipo, valor, refChild);
     };
 
     render() {
@@ -127,79 +127,77 @@ class FormCreateProjeto1 extends React.Component{
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
                         valores.ficheirosAmostra && valores.ficheirosAmostra.map((ficheiro, index) => {
-                            //console.log(ficheiro);
-                            if (ficheiro[0] == "imagem") {
-                                //console.log(index);
-                                //console.log(ficheiro[0]);
-                                //console.log(valores.ficheirosAmostra);
+                            
+                            if (ficheiro.Tipo == "imagem") {
                                 return (
                                     <span>
-                                        <img src={ficheiro[1]} style={{width: "100%"}}/>
+                                        <img src={ficheiro.Ficheiro} style={{width: "100%"}}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
                                     </span>
                                 );
-                            } else if (ficheiro[0] == "texto"){
-                                //console.log("aqui");
-                                const Campo = ficheiro[1];
+                            } else if (ficheiro.Tipo == "texto"){
+                                
+                                const Campo = ficheiro.Ficheiro;
+
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index, valores.ficheirosEnviar[index]]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escrito, index, valores.ficheirosEnviar[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
                                             APAGAR
                                         </button>
                                     </span>
                                 )
-                            } else if (ficheiro[0] == "link"){
+                            } else if (ficheiro.Tipo == "link"){
                                 //console.log("aqui");
-                                const Campo = ficheiro[1];
+                                const Campo = ficheiro.Ficheiro;
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escritoLink, index, valores.ficheirosEnviar[index]]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escritoLink, index, valores.ficheirosEnviar[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
                                             APAGAR
                                         </button>
                                     </span>
                                 )
-                            } else if (ficheiro[0] == "video"){
+                            } else if (ficheiro.Tipo == "video"){
                                 return (
                                     <span>
                                         <video width={"100%"} controls>
-                                            <source src={ficheiro[1]} style={{width: "100%"}} type={"video/mp4"}/>
+                                            <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"video/mp4"}/>
                                         </video>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
                                     </span>
                                 );
-                            } else if (ficheiro[0] == "audio"){
+                            } else if (ficheiro.Tipo == "audio"){
                                 return (
                                     <span style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                                         <audio width={"100%"} controls>
-                                            <source src={ficheiro[1]} style={{width: "100%"}} type={"audio/mpeg"}/>
+                                            <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"audio/mpeg"}/>
                                         </audio>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
                                     </span>

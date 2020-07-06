@@ -83,10 +83,10 @@ class FormCreateProjeto3 extends React.Component{
         }
     };
 
-    apagar = (tipo, valor) => {
+    apagar = (tipo, valor, refChild) => {
         //console.log(tipo);
         //console.log(valor);
-        this.props.handleApagar(tipo, valor);
+        this.props.handleApagar(tipo, valor, refChild);
         this.setState({crop: undefined});
         this.setState({crop: {aspect: 4/3}});
         this.setState({croppedImageUrl: undefined});
@@ -134,7 +134,7 @@ class FormCreateProjeto3 extends React.Component{
                 crop,
                 'newFile.jpeg'
             );
-            let extensao = this.extractImageFileExtensionFromBase64(this.props.valores.ficheirosAmostraCapa[0][1]);
+            let extensao = this.extractImageFileExtensionFromBase64(this.props.valores.ficheirosAmostraCapa[0].Ficheiro);
             this.setState({ croppedImageUrl, imgSrcCriada: extensao });
             this.props.guardarCorte(croppedImageUrl);
             //console.log(this.state);
@@ -227,7 +227,7 @@ class FormCreateProjeto3 extends React.Component{
                             return (
                                 <span className="text-center" style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                                     <ReactCrop
-                                        src={ficheiro[1]}
+                                        src={ficheiro.Ficheiro}
                                         style={{maxwidth: "100%"}}
                                         crop={this.state.crop}
                                         onImageLoaded={this.handleImageLoaded}
@@ -239,7 +239,7 @@ class FormCreateProjeto3 extends React.Component{
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
                                         {croppedImageUrl && valores.imgCortadaMostrar != "" ?

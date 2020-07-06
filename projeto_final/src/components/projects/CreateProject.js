@@ -4,9 +4,7 @@ import FormCreateProjeto1 from '../forms/FormCreateProjeto1';
 import FormCreateProjeto2 from '../forms/FormCreateProjeto2';
 import FormCreateProjeto3 from '../forms/FormCreateProjeto3';
 import FormCreateProjeto4 from '../forms/FormCreateProjeto4';
-import {createProject} from "../../store/actions/projectActions";
-import {connect} from 'react-redux';
-import {createJob} from "../../store/actions/jobActions";
+import {storage} from '../../config/fbConfig';
 
 class CreateProject extends React.Component {
     constructor(props) {
@@ -36,10 +34,31 @@ class CreateProject extends React.Component {
     //Mudança de campos
     handleChange = (tipo, ficheiro, enviar) => {
         if (tipo == "imagem" || tipo == "video" || tipo == "audio") {
-            let arrayEnvio = [];
-            let arrayUpload = [];
-            arrayEnvio.push(tipo, ficheiro);
-            arrayUpload.push(tipo, enviar);
+
+            let d = new Date();
+            let timestamp = d.getTime();
+            let newName = enviar.name + "_project_" + timestamp;
+
+            let uploadTask = storage.ref(`files/${newName}`).put(enviar);
+            uploadTask.on(
+                "state_changed",
+                snapshot => {},
+                error => {
+                    console.log(error);
+                },
+                () => {
+                    storage.ref("files").child(newName).getDownloadURL().then(url => {});
+                }
+            )
+            let arrayEnvio = {
+                Tipo: tipo,
+                Ficheiro: ficheiro,
+                RefChild: newName
+            };
+            let arrayUpload = {
+                Tipo: tipo,
+                Ficheiro: newName
+            };
             this.state.ficheirosEnviar.push(arrayUpload);
             this.state.ficheirosAmostra.push(arrayEnvio);
             this.setState({
@@ -47,18 +66,24 @@ class CreateProject extends React.Component {
             });
         } else if (tipo == "texto1" || tipo == "texto2") {
             if (tipo == "texto1") {
-                let arrayEnvio = [];
-                let arrayUpload = [];
-                arrayUpload.push("texto", enviar);
-                arrayEnvio.push("texto", ficheiro);
+                let arrayEnvio = {
+                    Tipo: "texto",
+                    Ficheiro: ficheiro
+                };
+                let arrayUpload = {
+                    Tipo: "texto",
+                    Ficheiro: ""
+                };
                 this.state.ficheirosEnviar.push(arrayUpload);
                 this.state.ficheirosAmostra.push(arrayEnvio);
                 this.setState({
                     verificacaoFicheiros: true
                 });
             } else {
-                let arrayUpload = [];
-                arrayUpload.push("texto", ficheiro);
+                let arrayUpload = {
+                    Tipo: "texto",
+                    Ficheiro: ficheiro
+                };
                 this.state.ficheirosEnviar.splice(enviar, 1, arrayUpload);
                 this.setState({
                     verificacaoFicheiros: true
@@ -66,10 +91,14 @@ class CreateProject extends React.Component {
             }
         } else if (tipo == "link1" || tipo == "link2") {
             if (tipo == "link1") {
-                let arrayEnvio = [];
-                let arrayUpload = [];
-                arrayEnvio.push("link", ficheiro);
-                arrayUpload.push("link", enviar);
+                let arrayEnvio = {
+                    Tipo: "link",
+                    Ficheiro: ficheiro
+                };
+                let arrayUpload = {
+                    Tipo: "link",
+                    Ficheiro: ""
+                };
                 //alterar o envio acima para só enviar a info
                 this.state.ficheirosAmostra.push(arrayEnvio);
                 this.state.ficheirosEnviar.push(arrayUpload);
@@ -77,35 +106,41 @@ class CreateProject extends React.Component {
                     verificacaoFicheiros: true
                 });
             } else {
-                let arrayUpload = [];
-                arrayUpload.push("link", ficheiro);
+                let arrayUpload = {
+                    Tipo: "link",
+                    Ficheiro: ficheiro
+                };
                 this.state.ficheirosEnviar.splice(enviar, 1, arrayUpload);
                 this.setState({
                     verificacaoFicheiros: true
                 });
             }
         }
-        //console.log(this.state.ficheirosAmostra);
-        //console.log(this.state.ficheirosEnviar);
     };
 
-    handleApagar = (tipo, valor) => {
-        //console.log(valor);
+    handleApagar = (tipo, valor, refChild) => {
+
         if (tipo == "imagem" || tipo == "video" || tipo == "audio") {
+            
+            var desertRef = storage.ref('files').child(refChild);
+
+            // Delete the file
+            desertRef.delete().then(function() {
+
+            }).catch((err) => {
+                console.log(err)
+            });
             this.state.ficheirosEnviar.splice(valor, 1);
             this.state.ficheirosAmostra.splice(valor, 1);
+
             if (this.state.ficheirosAmostra.length > 0) {
                 this.setState({
                     verificacaoFicheiros: true
                 });
-                //console.log(this.state.ficheirosAmostra);
-                //console.log("ohyeye");
             } else {
                 this.setState({
                     verificacaoFicheiros: false
                 });
-                //console.log(this.state.ficheirosAmostra);
-                //console.log("ohnono");
             }
         }
         else if (tipo == "texto" || tipo == "link") {
@@ -115,15 +150,10 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheiros: true
                 });
-                //console.log(this.state.ficheirosAmostra);
-                //console.log(this.state.ficheirosEnviar);
-                //console.log("ohyeye");
             } else {
                 this.setState({
                     verificacaoFicheiros: false
                 });
-                //console.log(this.state.ficheirosAmostra);
-                //console.log("ohnono");
             }
         }
     };
@@ -131,10 +161,32 @@ class CreateProject extends React.Component {
     //Mudança de campos Fases
     handleChangeFases = (tipo, ficheiro, enviar) => {
         if (tipo == "imagem") {
-            let arrayEnvio = [];
-            let arrayUpload = [];
-            arrayEnvio.push(tipo, ficheiro);
-            arrayUpload.push(tipo, enviar);
+
+            let d = new Date();
+            let timestamp = d.getTime();
+            let newName = enviar.name + "_fases_" + timestamp;
+
+            let uploadTask = storage.ref(`files/${newName}`).put(enviar);
+            uploadTask.on(
+                "state_changed",
+                snapshot => {},
+                error => {
+                    console.log(error);
+                },
+                () => {
+                    storage.ref("files").child(newName).getDownloadURL().then(url => {});
+                }
+            )
+
+            let arrayEnvio = {
+                Tipo: tipo,
+                Ficheiro: ficheiro,
+                RefChild: newName
+            };
+            let arrayUpload = {
+                Tipo: tipo,
+                Ficheiro: newName
+            };
             this.state.ficheirosEnviarFases.push(arrayUpload);
             this.state.ficheirosAmostraFases.push(arrayEnvio);
             this.setState({
@@ -142,45 +194,67 @@ class CreateProject extends React.Component {
             });
         } else if (tipo == "texto1" || tipo == "texto2") {
             if (tipo == "texto1") {
-                let arrayEnvio = [];
-                let arrayUpload = [];
-                arrayUpload.push("texto", enviar);
-                arrayEnvio.push("texto", ficheiro);
+                let arrayEnvio = {
+                    Tipo: "texto",
+                    Ficheiro: ficheiro
+                };
+                let arrayUpload = {
+                    Tipo: "texto",
+                    Ficheiro: ""
+                };
                 this.state.ficheirosEnviarFases.push(arrayUpload);
                 this.state.ficheirosAmostraFases.push(arrayEnvio);
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
             } else {
-                let arrayUpload = [];
-                arrayUpload.push("texto", ficheiro);
+                let arrayUpload = {
+                    Tipo: "texto",
+                    Ficheiro: ficheiro
+                };
                 this.state.ficheirosEnviarFases.splice(enviar, 1, arrayUpload);
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
             }
         }
-        //console.log(this.state.ficheirosAmostraFases);
-        //console.log(this.state.ficheirosEnviarFases);
     };
 
-    handleApagarFases = (tipo, valor) => {
-        //console.log(valor);
+    handleApagarFases = (tipo, valor, refChild) => {
         if (tipo == "imagem") {
+
+            var desertRef = storage.ref('files').child(refChild);
+
+            // Delete the file
+            desertRef.delete().then(function() {
+
+            }).catch((err) => {
+                console.log(err)
+            });
+            this.state.ficheirosEnviar.splice(valor, 1);
+            this.state.ficheirosAmostra.splice(valor, 1);
+
+            if (this.state.ficheirosAmostra.length > 0) {
+                this.setState({
+                    verificacaoFicheiros: true
+                });
+            } else {
+                this.setState({
+                    verificacaoFicheiros: false
+                });
+            }
+
             this.state.ficheirosEnviarFases.splice(valor, 1);
             this.state.ficheirosAmostraFases.splice(valor, 1);
             if (this.state.ficheirosAmostraFases.length > 0) {
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
-                //console.log(this.state.ficheirosAmostraFases);
-                //console.log("ohyeye");
             } else {
                 this.setState({
                     verificacaoFicheirosFases: false
                 });
-                //console.log(this.state.ficheirosAmostraFases);
-                //console.log("ohnono");
+
             }
         }
         else if (tipo == "texto") {
@@ -190,69 +264,115 @@ class CreateProject extends React.Component {
                 this.setState({
                     verificacaoFicheirosFases: true
                 });
-                //console.log(this.state.ficheirosAmostraFases);
-                //console.log("ohyeye");
             } else {
                 this.setState({
                     verificacaoFicheirosFases: false
                 });
-                //console.log(this.state.ficheirosAmostraFases);
-                //console.log("ohnono");
             }
         }
     };
 
     //Mudança de Capa
     handleChangeCapa = (tipo, ficheiro, enviar) => {
+
         if (tipo == "imagem") {
-            let arrayEnvio = [];
-            arrayEnvio.push(tipo, ficheiro);
+            let arrayEnvio = {
+                Tipo: tipo,
+                Ficheiro: ficheiro
+            };
+
             this.state.ficheirosAmostraCapa.push(arrayEnvio);
             this.setState({
                 verificacaoFicheirosCapa: true
             });
         } else {
             if (this.state.ficheirosEnviarCapa.length == 0) {
-                //console.log("ola");
-                let arrayUpload = [];
-                arrayUpload.push("imagem", ficheiro);
+
+                let d = new Date();
+                let timestamp = d.getTime();
+                let newName = ficheiro.name + "_capa_" + timestamp;
+
+                let uploadTask = storage.ref(`files/${newName}`).put(ficheiro);
+                uploadTask.on(
+                    "state_changed",
+                    snapshot => {},
+                    error => {
+                        console.log(error);
+                    },
+                    () => {
+                        storage.ref("files").child(newName).getDownloadURL().then(url => {});
+                    }
+                )
+                let arrayUpload = {
+                    Tipo: "imagem",
+                    Ficheiro: newName,
+
+                };
                 this.state.ficheirosEnviarCapa.push(arrayUpload);
                 this.setState({
                     verificacaoFicheirosCapa: true
                 });
             } else if (this.state.ficheirosEnviarCapa.length > 0) {
-                let arrayUpload = [];
-                arrayUpload.push("imagem", ficheiro);
+  
+                let refChild = this.state.ficheirosEnviarCapa[0].Ficheiro 
+
+                var desertRef = storage.ref('files').child(refChild);
+
+                // Delete the file
+                desertRef.delete().then(function() {
+                    console.log("Deleted")
+                }).catch((err) => {
+                    console.log(err)
+                });
+
+
+                let d = new Date();
+                let timestamp = d.getTime();
+                let newName = ficheiro.name + "_capa_" + timestamp;
+
+                let uploadTask = storage.ref(`files/${newName}`).put(ficheiro);
+                uploadTask.on(
+                    "state_changed",
+                    snapshot => {},
+                    error => {
+                        console.log(error);
+                    },
+                    () => {
+                        storage.ref("files").child(newName).getDownloadURL().then(url => {});
+                    }
+                )
+                let arrayUpload = {
+                    Tipo: "imagem",
+                    Ficheiro: newName,
+                };
+
                 this.state.ficheirosEnviarCapa.splice(enviar, 1, arrayUpload);
                 this.setState({
                     verificacaoFicheirosCapa: true
                 });
             }
         }
-        //console.log(this.state.ficheirosAmostraCapa);
-        //console.log(this.state.ficheirosEnviarCapa);
     };
 
     guardaCorte = (imagem) => {
         this.setState({imgCortadaMostrar: imagem});
     };
 
-    handleApagarCapa = (tipo, valor) => {
-        //console.log(valor);
+    handleApagarCapa = (tipo, valor, refChild) => {
+
+    
         this.state.ficheirosEnviarCapa.splice(valor, 1);
         this.state.ficheirosAmostraCapa.splice(valor, 1);
         this.setState({
             verificacaoFicheirosCapa: false,
             imgCortadaMostrar: ""
-        });
-        //console.log(this.state.ficheirosAmostraCapa);
-        //console.log("ohnono");
+        });;
     };
 
     //Campos Finais
     handleChangeFinal = input => e => {
         this.setState({[input]: e.target.value});
-        //console.log(this.state);
+
     };
 
     // Próximo Step
@@ -267,11 +387,6 @@ class CreateProject extends React.Component {
     };
     StepMore = (valor) => {
         this.setState({Step: valor});
-    };
-    Publicar = () => {
-        let objeto = [{conteudo: this.state.ficheirosEnviar, fases: this.state.ficheirosEnviarFases, capa: this.state.ficheirosEnviarCapa, nomeProjeto: this.state.nomeProjeto, areaTrabalho: this.state.areaTrabalhoProjeto, ferramentas: this.state.ferramentasUsadas, descricaoProjeto: this.state.descricaoProjeto, empresasProjeto: this.state.EmpresasProjeto}];
-        //this.props.createProject(objeto);
-        console.log(objeto);
     };
 
     render() {
@@ -435,6 +550,7 @@ class CreateProject extends React.Component {
                                 valores={valores}
                                 handleChange={this.handleChangeFinal}
                                 publicar={this.Publicar}
+                                objeto={this.state}
                             />
                         </div>
                     </div>
@@ -444,10 +560,5 @@ class CreateProject extends React.Component {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createProject: (project) => dispatch(createJob(project))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+export default CreateProject

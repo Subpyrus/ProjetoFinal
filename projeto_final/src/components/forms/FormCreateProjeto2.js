@@ -68,10 +68,10 @@ class FormCreateProjeto2 extends React.Component {
         this.props.handleChange("texto2", e.target.value, numero)
     };
 
-    apagar = (tipo, valor) => {
+    apagar = (tipo, valor, refChild) => {
         //console.log(tipo);
         //console.log(valor);
-        this.props.handleApagar(tipo, valor);
+        this.props.handleApagar(tipo, valor, refChild);
     };
 
     render() {
@@ -94,34 +94,30 @@ class FormCreateProjeto2 extends React.Component {
                 <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheirosFases !== false ?
                         valores.ficheirosAmostraFases && valores.ficheirosAmostraFases.map((ficheiro, index) => {
-                            //console.log(ficheiro);
-                            if (ficheiro[0] == "imagem") {
-                                //console.log(index);
-                                //console.log(ficheiro[0]);
-                                //console.log(valores.ficheirosAmostra);
+                            if (ficheiro.Tipo == "imagem") {
                                 return (
                                     <span>
-                                        <img src={ficheiro[1]} style={{width: "100%"}}/>
+                                        <img src={ficheiro.Ficheiro} style={{width: "100%"}}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
                                     </span>
                                 );
-                            } else if (ficheiro[0] == "texto"){
+                            } else if (ficheiro.Tipo == "texto"){
                                 //console.log("aqui");
-                                const Campo = ficheiro[1];
+                                const Campo = ficheiro.Ficheiro;
                                 return(
                                     <span>
-                                        <Campo key={index} index={index} tipo={ficheiro[0]} escreve={[this.escrito, index, valores.ficheirosEnviarFases[index]]}/>
+                                        <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escrito, index, valores.ficheirosEnviarFases[index]]}/>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro[0], index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
                                             APAGAR
                                         </button>
                                     </span>

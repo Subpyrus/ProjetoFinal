@@ -1,7 +1,21 @@
 import React from 'react';
 import '../../App.css';
+import {createProject} from "../../store/actions/projectActions";
+import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
+
 
 class FormCreateProjeto4 extends React.Component{
+
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto};
+        this.props.createProject(objeto);
+        console.log("ola")
+        document.getElementById('red').click();
+    };
+
 
     render() {
         const {valores} = this.props;
@@ -48,18 +62,6 @@ class FormCreateProjeto4 extends React.Component{
                             <label htmlFor="ferramentasUsadas" className={valores.ferramentasUsadas != "" ? "active" : ""}>Ferramentas Usadas</label>
                         </div>
                     </div>
-                    <div className="input-field col s12">
-                        <select
-                            className="aparece"
-                            onChange={this.props.handleChange('equipa')}
-                            defaultValue={valores.equipa}
-                        >
-                            <option value="" disabled selected>Equipa</option>
-                            <option value="Mango">Mango</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Apple">Apple</option>
-                        </select>
-                    </div>
                     <div className="row">
                         <div className="input-field col s12">
                         <textarea
@@ -83,13 +85,25 @@ class FormCreateProjeto4 extends React.Component{
                             <label htmlFor="EmpresasProjeto" className={valores.EmpresasProjeto != "" ? "active" : ""}>Empresas, marcas, etc</label>
                         </div>
                     </div>
+                    <div className="input-field col s12">
+                        <select
+                            className="aparece"
+                            onChange={this.props.handleChange('equipa')}
+                            defaultValue={valores.equipa}
+                        >
+                            <option value="" disabled selected>Equipa</option>
+                            <option value="Mango">Mango</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Apple">Apple</option>
+                        </select>
+                    </div>
                     <div className="col s12">
                         {valores.nomeProjeto == "" || valores.areaTrabalhoProjeto == "" || valores.ferramentasUsadas == "" || valores.descricaoProjeto == "" || valores.EmpresasProjeto == "" ?
                             <button
                                 className="btn btnIn"
                                 type="button"
                                 id="nextBtn"
-                                onClick={this.continuar}
+                                onClick={this.handleSubmit}
                                 disabled
                             >
                                 Publicar
@@ -99,16 +113,24 @@ class FormCreateProjeto4 extends React.Component{
                                 className="btn btnIn"
                                 type="button"
                                 id="nextBtn"
-                                onClick={this.props.publicar}
+                                onClick={this.handleSubmit}
                             >
                                 Publicar
                             </button>
                         }
                     </div>
                 </div>
+                <Link id="red" to="/"/>
             </div>
         );
     }
 }
 
-export default FormCreateProjeto4;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(FormCreateProjeto4)
