@@ -11,12 +11,17 @@ class Filtros extends React.Component {
     }
 
     handleChange = input => e => {
-        this.setState({[input]: e.target.value});
-        console.log(this.state);
+        //console.log(e.target.value);
+        if (input == "pesquisa"){
+            this.props.search(e.target.value);
+        } else if ("AreaTrabalho") {
+            this.props.areaTrabalho(e.target.value);
+        }
+        //console.log(this.state);
     };
 
     render() {
-        console.log(this.state.pagina);
+        //console.log(this.state.pagina);
         return (
             <div className="filtros row col-12 m-0 p-0 justify-content-center">
                 <div className="row col-12 m-0 p-0 justify-content-center pt-2 pt-lg-0">
@@ -26,6 +31,7 @@ class Filtros extends React.Component {
                             onChange={this.handleChange('AreaTrabalho')}
                         >
                             <option value="" disabled selected>Área de Trabalho</option>
+                            <option value="">Nenhuma</option>
                             <option value="Mango">Mango</option>
                             <option value="Orange">Orange</option>
                             <option value="Apple">Apple</option>
@@ -73,7 +79,7 @@ class Filtros extends React.Component {
                                 id="Pesquisa"
                                 type="search"
                                 className="validate"
-                                onChange={this.handleChange('Orcamento')}
+                                onChange={this.handleChange("pesquisa")}
                             />
                             <label htmlFor="Pesquisa">Pesquisa</label>
                         </div>

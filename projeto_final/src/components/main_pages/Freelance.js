@@ -5,20 +5,30 @@ import ListaFreelance from '../freelances/FreelanceList';
 import {Link} from "react-router-dom";
 import  { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux' 
+import { compose } from 'redux'
+import ListaEmpregos from "../jobs/JobList";
 
 class Freelance extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            pesquisa: "",
+            areaTrabalho: ""
+        }
+    }
+
     render() {
 
         const { auth, freelances } = this.props;
 
         return (
             <div>
-                <Filtros pagina="freelance"/>
+                <Filtros pagina="freelance" search={this.atualiza} areaTrabalho={this.atualizaArea}/>
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center mx-auto">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4">
-                            <ListaFreelance freelances={freelances}/>
+                            <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho}/>
                         </div>
                         {auth.uid ?
                             <div className="col-12 col-md-8 col-lg-3 mt-lg-5 ml-lg-4 mb-5">
@@ -60,6 +70,15 @@ class Freelance extends React.Component {
             </div>
         )
     }
+    atualiza = (txt) => {
+        //console.log(txt);
+        this.setState({pesquisa: txt});
+    };
+    atualizaArea = (txt) => {
+        //console.log(txt);
+        this.setState({areaTrabalho: txt});
+    }
+
 }
 
 const mapStateToProps = (state) => {
