@@ -19,8 +19,8 @@ class Filtros extends React.Component {
         console.log(this.state.pagina);
         return (
             <div className="filtros row col-12 m-0 p-0 justify-content-center">
-                <div className="row col-12 m-0 p-0 justify-content-center">
-                    <span className="col-2 item_Filtro">
+                <div className="row col-12 m-0 p-0 justify-content-center pt-2 pt-lg-0">
+                    <span className="col-6 col-lg-2 item_Filtro">
                         <select
                             className="aparece"
                             onChange={this.handleChange('AreaTrabalho')}
@@ -31,7 +31,7 @@ class Filtros extends React.Component {
                             <option value="Apple">Apple</option>
                         </select>
                     </span>
-                        <span className="col-2 item_Filtro">
+                        <span className="col-6 col-lg-2 item_Filtro">
                         <select
                             className="aparece"
                             onChange={this.handleChange('Localizacao')}
@@ -43,7 +43,7 @@ class Filtros extends React.Component {
                         </select>
                     </span>
                     {this.state.pagina == "projeto" || this.state.pagina == "criador" ?
-                    <span className="col-2 item_Filtro">
+                    <span className="col-6 col-lg-2 item_Filtro">
                         <select
                             className="aparece"
                             onChange={this.handleChange('Destaques')}
@@ -55,7 +55,7 @@ class Filtros extends React.Component {
                         </select>
                     </span>
                         :
-                        <span className="col-2 item_Filtro">
+                        <span className="col-6 col-lg-2 item_Filtro">
                             <select
                                 className="aparece"
                                 onChange={this.handleChange('Destaques')}
@@ -67,7 +67,7 @@ class Filtros extends React.Component {
                             </select>
                         </span>
                     }
-                        <span className="col-3 item_Filtro2">
+                        <span className="col-6 col-lg-3 item_Filtro2">
                         <div className="input-field">
                             <input
                                 id="Pesquisa"
