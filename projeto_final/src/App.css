@@ -449,6 +449,12 @@
 
 .Proj_Det_Titulo{
     font-family: 'Barlow ExtraBold',  sans-serif!important;
+    color: #d56d00;
+}
+.Proj_nome_uti {
+    color: black;
+    font-family: 'Barlow Medium',  sans-serif!important;
+    font-size: 21px;
 }
 
 .Proj_Det_Subtitulo{
@@ -467,7 +473,7 @@
 }
 
 .hr{
-    background-color: #ec9400;
+    background-color: #d56d00;
 }
 
 .Proj_Det_Likes{
@@ -496,17 +502,30 @@
 }
 
 .Proj_Det_Info_Texto{
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .Proj_Det_Info_Texto2{
-    color: #797c80;
+    color: #73767a;
+}
+
+.navegar {
+    text-decoration: nome;
+    color: #73767a;
+}
+.navegar:hover {
+    color: #ff8500;
 }
 
 .Proj_Det_Texto_Registar{
     font-size: 19px;
 }
-
+.imgperfilproj {
+    border-radius: 7px;
+}
+.nome_uti{
+    font-family: "Barlow Semibold", sans-serif;
+}
 /* SignIn */
 .noscroll {
     font-family: 'Barlow', sans-serif;
