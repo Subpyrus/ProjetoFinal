@@ -7,7 +7,7 @@ class FormEditarPerfil_Geral extends React.Component {
     render() {
         const {valores, handleChange} = this.props;
         return (
-            <div className="row col-12">
+            <div className="row col-12 mx-auto">
                 <span className="col-12 mt-3">
                     <h3 className="Editar_Perfil_Titulo">Informações gerais</h3>
                 </span>
@@ -51,25 +51,32 @@ class FormEditarPerfil_Geral extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="input-field col-12 col-md-6">
-                            <input
-                                id="Conselho"
-                                type="text"
-                                className="validate"
-                                onChange={handleChange('conselho')}
-                                defaultValue={valores.conselho}
-                            />
-                            <label htmlFor="Conselho" className={valores.conselho != "" ? "col-12 col-md-6 active" : "col-12 col-md-6"}>Conselho</label>
-                        </div>
-                        <div className="input-field col-12 col-md-6">
-                            <input
-                                id="Cidade"
-                                type="text"
-                                className="validate"
-                                onChange={handleChange('localidade')}
-                                defaultValue={valores.localidade}
-                            />
-                            <label htmlFor="Cidade" className={valores.localidade != "" ? "col-12 col-md-6 active" : "col-12 col-md-6"}>Localidade/Cidade</label>
+                        <div className="input-field col s12">
+                            <select
+                                className="aparece"
+                                onChange={handleChange('Distrito')}
+                                defaultValue={valores.Distrito}
+                            >
+                                <option value="" disabled selected>Escolhe o teu Distrito</option>
+                                <option value="Aveiro">Aveiro</option>
+                                <option value="Beja">Beja</option>
+                                <option value="Braga">Braga</option>
+                                <option value="Bragança">Bragança</option>
+                                <option value="CasteloBranco">Castelo Branco</option>
+                                <option value="Coimbra">Coimbra</option>
+                                <option value="Evora">Évora</option>
+                                <option value="Faro">Faro</option>
+                                <option value="Guarda">Guarda</option>
+                                <option value="Leiria">Leiria</option>
+                                <option value="Lisboa">Lisboa</option>
+                                <option value="Portalegre">Portalegre</option>
+                                <option value="Porto">Porto</option>
+                                <option value="Santarem">Santarém</option>
+                                <option value="Setubal">Setúbal</option>
+                                <option value="VianaCastelo">Viana do Castelo</option>
+                                <option value="VilaReal">Vila Real</option>
+                                <option value="Viseu">Viseu</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row">
@@ -80,9 +87,18 @@ class FormEditarPerfil_Geral extends React.Component {
                                 defaultValue={valores.areaTrabalho}
                             >
                                 <option value="" disabled selected>Escolhe a tua Área de Trabalho</option>
-                                <option value="Mango">Mango</option>
-                                <option value="Orange">Orange</option>
-                                <option value="Apple">Apple</option>
+                                <option value="3DAnimacao">3D e Animação</option>
+                                <option value="ArtesPerfomativas">Artes Performativas</option>
+                                <option value="ArtesPlasticas">Artes Plásticas</option>
+                                <option value="CinemaVideo">Cinema e Vídeo</option>
+                                <option value="DesenhoIlustracao">Desenho e Ilustração</option>
+                                <option value="DesignGrafico">Design Gráfico</option>
+                                <option value="DesignProdutos">Design de produtos</option>
+                                <option value="Fotografia">Fotografia</option>
+                                <option value="Musica">Música</option>
+                                <option value="Pintura">Pintura</option>
+                                <option value="Programacao">Programação</option>
+                                <option value="OutrosTrabalhos">Outros Trabalhos</option>
                             </select>
                         </div>
                     </div>

@@ -16,8 +16,7 @@ class EditarPerfil extends React.Component{
             primeiroNome: "",
             ultimoNome: "",
             dataNascimento: "",
-            conselho: "",
-            localidade: "",
+            Distrito: "",
             areaTrabalho: "",
             ocupacao: "",
             sobre: "",
@@ -67,8 +66,8 @@ class EditarPerfil extends React.Component{
     };
 
     render() {
-        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao} = this.state;
-        const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, conselho, localidade, areaTrabalho, ocupacao, sobre};
+        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao} = this.state;
+        const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
         const valores2 = {passwordAtual, passwordNova};
         const valores3 = {website, instagram, linkedin, facebook};
         const valores4 = {formacao};

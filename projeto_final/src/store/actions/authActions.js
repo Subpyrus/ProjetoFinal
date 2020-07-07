@@ -35,8 +35,7 @@ export const signUpUser = (newUser) => {
                 FirstName:newUser.PrimeiroNome,
                 LastName:newUser.UltimoNome,
                 BirthDate:newUser.DataNascimento,
-                Country:newUser.Pais,
-                Local:newUser.Localidade,
+                Local:newUser.Distrito,
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
                 TipoUtilizador: 1
@@ -68,8 +67,7 @@ export const signUpEnterprise = (newEnterprise) => {
                 NomeEmpresa:newEnterprise.NomeEmpresa,
                 TamanhoEmpresa:newEnterprise.TamanhoEmpresa,
                 DataCriacao:newEnterprise.DataCriacao,
-                Country:newEnterprise.Pais,
-                Local:newEnterprise.Localidade,
+                Local:newEnterprise.Distrito,
                 AreaTrabalho:newEnterprise.AreaTrabalho,
                 Ocupation:newEnterprise.Ocupacao,
                 TipoUtilizador: 2

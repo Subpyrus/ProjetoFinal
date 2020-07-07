@@ -35,7 +35,7 @@ class FormCreateFreelance1 extends React.Component{
                     <div className="input-field col-12 col-md-6">
                         <input
                             id="Orcamento"
-                            type="text"
+                            type="number"
                             className="validate"
                             onChange={handleChange('Orcamento')}
                             defaultValue={valores.Orcamento}
@@ -57,7 +57,7 @@ class FormCreateFreelance1 extends React.Component{
                     <div className="input-field col-12 col-md-6">
                         <input
                             id="NumeroCandidatos"
-                            type="text"
+                            type="number"
                             className="validate"
                             onChange={handleChange('NumeroCandidatos')}
                             defaultValue={valores.NumeroCandidatos}
@@ -71,9 +71,18 @@ class FormCreateFreelance1 extends React.Component{
                             defaultValue={valores.AreaTrabalho}
                         >
                             <option value="" disabled selected>Escolhe a tua Área de Trabalho</option>
-                            <option value="Mango">Mango</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Apple">Apple</option>
+                            <option value="3DAnimacao">3D e Animação</option>
+                            <option value="ArtesPerfomativas">Artes Performativas</option>
+                            <option value="ArtesPlasticas">Artes Plásticas</option>
+                            <option value="CinemaVideo">Cinema e Vídeo</option>
+                            <option value="DesenhoIlustracao">Desenho e Ilustração</option>
+                            <option value="DesignGrafico">Design Gráfico</option>
+                            <option value="DesignProdutos">Design de produtos</option>
+                            <option value="Fotografia">Fotografia</option>
+                            <option value="Musica">Música</option>
+                            <option value="Pintura">Pintura</option>
+                            <option value="Programacao">Programação</option>
+                            <option value="OutrosTrabalhos">Outros Trabalhos</option>
                         </select>
                     </div>
                 </div>

@@ -62,7 +62,7 @@ class CreateJob2 extends React.Component {
                         <div className="container-fluid Criar_Freelance pl-0 pr-0">
                             <div className="row col-12 mb-0 mr-0 ml-0 pr-0 pl-0 justify-content-center">
                                 {this.state.TipoAnuncio == "3D e Animação" ?
-                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Img3D})`, backgroundPosition: "center"}}>
+                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Img3D})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                         <div className="Criar_Freelance_Inicial_Centrar">
                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                             <span
@@ -71,7 +71,7 @@ class CreateJob2 extends React.Component {
                                     </div>
                                     :
                                     this.state.TipoAnuncio == "Artes Performativas" ?
-                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${ArtesPerformativas})`}}>
+                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${ArtesPerformativas})`, backgroundSize: "cover"}}>
                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                 <span
@@ -80,7 +80,7 @@ class CreateJob2 extends React.Component {
                                         </div>
                                         :
                                         this.state.TipoAnuncio == "Cinema e Vídeo" ?
-                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${CinemaVideo})`, backgroundPosition: "center"}}>
+                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${CinemaVideo})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                     <span
@@ -89,7 +89,7 @@ class CreateJob2 extends React.Component {
                                             </div>
                                             :
                                             this.state.TipoAnuncio == "Desenho e Ilustrações" ?
-                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesenhoIlustracao})`, backgroundPosition: "center"}}>
+                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesenhoIlustracao})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                     <div className="Criar_Freelance_Inicial_Centrar">
                                                         <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                         <span
@@ -98,7 +98,7 @@ class CreateJob2 extends React.Component {
                                                 </div>
                                                 :
                                                 this.state.TipoAnuncio == "Design de Produtos" ?
-                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesignProduto})`, backgroundPosition: "center"}}>
+                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesignProduto})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                         <div className="Criar_Freelance_Inicial_Centrar">
                                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                             <span
@@ -107,7 +107,7 @@ class CreateJob2 extends React.Component {
                                                     </div>
                                                     :
                                                     this.state.TipoAnuncio == "Fotografia" ?
-                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Fotografia})`, backgroundPosition: "center"}}>
+                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Fotografia})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                 <span
@@ -116,7 +116,7 @@ class CreateJob2 extends React.Component {
                                                         </div>
                                                         :
                                                         this.state.TipoAnuncio == "Música" ?
-                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Music})`, backgroundPosition: "center"}}>
+                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Music})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                     <span
@@ -125,7 +125,7 @@ class CreateJob2 extends React.Component {
                                                             </div>
                                                             :
                                                             this.state.TipoAnuncio == "Pintura" ?
-                                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Pintura})`, backgroundPosition: "center"}}>
+                                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Pintura})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                     <div className="Criar_Freelance_Inicial_Centrar">
                                                                         <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                         <span
@@ -134,7 +134,7 @@ class CreateJob2 extends React.Component {
                                                                 </div>
                                                                 :
                                                                 this.state.TipoAnuncio == "Programação" ?
-                                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Programacao})`, backgroundPosition: "center"}}>
+                                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Programacao})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                         <div className="Criar_Freelance_Inicial_Centrar">
                                                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                             <span
@@ -143,7 +143,7 @@ class CreateJob2 extends React.Component {
                                                                     </div>
                                                                     :
                                                                     this.state.TipoAnuncio == "Artes Plásticas" ?
-                                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${ArtesPlasticas})`, backgroundPosition: "center"}}>
+                                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${ArtesPlasticas})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                 <span
@@ -152,7 +152,7 @@ class CreateJob2 extends React.Component {
                                                                         </div>
                                                                         :
                                                                         this.state.TipoAnuncio == "Design Gráfico" ?
-                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesignGrafico})`, backgroundPosition: "center"}}>
+                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesignGrafico})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                     <span
@@ -160,7 +160,7 @@ class CreateJob2 extends React.Component {
                                                                                 </div>
                                                                             </div>
                                                                             :
-                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Outros})`, backgroundPosition: "center"}}>
+                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Outros})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                     <span
@@ -193,7 +193,7 @@ class CreateJob2 extends React.Component {
                         <div className="container-fluid Criar_Freelance pl-0 pr-0">
                             <div className="row col-12 mb-0 mr-0 ml-0 pr-0 pl-0 justify-content-center">
                                 {this.state.TipoAnuncio == "3D e Animação" ?
-                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Img3D})`, backgroundPosition: "center"}}>
+                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Img3D})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                         <div className="Criar_Freelance_Inicial_Centrar">
                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                             <span
@@ -202,7 +202,7 @@ class CreateJob2 extends React.Component {
                                     </div>
                                     :
                                     this.state.TipoAnuncio == "Artes Performativas" ?
-                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${ArtesPerformativas})`}}>
+                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${ArtesPerformativas})`, backgroundSize: "cover"}}>
                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                 <span
@@ -211,7 +211,7 @@ class CreateJob2 extends React.Component {
                                         </div>
                                         :
                                         this.state.TipoAnuncio == "Cinema e Vídeo" ?
-                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${CinemaVideo})`, backgroundPosition: "center"}}>
+                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${CinemaVideo})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                     <span
@@ -220,7 +220,7 @@ class CreateJob2 extends React.Component {
                                             </div>
                                             :
                                             this.state.TipoAnuncio == "Desenho e Ilustrações" ?
-                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesenhoIlustracao})`, backgroundPosition: "center"}}>
+                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesenhoIlustracao})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                     <div className="Criar_Freelance_Inicial_Centrar">
                                                         <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                         <span
@@ -229,7 +229,7 @@ class CreateJob2 extends React.Component {
                                                 </div>
                                                 :
                                                 this.state.TipoAnuncio == "Design de Produtos" ?
-                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesignProduto})`, backgroundPosition: "center"}}>
+                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesignProduto})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                         <div className="Criar_Freelance_Inicial_Centrar">
                                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                             <span
@@ -238,7 +238,7 @@ class CreateJob2 extends React.Component {
                                                     </div>
                                                     :
                                                     this.state.TipoAnuncio == "Fotografia" ?
-                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Fotografia})`, backgroundPosition: "center"}}>
+                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Fotografia})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                 <span
@@ -247,7 +247,7 @@ class CreateJob2 extends React.Component {
                                                         </div>
                                                         :
                                                         this.state.TipoAnuncio == "Música" ?
-                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Music})`, backgroundPosition: "center"}}>
+                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Music})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                     <span
@@ -256,7 +256,7 @@ class CreateJob2 extends React.Component {
                                                             </div>
                                                             :
                                                             this.state.TipoAnuncio == "Pintura" ?
-                                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Pintura})`, backgroundPosition: "center"}}>
+                                                                <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Pintura})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                     <div className="Criar_Freelance_Inicial_Centrar">
                                                                         <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                         <span
@@ -265,7 +265,7 @@ class CreateJob2 extends React.Component {
                                                                 </div>
                                                                 :
                                                                 this.state.TipoAnuncio == "Programação" ?
-                                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Programacao})`, backgroundPosition: "center"}}>
+                                                                    <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Programacao})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                         <div className="Criar_Freelance_Inicial_Centrar">
                                                                             <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                             <span
@@ -274,7 +274,7 @@ class CreateJob2 extends React.Component {
                                                                     </div>
                                                                     :
                                                                     this.state.TipoAnuncio == "Artes Plásticas" ?
-                                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${ArtesPlasticas})`, backgroundPosition: "center"}}>
+                                                                        <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${ArtesPlasticas})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                             <div className="Criar_Freelance_Inicial_Centrar">
                                                                                 <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                 <span
@@ -283,7 +283,7 @@ class CreateJob2 extends React.Component {
                                                                         </div>
                                                                         :
                                                                         this.state.TipoAnuncio == "Design Gráfico" ?
-                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${DesignGrafico})`, backgroundPosition: "center"}}>
+                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${DesignGrafico})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                     <span
@@ -291,7 +291,7 @@ class CreateJob2 extends React.Component {
                                                                                 </div>
                                                                             </div>
                                                                             :
-                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{backgroundImage: `url(${Outros})`, backgroundPosition: "center"}}>
+                                                                            <div className="col-12 Criar_Freelance_Inicial_2 justify-content-center pr-0 pl-0" style={{background:`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Outros})`, backgroundPosition: "center", backgroundSize: "cover"}}>
                                                                                 <div className="Criar_Freelance_Inicial_Centrar">
                                                                                     <h1 className="Criar_Freelance_Titulo_2">Criar Anúncio de Emprego</h1>
                                                                                     <span
