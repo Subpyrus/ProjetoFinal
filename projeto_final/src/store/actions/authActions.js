@@ -31,6 +31,7 @@ export const signUpUser = (newUser) => {
             newUser.Email,
             newUser.Password
         ).then((resp) => {
+            const number = Math.floor(Math.random() * 20) + 1;
             return firestore.collection('users').doc(resp.user.uid).set({
                 FirstName:newUser.PrimeiroNome,
                 LastName:newUser.UltimoNome,
@@ -39,6 +40,7 @@ export const signUpUser = (newUser) => {
                 Local:newUser.Localidade,
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
+                ImagemPerfil: "p" + number + ".png",
                 TipoUtilizador: 1
             })
         }).then(() => {
@@ -64,6 +66,7 @@ export const signUpEnterprise = (newEnterprise) => {
             newEnterprise.Email,
             newEnterprise.Password
         ).then((resp) => {
+            const number = Math.floor(Math.random() * 20) + 1;
             return firestore.collection('users').doc(resp.user.uid).set({
                 NomeEmpresa:newEnterprise.NomeEmpresa,
                 TamanhoEmpresa:newEnterprise.TamanhoEmpresa,
@@ -72,6 +75,7 @@ export const signUpEnterprise = (newEnterprise) => {
                 Local:newEnterprise.Localidade,
                 AreaTrabalho:newEnterprise.AreaTrabalho,
                 Ocupation:newEnterprise.Ocupacao,
+                ImagemPerfil: "p" + number + ".png",
                 TipoUtilizador: 2
             })
         }).then(() => {
