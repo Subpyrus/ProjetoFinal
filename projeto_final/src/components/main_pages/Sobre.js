@@ -13,7 +13,7 @@ class Sobre extends React.Component {
                     <h2 className="t1sobre">Como surgiu a <span className="s1sobre">hinamic</span></h2>
                     </div>
                     <div className="col-12 embed-responsive embed-responsive-16by9">
-                        <iframe width="926" title="video" height="521" src="https://www.youtube.com/embed/Lz4TKDfGY18"
+                        <iframe width="926" title="video" height="521" src="https://www.youtube.com/embed/OqJJHxQTsvc"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen/>

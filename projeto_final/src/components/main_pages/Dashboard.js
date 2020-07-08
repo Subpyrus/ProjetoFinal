@@ -84,8 +84,8 @@ class Pag_Principal extends React.Component {
                 </div>
                 <div className="final">
                     <div className="conteudo_final" style={{width: "100%"}}>
-                        <h1 style={{color: "white", marginBottom: "40px"}} className="pr-3 pl-3">"Somos uma colmeia vocacionada para a
-                            promoção do vosso trabalho"</h1>
+                        <h3 style={{color: "white", marginBottom: "40px"}} className="pr-3 pl-3"><i>"Somos uma colmeia vocacionada para a
+                            promoção do vosso trabalho"</i></h3>
                         <Link to="/registo">
                             <button className="P_Ini_button" data-hover="Junta-te a Nós!">
                                 <div>Criar Perfil</div>
