@@ -49,7 +49,7 @@ class CreateJob1 extends React.Component{
                                                 valor: "3D e Animação"
                                             }
                                         }}>
-                                            <button className="Escolha_Area mt-3 col-12">3D e Animação</button>
+                                            <button className="Escolha_Area col-12">3D e Animação</button>
                                         </Link>
                                     </div>
                                     <div className="col-6 col-md-4">
@@ -59,7 +59,7 @@ class CreateJob1 extends React.Component{
                                                 valor: "Artes Performativas"
                                             }
                                         }}>
-                                            <button className="Escolha_Area mt-3 col-12">Artes Performativas</button>
+                                            <button className="Escolha_Area col-12">Artes Performativas</button>
                                         </Link>
                                     </div>
                                     <span className="col-6 col-md-4">
@@ -69,7 +69,7 @@ class CreateJob1 extends React.Component{
                                                 valor: "Artes Plásticas"
                                             }
                                         }}>
-                                            <button className="Escolha_Area mt-3 col-12">Artes Plásticas</button>
+                                            <button className="Escolha_Area col-12">Artes Plásticas</button>
                                         </Link>
                                     </span>
                                     <div className="col-6 col-md-4">

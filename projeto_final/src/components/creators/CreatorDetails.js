@@ -4,6 +4,9 @@ import localizacao from '../../Imgs/map-marker-alt-solid.svg'
 import perfil from '../../Imgs/Perfil.jpg';
 import ListProjectsPerfil from './ListProjectsPerfil';
 import ListFavouritesPerfil from './ListFavouritesPerfil';
+import {compose} from "redux";
+import connect from "react-redux/es/connect/connect";
+import {firestoreConnect} from "react-redux-firebase";
 
 class Perfil extends React.Component {
     state = {
@@ -60,7 +63,10 @@ class Perfil extends React.Component {
         this.setState({valorF: valor})
     };
     render() {
+        const {auth, users} = this.props;
+        console.log(users);
         return (
+
             <div className="Perfil_Body">
                 <div className="row mb-0">
                     <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
@@ -264,4 +270,16 @@ class Perfil extends React.Component {
     }
 }
 
-export default Perfil
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        auth: state.firebase.auth,
+        users: state.firestore.data.users
+    }
+};
+
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'users' }
+    ]))(Perfil)

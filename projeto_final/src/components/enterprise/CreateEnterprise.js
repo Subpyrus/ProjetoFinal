@@ -13,8 +13,7 @@ class CreateEnterprise extends React.Component {
         NomeEmpresa: '',
         TamanhoEmpresa: '',
         DataCriacao: '',
-        Pais: '',
-        Localidade:'',
+        Distrito:'',
         AreaTrabalho: '',
         Ocupacao: '',
         Email:'',
@@ -42,8 +41,8 @@ class CreateEnterprise extends React.Component {
 
     render() {
         const { Step } = this.state;
-        const {NomeEmpresa, TamanhoEmpresa, DataCriacao, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password} = this.state;
-        const valores = {NomeEmpresa, TamanhoEmpresa, DataCriacao, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password};
+        const {NomeEmpresa, TamanhoEmpresa, DataCriacao, Distrito, AreaTrabalho, Ocupacao, Email, Password} = this.state;
+        const valores = {NomeEmpresa, TamanhoEmpresa, DataCriacao, Distrito, AreaTrabalho, Ocupacao, Email, Password};
 
         switch (Step) {
             case 1:

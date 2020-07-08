@@ -13,8 +13,7 @@ class CreateCreator extends React.Component {
         PrimeiroNome: '',
         UltimoNome: '',
         DataNascimento: '',
-        Pais: '',
-        Localidade:'',
+        Distrito: '',
         AreaTrabalho: '',
         Ocupacao: '',
         Email:'',
@@ -42,8 +41,8 @@ class CreateCreator extends React.Component {
 
     render() {
         const { Step } = this.state;
-        const {PrimeiroNome, UltimoNome, DataNascimento, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password} = this.state;
-        const valores = {PrimeiroNome, UltimoNome, DataNascimento, Pais, Localidade, AreaTrabalho, Ocupacao, Email, Password};
+        const {PrimeiroNome, UltimoNome, DataNascimento, Distrito, AreaTrabalho, Ocupacao, Email, Password} = this.state;
+        const valores = {PrimeiroNome, UltimoNome, DataNascimento, Distrito, AreaTrabalho, Ocupacao, Email, Password};
 
         const {authError} = this.props;
 

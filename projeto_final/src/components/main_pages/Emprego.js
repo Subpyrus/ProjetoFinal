@@ -8,17 +8,25 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux' 
 
 class Empregos extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            pesquisa: "",
+            areaTrabalho: ""
+        }
+    }
+
     render () {
-        
+
         const { auth, jobs } = this.props;
 
         return (
             <div>
-                <Filtros pagina="emprego"/>
+                <Filtros pagina="emprego" search={this.atualiza} areaTrabalho={this.atualizaArea}/>
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5">
-                            <ListaEmpregos jobs={jobs} />
+                            <ListaEmpregos jobs={jobs} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho}/>
                         </div>
                         {auth.uid ?
                             <div className="col-sm-6 col-lg-3 mt-5 ml-4 mb-5 d-none">
@@ -52,15 +60,25 @@ class Empregos extends React.Component{
             </div>
         )
     }
+
+    atualiza = (txt) => {
+        //console.log(txt);
+        this.setState({pesquisa: txt});
+    };
+    atualizaArea = (txt) => {
+        //console.log(txt);
+        this.setState({areaTrabalho: txt});
+    }
+
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    //console.log(state);
     return {
         auth: state.firebase.auth,
         jobs: state.firestore.ordered.jobs
     }
-}
+};
 
 export default compose(
     connect(mapStateToProps),

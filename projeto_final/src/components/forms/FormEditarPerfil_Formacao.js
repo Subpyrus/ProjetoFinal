@@ -50,7 +50,7 @@ class FormEditarPerfil_Formacao extends React.Component {
             )
         });
         return (
-            <div className="row col-12">
+            <div className="row col-12 mx-auto">
                 <span className="col-12 mt-3">
                     <h3 className="Editar_Perfil_Titulo">Formação</h3>
                 </span>
