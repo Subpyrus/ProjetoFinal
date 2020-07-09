@@ -11,7 +11,9 @@ import {connect} from 'react-redux'
 
 class Pag_Principal extends React.Component {
     render() {
+
         const {auth} = this.props;
+        console.log(auth)
         return (
             <div className="pagP container-fluid m-0 p-0">
                 <div className="inicial row m-0 p-0 justify-content-center">
@@ -100,7 +102,6 @@ class Pag_Principal extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         auth: state.firebase.auth,
         authError: state.firebase.authError

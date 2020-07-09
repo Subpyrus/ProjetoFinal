@@ -14,6 +14,9 @@ import Music from "../../Imgs/Music.jpeg";
 import Pintura from "../../Imgs/Pintura.jpeg";
 import Programacao from "../../Imgs/Programacao.jpeg";
 import Outros from "../../Imgs/PagI.jpg"
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+
 
 class CreateJob2 extends React.Component {
     constructor(props) {
@@ -31,7 +34,8 @@ class CreateJob2 extends React.Component {
         Descricao: '',
         Localizacao: '',
         Requisitos: '',
-        Beneficios: ''
+        Beneficios: '',
+        IdUser: ''
     };
 
     // Próximo Step
@@ -51,9 +55,12 @@ class CreateJob2 extends React.Component {
 
     render() {
 
+        const {auth} = this.props;
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios};
+        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser};
+
+        if(!auth.uid) return <Redirect to='/entrar'/>
 
         switch (Step) {
             case 1:
@@ -324,5 +331,10 @@ class CreateJob2 extends React.Component {
 }
 
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
 
-export default CreateJob2
+export default connect(mapStateToProps)(CreateJob2)

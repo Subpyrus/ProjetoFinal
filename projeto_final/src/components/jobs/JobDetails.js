@@ -5,12 +5,12 @@ import Seta2 from "../../Imgs/Seta2.svg";
 import { connect } from 'react-redux'
 import  { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import moment from 'moment'
 
 const EmpregosDetalhes = (props) => {
     const login = "Off";
     const { job } = props;
     if (job) {
-        const data = new Date(job.ListingTime.seconds*1000);
         return (
             <div>
                 <div className="container-fluid Body_Detalhes_Empregos">
@@ -31,7 +31,7 @@ const EmpregosDetalhes = (props) => {
                                         <span className="Area_Emprego">{job.AreaTrabalho}</span>
                                     </span>
                                         <span className="col-2 Emprego_List_Info_Princ_Final">
-                                        <span className="Info_Emprego_List">{data.getUTCDate()}/{data.getUTCMonth()}/{data.getUTCFullYear()}</span>
+                                        <span className="Info_Emprego_List">{moment(job.ListingTime.toDate()).calendar()}</span>
                                     </span>
                                 </div>
                                 <hr className="hr col-11"/>

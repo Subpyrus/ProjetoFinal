@@ -4,10 +4,17 @@ import Notas from '../../Imgs/Apontar_Notas.png';
 import Cumprimento from '../../Imgs/Cumprimento.png';
 import Pesquisa from '../../Imgs/Pesquisa_User.png';
 import Projetos from '../../Imgs/projetos.jpg';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class CreateFreelance1 extends React.Component{
     render() {
+
+
+        const {auth} = this.props;
+
+        if(!auth.uid) return <Redirect to='/entrar'/>
+
         return (
             <div>
                 <div className="container-fluid Criar_Freelance pr-0 pl-0">
@@ -174,4 +181,10 @@ class CreateFreelance1 extends React.Component{
 
 }
 
-export default CreateFreelance1
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(CreateFreelance1)

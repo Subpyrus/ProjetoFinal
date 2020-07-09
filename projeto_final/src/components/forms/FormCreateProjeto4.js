@@ -12,7 +12,6 @@ class FormCreateProjeto4 extends React.Component{
         e.preventDefault();
         let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto};
         this.props.createProject(objeto);
-        console.log("ola")
         document.getElementById('red').click();
     };
 

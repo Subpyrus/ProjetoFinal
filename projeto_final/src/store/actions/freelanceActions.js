@@ -4,7 +4,6 @@ export const createFreelance = (freelance) => {
         const firestore = getFirestore();
         firestore.collection('freelances').add({
             ...freelance,
-            IdEmpregador: "1",
             ListingTime: new Date()
         }).then(() => {
             dispatch( { type: 'CREATE_FREE', freelance}) 
