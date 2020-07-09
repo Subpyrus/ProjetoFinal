@@ -1775,6 +1775,9 @@
         display: flex;
         flex-direction: column;
     }
+    .itens_esquerda{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 1024px) {

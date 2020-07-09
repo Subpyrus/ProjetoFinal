@@ -7,12 +7,17 @@ import ListFavouritesPerfil from './ListFavouritesPerfil';
 import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
+import {storage} from '../../config/fbConfig';
 
 class Perfil extends React.Component {
-    state = {
-        valorB: 1,
-        valorF: 1
-    };
+    constructor (props){
+        super(props);
+        this.state = {
+            valorB: 1,
+            valorF: 1,
+            imagemPerfil: ""
+        };
+    }
     card_Testemunhos = {
         backgroundImage: `url(${perfil})`,
         backgroundSize: "calc(100% + 2px) calc(100% + 2px)",
@@ -62,22 +67,33 @@ class Perfil extends React.Component {
     escolha_Projetos = (valor) => {
         this.setState({valorF: valor})
     };
+
+    getImage (image) {
+        storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
+            if (this.state.imagemPerfil == "") {
+                this.state.imagemPerfil = url;
+                this.setState(this.state);
+                //console.log(this.state);
+            }
+        })
+    }
+
     render() {
         const {auth, users} = this.props;
         console.log(users);
+        this.getImage(users.ImagemPerfil);
         return (
-
             <div className="Perfil_Body">
                 <div className="row mb-0">
                     <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
                         <div className="Perfil_Info_Inicial col-11 col-sm-10 col-md-9 m-lg-auto row mt-5 mx-auto">
                             <div className="col-sm-12 col-lg-4">
                                 <span className="ml-auto Perfil_Info_Inicial_Esq">
-                                    <img src={perfil} className="Foto_Perfil"/>
+                                    <img src={this.state.imagemPerfil} className="Foto_Perfil"/>
                                     <button className="Perfil_But_Seguir mt-5 text-uppercase" disabled>Seguir</button>
                                     <span className="mt-3">
                                         <img src={localizacao} className="Icone_Localizacao" height="20px"
-                                             width="20px"/><span className="Perfil_Localizacao">Aveiro, Aveiro</span>
+                                             width="20px"/><span className="Perfil_Localizacao">{users.Local}</span>
                                     </span>
                                     <span className="mt-3 row">
                                         <span className="col-6 Perfil_Seguidores">
@@ -94,8 +110,8 @@ class Perfil extends React.Component {
                             <div className="col-sm-12 col-lg-7">
                                 <span className="ml-lg-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
-                                    <h1 className="Perfil_Info_Nome">Sou a Beatriz Pais</h1>
-                                    <h3 className="Perfil_Info_Trabalho">Front-End Developer</h3>
+                                    <h1 className="Perfil_Info_Nome">Sou a {users.FirstName} {users.LastName}</h1>
+                                    <h3 className="Perfil_Info_Trabalho">{users.Ocupation}</h3>
                                     <span className="Perfil_Info_Texto mb-2">
                                         Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
                                         Atualmente trabalho como front-end developer, mas tenho um enorme pelo
@@ -146,25 +162,25 @@ class Perfil extends React.Component {
                             <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
                             <div className="col-lg-12 col-xl-3 justify-content-center">
                                 <div className="Testemunhos_Esquerda mb-3 text-center d-none d-md-block">
-                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 1 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(1)}>
                                         </div>
                                     </span>
-                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 2 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(2)}>
                                         </div>
                                     </span>
-                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 3 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(3)}>
                                         </div>
                                     </span>
-                                    <span className="col-6 col-md-4 col-xl-12 text-center">
+                                    <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
                                         <div className="btn mr-3 p-0 mb-4"
                                              style={this.state.valorB == 4 ? this.card_Testemunhos_Active : this.card_Testemunhos}
                                              onClick={() => this.testemunhoB(4)}>
@@ -274,7 +290,7 @@ const mapStateToProps = (state) => {
     console.log(state);
     return {
         auth: state.firebase.auth,
-        users: state.firestore.data.users
+        users: state.firebase.profile
     }
 };
 

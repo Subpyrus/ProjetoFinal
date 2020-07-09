@@ -14,8 +14,10 @@ class Filtros extends React.Component {
         //console.log(e.target.value);
         if (input == "pesquisa"){
             this.props.search(e.target.value);
-        } else if ("AreaTrabalho") {
+        } else if (input == "AreaTrabalho") {
             this.props.areaTrabalho(e.target.value);
+        } else if (input == "Localizacao") {
+            this.props.distrito(e.target.value);
         }
         //console.log(this.state);
     };

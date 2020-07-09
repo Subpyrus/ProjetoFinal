@@ -43,7 +43,7 @@ class ProjectDetails extends React.Component {
     render() {
         return (
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
-                <div className="Proj_Det_Conteudo col-lg-10 col-md-12 pl-5 pr-5">
+                <div className="Proj_Det_Conteudo col-lg-10 col-md-12 pl-0 pl-sm-5 pr-sm-5 pr-0">
                     <div className="row col-12">
                         <div className="d-flex flex-column col-md-12 col-lg-9">
                             <h2 className="Proj_Det_Titulo">Website 2018 - Beatriz Pais

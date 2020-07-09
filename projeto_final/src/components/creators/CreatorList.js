@@ -1,130 +1,111 @@
 import React from 'react';
 import '../../App.css';
-import Imagem from '../../Imgs/Perfil.jpg'
-import Imagem2 from '../../Imgs/Conteudo_Post1.jpg'
-import {Link} from "react-router-dom";
+import CreatorSummary from './CreatorSummary';
 
-class CreatorList extends React.Component {
-
-    render() {
+const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
+    if (pesquisa == "" && areaTrabalho == "" && distrito == "") {
         return (
-            <div className="container-fluid justify-content-center m-0 pt-5">
-                <div className="row col-12 m-0">
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 card_PT1 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                            <div className="card_body2 card_PT2">
-                                <div className="text-center">
-                                    <img src={Imagem2} className="card_Imagem2 mb-2"/>
-                                </div>
-                                <Link to="/perfil">
-                                    <button className="Criador_But_Ver_Perfil mt-2">Ver Perfil</button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-6 col-lg-3 mb-3">
-                        <div className="card card_Criadores">
-                            <div className="card-body card_body2 text-center">
-                                <div className="text-center">
-                                    <img src={Imagem} className="card_Imagem mb-2"/>
-                                </div>
-                                <span style={{
-                                    fontFamily: "Barlow Semibold, sans-serif",
-                                    fontSize: "18px"
-                                }}>Beatriz Pais</span>
-                                <div className="mt-1 card_body2_P2">
-                                    <span>Front-End Developer</span>
-                                    <span>Aveiro, Portugal</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    return (
+                        <CreatorSummary creators={dados} key={dados.id}/>
+                    )
+                })}
+            </div>
+        );
+    } else if (pesquisa !== "" && areaTrabalho !== "" && distrito !== ""){
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
+                    let nome = nomeUtilizador.toLowerCase();
+                    if (nomeUtilizador.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho && dados.Local == distrito || nome.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho && dados.Local == distrito){
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (pesquisa !== "" && areaTrabalho !== "") {
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
+                    let nome = nomeUtilizador.toLowerCase();
+                    if (nomeUtilizador.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho || nome.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho){
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (pesquisa !== "" && distrito !== ""){
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
+                    let nome = nomeUtilizador.toLowerCase();
+                    if (nomeUtilizador.startsWith(pesquisa) && dados.Local == distrito || nome.startsWith(pesquisa) && dados.Local == distrito) {
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (areaTrabalho !== "" && distrito !== ""){
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    if (dados.AreaTrabalho == areaTrabalho && dados.Local == distrito) {
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (pesquisa !== "") {
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
+                    let nome = nomeUtilizador.toLowerCase();
+                    if (nomeUtilizador.startsWith(pesquisa) || nome.startsWith(pesquisa)){
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (areaTrabalho !== "") {
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    if (dados.AreaTrabalho == areaTrabalho) {
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
+            </div>
+        );
+    } else if (distrito !== "") {
+        return (
+            <div className="row col-12 m-0 p-0">
+                {utilizadores && utilizadores.map(dados => {
+                    if (dados.Local == distrito) {
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
+                })}
             </div>
         );
     }
-
-}
+};
 
 export default CreatorList;
