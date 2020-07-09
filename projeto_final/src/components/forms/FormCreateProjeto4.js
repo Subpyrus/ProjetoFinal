@@ -31,6 +31,7 @@ class FormCreateProjeto4 extends React.Component{
                                 id="nomeProjeto"
                                 type="text"
                                 className="validate"
+                                maxLength="20"
                                 onChange={this.props.handleChange('nomeProjeto')}
                                 defaultValue={valores.nomeProjeto}
                             />
@@ -40,15 +41,25 @@ class FormCreateProjeto4 extends React.Component{
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input
-                                id="areaTrabalhoProjeto"
-                                type="text"
-                                className="validate"
+                            <select
+                                className="aparece"
                                 onChange={this.props.handleChange('areaTrabalhoProjeto')}
                                 defaultValue={valores.areaTrabalhoProjeto}
-                            />
-                            <label htmlFor="areaTrabalhoProjeto" className={valores.areaTrabalhoProjeto != "" ? "active" : ""}>Àreas de trabalho
-                                <span style={{color: "red"}}>*</span></label>
+                            >
+                                <option value="" disabled selected>Escolhe a tua Área de Trabalho*</option>
+                                <option value="3DAnimacao">3D e Animação</option>
+                                <option value="ArtesPerfomativas">Artes Performativas</option>
+                                <option value="ArtesPlasticas">Artes Plásticas</option>
+                                <option value="CinemaVideo">Cinema e Vídeo</option>
+                                <option value="DesenhoIlustracao">Desenho e Ilustração</option>
+                                <option value="DesignGrafico">Design Gráfico</option>
+                                <option value="DesignProdutos">Design de produtos</option>
+                                <option value="Fotografia">Fotografia</option>
+                                <option value="Musica">Música</option>
+                                <option value="Pintura">Pintura</option>
+                                <option value="Programacao">Programação</option>
+                                <option value="OutrosTrabalhos">Outros Trabalhos</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row">
@@ -99,7 +110,15 @@ class FormCreateProjeto4 extends React.Component{
                             <option value="Apple">Apple</option>
                         </select>
                     </div>
-                    <div className="col s12">
+                    <div className="row mb-0 col s12 justify-content-end">
+                        <button
+                            className="btn btnIn mr-3"
+                            type="button"
+                            id="nextBtn"
+                            onClick={this.prevStep}
+                            disabled>
+                            Anterior
+                        </button>
                         {valores.nomeProjeto == "" || valores.areaTrabalhoProjeto == "" || valores.descricaoProjeto == "" ?
                             <button
                                 className="btn btnIn"

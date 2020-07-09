@@ -129,29 +129,33 @@ class FormCreateProjeto1 extends React.Component{
                                 return (
                                     <span>
                                         <img src={ficheiro.Ficheiro} style={{width: "100%"}}/>
-                                        <button
-                                            className="btn btnIn mt-3 mb-3"
-                                            type="button"
-                                            id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
-                                            APAGAR
-                                        </button>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
+                                            <button
+                                                className="btn btnIn mt-3 mb-3"
+                                                type="button"
+                                                id="BtnApagar"
+                                                onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}
+                                                style={{float: "right"}}>
+                                                APAGAR
+                                            </button>
+                                        </span>
                                     </span>
                                 );
                             } else if (ficheiro.Tipo == "texto"){
-                                
                                 const Campo = ficheiro.Ficheiro;
-
                                 return(
                                     <span className="mb-0">
                                         <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escrito, index, valores.ficheirosEnviar[index]]}/>
-                                        <button
-                                            className="btn btnIn mt-2 mr-1 mb-3"
-                                            type="button"
-                                            id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
-                                            APAGAR
-                                        </button>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
+                                            <button
+                                                className="btn btnIn mt-2 mr-1 mb-3 text-right"
+                                                type="button"
+                                                id="BtnApagar"
+                                                onClick={() => this.apagar(ficheiro.Tipo, index)}
+                                                >
+                                                APAGAR
+                                            </button>
+                                        </span>
                                     </span>
                                 )
                             } else if (ficheiro.Tipo == "link"){
@@ -160,13 +164,16 @@ class FormCreateProjeto1 extends React.Component{
                                 return(
                                     <span>
                                         <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escritoLink, index, valores.ficheirosEnviar[index]]}/>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
                                         <button
                                             className="btn btnIn mt-3 mb-3"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index)}
+                                            style={{float: "right"}}>
                                             APAGAR
                                         </button>
+                                        </span>
                                     </span>
                                 )
                             } else if (ficheiro.Tipo == "video"){
@@ -175,13 +182,16 @@ class FormCreateProjeto1 extends React.Component{
                                         <video width={"100%"} controls>
                                             <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"video/mp4"}/>
                                         </video>
-                                        <button
-                                            className="btn btnIn mt-3 mb-3"
-                                            type="button"
-                                            id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
-                                            APAGAR
-                                        </button>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
+                                            <button
+                                                className="btn btnIn mt-3 mb-3"
+                                                type="button"
+                                                id="BtnApagar"
+                                                onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}
+                                                style={{float: "right"}}>
+                                                APAGAR
+                                            </button>
+                                        </span>
                                     </span>
                                 );
                             } else if (ficheiro.Tipo == "audio"){
@@ -190,13 +200,16 @@ class FormCreateProjeto1 extends React.Component{
                                         <audio width={"100%"} controls>
                                             <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"audio/mpeg"}/>
                                         </audio>
-                                        <button
-                                            className="btn btnIn mt-3 mb-3"
-                                            type="button"
-                                            id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
-                                            APAGAR
-                                        </button>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
+                                            <button
+                                                className="btn btnIn mt-3 mb-3"
+                                                type="button"
+                                                id="BtnApagar"
+                                                onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}
+                                                style={{float: "right"}}>
+                                                APAGAR
+                                            </button>
+                                        </span>
                                     </span>
                                 );
                             }
@@ -223,6 +236,43 @@ class FormCreateProjeto1 extends React.Component{
                                 </span>
                             </div>
                         </span>
+                    }
+                    {valores.ficheirosAmostra && valores.ficheirosAmostra.length > 0 ?
+                    <div className="row mb-0 justify-content-end pr-3" style={{paddingRight: "10.5px"}}>
+                        <button
+                            className="btn btnIn mr-3"
+                            type="button"
+                            id="prevBtn"
+                            onClick={this.props.prevStep}
+                            disabled>
+                            Anterior
+                        </button>
+                        <button
+                            className="btn btnIn"
+                            type="button"
+                            id="nextBtn"
+                            onClick={this.props.nextStep}>
+                            Próximo
+                        </button>
+                    </div>
+                        :
+                        <div className="row justify-content-end pr-3 d-none" style={{paddingRight: "10.5px"}}>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.prevStep}
+                                disabled>
+                                Anterior
+                            </button>
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.nextStep}>
+                                Próximo
+                            </button>
+                        </div>
                     }
                 </div>
             </div>

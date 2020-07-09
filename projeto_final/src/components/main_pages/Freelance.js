@@ -28,7 +28,11 @@ class Freelance extends React.Component {
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center mx-auto">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4">
-                            <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho}/>
+                            {freelances && freelances.length > 0 ?
+                                <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho}/>
+                                :
+                                <p>Parece que não existem anúncios freelance!</p>
+                            }
                         </div>
                         {auth.uid ?
                             <div className="col-12 col-md-8 col-lg-3 mt-lg-5 ml-lg-4 mb-5">

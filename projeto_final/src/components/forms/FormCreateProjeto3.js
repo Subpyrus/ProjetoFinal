@@ -87,6 +87,7 @@ class FormCreateProjeto3 extends React.Component{
         //console.log(tipo);
         //console.log(valor);
         this.props.handleApagar(tipo, valor, refChild);
+        this.setState({tamanhoCorreto: false});
         this.setState({crop: undefined});
         this.setState({crop: {aspect: 4/3}});
         this.setState({croppedImageUrl: undefined});
@@ -109,6 +110,7 @@ class FormCreateProjeto3 extends React.Component{
     }
 
     guardarCapa = (tipo, imagem) => {
+        this.setState({tamanhoCorreto: true});
         let imagemConvertida = this.base64StringtoFile(imagem, `Capa.${this.state.imgSrcCriada}`);
         this.props.handleChange(tipo, imagemConvertida)
     };
@@ -162,6 +164,7 @@ class FormCreateProjeto3 extends React.Component{
             crop.width,
             crop.height
         );
+        this.setState({tamanhoCorreto: false});
 
         return new Promise((resolve, reject) => {
             resolve(canvas.toDataURL('image/jpeg', 1.0));
@@ -246,7 +249,7 @@ class FormCreateProjeto3 extends React.Component{
                                             onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
                                             APAGAR
                                         </button>
-                                        {croppedImageUrl && valores.imgCortadaMostrar != "" ?
+                                        {croppedImageUrl && valores.imgCortadaMostrar != "" && this.state.tamanhoCorreto === false ?
                                         <button
                                             className="btn btnIn mt-2 mb-2 ml-1"
                                             type="button"
@@ -255,6 +258,7 @@ class FormCreateProjeto3 extends React.Component{
                                             GUARDAR IMAGEM
                                         </button>
                                             :
+                                            this.state.tamanhoCorreto === false ?
                                             <button
                                                 className="btn btnIn mt-2 mb-2 ml-1"
                                                 type="button"
@@ -262,6 +266,14 @@ class FormCreateProjeto3 extends React.Component{
                                                 disabled>
                                                 GUARDAR IMAGEM
                                             </button>
+                                                :
+                                                <button
+                                                    className="btn btnIn mt-2 mb-2 ml-1"
+                                                    type="button"
+                                                    id="BtnApagar"
+                                                    disabled>
+                                                    IMAGEM GUARDADA
+                                                </button>
                                         }
                                     </span>
                                 </span>
@@ -283,6 +295,54 @@ class FormCreateProjeto3 extends React.Component{
                                 </span>
                             </div>
                         </span>
+                    }
+                    {valores.ficheirosAmostraCapa && valores.ficheirosAmostraCapa.length > 0 ?
+                        <div className="row mb-0 justify-content-end pr-3" style={{paddingRight: "10.5px"}}>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="prevBtn"
+                                onClick={this.props.prevStep}
+                            >
+                                Anterior
+                            </button>
+                            {croppedImageUrl && valores.ficheirosEnviarCapa != "" ?
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.props.nextStep}>
+                                Próximo
+                            </button>
+                                :
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={this.props.nextStep}
+                                    disabled>
+                                    Próximo
+                                </button>
+                            }
+                        </div>
+                        :
+                        <div className="row justify-content-end pr-3 d-none" style={{paddingRight: "10.5px"}}>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.prevStep}
+                                disabled>
+                                Anterior
+                            </button>
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.nextStep}>
+                                Próximo
+                            </button>
+                        </div>
                     }
                 </div>
             </div>

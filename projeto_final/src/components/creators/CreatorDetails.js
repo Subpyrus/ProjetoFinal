@@ -80,7 +80,10 @@ class Perfil extends React.Component {
 
     render() {
         const {auth, users} = this.props;
+        console.log(this.props.match.params.id);
+        console.log(auth);
         console.log(users);
+        if (auth.uid === this.props.match.params.id){
         this.getImage(users.ImagemPerfil);
         return (
             <div className="Perfil_Body">
@@ -93,7 +96,31 @@ class Perfil extends React.Component {
                                     <button className="Perfil_But_Seguir mt-5 text-uppercase" disabled>Seguir</button>
                                     <span className="mt-3">
                                         <img src={localizacao} className="Icone_Localizacao" height="20px"
-                                             width="20px"/><span className="Perfil_Localizacao">{users.Local}</span>
+                                             width="20px"/><span className="Perfil_Localizacao">
+                                        {users.Local === "Braganca" ?
+                                            "Bragança"
+                                            :
+                                            users.Local === "CasteloBranco" ?
+                                                "Castelo Branco"
+                                                :
+                                                users.Local === "Evora" ?
+                                                    "Évora"
+                                                    :
+                                                    users.Local === "Santarem" ?
+                                                        "Santarém"
+                                                        :
+                                                        users.Local === "Setubal" ?
+                                                            "Setúbal"
+                                                            :
+                                                            users.Local === "VianaCastelo" ?
+                                                                "Viana do Castelo"
+                                                                :
+                                                                users.Local === "VilaReal" ?
+                                                                    "Vila Real"
+                                                                    :
+                                                                    users.Local
+                                        }
+                                        </span>
                                     </span>
                                     <span className="mt-3 row">
                                         <span className="col-6 Perfil_Seguidores">
@@ -111,7 +138,44 @@ class Perfil extends React.Component {
                                 <span className="ml-lg-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
                                     <h1 className="Perfil_Info_Nome">Sou a {users.FirstName} {users.LastName}</h1>
-                                    <h3 className="Perfil_Info_Trabalho">{users.Ocupation}</h3>
+                                    <h3 className="Perfil_Info_Trabalho">
+                                        {users.AreaTrabalho === "3DAnimacao" ?
+                                            "3D e Animação"
+                                            :
+                                            users.AreaTrabalho === "ArtesPerfomativas" ?
+                                                "Artes Perfomativas"
+                                                :
+                                                users.AreaTrabalho === "ArtesPlasticas" ?
+                                                    "Artes Plásticas"
+                                                    :
+                                                    users.AreaTrabalho === "CinemaVideo" ?
+                                                        "Cinema e Vídeo"
+                                                        :
+                                                        users.AreaTrabalho === "DesenhoIlustracao" ?
+                                                            "Desenho e Ilustração"
+                                                            :
+                                                            users.AreaTrabalho === "DesignGrafico" ?
+                                                                "Design Gráfico"
+                                                                :
+                                                                users.AreaTrabalho === "DesignProdutos" ?
+                                                                    "Design Produtos"
+                                                                    :
+                                                                    users.AreaTrabalho === "Fotografia" ?
+                                                                        "Fotografia"
+                                                                        :
+                                                                        users.AreaTrabalho === "Pintura" ?
+                                                                            "Pintura"
+                                                                            :
+                                                                            users.AreaTrabalho === "Programacao" ?
+                                                                                "Programação"
+                                                                                :
+                                                                                users.AreaTrabalho === "Musica" ?
+                                                                                    "Música"
+                                                                                    :
+                                                                                    "Outros Trabalhos"
+
+                                        }
+                                    </h3>
                                     <span className="Perfil_Info_Texto mb-2">
                                         Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
                                         Atualmente trabalho como front-end developer, mas tenho um enorme pelo
@@ -283,6 +347,7 @@ class Perfil extends React.Component {
                 </div>
             </div>
         )
+        }
     }
 }
 
