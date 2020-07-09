@@ -581,9 +581,14 @@
     background-color: #f29f05 !important;
     border-radius: 4px;
     color: white !important;
+    transition: all 0.4s ease-in-out 0s;
 }
 .btnIn:hover {
-    background-color: #F27405 !important;
+    background: #d56d00 !important;
+    font-family: "Barlow SemiBold" !important;
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
 }
 
 /* Escolha */
@@ -1579,8 +1584,16 @@
     font-family: 'Barlow Semibold', sans-serif;
     font-size: 16px;
     width: 100%;
-}
+    transition: all 0.4s ease-in-out 0s;
 
+}
+.but_Adicionar_arquivo:hover{
+    background: #d56d00;
+    color: white;
+    -webkit-box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
 .area_PreVisualizar{
     background-color: white;
     height: auto;

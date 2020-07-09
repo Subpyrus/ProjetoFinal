@@ -115,16 +115,13 @@ class FormCreateProjeto1 extends React.Component{
                            multiple={false}/>
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
                            onClick={this.addTexto}>Texto</span>
-                    <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
-                          onClick={this.addLink}>Link</span>
                     <div className="explicacaoCriarProjeto">
                         <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir no teu Projeto.</span>
                         <span className="mb-2"><b>1. Enviar arquivos</b>: Permite submeter imagens, áudios e vídeos.</span>
                         <span className="mb-2"><b>2. Texto</b>: Permite que escrevas o que pretenderes. Este não pode ser formatado.</span>
-                        <span><b>3. Links</b>: Permite partilhar um link. Por exemplo, se tiveres um vídeo no Youtube ou no Vimeo podes colocar o link aqui diretamente em vez de enviares um arquivo.</span>
                     </div>
                 </div>
-                <div className="col-lg-9 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
+                <div className="col-lg-9 mb-3 area_PreVisualizar text-center p-3 p-lg-5">
                     {valores.verificacaoFicheiros !== false ?
                         valores.ficheirosAmostra && valores.ficheirosAmostra.map((ficheiro, index) => {
                             
@@ -133,7 +130,7 @@ class FormCreateProjeto1 extends React.Component{
                                     <span>
                                         <img src={ficheiro.Ficheiro} style={{width: "100%"}}/>
                                         <button
-                                            className="btn btnIn mt-2 mb-2"
+                                            className="btn btnIn mt-3 mb-3"
                                             type="button"
                                             id="BtnApagar"
                                             onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
@@ -146,10 +143,10 @@ class FormCreateProjeto1 extends React.Component{
                                 const Campo = ficheiro.Ficheiro;
 
                                 return(
-                                    <span>
+                                    <span className="mb-0">
                                         <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escrito, index, valores.ficheirosEnviar[index]]}/>
                                         <button
-                                            className="btn btnIn mt-2 mb-2 mr-1"
+                                            className="btn btnIn mt-2 mr-1 mb-3"
                                             type="button"
                                             id="BtnApagar"
                                             onClick={() => this.apagar(ficheiro.Tipo, index)}>
@@ -164,7 +161,7 @@ class FormCreateProjeto1 extends React.Component{
                                     <span>
                                         <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escritoLink, index, valores.ficheirosEnviar[index]]}/>
                                         <button
-                                            className="btn btnIn mt-2 mb-2"
+                                            className="btn btnIn mt-3 mb-3"
                                             type="button"
                                             id="BtnApagar"
                                             onClick={() => this.apagar(ficheiro.Tipo, index)}>
@@ -179,7 +176,7 @@ class FormCreateProjeto1 extends React.Component{
                                             <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"video/mp4"}/>
                                         </video>
                                         <button
-                                            className="btn btnIn mt-2 mb-2"
+                                            className="btn btnIn mt-3 mb-3"
                                             type="button"
                                             id="BtnApagar"
                                             onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
@@ -194,7 +191,7 @@ class FormCreateProjeto1 extends React.Component{
                                             <source src={ficheiro.Ficheiro} style={{width: "100%"}} type={"audio/mpeg"}/>
                                         </audio>
                                         <button
-                                            className="btn btnIn mt-2 mb-2"
+                                            className="btn btnIn mt-3 mb-3"
                                             type="button"
                                             id="BtnApagar"
                                             onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>

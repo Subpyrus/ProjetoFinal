@@ -34,7 +34,8 @@ class FormCreateProjeto4 extends React.Component{
                                 onChange={this.props.handleChange('nomeProjeto')}
                                 defaultValue={valores.nomeProjeto}
                             />
-                            <label htmlFor="nomeProjeto" className={valores.nomeProjeto != "" ? "active" : ""}>Nome do Projeto</label>
+                            <label htmlFor="nomeProjeto" className={valores.nomeProjeto != "" ? "active" : ""}>Nome do Projeto
+                                <span style={{color: "red"}}>*</span></label>
                         </div>
                     </div>
                     <div className="row">
@@ -46,7 +47,8 @@ class FormCreateProjeto4 extends React.Component{
                                 onChange={this.props.handleChange('areaTrabalhoProjeto')}
                                 defaultValue={valores.areaTrabalhoProjeto}
                             />
-                            <label htmlFor="areaTrabalhoProjeto" className={valores.areaTrabalhoProjeto != "" ? "active" : ""}>Àreas de trabalho</label>
+                            <label htmlFor="areaTrabalhoProjeto" className={valores.areaTrabalhoProjeto != "" ? "active" : ""}>Àreas de trabalho
+                                <span style={{color: "red"}}>*</span></label>
                         </div>
                     </div>
                     <div className="row">
@@ -69,7 +71,8 @@ class FormCreateProjeto4 extends React.Component{
                             onChange={this.props.handleChange('descricaoProjeto')}
                             defaultValue={valores.descricaoProjeto}
                         />
-                            <label htmlFor="descricaoProjeto" className={valores.descricaoProjeto != "" ? "active" : ""}>Descrição do Projeto</label>
+                            <label htmlFor="descricaoProjeto" className={valores.descricaoProjeto != "" ? "active" : ""}>Descrição do Projeto
+                                <span style={{color: "red"}}>*</span></label>
                         </div>
                     </div>
                     <div className="row">
@@ -97,7 +100,7 @@ class FormCreateProjeto4 extends React.Component{
                         </select>
                     </div>
                     <div className="col s12">
-                        {valores.nomeProjeto == "" || valores.areaTrabalhoProjeto == "" || valores.ferramentasUsadas == "" || valores.descricaoProjeto == "" || valores.EmpresasProjeto == "" ?
+                        {valores.nomeProjeto == "" || valores.areaTrabalhoProjeto == "" || valores.descricaoProjeto == "" ?
                             <button
                                 className="btn btnIn"
                                 type="button"

@@ -191,12 +191,14 @@ class FormCreateProjeto3 extends React.Component{
                 <div className="col-lg-3 mb-3">
                     <span style={{fontFamily: "'Barlow Semibold', sans-serif", fontSize: "20px"}}>Visualização da capa</span>
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3 mt-2"
-                          onClick={() => this.adicionarImagem()}>Enviar arquivos</span>
+                          onClick={() => this.adicionarImagem()}>Enviar Imagem</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
                     <div className="explicacaoCriarProjeto">
-                        <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir no teu Projeto.</span>
-                        <span className="mb-2"><b>1. Enviar arquivos</b>: Permite submeter imagens, áudios e vídeos.</span>
+                        <span  className="mb-2">Aqui vais adicionar a imagem de capa do teu projeto e <b>lembra-te cores
+                            vibrantes mais destaque</b>.</span>
+                        <span className="mb-2"><b style={{fontFamily: "'Barlow ExtraBold', sans-serif", color: "#FF8500", fontSize: "18px"}}>OBRIGATÓRIO:</b><br/>- Tamanho da imagem <b>1080 x 1080px</b>;
+                            <br/>- Ao fazer a seleção da capa é necessário <b>selecionar até às extremidades da imagem</b>.</span>
                     </div>
                 </div>
                     :
@@ -211,8 +213,10 @@ class FormCreateProjeto3 extends React.Component{
                             }
                         </div>
                         <div className="explicacaoCriarProjeto">
-                            <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir no teu Projeto.</span>
-                            <span className="mb-2"><b>1. Enviar arquivos</b>: Permite submeter imagens, áudios e vídeos.</span>
+                           <span  className="mb-2">Aqui vais adicionar a imagem de capa do teu projeto e <b>lembra-te cores
+                            vibrantes mais destaque</b>.</span>
+                            <span className="mb-2"><b style={{fontFamily: "'Barlow ExtraBold', sans-serif", color: "#FF8500", fontSize: "18px"}}>OBRIGATÓRIO:</b><br/>- Tamanho da imagem <b>1080 x 1080px</b>;
+                            <br/>- Ao fazer a seleção da capa é necessário <b>selecionar até às extremidades da imagem</b>.</span>
                         </div>
                     </div>
                 }
