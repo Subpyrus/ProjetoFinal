@@ -479,6 +479,18 @@
 .Proj_Det_Likes{
     display: flex;
 }
+
+.Proj_Det_Infos_final{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Proj_Det_Infos_final_Texto{
+    font-family: 'Barlow Semibold', sans-serif;
+    font-size: 20px;
+}
+
 .Proj_Det_Nr_Likes{
     font-family: 'Barlow Semibold', sans-serif;
     font-size: 87px;
@@ -1916,6 +1928,13 @@
     .area_meus_anuncios_candidatos{
         display: flex;
         flex-direction: row;
+        align-items: center;
+    }
+
+    .Proj_Det_Infos_final{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
         align-items: center;
     }
 

@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/registo" component={SignUp}/>
             <Route path="/profissional" component={CreateCreator}/>
             <Route path="/sobre" component={Sobre}/>
-            <Route path="/projetos/detalhes" component={ProjetosDetalhes}/>
+            <Route path="/projetos/detalhes/:id" component={ProjetosDetalhes}/>
             <Route path="/registo/profissional" component={SignUpProfissional}/>
             <Route path="/registo/empresa" component={SignUpEmpresas}/>
             <Route exact path="/perfil" component={Perfil}/>
