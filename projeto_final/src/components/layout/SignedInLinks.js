@@ -9,7 +9,7 @@ const SignedInLinks = (props) => {
             <ul className="right hide-on-med-and-down">
                 <li><NavLink className="links" to='/projetos'>PROJETOS</NavLink></li>
                 <li><NavLink className="links" to='/criadores'>CRIADORES</NavLink></li>
-                <li><NavLink className="links" to='/freelance'>FREEELANCE</NavLink></li>
+                <li><NavLink className="links" to='/freelance'>FREELANCE</NavLink></li>
                 <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
                 <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
                 <li><NavLink onClick={props.signOut} className="links" to='/'>LOG OUT</NavLink></li>

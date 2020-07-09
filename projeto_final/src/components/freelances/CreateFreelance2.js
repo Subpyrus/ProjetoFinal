@@ -14,6 +14,8 @@ import Music from "../../Imgs/Music.jpeg";
 import Pintura from "../../Imgs/Pintura.jpeg";
 import Programacao from "../../Imgs/Programacao.jpeg";
 import Outros from "../../Imgs/PagI.jpg"
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
 class CreateFreelance2 extends React.Component {
@@ -27,7 +29,8 @@ class CreateFreelance2 extends React.Component {
         NumeroCandidatos: '',
         AreaTrabalho:'',
         DescricaoTrabalho: '',
-        Ficheiro: ''
+        Ficheiro: '',
+        IdUser: ''
     };
 
     // Próximo Step
@@ -47,9 +50,10 @@ class CreateFreelance2 extends React.Component {
 
     render() {
 
+        const {auth} = this.props;
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho};
+        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser};
         switch (Step) {
             case 1:
                 return (

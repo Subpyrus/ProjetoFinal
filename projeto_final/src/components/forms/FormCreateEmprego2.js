@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import  { createJob } from '../../store/actions/jobActions'
 
 class FormCreateEmprego2 extends React.Component{
@@ -15,6 +16,7 @@ class FormCreateEmprego2 extends React.Component{
     continuar = e => {
         e.preventDefault();
         this.props.createJob(this.props.valores)
+        document.getElementById('red').click();
     };
 
     voltar = e => {
@@ -23,9 +25,12 @@ class FormCreateEmprego2 extends React.Component{
     };
 
     render() {
-        const {valores} = this.props;
+        const {auth, valores} = this.props;
+        valores.IdUser = auth.uid;
+
         return (
             <div>
+                <Link id="red" to="/"/>
                 <div className="px-5 row Criar_Freelance_Meio_2_Info">
                     <span className="mb-2 Titulo_Emprego_List_2">{valores.NomeAnuncio}</span>
                     <span className="mb-3 Info_Emprego_List">Localização: {valores.Localizacao}</span>
@@ -103,6 +108,12 @@ class FormCreateEmprego2 extends React.Component{
 
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createJob: (job) => dispatch(createJob(job))
@@ -110,4 +121,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(FormCreateEmprego2)
+export default connect(mapStateToProps, mapDispatchToProps)(FormCreateEmprego2)

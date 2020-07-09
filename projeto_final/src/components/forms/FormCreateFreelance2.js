@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import  { createFreelance } from '../../store/actions/freelanceActions'
 
 class FormCreateFreelance2 extends React.Component{
@@ -15,6 +16,7 @@ class FormCreateFreelance2 extends React.Component{
     continuar = e => {
         e.preventDefault();
         this.props.createFreelance(this.props.valores)
+        document.getElementById('red').click();
     };
 
     voltar = e => {
@@ -23,9 +25,11 @@ class FormCreateFreelance2 extends React.Component{
     };
 
     render() {
-        const {valores} = this.props;
+        const {auth,valores} = this.props;
+        valores.IdUser = auth.uid;
         return (
             <div>
+                <Link id="red" to="/"/>
                 <div className="px-5 row Criar_Freelance_Meio_2_Info">
                     <span className="mb-2 Titulo_Emprego_List_2">{valores.NomeAnuncio}</span>
                     <span className="Info_Emprego_List">Orçamento: {valores.Orcamento}€</span>
@@ -88,10 +92,17 @@ class FormCreateFreelance2 extends React.Component{
 
 }
 
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createFreelance: (freelance) => dispatch(createFreelance(freelance))
     }
 }
 
-export default connect(null, mapDispatchToProps)(FormCreateFreelance2)
+export default connect(mapStateToProps, mapDispatchToProps)(FormCreateFreelance2)
