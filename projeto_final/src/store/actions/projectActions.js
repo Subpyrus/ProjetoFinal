@@ -4,7 +4,7 @@ export const createProject = (project) => {
         const firestore = getFirestore();
         firestore.collection('projects').add({
             ...project,
-            authorID: 1,
+            Comments: [],
             ListingTime: new Date()
         }).then(() => {
             dispatch( { type: 'CREATE_PROJECT', project})

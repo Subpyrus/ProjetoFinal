@@ -3,6 +3,7 @@ import '../../App.css';
 import {createProject} from "../../store/actions/projectActions";
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
+import { auth } from 'firebase';
 
 
 class FormCreateProjeto4 extends React.Component{
@@ -10,7 +11,7 @@ class FormCreateProjeto4 extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto};
+        let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto,  IdEmpregador: this.props.auth.uid};
         this.props.createProject(objeto);
         document.getElementById('red').click();
     };
@@ -18,6 +19,7 @@ class FormCreateProjeto4 extends React.Component{
 
     render() {
         const {valores} = this.props;
+        console.log(this.props);
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
                 <div className="col-lg-11 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
@@ -149,10 +151,16 @@ class FormCreateProjeto4 extends React.Component{
 }
 
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createProject: (project) => dispatch(createProject(project))
     }
 }
 
-export default connect(null, mapDispatchToProps)(FormCreateProjeto4)
+export default connect(mapStateToProps, mapDispatchToProps)(FormCreateProjeto4)
