@@ -3,7 +3,7 @@ import Adicionar from '../../Imgs/Adicionar.png'
 import {Link} from "react-router-dom";
 import ProjectSummary from './ProjectSummary';
 
-const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, users}) => {
+const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) => {
     if (pesquisa == "" && areaTrabalho == "" && distrito == "") {
         return (
             <div className="row col-12 m-0">
@@ -86,7 +86,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, u
                 }
                 {projetos && projetos.map(dados => {
                     let nome = dados.nomeProjeto.toLowerCase();
-                    if (dados.nomeProjeto.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.Local == distrito || nome.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.Local == distrito) {
+                    if (dados.nomeProjeto.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador === distrito || nome.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador === distrito) {
                         return (
                             <ProjectSummary info={dados}/>
                         )
@@ -178,7 +178,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, u
                 }
                 {projetos && projetos.map(dados => {
                     let nome = dados.nomeProjeto.toLowerCase();
-                    if (dados.nomeProjeto.startsWith(pesquisa) && dados.Local == distrito || nome.startsWith(pesquisa) && dados.Local == distrito) {
+                    if (dados.nomeProjeto.startsWith(pesquisa) && dados.distritoUtilizador === distrito || nome.startsWith(pesquisa) && dados.distritoUtilizador == distrito) {
                         return (
                             <ProjectSummary info={dados}/>
                         )
@@ -223,7 +223,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, u
                     </div>
                 }
                 {projetos && projetos.map(dados => {
-                    if (dados.areaTrabalho == areaTrabalho && dados.Local == distrito) {
+                    if (dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador == distrito) {
                         return (
                             <ProjectSummary info={dados}/>
                         )
@@ -359,7 +359,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, u
                     </div>
                 }
                 {projetos && projetos.map(dados => {
-                    if (dados.Local == distrito) {
+                    if (dados.distritoUtilizador == distrito) {
                         return (
                             <ProjectSummary info={dados}/>
                         )

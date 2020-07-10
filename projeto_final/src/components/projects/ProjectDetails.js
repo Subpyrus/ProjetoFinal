@@ -3,7 +3,6 @@ import {Modal} from "react-bootstrap";
 import Imagem from '../../Imgs/Perfil.jpg';
 import Coracao from '../../Imgs/heart-regular.svg';
 import Coracao2 from '../../Imgs/heart-solid.svg'
-import Conteudo1 from '../../Imgs/Conteudo_Post1.jpg';
 import {Link} from "react-router-dom";
 import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
@@ -21,7 +20,7 @@ class ProjectDetails extends React.Component {
             setShowM: false,
             setShowC: false,
             src_Img: Coracao,
-            dummy: false
+            imagem: ""
         }
     }
 
@@ -69,11 +68,54 @@ class ProjectDetails extends React.Component {
                                 <div className="row col-12">
                                     <div className="d-flex flex-column col-md-12 col-lg-9">
                                         <h2 className="Proj_Det_Titulo">{dados.nomeProjeto}
-                                            <span className="Proj_nome_uti"> @Beatriz Pais</span></h2>
+                                            {users && users.map(info => {
+                                                if(info.id === dados.IdEmpregador){
+                                                    return(
+                                                        <span className="Proj_nome_uti"> @{info.FirstName} {info.LastName}</span>
+                                                    )
+                                                }
+                                            })}
+                                        </h2>
                                         <div className="Proj_Det_Subtitulo d-none d-md-block mt-md-1 mt-lg-4 mb-4">
                                             <section className="Proj_Det_Subtitulo_Parte1 mt-3">
-                                                <span
-                                                    className="Areas_Trabalho_Proj_Det mr-4">{dados.areaTrabalho}</span>
+                                                <span className="Areas_Trabalho_Proj_Det mr-4">
+                                                    {dados.areaTrabalho === "3DAnimacao" ?
+                                                        "3D e Animação"
+                                                        :
+                                                        dados.areaTrabalho === "ArtesPerfomativas" ?
+                                                            "Artes Perfomativas"
+                                                            :
+                                                            dados.areaTrabalho === "ArtesPlasticas" ?
+                                                                "Artes Plásticas"
+                                                                :
+                                                                dados.areaTrabalho === "CinemaVideo" ?
+                                                                    "Cinema e Vídeo"
+                                                                    :
+                                                                    dados.areaTrabalho === "DesenhoIlustracao" ?
+                                                                        "Desenho e Ilustração"
+                                                                        :
+                                                                        dados.areaTrabalho === "DesignGrafico" ?
+                                                                            "Design Gráfico"
+                                                                            :
+                                                                            dados.areaTrabalho === "DesignProdutos" ?
+                                                                                "Design Produtos"
+                                                                                :
+                                                                                dados.areaTrabalho === "Fotografia" ?
+                                                                                    "Fotografia"
+                                                                                    :
+                                                                                    dados.areaTrabalho === "Pintura" ?
+                                                                                        "Pintura"
+                                                                                        :
+                                                                                        dados.areaTrabalho === "Programacao" ?
+                                                                                            "Programação"
+                                                                                            :
+                                                                                            dados.areaTrabalho === "Musica" ?
+                                                                                                "Música"
+                                                                                                :
+                                                                                                "Outros Trabalhos"
+
+                                                    }
+                                                </span>
                                             </section>
                                         </div>
                                     </div>
@@ -131,14 +173,88 @@ class ProjectDetails extends React.Component {
 
                                 <div className="Proj_Det_Info d-flex flex-md-row col-12 mt-4 mb-4 pr-sm-0">
                                     <div className="col-md-3 d-none d-md-block">
-                                        <img src={Imagem} className="w-100 h-auto imgperfilproj"/>
+                                        {users && users.map(info => {
+                                            if (info.id === dados.IdEmpregador) {
+                                                this.getImage(info.ImagemPerfil);
+                                                return (
+                                                    <img src={this.state.imagem} className="w-100 h-auto imgperfilproj"/>
+                                                )
+                                            }
+                                        })}
                                     </div>
-                                    <div className="col-md-2 Proj_Det_Info1 pl-sm-2">
-                                        <h3 className="nome_uti">Beatriz Pais</h3>
-                                        <span className="mb-1" style={{color: "#D56D00"}}>Front-End Developer</span>
-                                        <span className="mb-1">Aveiro</span>
-                                        <button className="Criador_But_Ver_Perfil mt-1 disabled">SEGUIR</button>
-                                    </div>
+                                    {users && users.map(info => {
+                                        if (info.id === dados.IdEmpregador) {
+                                            return (
+                                            <div className="col-md-2 Proj_Det_Info1 pl-sm-2">
+                                                <h3 className="nome_uti">{info.FirstName} {info.LastName}</h3>
+                                                <span className="mb-1" style={{color: "#D56D00"}}>
+                                                    {info.AreaTrabalho === "3DAnimacao" ?
+                                                        "3D e Animação"
+                                                        :
+                                                        info.AreaTrabalho === "ArtesPerfomativas" ?
+                                                            "Artes Perfomativas"
+                                                            :
+                                                            info.AreaTrabalho === "ArtesPlasticas" ?
+                                                                "Artes Plásticas"
+                                                                :
+                                                                info.AreaTrabalho === "CinemaVideo" ?
+                                                                    "Cinema e Vídeo"
+                                                                    :
+                                                                    info.AreaTrabalho === "DesenhoIlustracao" ?
+                                                                        "Desenho e Ilustração"
+                                                                        :
+                                                                        info.AreaTrabalho === "DesignGrafico" ?
+                                                                            "Design Gráfico"
+                                                                            :
+                                                                            info.AreaTrabalho === "DesignProdutos" ?
+                                                                                "Design Produtos"
+                                                                                :
+                                                                                info.AreaTrabalho === "Fotografia" ?
+                                                                                    "Fotografia"
+                                                                                    :
+                                                                                    info.AreaTrabalho === "Pintura" ?
+                                                                                        "Pintura"
+                                                                                        :
+                                                                                        info.AreaTrabalho === "Programacao" ?
+                                                                                            "Programação"
+                                                                                            :
+                                                                                            info.AreaTrabalho === "Musica" ?
+                                                                                                "Música"
+                                                                                                :
+                                                                                                "Outros Trabalhos"
+
+                                                    }
+                                                </span>
+                                                <span className="mb-1">
+                                                    {info.Local === "Braganca" ?
+                                                        "Bragança"
+                                                        :
+                                                        info.Local === "CasteloBranco" ?
+                                                            "Castelo Branco"
+                                                            :
+                                                            info.Local === "Evora" ?
+                                                                "Évora"
+                                                                :
+                                                                info.Local === "Santarem" ?
+                                                                    "Santarém"
+                                                                    :
+                                                                    info.Local === "Setubal" ?
+                                                                        "Setúbal"
+                                                                        :
+                                                                        info.Local === "VianaCastelo" ?
+                                                                            "Viana do Castelo"
+                                                                            :
+                                                                            info.Local === "VilaReal" ?
+                                                                                "Vila Real"
+                                                                                :
+                                                                                info.Local
+                                                    }
+                                                </span>
+                                                <button className="Criador_But_Ver_Perfil mt-1 disabled">SEGUIR</button>
+                                            </div>
+                                            )
+                                        }
+                                    })}
                                     <div className="col-md-7 Proj_Det_Info1 d-none d-sm-block">
                                         <h4 className="mb-3 Proj_Det_Info_Texto">
                                             Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
