@@ -36,62 +36,62 @@ class CreatorSummary extends React.Component {
                             fontSize: "18px"
                         }}>{creators.FirstName} {creators.LastName}</span>
                         <div className="mt-1 card_body2_P2">
-                            {creators.AreaTrabalho == "3DAnimacao" ?
+                            {creators.AreaTrabalho === "3DAnimacao" ?
                                 <span>3D e Animação</span>
                                 :
-                                creators.AreaTrabalho == "ArtesPerfomativas" ?
+                                creators.AreaTrabalho === "ArtesPerfomativas" ?
                                     <span>Artes Perfomativas</span>
                                     :
-                                    creators.AreaTrabalho == "ArtesPlasticas" ?
+                                    creators.AreaTrabalho === "ArtesPlasticas" ?
                                         <span>Artes Plásticas</span>
                                         :
-                                        creators.AreaTrabalho == "CinemaVideo" ?
+                                        creators.AreaTrabalho === "CinemaVideo" ?
                                             <span>Cinema e Vídeo</span>
                                             :
-                                            creators.AreaTrabalho == "DesenhoIlustracao" ?
+                                            creators.AreaTrabalho === "DesenhoIlustracao" ?
                                                 <span>Desenho e Ilustração</span>
                                                 :
-                                                creators.AreaTrabalho == "DesignGrafico" ?
+                                                creators.AreaTrabalho === "DesignGrafico" ?
                                                     <span>Design Gráfico</span>
                                                     :
-                                                    creators.AreaTrabalho == "DesignProdutos" ?
+                                                    creators.AreaTrabalho === "DesignProdutos" ?
                                                         <span>Design Produtos</span>
                                                         :
-                                                        creators.AreaTrabalho == "Fotografia" ?
+                                                        creators.AreaTrabalho === "Fotografia" ?
                                                             <span>Fotografia</span>
                                                             :
-                                                            creators.AreaTrabalho == "Pintura" ?
+                                                            creators.AreaTrabalho === "Pintura" ?
                                                                 <span>Pintura</span>
                                                                 :
-                                                                creators.AreaTrabalho == "Programacao" ?
+                                                                creators.AreaTrabalho === "Programacao" ?
                                                                     <span>Programação</span>
                                                                     :
-                                                                    creators.AreaTrabalho == "Musica" ?
+                                                                    creators.AreaTrabalho === "Musica" ?
                                                                         <span>Música</span>
                                                                         :
                                                                         <span>Outros Trabalhos</span>
 
                             }
 
-                            {creators.Local == "Braganca" ?
+                            {creators.Local === "Braganca" ?
                                 <span>Bragança</span>
                                 :
-                                creators.Local == "CasteloBranco" ?
+                                creators.Local === "CasteloBranco" ?
                                     <span>Castelo Branco</span>
                                     :
-                                    creators.Local == "Evora" ?
+                                    creators.Local === "Evora" ?
                                         <span>Évora</span>
                                         :
-                                        creators.Local == "Santarem" ?
+                                        creators.Local === "Santarem" ?
                                             <span>Santarém</span>
                                             :
-                                            creators.Local == "Setubal" ?
+                                            creators.Local === "Setubal" ?
                                                 <span>Setúbal</span>
                                                 :
-                                                creators.Local == "VianaCastelo" ?
+                                                creators.Local === "VianaCastelo" ?
                                                     <span>Viana do Castelo</span>
                                                     :
-                                                    creators.Local == "VilaReal" ?
+                                                    creators.Local === "VilaReal" ?
                                                         <span>Vila Real</span>
                                                         :
                                                         <span>{creators.Local}</span>
@@ -102,7 +102,7 @@ class CreatorSummary extends React.Component {
                         <div className="text-center">
                             <img src={Imagem2} className="card_Imagem2 mb-2"/>
                         </div>
-                        <Link to="/perfil">
+                        <Link to={`/perfil/${creators.id}`}>
                             <button className="Criador_But_Ver_Perfil mt-2">Ver Perfil</button>
                         </Link>
                     </div>

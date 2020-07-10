@@ -80,14 +80,14 @@ class FormCreateProjeto2 extends React.Component {
             <div className="row col-12 justify-content-center m-0 pt-5">
                 <div className="col-lg-3 mb-3">
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
-                          onClick={() => this.adicionarImagem()}>Enviar Imagens</span>
+                          onClick={() => this.adicionarImagem()}>Enviar Imagem</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
                     <span className="btn-flat but_Adicionar_arquivo text-center mb-3"
                           onClick={this.addTexto}>Texto</span>
                     <div className="explicacaoCriarProjeto">
-                        <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir no teu Projeto.</span>
-                        <span className="mb-2"><b>1. Enviar arquivos</b>: Permite submeter imagens, áudios e vídeos.</span>
+                        <span  className="mb-2">Carrega num dos botões para escolheres o que pretendes inserir nas fases do teu projeto.</span>
+                        <span className="mb-2"><b>1. Enviar imagem</b>: Permite submeter uma imagem.</span>
                         <span><b>2. Texto</b>: Permite que escrevas o que pretenderes. Este não pode ser formatado.</span>
                     </div>
                 </div>
@@ -98,13 +98,16 @@ class FormCreateProjeto2 extends React.Component {
                                 return (
                                     <span>
                                         <img src={ficheiro.Ficheiro} style={{width: "100%"}}/>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
                                         <button
                                             className="btn btnIn mt-2 mb-2"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index, ficheiro.RefChild)}
+                                            style={{float: "right"}}>
                                             APAGAR
                                         </button>
+                                        </span>
                                     </span>
                                 );
                             } else if (ficheiro.Tipo == "texto"){
@@ -113,13 +116,16 @@ class FormCreateProjeto2 extends React.Component {
                                 return(
                                     <span>
                                         <Campo key={index} index={index} tipo={ficheiro.Tipo} escreve={[this.escrito, index, valores.ficheirosEnviarFases[index]]}/>
+                                        <span className="row justify-content-end" style={{paddingRight: "10.5px"}}>
                                         <button
                                             className="btn btnIn mt-2 mb-2 mr-1"
                                             type="button"
                                             id="BtnApagar"
-                                            onClick={() => this.apagar(ficheiro.Tipo, index)}>
+                                            onClick={() => this.apagar(ficheiro.Tipo, index)}
+                                            style={{float: "right"}}>
                                             APAGAR
                                         </button>
+                                        </span>
                                     </span>
                                 )
                             }
@@ -141,6 +147,43 @@ class FormCreateProjeto2 extends React.Component {
                                 </span>
                             </div>
                         </span>
+                    }
+                    {valores.ficheirosAmostraFases && valores.ficheirosAmostraFases.length > 0 ?
+                        <div className="row mb-0 justify-content-end pr-3" style={{paddingRight: "10.5px"}}>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="prevBtn"
+                                onClick={this.props.prevStep}
+                                >
+                                Anterior
+                            </button>
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.props.nextStep}>
+                                Próximo
+                            </button>
+                        </div>
+                        :
+                        <div className="row justify-content-end pr-3 d-none" style={{paddingRight: "10.5px"}}>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.prevStep}
+                                disabled>
+                                Anterior
+                            </button>
+                            <button
+                                className="btn btnIn"
+                                type="button"
+                                id="nextBtn"
+                                onClick={this.nextStep}>
+                                Próximo
+                            </button>
+                        </div>
                     }
                 </div>
             </div>

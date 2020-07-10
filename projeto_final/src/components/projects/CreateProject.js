@@ -390,8 +390,8 @@ class CreateProject extends React.Component {
     };
 
     render() {
-        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases} = this.state;
-        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases};
+        const {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases, ficheirosEnviarCapa} = this.state;
+        const valores = {verificacaoFicheiros, ficheirosAmostra, verificacaoFicheirosFases, ficheirosAmostraFases, verificacaoFicheirosCapa, ficheirosAmostraCapa, nomeProjeto, areaTrabalhoProjeto, ferramentasUsadas, equipa, descricaoProjeto, EmpresasProjeto, imgCortadaMostrar, ficheirosEnviar, ficheirosEnviarFases, ficheirosEnviarCapa};
         switch (this.state.Step) {
             case 1:
                 return (
@@ -432,6 +432,8 @@ class CreateProject extends React.Component {
                                 valores={valores}
                                 handleChange={this.handleChange}
                                 handleApagar={this.handleApagar}
+                                nextStep={this.nextStep}
+                                prevStep={this.prevStep}
                             />
                         </div>
                     </div>
@@ -469,6 +471,8 @@ class CreateProject extends React.Component {
                                 valores={valores}
                                 handleChange={this.handleChangeFases}
                                 handleApagar={this.handleApagarFases}
+                                nextStep={this.nextStep}
+                                prevStep={this.prevStep}
                             />
                         </div>
                     </div>
@@ -513,6 +517,8 @@ class CreateProject extends React.Component {
                                 handleChange={this.handleChangeCapa}
                                 handleApagar={this.handleApagarCapa}
                                 guardarCorte={this.guardaCorte}
+                                nextStep={this.nextStep}
+                                prevStep={this.prevStep}
                             />
                         </div>
                     </div>
@@ -551,6 +557,7 @@ class CreateProject extends React.Component {
                                 handleChange={this.handleChangeFinal}
                                 publicar={this.Publicar}
                                 objeto={this.state}
+                                prevStep={this.prevStep}
                             />
                         </div>
                     </div>

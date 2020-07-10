@@ -8,7 +8,44 @@ const FreelanceSummary = ({freelance}) => {
                 <span className="mb-1 Titulo_Emprego_List">{freelance.NomeAnuncio}</span>
                 <span className="mb-1 Info_Emprego_List">Orçamento: {freelance.Orcamento}€</span>
                 <span className="mb-3 Info_Emprego_List">Data de entrega: {freelance.DataEntrega}</span>    
-                <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">{freelance.AreaTrabalho}</span>
+                <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">
+                    {freelance.AreaTrabalho === "3DAnimacao" ?
+                        "3D e Animação"
+                        :
+                        freelance.AreaTrabalho === "ArtesPerfomativas" ?
+                            "Artes Perfomativas"
+                            :
+                            freelance.AreaTrabalho === "ArtesPlasticas" ?
+                                "Artes Plásticas"
+                                :
+                                freelance.AreaTrabalho === "CinemaVideo" ?
+                                    "Cinema e Vídeo"
+                                    :
+                                    freelance.AreaTrabalho === "DesenhoIlustracao" ?
+                                        "Desenho e Ilustração"
+                                        :
+                                        freelance.AreaTrabalho === "DesignGrafico" ?
+                                            "Design Gráfico"
+                                            :
+                                            freelance.AreaTrabalho === "DesignProdutos" ?
+                                                "Design Produtos"
+                                                :
+                                                freelance.AreaTrabalho === "Fotografia" ?
+                                                    "Fotografia"
+                                                    :
+                                                    freelance.AreaTrabalho === "Pintura" ?
+                                                        "Pintura"
+                                                        :
+                                                        freelance.AreaTrabalho === "Programacao" ?
+                                                            "Programação"
+                                                            :
+                                                            freelance.AreaTrabalho === "Musica" ?
+                                                                "Música"
+                                                                :
+                                                                "Outros Trabalhos"
+
+                    }
+                    </span>
             </span>
             <span className="col-2 Emprego_List_Info_Princ_Final d-sm-block d-none">
                 <span className="Info_Emprego_List pr-4"></span>
