@@ -13,7 +13,7 @@ class Pag_Principal extends React.Component {
     render() {
 
         const {auth} = this.props;
-        console.log(auth)
+        console.log(auth);
         return (
             <div className="pagP container-fluid m-0 p-0">
                 <div className="inicial row m-0 p-0 justify-content-center">
@@ -21,12 +21,24 @@ class Pag_Principal extends React.Component {
                         <img src={Logo} alt="" className="P_Ini_Logo m-auto"/>
                     </span>
                     <div className="col-lg-6 text-center text-lg-left justify-content-lg-start P_Ini_seg">
-                        <span className="P_Ini_texto">Bem Vindos à Colmeia de Criadores Artísticos</span>
+                        {auth.uid ?
+                        <span className="P_Ini_texto2">Bem Vindos à Colmeia de Criadores Artísticos</span>
+                            :
+                            <span className="P_Ini_texto">Bem Vindos à Colmeia de Criadores Artísticos</span>
+                        }
+                        {auth.uid ?
                         <Link to="/registo">
-                            <button className="P_Ini_button" data-hover="Junta-te a Nós!">
+                            <button className="P_Ini_button d-none" data-hover="Junta-te a Nós!">
                                 <div>Criar Perfil</div>
                             </button>
                         </Link>
+                            :
+                            <Link to="/registo">
+                                <button className="P_Ini_button" data-hover="Junta-te a Nós!">
+                                    <div>Criar Perfil</div>
+                                </button>
+                            </Link>
+                        }
                     </div>
                 </div>
                 <div className="row conteudo1 m-0">
@@ -73,7 +85,7 @@ class Pag_Principal extends React.Component {
                     </div>
                 </div>
                 <div className="conteudo2 row m-0">
-                    <div className="text-center ol-md-5 d-none d-md-block">
+                    <div className="text-center col-md-5 d-none d-md-block">
                         <img className="Cartoon2" alt="" src={C_Empregos} width="290px" height="290px"/>
                     </div>
                     <div className="texto2 col-md-5 col-sm-12">
@@ -89,11 +101,19 @@ class Pag_Principal extends React.Component {
                     <div className="conteudo_final" style={{width: "100%"}}>
                         <h3 style={{color: "white", marginBottom: "40px"}} className="pr-3 pl-3"><i>"Somos uma colmeia vocacionada para a
                             promoção do vosso trabalho"</i></h3>
+                        {auth.uid ?
                         <Link to="/registo">
-                            <button className="P_Ini_button" data-hover="Junta-te a Nós!">
+                            <button className="P_Ini_button d-none" data-hover="Junta-te a Nós!">
                                 <div>Criar Perfil</div>
                             </button>
                         </Link>
+                            :
+                            <Link to="/registo">
+                                <button className="P_Ini_button" data-hover="Junta-te a Nós!">
+                                    <div>Criar Perfil</div>
+                                </button>
+                            </Link>
+                        }
                     </div>
                 </div>
             </div>
@@ -104,7 +124,7 @@ class Pag_Principal extends React.Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        authError: state.firebase.authError
+        authError: state.firebase.authError,
     }
 }
 

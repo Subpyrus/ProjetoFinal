@@ -43,7 +43,7 @@ function App() {
             <Route path="/projetos/detalhes/:id" component={ProjetosDetalhes}/>
             <Route path="/registo/profissional" component={SignUpProfissional}/>
             <Route path="/registo/empresa" component={SignUpEmpresas}/>
-            <Route exact path="/perfil/:id" component={Perfil}/>
+            <Route exact path="/perfil/utilizador/:id" component={Perfil}/>
             <Route exact path="/empregos" component={Empregos}/>
             <Route path="/empregos/detalhes/:id" component={EmpregosDetalhes}/>
             <Route exact path="/freelance" component={Freelance}/>

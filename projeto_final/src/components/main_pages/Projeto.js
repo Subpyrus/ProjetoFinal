@@ -19,12 +19,12 @@ class Projetos extends React.Component {
     }
 
     render() {
-        const {projects} = this.props;
+        const {auth, projects, users} = this.props;
         return (
             <div className="container-fluid m-0 p-0 Proj_Body">
                 <Filtros pagina="projeto" search={this.atualiza} areaTrabalho={this.atualizaArea} distrito={this.atualizaDistrito}/>
                 <div className="container-fluid justify-content-center mt-5">
-                    <ListaProjetos projetos={projects} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito}/>
+                    <ListaProjetos projetos={projects} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} verificar={auth.uid} distrito={this.state.Distrito} users={users}/>
                 </div>
             </div>
         )
@@ -45,13 +45,16 @@ class Projetos extends React.Component {
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        projects: state.firestore.ordered.projects
+        auth: state.firebase.auth,
+        projects: state.firestore.ordered.projects,
+        users: state.firestore.ordered.users
     }
 };
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'projects' }
+        { collection: 'projects' },
+        { collection: 'users' }
     ])
 )(Projetos)

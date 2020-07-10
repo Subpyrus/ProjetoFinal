@@ -17,7 +17,7 @@ class NavB extends React.Component {
 
     render() {
         const {auth} = this.props;
-        const links = auth.uid ?  <SignedInLinks/> : <SignedOutLinks/>
+        const links = auth.uid ?  <SignedInLinks id={auth.uid}/> : <SignedOutLinks/>;
         return (
             <nav className="nav-wrapper black">
                 <div className="container">
@@ -32,7 +32,7 @@ class NavB extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
     }
 }
 

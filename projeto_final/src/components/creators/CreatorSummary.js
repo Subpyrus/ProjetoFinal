@@ -102,7 +102,7 @@ class CreatorSummary extends React.Component {
                         <div className="text-center">
                             <img src={Imagem2} className="card_Imagem2 mb-2"/>
                         </div>
-                        <Link to={`/perfil/${creators.id}`}>
+                        <Link to={`/perfil/utilizador/${creators.id}`}>
                             <button className="Criador_But_Ver_Perfil mt-2">Ver Perfil</button>
                         </Link>
                     </div>

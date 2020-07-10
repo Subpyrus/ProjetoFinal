@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../App.css';
-import Imagem2 from '../../Imgs/Conteudo_Post1.jpg'
 import {Link} from "react-router-dom";
 import {storage} from "../../config/fbConfig";
 import $ from "jquery";
@@ -11,7 +10,7 @@ class ProjectSummary extends React.Component{
         $('.show').click(function () { //same as on('click', function(){}); I just prefer this syntax
             console.log($(this).attr('data-target'));
             let target = $(this).attr('data-target'); //this will be card1 if the first is clicked.
-            $('.' + target).slideToggle('slow'); //add . for class selector and use target to find the right element
+            $('.' + target).slideToggle(`slow`); //add . for class selector and use target to find the right element
         });
 
         $('.close').click(function () { //close button
@@ -30,7 +29,7 @@ class ProjectSummary extends React.Component{
     getImage = (image) => {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
             if (this.state.imagem == "") {
-                console.log(url);
+                //console.log(url);
                 this.setState({imagem: url})
             }
         })

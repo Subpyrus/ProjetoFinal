@@ -6,6 +6,9 @@ import FormEditarPerfil_Password from '../forms/FormEditarPerfil_Password';
 import FormEditarPerfil_Associar from '../forms/FormEditarPerfil_Associar';
 import Seta2 from "../../Imgs/Seta2.svg";
 import {Link} from "react-router-dom";
+import {compose} from "redux";
+import connect from "react-redux/es/connect/connect";
+import {firestoreConnect} from "react-redux-firebase";
 
 class EditarPerfil extends React.Component{
     constructor(props){
@@ -29,6 +32,20 @@ class EditarPerfil extends React.Component{
             formacao: [],
             adicionaFormacao: false
         }
+    }
+
+    componentDidMount () {
+        const {users} = this.props;
+        console.log(users);
+        this.setState({
+            primeiroNome: users.FirstName ? users.FirstName : "",
+            ultimoNome: users.LastName ? users.LastName : "",
+            dataNascimento: users.DataNascimento ? users.DataNascimento : "",
+            Distrito: users.Local ? users.Local : "",
+            areaTrabalho: users.AreaTrabalho ? users.AreaTrabalho : "",
+            ocupacao: users.Ocupation ? users.Ocupation : ""
+        })
+
     }
 
     muda = (valor) => {
@@ -139,4 +156,16 @@ class EditarPerfil extends React.Component{
 
 }
 
-export default EditarPerfil
+const mapStateToProps = (state) => {
+    //console.log(state);
+    return {
+        auth: state.firebase.auth,
+        users: state.firebase.profile
+    }
+};
+
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'users'}
+    ]))(EditarPerfil);
