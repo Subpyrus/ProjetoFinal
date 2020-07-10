@@ -49,7 +49,7 @@ class SignIn extends React.Component {
                                     </div>
                                     <div className="text-center mb-3">
                                         <Link to=''  className="text-decoration-none text-black-50">
-                                            <ins>Esqueci-me da palavra-passe.</ins>
+                                            <ins>Esqueci-me da palavra-passe</ins>
                                         </Link>
                                     </div>
                                     <div className="red-text center">
@@ -69,7 +69,6 @@ class SignIn extends React.Component {
                         </div>
                     </div>
                 </div>
-    
             )
         }else {
             return(

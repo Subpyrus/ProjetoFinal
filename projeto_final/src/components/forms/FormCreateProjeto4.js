@@ -33,6 +33,7 @@ class FormCreateProjeto4 extends React.Component{
                                 className="validate"
                                 onChange={this.props.handleChange('nomeProjeto')}
                                 defaultValue={valores.nomeProjeto}
+                                maxLength="25"
                             />
                             <label htmlFor="nomeProjeto" className={valores.nomeProjeto != "" ? "active" : ""}>Nome do Projeto</label>
                         </div>
@@ -119,7 +120,7 @@ class FormCreateProjeto4 extends React.Component{
                         }
                     </div>
                 </div>
-                <Link id="red" to="/"/>
+                <Link id="red" to="/projetos"/>
             </div>
         );
     }

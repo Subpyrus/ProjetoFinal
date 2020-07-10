@@ -30,7 +30,7 @@ class FormCreateEmprego2 extends React.Component{
 
         return (
             <div>
-                <Link id="red" to="/"/>
+                <Link id="red" to="/empregos"/>
                 <div className="px-5 row Criar_Freelance_Meio_2_Info">
                     <span className="mb-2 Titulo_Emprego_List_2">{valores.NomeAnuncio}</span>
                     <span className="mb-3 Info_Emprego_List">Localização: {valores.Localizacao}</span>

@@ -29,7 +29,7 @@ class FormCreateFreelance2 extends React.Component{
         valores.IdUser = auth.uid;
         return (
             <div>
-                <Link id="red" to="/"/>
+                <Link id="red" to="/freelance"/>
                 <div className="px-5 row Criar_Freelance_Meio_2_Info">
                     <span className="mb-2 Titulo_Emprego_List_2">{valores.NomeAnuncio}</span>
                     <span className="Info_Emprego_List">Orçamento: {valores.Orcamento}€</span>
