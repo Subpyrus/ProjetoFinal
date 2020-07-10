@@ -5,7 +5,9 @@ import FormUserPart1 from '../forms/FormUserPart1';
 import FormUserPart2 from '../forms/FormUserPart2';
 import FormUserPart3 from '../forms/FormUserPart3';
 import {signUpUser} from "../../store/actions/authActions"
+import {signOut} from '../../store/actions/authActions'
 import {connect} from "react-redux"
+import {Link} from 'react-router-dom'
 
 class CreateCreator extends React.Component {
     state = {
@@ -37,14 +39,13 @@ class CreateCreator extends React.Component {
 
     handleSubmit = (e) => {
         this.props.signUpUser(this.state);
+        document.getElementById('red').click();
     }
 
     render() {
         const { Step } = this.state;
         const {PrimeiroNome, UltimoNome, DataNascimento, Distrito, AreaTrabalho, Ocupacao, Email, Password} = this.state;
         const valores = {PrimeiroNome, UltimoNome, DataNascimento, Distrito, AreaTrabalho, Ocupacao, Email, Password};
-
-        const {authError} = this.props;
 
         switch (Step) {
             case 1:
@@ -95,6 +96,7 @@ class CreateCreator extends React.Component {
             case 3:
                 return(
                     <div className="container-fluid fundo">
+                        <Link id="red" to='/entrar'/>
                         <div className="container box">
                             <div className="row justify-content-center mb-0">
                                 <div className="boxIn p-5 col-12 col-md-8 col-lg-6">
@@ -129,7 +131,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        signUpUser: (newUser) => dispatch(signUpUser(newUser))
+        signUpUser: (newUser) => dispatch(signUpUser(newUser)),
     }
 }
 

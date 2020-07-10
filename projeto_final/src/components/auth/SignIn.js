@@ -26,7 +26,6 @@ class SignIn extends React.Component {
     render() {
         const {authError,auth} = this.props;
 
-        if (auth.uid == null) {
             return (
                 <div className="container-fluid noscroll fundo">
                     <div className="container box">
@@ -70,11 +69,6 @@ class SignIn extends React.Component {
                     </div>
                 </div>
             )
-        }else {
-            return(
-                <Redirect to="/" />
-            )
-        }
         
     }
 }

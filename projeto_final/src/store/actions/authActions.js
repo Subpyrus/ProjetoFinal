@@ -16,7 +16,6 @@ export const signIn = (credentials) => {
 export const signOut = () => {
     return (dispatch, getState, {getFirebase}) => {
         const firebase = getFirebase();
-        
         firebase.auth().signOut().then(()=>{
             dispatch({ type: 'SIGNOUT_SUCCESS'});
         });
@@ -43,12 +42,9 @@ export const signUpUser = (newUser) => {
                 TipoUtilizador: 1
             })
         }).then(() => {
-            firebase.auth().signInWithEmailAndPassword(
-                newUser.Email,
-                newUser.Password
-            ).then(() => {
+            firebase.auth().signOut().then(()=>{
                 dispatch({type: 'SIGNUPUSER_SUCCESS'})
-            })
+            });
         }).catch((err) => {
             dispatch({type: 'SIGNUPUSER_ERROR', err})
         })
@@ -77,12 +73,9 @@ export const signUpEnterprise = (newEnterprise) => {
                 TipoUtilizador: 2
             })
         }).then(() => {
-            firebase.auth().signInWithEmailAndPassword(
-                newEnterprise.Email,
-                newEnterprise.Password
-            ).then(() => {
+            firebase.auth().signOut().then(()=>{
                 dispatch({type: 'SIGNUPENTERPRISE_SUCCESS'})
-            })
+            });
         }).catch((err) => {
             dispatch({type: 'SIGNUPENTERPRISE_ERROR', err})
         })
