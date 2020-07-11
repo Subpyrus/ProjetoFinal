@@ -1,27 +1,47 @@
 import React from 'react';
 import '../../App.css';
 import {createProject} from "../../store/actions/projectActions";
+import {compose} from "redux";
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { auth } from 'firebase';
+import {firestoreConnect} from "react-redux-firebase";
 
 
 class FormCreateProjeto4 extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            distrito: ""
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto,  IdEmpregador: this.props.auth.uid, distritoUtilizador: this.props.user.Local};
+        let objeto = {conteudo: this.props.objeto.ficheirosEnviar, fases: this.props.objeto.ficheirosEnviarFases, capa: this.props.objeto.ficheirosEnviarCapa, nomeProjeto: this.props.objeto.nomeProjeto, areaTrabalho: this.props.objeto.areaTrabalhoProjeto, ferramentas: this.props.objeto.ferramentasUsadas, descricaoProjeto: this.props.objeto.descricaoProjeto, empresasProjeto: this.props.objeto.EmpresasProjeto,  IdEmpregador: this.props.auth.uid, distritoUtilizador: this.state.distrito};
         this.props.createProject(objeto);
         document.getElementById('red').click();
+    };
+
+    getUserDistrito = () => {
+        {this.props.user && this.props.user.map(dados => {
+            if (this.state.distrito === "") {
+                if (dados.id === this.props.auth.uid) {
+                    this.setState({distrito: dados.Local})
+                } else {
+                    this.setState({distrito: ""})
+                }
+            }
+        }) }
     };
 
 
     render() {
         const {valores} = this.props;
-        console.log(this.props);
         return (
             <div className="row col-12 justify-content-center m-0 pt-5">
+                {this.getUserDistrito()}
                 <div className="col-lg-11 mb-5 area_PreVisualizar text-center p-3 p-lg-5">
                     <div className="text-left">
                         <h4>Informações Gerais do Projeto</h4>
@@ -154,14 +174,18 @@ class FormCreateProjeto4 extends React.Component{
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        user: state.firebase.profile
+        user: state.firestore.ordered.users
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createProject: (project) => dispatch(createProject(project))
+        createProject: (project) => dispatch(createProject(project)),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormCreateProjeto4)
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        {collection: 'users'}
+    ]))(FormCreateProjeto4)

@@ -4,6 +4,8 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 import '../../App.css';
 import { connect } from 'react-redux'
+import { compose } from 'redux'
+import {firestoreConnect} from "react-redux-firebase";
 
 class NavB extends React.Component {
 
@@ -16,8 +18,8 @@ class NavB extends React.Component {
     }
 
     render() {
-        const {auth} = this.props;
-        const links = auth.uid ?  <SignedInLinks id={auth.uid}/> : <SignedOutLinks/>;
+        const {auth, users} = this.props;
+        const links = auth.uid ?  <SignedInLinks id={auth.uid} users={users}/> : <SignedOutLinks/>;
         return (
             <nav className="nav-wrapper black">
                 <div className="container">
@@ -33,7 +35,12 @@ class NavB extends React.Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
+        users: state.firestore.ordered.users
     }
 }
 
-export default connect(mapStateToProps)(NavB);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'users' }
+    ]))(NavB);

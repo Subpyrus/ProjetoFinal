@@ -30,7 +30,8 @@ class CreateFreelance2 extends React.Component {
         AreaTrabalho:'',
         DescricaoTrabalho: '',
         Ficheiro: '',
-        IdUser: ''
+        IdUser: '',
+        distritoCriador: ''
     };
 
     // Próximo Step

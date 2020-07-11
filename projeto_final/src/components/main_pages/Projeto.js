@@ -6,6 +6,9 @@ import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
 import CreatorList from "../creators/CreatorList";
+import $ from "jquery";
+
+const $x = "show";
 
 class Projetos extends React.Component {
 
@@ -18,13 +21,26 @@ class Projetos extends React.Component {
         }
     }
 
+    componentDidMount() {
+        $('.show').click(function () { //same as on('click', function(){}); I just prefer this syntax
+            console.log($(this).attr('data-target'));
+            let target = $(this).attr('data-target'); //this will be card1 if the first is clicked.
+            $('.' + target).slideToggle(`slow`); //add . for class selector and use target to find the right element
+        });
+
+        $('.close').click(function () { //close button
+            $(this).parent().slideToggle('slow'); //find the nearest parent and close it
+        });
+
+    };
+
     render() {
         const {auth, projects, users} = this.props;
         return (
             <div className="container-fluid m-0 p-0 Proj_Body">
                 <Filtros pagina="projeto" search={this.atualiza} areaTrabalho={this.atualizaArea} distrito={this.atualizaDistrito}/>
                 <div className="container-fluid justify-content-center mt-5">
-                    <ListaProjetos projetos={projects} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} verificar={auth.uid} distrito={this.state.Distrito} users={users}/>
+                    <ListaProjetos projetos={projects} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} verificar={auth.uid} distrito={this.state.Distrito} users={users} abrir={$x}/>
                 </div>
             </div>
         )

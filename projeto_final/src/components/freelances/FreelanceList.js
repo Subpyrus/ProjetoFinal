@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import FreelanceSummary from "./freelanceSummary";
 
-const ListaFreelance = ({ freelances, pesquisa, areaTrabalho }) =>  {
-    if (pesquisa == "" && areaTrabalho == "") {
+const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcamento }) =>  {
+    if (pesquisa == "" && areaTrabalho == "" && distrito == "") {
         return (
             <div>
                 { freelances && freelances.map(freelance => {
@@ -15,12 +15,56 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho }) =>  {
                 })}
             </div>
         )
+    }else if (pesquisa !== "" && areaTrabalho !== "" && distrito !== ""){
+        return (
+            <div>
+                { freelances && freelances.map(freelance => {
+                    let nomes = freelance.NomeAnuncio.toLowerCase();
+                    if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito) {
+                        return (
+                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                            </Link>
+                        )
+                    }
+                })}
+            </div>
+        )
     } else if (pesquisa !== "" && areaTrabalho !== "") {
         return (
             <div>
                 { freelances && freelances.map(freelance => {
                     let nomes = freelance.NomeAnuncio.toLowerCase();
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho) {
+                        return (
+                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                            </Link>
+                        )
+                    }
+                })}
+            </div>
+        )
+    } else if (pesquisa !== "" && distrito !== "") {
+        return (
+            <div>
+                { freelances && freelances.map(freelance => {
+                    let nomes = freelance.NomeAnuncio.toLowerCase();
+                    if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.distritoCriador == distrito) {
+                        return (
+                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                            </Link>
+                        )
+                    }
+                })}
+            </div>
+        )
+    } else if (distrito !== "" && areaTrabalho !== "") {
+        return (
+            <div>
+                { freelances && freelances.map(freelance => {
+                    if (freelance.distritoCriador == distrito && freelance.AreaTrabalho == areaTrabalho) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
@@ -50,6 +94,20 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho }) =>  {
             <div>
                 { freelances && freelances.map(freelance => {
                     if (freelance.AreaTrabalho == areaTrabalho) {
+                        return (
+                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                            </Link>
+                        )
+                    }
+                })}
+            </div>
+        )
+    } else if (distrito !== "") {
+        return (
+            <div>
+                { freelances && freelances.map(freelance => {
+                    if (freelance.distritoCriador == distrito) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>

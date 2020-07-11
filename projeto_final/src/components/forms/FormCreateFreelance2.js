@@ -1,10 +1,20 @@
 import React from 'react';
 import '../../App.css';
 import {connect} from 'react-redux'
+import {compose} from "redux";
 import {Link} from 'react-router-dom'
 import  { createFreelance } from '../../store/actions/freelanceActions'
+import {firestoreConnect} from "react-redux-firebase";
 
 class FormCreateFreelance2 extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            distrito: ""
+        }
+    }
+
     estilo = {
         textAlign: "center",
         marginTop: "40px"
@@ -13,9 +23,25 @@ class FormCreateFreelance2 extends React.Component{
         opacity: 1
     };
 
+    getUserDistrito = () => {
+        {this.props.user && this.props.user.map(dados => {
+            console.log("ola");
+            if (this.state.distrito === "") {
+                console.log("ola2");
+                if (dados.id === this.props.auth.uid) {
+                    this.props.valores.distritoCriador = dados.Local
+                } else {
+                    this.setState({distrito: ""})
+                }
+            }
+        }) }
+    };
+
     continuar = e => {
         e.preventDefault();
-        this.props.createFreelance(this.props.valores)
+        this.getUserDistrito();
+        this.props.createFreelance(this.props.valores);
+        //console.log(this.props.valores);
         document.getElementById('red').click();
     };
 
@@ -25,7 +51,7 @@ class FormCreateFreelance2 extends React.Component{
     };
 
     render() {
-        const {auth,valores} = this.props;
+        const {auth, valores} = this.props;
         valores.IdUser = auth.uid;
         return (
             <div>
@@ -95,7 +121,8 @@ class FormCreateFreelance2 extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        user: state.firestore.ordered.users
     }
 }
 
@@ -105,4 +132,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormCreateFreelance2)
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    firestoreConnect([
+        {collection: 'users'}
+    ]))(FormCreateFreelance2)

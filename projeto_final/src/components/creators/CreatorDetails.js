@@ -8,17 +8,14 @@ import CreatorDetailsSummary from './CreatorDetailsSummary'
 class Perfil extends React.Component {
 
     render() {
-        const {auth, users, otherUsers, projects} = this.props;
+        const {auth, otherUsers, projects} = this.props;
         //console.log(this.props.match.params.id);
         //console.log(auth);
         //console.log(users);
         return (
             <div className="Perfil_Body">
-                {auth.uid === this.props.match.params.id ?
-                    <CreatorDetailsSummary users={users} projetos={projects} id_user={auth.uid} id_pass={this.props.match.params.id}/>
-                    :
-                    otherUsers && otherUsers.map(dados => {
-                        if (dados.id === this.props.match.params.id) {
+                {otherUsers && otherUsers.map(dados => {
+                        if (dados.id === this.props.match.params.id && dados.TipoUtilizador === 1) {
                             //console.log("olá");
                             return (
                                 <div className="Perfil_Body">
@@ -38,7 +35,6 @@ const mapStateToProps = (state) => {
     //console.log(state);
     return {
         auth: state.firebase.auth,
-        users: state.firebase.profile,
         otherUsers: state.firestore.ordered.users,
         projects: state.firestore.ordered.projects
     }

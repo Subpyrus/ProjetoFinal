@@ -6,19 +6,6 @@ import $ from "jquery";
 
 class ProjectSummary extends React.Component{
 
-    componentDidMount() {
-        $('.show').click(function () { //same as on('click', function(){}); I just prefer this syntax
-            console.log($(this).attr('data-target'));
-            let target = $(this).attr('data-target'); //this will be card1 if the first is clicked.
-            $('.' + target).slideToggle(`slow`); //add . for class selector and use target to find the right element
-        });
-
-        $('.close').click(function () { //close button
-            $(this).parent().slideToggle('slow'); //find the nearest parent and close it
-        });
-
-    };
-
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +23,7 @@ class ProjectSummary extends React.Component{
     };
 
     render() {
-        const {info} = this.props;
+        const {info, abrir} = this.props;
         //console.log(info);
         return (
             <div className="col-12 col-md-6 col-lg-3">
@@ -52,7 +39,7 @@ class ProjectSummary extends React.Component{
                     <div className="card-content">
                         <div>
                             <span className="card-title">{info.nomeProjeto}</span>
-                            <button type="button" id="show" data-target={`show${info.id}`}
+                            <button type="button" id="show" data-target={`${abrir}${info.id}`}
                                     className="float-right show btn btn-custom"
                                     aria-label="Left Align"><i className="fa fa-ellipsis-v"></i>
                             </button>
@@ -62,7 +49,7 @@ class ProjectSummary extends React.Component{
                                     <i className="fa fa-heart-o mr-2"/><span className="mr-2 nums">42</span>
                                 </span>
                     </div>
-                    <div className={`card-reveal show${info.id}`}>
+                    <div className={`card-reveal ${abrir}${info.id}`}>
                         <button type="button" className="close btn-custom" data-dismiss="modal"
                                 aria-label="Close">
                             <span aria-hidden="true">×</span></button>

@@ -3,7 +3,7 @@ import Adicionar from '../../Imgs/Adicionar.png'
 import {Link} from "react-router-dom";
 import ProjectSummary from './ProjectSummary';
 
-const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) => {
+const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito, abrir}) => {
     if (pesquisa == "" && areaTrabalho == "" && distrito == "") {
         return (
             <div className="row col-12 m-0">
@@ -43,7 +43,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                 {projetos && projetos.map(dados => {
                     //console.log(dados);
                     return (
-                        <ProjectSummary info={dados}/>
+                        <ProjectSummary info={dados} abrir={abrir}/>
                     )
                 })}
             </div>
@@ -88,7 +88,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                     let nome = dados.nomeProjeto.toLowerCase();
                     if (dados.nomeProjeto.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador === distrito || nome.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador === distrito) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -134,7 +134,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                     let nome = dados.nomeProjeto.toLowerCase();
                     if (dados.nomeProjeto.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho || nome.startsWith(pesquisa) && dados.areaTrabalho == areaTrabalho) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -180,7 +180,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                     let nome = dados.nomeProjeto.toLowerCase();
                     if (dados.nomeProjeto.startsWith(pesquisa) && dados.distritoUtilizador === distrito || nome.startsWith(pesquisa) && dados.distritoUtilizador == distrito) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -225,7 +225,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                 {projetos && projetos.map(dados => {
                     if (dados.areaTrabalho == areaTrabalho && dados.distritoUtilizador == distrito) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -271,7 +271,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                     let nome = dados.nomeProjeto.toLowerCase();
                     if (dados.nomeProjeto.startsWith(pesquisa) || nome.startsWith(pesquisa)) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -316,7 +316,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                 {projetos && projetos.map(dados => {
                     if (dados.areaTrabalho == areaTrabalho) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}
@@ -361,7 +361,7 @@ const ListaProjetos = ({projetos, pesquisa, areaTrabalho, verificar, distrito}) 
                 {projetos && projetos.map(dados => {
                     if (dados.distritoUtilizador == distrito) {
                         return (
-                            <ProjectSummary info={dados}/>
+                            <ProjectSummary info={dados} abrir={abrir}/>
                         )
                     }
                 })}

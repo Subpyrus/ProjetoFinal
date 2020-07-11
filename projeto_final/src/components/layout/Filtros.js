@@ -18,6 +18,8 @@ class Filtros extends React.Component {
             this.props.areaTrabalho(e.target.value);
         } else if (input == "Localizacao") {
             this.props.distrito(e.target.value);
+        } else if (input == "Orcamento") {
+            this.props.orcamento(e.target.value);
         }
         //console.log(this.state);
     };
@@ -33,7 +35,7 @@ class Filtros extends React.Component {
                             onChange={this.handleChange('AreaTrabalho')}
                         >
                             <option value="" disabled selected>Área de Trabalho</option>
-                            <option value="">Nenhuma</option>
+                            <option value="">Todas</option>
                             <option value="3DAnimacao">3D e Animação</option>
                             <option value="ArtesPerfomativas">Artes Performativas</option>
                             <option value="ArtesPlasticas">Artes Plásticas</option>
@@ -54,7 +56,7 @@ class Filtros extends React.Component {
                             onChange={this.handleChange('Localizacao')}
                         >
                             <option value="" disabled selected>Distrito</option>
-                            <option value="">Nenhum</option>
+                            <option value="">Todas</option>
                             <option value="Aveiro">Aveiro</option>
                             <option value="Beja">Beja</option>
                             <option value="Braga">Braga</option>
@@ -91,12 +93,15 @@ class Filtros extends React.Component {
                         <span className="col-6 col-lg-2 item_Filtro">
                             <select
                                 className="aparece"
-                                onChange={this.handleChange('Destaques')}
+                                onChange={this.handleChange('Orcamento')}
                             >
                                 <option value="" disabled selected>Orçamento</option>
-                                <option value="Mango">Mango</option>
-                                <option value="Orange">Orange</option>
-                                <option value="Apple">Apple</option>
+                                <option value="">Todos</option>
+                                <option value="0">0 a 250€</option>
+                                <option value="251">251 a 500€</option>
+                                <option value="501">501€ a 750€</option>
+                                <option value="751">751€ a 1000€</option>
+                                <option value="1001">1001€ +</option>
                             </select>
                         </span>
                     }

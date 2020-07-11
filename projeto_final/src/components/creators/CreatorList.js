@@ -7,9 +7,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
         return (
             <div className="row col-12 m-0 p-0">
                 {utilizadores && utilizadores.map(dados => {
-                    return (
-                        <CreatorSummary creators={dados} key={dados.id}/>
-                    )
+                    if (dados.TipoUtilizador === 1){
+                        return (
+                            <CreatorSummary creators={dados} key={dados.id}/>
+                        )
+                    }
                 })}
             </div>
         );
@@ -20,9 +22,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
                     let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
                     let nome = nomeUtilizador.toLowerCase();
                     if (nomeUtilizador.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho && dados.Local == distrito || nome.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho && dados.Local == distrito){
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -34,9 +38,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
                     let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
                     let nome = nomeUtilizador.toLowerCase();
                     if (nomeUtilizador.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho || nome.startsWith(pesquisa) && dados.AreaTrabalho == areaTrabalho){
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -48,9 +54,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
                     let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
                     let nome = nomeUtilizador.toLowerCase();
                     if (nomeUtilizador.startsWith(pesquisa) && dados.Local == distrito || nome.startsWith(pesquisa) && dados.Local == distrito) {
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -60,9 +68,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
             <div className="row col-12 m-0 p-0">
                 {utilizadores && utilizadores.map(dados => {
                     if (dados.AreaTrabalho == areaTrabalho && dados.Local == distrito) {
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -74,9 +84,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
                     let nomeUtilizador = `${dados.FirstName} ${dados.LastName}`;
                     let nome = nomeUtilizador.toLowerCase();
                     if (nomeUtilizador.startsWith(pesquisa) || nome.startsWith(pesquisa)){
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -86,9 +98,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
             <div className="row col-12 m-0 p-0">
                 {utilizadores && utilizadores.map(dados => {
                     if (dados.AreaTrabalho == areaTrabalho) {
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>
@@ -98,9 +112,11 @@ const CreatorList = ({utilizadores, pesquisa, areaTrabalho, distrito}) => {
             <div className="row col-12 m-0 p-0">
                 {utilizadores && utilizadores.map(dados => {
                     if (dados.Local == distrito) {
-                        return (
-                            <CreatorSummary creators={dados} key={dados.id}/>
-                        )
+                        if (dados.TipoUtilizador === 1) {
+                            return (
+                                <CreatorSummary creators={dados} key={dados.id}/>
+                            )
+                        }
                     }
                 })}
             </div>

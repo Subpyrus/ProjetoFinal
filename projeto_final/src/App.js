@@ -53,7 +53,7 @@ function App() {
             <Route path="/perfil/editar" component={EditarPerfil}/>
             <Route exact path="/empregos/criar" component={CreateJob1}/>
             <Route path="/empregos/criar/:id" component={CreateJob2}/>
-            <Route path="/perfil/empresa" component={PerfilEmpresa}/>
+            <Route path="/perfil/empresa/:id" component={PerfilEmpresa}/>
             <Route path="/criadores" component={Criador}/>
             <Route path="/projetos/criar" component={CreateProject}/>
         </Switch>
