@@ -30,7 +30,9 @@ export const signUpUser = (newUser) => {
             newUser.Email,
             newUser.Password
         ).then((resp) => {
+            console.log("ola")
             const number = Math.floor(Math.random() * 20) + 1;
+            console.log(number)
             return firestore.collection('users').doc(resp.user.uid).set({
                 FirstName:newUser.PrimeiroNome,
                 LastName:newUser.UltimoNome,
@@ -42,6 +44,7 @@ export const signUpUser = (newUser) => {
                 TipoUtilizador: 1
             })
         }).then(() => {
+            dispatch({type: 'SIGNUPUSER_SUCCESS'})
             firebase.auth().signOut().then(()=>{
                 dispatch({type: 'SIGNUPUSER_SUCCESS'})
             });

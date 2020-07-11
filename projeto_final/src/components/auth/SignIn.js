@@ -24,7 +24,7 @@ class SignIn extends React.Component {
     }
 
     render() {
-        const {authError,auth} = this.props;
+        const {authError,authSuccess} = this.props;
 
             return (
                 <div className="container-fluid noscroll fundo">
@@ -54,6 +54,9 @@ class SignIn extends React.Component {
                                     <div className="red-text center">
                                         {authError ? <p>{authError}</p> : null}
                                     </div>
+                                    <div className="green-text center">
+                                        {authSuccess ? <p>{authSuccess}</p> : null}
+                                    </div>
                                     <div className="text-center pt-2">
                                         <button className="btn btnIn w-100"
                                                 type="submit">ENTRAR
@@ -77,6 +80,7 @@ class SignIn extends React.Component {
 const mapStateToProps = (state) => {
     return {
         authError: state.auth.authError,
+        authSuccess: state.auth.authSuccess,
         auth: state.firebase.auth
     }
 }
