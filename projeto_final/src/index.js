@@ -21,10 +21,7 @@ const store = createStore(
   )
 );
 
-const profileSpecificProps = {
-    userProfile: 'users',
-    useFirestoreForProfile: true,
-};
+
 
 const rrfProps = {
   firebase,
