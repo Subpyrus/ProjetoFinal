@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
+import { updateProfile } from '../../store/actions/authActions';
 
 class EditarPerfil extends React.Component{
     constructor(props){
@@ -23,53 +24,73 @@ class EditarPerfil extends React.Component{
             areaTrabalho: "",
             ocupacao: "",
             sobre: "",
-            passwordAtual: "",
-            passwordNova: "",
             website: "",
             instagram: "",
             linkedin: "",
             facebook: "",
-            formacao: [],
+            formacao: {},
+            userId:"",
             adicionaFormacao: false
         }
     }
 
     componentDidMount () {
-        const {users} = this.props;
-        console.log(users);
-        this.setState({
-            primeiroNome: users.FirstName ? users.FirstName : "",
-            ultimoNome: users.LastName ? users.LastName : "",
-            dataNascimento: users.DataNascimento ? users.DataNascimento : "",
-            Distrito: users.Local ? users.Local : "",
-            areaTrabalho: users.AreaTrabalho ? users.AreaTrabalho : "",
-            ocupacao: users.Ocupation ? users.Ocupation : ""
-        })
-
+        const {users,auth} = this.props;
+        const id = auth.uid;
+        for (var a in users){
+            if(a == id) {
+                this.setState({
+                    primeiroNome: users[a].FirstName ? users[a].FirstName : "",
+                    ultimoNome: users[a].LastName ? users[a].LastName : "",
+                    dataNascimento: users[a].BirthDate ? users[a].BirthDate : "",
+                    Distrito: users[a].Local ? users[a].Local : "",
+                    areaTrabalho: users[a].AreaTrabalho ? users[a].AreaTrabalho : "",
+                    imagemPerfil: users[a].ImagemPerfil,
+                    ocupacao: users[a].Ocupation ? users[a].Ocupation : "",
+                    sobre: users[a].Descricao ? users[a].Descricao : "",
+                    website: users[a].LinkWeb ? users[a].LinkWeb : "",
+                    instagram: users[a].LinkInsta ? users[a].LinkInsta : "",
+                    linkedin: users[a].LinkLinked ? users[a].LinkLinked : "",
+                    facebook: users[a].LinkFace ? users[a].LinkFace : "",
+                    formacao: users[a].Formacao ? users[a].Formacao : {},
+                    userId: id
+                })
+            }
+        }
     }
 
     muda = (valor) => {
         this.setState({selecionado: valor});
-        //console.log(this.state.selecionado);
     };
 
     handleChange = input => e => {
         this.setState({[input]: e.target.value});
-        console.log(this.state);
     };
 
     guardaCampo = () => {
-        let objetoGuadado = {faculdade: "", curso: "", ano: "", estado: "", anoConclusao: ""};
-        this.state.formacao.push(objetoGuadado);
-        this.setState({adicionaFormacao: true});
-        //console.log(this.state);
+        let objetoGuardado = {
+            faculdade: "", 
+            curso: "", 
+            ano: "", 
+            estado: "", 
+            anoConclusao: ""
+        };
+        let newArray = [];
+        newArray.push(objetoGuardado);
+        for (var a in this.state.formacao){
+            newArray.push(this.state.formacao[a])
+        }
+        console.log(newArray)
+        this.setState({ 
+            formacao: newArray,
+            adicionaFormacao: true
+        });
     };
 
     alteraFormacao = (index, input, escrito) => {
         let clone = [...this.state.formacao];
         clone[index][input] = escrito;
         this.setState({formacao: clone});
-        console.log(this.state);
     };
 
     apagaFormacao = (index) => {
@@ -79,8 +100,12 @@ class EditarPerfil extends React.Component{
         } else {
             this.setState({adicionaFormacao: true});
         }
-        console.log(this.state);
     };
+
+    handleSubmit = (e) => {
+        console.log(this.state)
+        this.props.updateProfile(this.state);
+    }
 
     render() {
         const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao} = this.state;
@@ -126,6 +151,7 @@ class EditarPerfil extends React.Component{
                         {this.state.selecionado == 1 ?
                             <FormEditarPerfil_Geral
                                 handleChange={this.handleChange}
+                                handleSubmit={this.handleSubmit}
                                 valores={valores}
                             />
                             :
@@ -160,12 +186,18 @@ const mapStateToProps = (state) => {
     //console.log(state);
     return {
         auth: state.firebase.auth,
-        users: state.firebase.profile
+        users: state.firestore.data.users
     }
 };
 
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        updateProfile: (newValores) => dispatch(updateProfile(newValores)),
+    }
+}
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
         {collection: 'users'}
     ]))(EditarPerfil);

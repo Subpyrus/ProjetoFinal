@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../App.css';
 import Imagem from '../../Imgs/Perfil.jpg';
+import { connect } from 'react-redux'
 
 class FormEditarPerfil_Geral extends React.Component {
 
     render() {
-        const {valores, handleChange} = this.props;
+        const {valores, handleChange, handleSubmit,authError,authSuccess} = this.props;
         return (
             <div className="row col-12 mx-auto">
                 <span className="col-12 mt-3">
@@ -47,7 +48,7 @@ class FormEditarPerfil_Geral extends React.Component {
                                 onChange={handleChange('dataNascimento')}
                                 defaultValue={valores.dataNascimento}
                             />
-                            <label htmlFor="DataNascimento" className={valores.dataNascimento != "" ? "active" : ""}>Data de Nascimento</label>
+                            <label htmlFor="DataNascimento" className={valores.dataNascimento != "" ? "active" : ""}></label>
                         </div>
                     </div>
                     <div className="row">
@@ -181,11 +182,16 @@ class FormEditarPerfil_Geral extends React.Component {
                                 className="btn btnIn"
                                 type="button"
                                 id="nextBtn"
-                                onClick={this.handleSubmit}
+                                onClick={handleSubmit}
                             >
                                 Publicar
                             </button>
-                        }
+                    </div>
+                    <div className="red-text center">
+                        {authError ? <p>{authError}</p> : null}
+                    </div>
+                    <div className="green-text center">
+                        {authSuccess ? <p>{authSuccess}</p> : null}
                     </div>
                 </div>
             </div>
@@ -193,4 +199,13 @@ class FormEditarPerfil_Geral extends React.Component {
     }
 }
 
-export default FormEditarPerfil_Geral
+
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        authSuccess: state.auth.authSuccess,
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(FormEditarPerfil_Geral)

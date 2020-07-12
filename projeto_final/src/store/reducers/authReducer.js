@@ -36,6 +36,16 @@ const authReducer = (state = initState, action) => {
                 ...state,
                 authError: action.err.message
             }
+        case 'EDITPROFILE_COMPLETE':
+            return {
+                ...state,
+                authSuccess: "Sucesso"
+            }
+        case 'EDITPROFILE_ERROR':
+            return {
+                ...state,
+                authError: action.err.message
+            }
         default:
             return state;
     }

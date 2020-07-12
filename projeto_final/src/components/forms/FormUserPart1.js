@@ -49,7 +49,7 @@ class FormUserPart1 extends React.Component {
                             onChange={handleChange('DataNascimento')}
                             defaultValue={valores.DataNascimento}
                         />
-                        <label htmlFor="data" className={valores.DataNascimento != "" ? "active col-12" : "col-12"}>Data de Nascimento</label>
+                        <label htmlFor="data" className={valores.DataNascimento != "" ? "active col-12" : "col-12"}></label>
                     </div>
                 </div>
                 <div className="row justify-content-end of">

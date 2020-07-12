@@ -30,9 +30,7 @@ export const signUpUser = (newUser) => {
             newUser.Email,
             newUser.Password
         ).then((resp) => {
-            console.log("ola")
             const number = Math.floor(Math.random() * 20) + 1;
-            console.log(number)
             return firestore.collection('users').doc(resp.user.uid).set({
                 FirstName:newUser.PrimeiroNome,
                 LastName:newUser.UltimoNome,
@@ -41,15 +39,47 @@ export const signUpUser = (newUser) => {
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
                 ImagemPerfil: "p" + number + ".png",
-                TipoUtilizador: 1
+                TipoUtilizador: 1,
+                Descricao:"",
+                Formacao:[],
+                LinkWeb:"",
+                LinkInsta:"",
+                LinkLinked:"",
+                LinkFace:""
             })
         }).then(() => {
-            dispatch({type: 'SIGNUPUSER_SUCCESS'})
             firebase.auth().signOut().then(()=>{
                 dispatch({type: 'SIGNUPUSER_SUCCESS'})
             });
         }).catch((err) => {
             dispatch({type: 'SIGNUPUSER_ERROR', err})
+        })
+
+    }
+}
+
+export const updateProfile = (newInfo) => {
+    return (dispatch,getState,{getFirebase,getFirestore}) => {
+        const firestore = getFirestore();
+        return firestore.collection('users').doc(newInfo.userId).update({
+            FirstName:newInfo.primeiroNome,
+            LastName:newInfo.ultimoNome,
+            BirthDate:newInfo.dataNascimento,
+            Local:newInfo.Distrito,
+            AreaTrabalho:newInfo.areaTrabalho,
+            Ocupation:newInfo.ocupacao,
+            ImagemPerfil: newInfo.imagemPerfil,
+            TipoUtilizador: 1,
+            Descricao:newInfo.sobre,
+            Formacao:newInfo.formacao,
+            LinkWeb:newInfo.website,
+            LinkInsta:newInfo.instagram,
+            LinkLinked:newInfo.linkedin,
+            LinkFace:newInfo.facebook
+        }).then(() => {
+            dispatch({type:'EDITPROFILE_COMPLETE'})
+        }).catch((err) =>{
+            dispatch({type:'EDITPROFILE_ERROR', err})
         })
 
     }

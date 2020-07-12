@@ -16,7 +16,6 @@ class FormEditarPerfil_Formacao extends React.Component {
     add() {
         const campos = this.state.campos.concat(FormEditarPerfil_Formacao2);
         this.setState({campos});
-        console.log(this.state.campos);
         this.props.guardaCampo();
     }
 
