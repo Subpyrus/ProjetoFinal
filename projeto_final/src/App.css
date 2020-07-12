@@ -1128,9 +1128,19 @@
     align-items: flex-start;
     color: white;
 }
-
+.Empregos_box_Utilizador{
+    background: rgb(211,79,0);
+    background: linear-gradient(0deg, rgba(211,79,0,1) 0%, rgba(255,133,0,1) 100%);
+    border-radius: 10px;
+    color: white;
+}
 .Empregos_Criar_Conta_Titulo{
     margin-bottom: 30%;
+    font-family: 'Barlow ExtraBold', sans-serif;
+    font-size: 2vw;
+}
+.Empregos_Nome_Utilizador {
+    margin-bottom: 10%;
     font-family: 'Barlow ExtraBold', sans-serif;
     font-size: 2vw;
 }
@@ -1140,7 +1150,7 @@
 }
 
 .Emprego_But_Criar_Conta{
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Barlow Medium', sans-serif;
     background-color: #ec9400;
     font-size: 1vw;
     border: none;
@@ -1150,8 +1160,25 @@
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
 }
+.Emprego_But_Visitar_Perfil{
+    font-family: 'Barlow Medium', sans-serif;
+    background-color: white;
+    font-size: 1vw;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    padding: 12px 50px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
 .Emprego_But_Criar_Conta:hover {
     background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
+.Emprego_But_Visitar_Perfil:hover {
     font-family: "Barlow SemiBold";
     -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
     box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
@@ -1231,15 +1258,25 @@
 }
 
 .Emprego_Det_But_Criar_Conta{
-    font-family: 'Barlow Semibold', sans-serif;
+    font-family: 'Barlow Medium', sans-serif;
     background-color: #ec9400;
     font-size: 15px;
     border: none;
     border-radius: 5px;
     color: white;
     padding: 12px 50px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
 }
-
+.Emprego_Det_But_Criar_Conta:hover {
+    background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
 .voltar{
     font-size: 20px;
     font-family: 'Barlow Semibold', sans-serif;

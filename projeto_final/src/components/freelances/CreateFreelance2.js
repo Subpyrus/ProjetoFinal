@@ -53,8 +53,8 @@ class CreateFreelance2 extends React.Component {
 
         const {auth} = this.props;
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser};
+        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, distritoCriador} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, distritoCriador};
         switch (Step) {
             case 1:
                 return (

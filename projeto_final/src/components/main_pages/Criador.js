@@ -18,15 +18,15 @@ class Criador extends React.Component{
     }
 
     render() {
-        const {users} = this.props;
-        console.log(users);
-        console.log(this.state);
+        const {users, projects} = this.props;
+        //console.log(users);
+        //console.log(this.state);
         return (
             <div>
                 <div className="container-fluid justify-content-center m-0 p-0">
                     <Filtros pagina="criador" search={this.atualiza} areaTrabalho={this.atualizaArea} distrito={this.atualizaDistrito}/>
                     <div className="container-fluid Body_Criadores pt-5">
-                        <CreatorList utilizadores={users} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito}/>
+                        <CreatorList utilizadores={users} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} projects={projects}/>
                     </div>
                 </div>
             </div>
@@ -48,13 +48,15 @@ class Criador extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        users: state.firestore.ordered.users
+        users: state.firestore.ordered.users,
+        projects: state.firestore.ordered.projects
     }
 };
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'users' }
+        { collection: 'users' },
+        { collection: 'projects' }
     ])
 )(Criador)

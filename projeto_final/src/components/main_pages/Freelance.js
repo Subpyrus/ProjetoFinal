@@ -106,11 +106,11 @@ class Freelance extends React.Component {
         this.setState({areaTrabalho: txt});
     };
     atualizaDistrito = (txt) => {
-        console.log(txt);
+        //console.log(txt);
         this.setState({Distrito: txt});
     };
     atualizaOrcamento = (txt) => {
-        console.log(txt);
+        //console.log(txt);
         this.setState({orcamento: txt});
     };
 

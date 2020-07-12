@@ -25,9 +25,9 @@ class FormCreateFreelance2 extends React.Component{
 
     getUserDistrito = () => {
         {this.props.user && this.props.user.map(dados => {
-            console.log("ola");
+            //console.log("ola");
             if (this.state.distrito === "") {
-                console.log("ola2");
+                //console.log("ola2");
                 if (dados.id === this.props.auth.uid) {
                     this.props.valores.distritoCriador = dados.Local
                 } else {

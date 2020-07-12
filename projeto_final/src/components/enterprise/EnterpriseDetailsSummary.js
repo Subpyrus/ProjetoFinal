@@ -27,7 +27,7 @@ class EnterpriseDetailsSummary extends React.Component{
     }
 
     render() {
-        const {users, id_user, id_pass} = this.props;
+        const {users, id_user, id_pass, job} = this.props;
         console.log(users);
         this.getImage(users.ImagemPerfil);
         return (
@@ -152,7 +152,13 @@ class EnterpriseDetailsSummary extends React.Component{
                             <Link to="/empregos/criar">
                                 <button className="Empresa_But_Criar_Anuncio mt-2 mb-3">+ NOVO ANÚNCIO</button>
                             </Link>
-                            <ListaEmpregosEmpresa/>
+                            {job && job.map(dados => {
+                                if (dados.IdUser === id_pass){
+                                    return(
+                                        <ListaEmpregosEmpresa info={dados}/>
+                                    )
+                                }
+                            })}
                         </div>
                     </div>
                 </div>
