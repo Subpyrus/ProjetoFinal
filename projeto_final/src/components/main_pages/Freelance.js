@@ -33,7 +33,8 @@ class Freelance extends React.Component {
                             {freelances && freelances.length > 0 ?
                                 <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} orcamento={this.state.orcamento}/>
                                 :
-                                <p>Parece que não existem anúncios freelance!</p>
+                                <p className="no_jobs">Não foi ainda publicado qualquer tipo de anúncio freelance.<br/>
+                                    <span className="no_jobs_sub">Podes sempre procurar por <b>empregos</b>!</span></p>
                             }
                         </div>
                         {auth.uid && users ?

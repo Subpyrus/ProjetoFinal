@@ -29,7 +29,8 @@ class Empregos extends React.Component{
                             {jobs && jobs.length > 0 ?
                                 <ListaEmpregos jobs={jobs} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito}/>
                                 :
-                                <p>Parece que não existem empregos!</p>
+                                <p className="no_jobs">Não foi ainda publicado qualquer tipo de emprego.<br/>
+                                    <span className="no_jobs_sub">Podes sempre procurar por trabalhos de <b>Freelance</b>!</span></p>
                             }
                         </div>
                         {auth.uid && users ?

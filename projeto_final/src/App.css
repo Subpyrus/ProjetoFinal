@@ -241,6 +241,7 @@
 .Titulo_Vendas{
     font-size: 120px;
     font-weight: bold;
+    color: #d34f00;
 }
 
 .Subtitulo_Vendas{
@@ -249,6 +250,7 @@
 }
 
 .Texto_Vendas_2{
+    font-family: "Barlow Medium", sans-serif;
     margin-top: 20px;
     font-size: 18px;
 }
@@ -1231,7 +1233,16 @@
     flex-direction: row;
     align-items: center;
 }
-
+.no_jobs {
+    font-family: "Barlow ExtraBold", sans-serif;
+    font-size: 43px;
+    color: #d34f00;
+}
+.no_jobs_sub {
+    font-family: "Barlow Medium", sans-serif;
+    font-size: 18px;
+    color: black;
+}
 
 /* Detalhes Emprego */
 
