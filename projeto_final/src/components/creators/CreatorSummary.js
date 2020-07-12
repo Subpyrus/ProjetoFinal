@@ -9,20 +9,31 @@ class CreatorSummary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            imagem: ""
+            imagem: "",
+            imagem2: ""
         }
     }
 
     getImage = (image) => {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
-            if (this.state.imagem == "") {
+            if (this.state.imagem === "") {
                 this.setState({imagem: url})
             }
         })
     };
 
+    getImage2 = (image) => {
+        storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
+            if (this.state.imagem2 === "") {
+                console.log(image);
+                this.setState({imagem2: url})
+            }
+        })
+    };
+
     render() {
-        const {creators} = this.props;
+        let contador = 0;
+        const {creators, projetos} = this.props;
         return (
             <div className="col-12 col-sm-6 col-lg-3 mb-3">
                 {this.getImage(creators.ImagemPerfil)}
@@ -99,9 +110,17 @@ class CreatorSummary extends React.Component {
                         </div>
                     </div>
                     <div className="card_body2 card_PT2">
-                        <div className="text-center">
-                            <img src={Imagem2} className="card_Imagem2 mb-2"/>
-                        </div>
+                        {projetos && projetos.map(info => {
+                            if(info.IdEmpregador === creators.id && contador === 0){
+                                contador++;
+                                this.getImage2(info.capa[0].Ficheiro);
+                                return(
+                                    <div className="text-center">
+                                        <img src={this.state.imagem2} className="card_Imagem2 mb-2"/>
+                                    </div>
+                                )
+                            }
+                        })}
                         <Link to={`/perfil/utilizador/${creators.id}`}>
                             <button className="Criador_But_Ver_Perfil mt-2">Ver Perfil</button>
                         </Link>

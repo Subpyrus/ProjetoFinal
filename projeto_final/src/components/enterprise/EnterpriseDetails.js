@@ -12,14 +12,14 @@ class PerfilEmpresa extends React.Component {
     };
 
     render() {
-        const {auth, otherUsers, projects} = this.props;
+        const {auth, otherUsers, jobs} = this.props;
         return (
             <div>
                 <div className="container-fluid Perfil_Body">
                     {otherUsers && otherUsers.map(dados => {
                         if (dados.id === this.props.match.params.id && dados.TipoUtilizador === 2) {
                             return (
-                                <EnterpriseDetailsSummary users={dados} id_user={auth.uid} id_pass={this.props.match.params.id}/>
+                                <EnterpriseDetailsSummary users={dados} job={jobs} id_user={auth.uid} id_pass={this.props.match.params.id}/>
                             )
                         }
                     })}
@@ -35,7 +35,7 @@ const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
         otherUsers: state.firestore.ordered.users,
-        projects: state.firestore.ordered.projects
+        jobs: state.firestore.ordered.jobs
     }
 };
 
@@ -43,5 +43,5 @@ export default compose(
     connect(mapStateToProps),
     firestoreConnect([
         {collection: 'users'},
-        {collection: 'projects'}
+        {collection: 'jobs'}
     ]))(PerfilEmpresa)
