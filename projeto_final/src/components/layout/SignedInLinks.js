@@ -15,7 +15,7 @@ const SignedInLinks = (props) => {
                 <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
                 <li><NavLink onClick={props.signOut} className="links" to='/'>LOG OUT</NavLink></li>
                 {props.users && props.users.map(info => {
-                    console.log(info);
+                    //console.log(info);
                     if (info.id === props.id && info.TipoUtilizador === 1){
                         return(
                             <li><NavLink to={`/perfil/utilizador/${props.id}`} className="btn-small btn-floating yellow"></NavLink></li>

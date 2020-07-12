@@ -5,6 +5,7 @@ import localizacao from "../../Imgs/map-marker-alt-solid.svg";
 import ListProjectsPerfil from "./ListProjectsPerfil";
 import ListFavouritesPerfil from "./ListFavouritesPerfil";
 import {Link} from 'react-router-dom';
+import jQuery from 'jquery';
 
 class CreatorDetailsSummary extends React.Component {
 
@@ -79,7 +80,7 @@ class CreatorDetailsSummary extends React.Component {
 
     render() {
         const {users, id_user, id_pass, projetos} = this.props;
-        //console.log(users);
+        console.log(users);
         this.getImage(users.ImagemPerfil);
         return (
             <div className="row mb-0">
@@ -177,18 +178,44 @@ class CreatorDetailsSummary extends React.Component {
 
                                         }
                                     </h3>
-                                    <span className="Perfil_Info_Texto mb-2">
-                                        Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
-                                        Atualmente trabalho como front-end developer, mas tenho um enorme pelo
-                                        Design Digital, UX e Design de Comunicação.
-                                    </span>
-                                    <span className="Perfil_Info_Areas mb-4">Design Gráfico, CSS, Javascript</span>
-                                    <span>
-                                        <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
-                                        <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
-                                        <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
-                                        <span className="Perfil_Website">website</span>
-                                    </span>
+                                    {users.Descricao && users.Descricao !== "" ?
+                                        <span className="Perfil_Info_Texto mb-2">
+                                            {users.Descricao}
+                                        </span>
+                                        :
+                                        <span className="Perfil_Info_Texto mb-2 d-none">
+                                            nada
+                                        </span>
+                                    }
+                                    <span className="Perfil_Info_Areas mb-4">{users.Ocupation}</span>
+                                    {users.LinkFace && users.LinkFace !== "" || users.LinkLinked && users.LinkLinked !== "" || users.LinkInsta && users.LinkInsta !== "" || users.LinkWeb && users.LinkWeb !== "" ?
+                                        <span>
+                                            {users.LinkFace && users.LinkFace !== "" ?
+                                                <a href={users.LinkFace}>
+                                                    <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
+                                                </a>
+                                                :
+                                                <i className="fa fa-facebook fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkLinked && users.LinkLinked !== "" ?
+                                                <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
+                                                :
+                                                <i className="fa fa-linkedin fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkInsta && users.LinkInsta !== "" ?
+                                                <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
+                                                :
+                                                <i className="fa fa-instagram fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkWeb && users.LinkWeb !== "" ?
+                                                <span className="Perfil_Website">website</span>
+                                                :
+                                                <span className="Perfil_Website d-none">website</span>
+                                            }
+                                        </span>
+                                        :
+                                        <span className="d-none"/>
+                                    }
                                     <span>
                                         <a href="">
                                             <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
@@ -212,7 +239,7 @@ class CreatorDetailsSummary extends React.Component {
                         <span className="col-12 justify-content-center mt-3">
                                 {
                                     this.state.valorF == 1 ?
-                                        <ListProjectsPerfil projects={projetos} id={id_user}/>
+                                        <ListProjectsPerfil projects={projetos} id={id_pass}/>
                                         :
                                         <ListFavouritesPerfil/>
                                 }
@@ -304,47 +331,43 @@ class CreatorDetailsSummary extends React.Component {
                 <div className="Perfil_Formacao mb-0 col-12">
                     <div className="col-10 row Perfil_Info_Formacao mx-auto justify-content-center my-4">
                             <span className="col-12">
-                                <h1 className="Titulo_Formacao_3 mb-4">FORMAÇÃO</h1>
+                                <h1 className="Titulo_Formacao_3 mb-0 mb-lg-4">FORMAÇÃO</h1>
                             </span>
                         <span className="row col-12 pl-0 pr-0 mb-5">
-                                <div className="col-sm-12 col-lg-6 px-0">
-                                    <div className="Formacao_Parte_2 mr-lg-5 pb-2 justify-content-center m-auto row">
-                                        <span className="Ano_Formacao ml-5 mr-5 mt-2">
-                                            2018
-                                        </span>
-                                        <span className="Tipo_Formacao1 ml-5 mr-5">
-                                            Mestrado
-                                        </span>
-                                        <span className="Tipo_Formacao2 ml-5 mr-5">
-                                            Design
-                                        </span>
-                                        <span className="Local_Formacao ml-5 mr-5">
-                                            Universidade de Aveiro
-                                        </span>
-                                        <span className="Formacao_Concluida ml-5 mr-5 mb-2">
-                                            CONCLUÍDO
-                                        </span>
-                                    </div>
+                            {users.Formacao && jQuery.isEmptyObject(users.Formacao) ?
+                                <div className="col-sm-12 col-lg-6 mt-lg-0 mt-5 px-0">
+                                    <span>Este utilizador ainda não colocou nenhuma formação!</span>
                                 </div>
-                                <div className="col-sm-12 px-0 col-lg-6 mt-lg-0 mt-5">
-                                    <div className="Formacao_Parte_2 pb-2 justify-content-center m-auto row">
-                                        <span className="Ano_Formacao ml-5 mr-5 mt-2">
-                                            2016
-                                        </span>
-                                        <span className="Tipo_Formacao1 ml-5 mr-5">
-                                            Mestrado
-                                        </span>
-                                        <span className="Tipo_Formacao2 ml-5 mr-5">
-                                            Novas Tecnologias da Comunicação
-                                        </span>
-                                        <span className="Local_Formacao ml-5 mr-5">
-                                            Universidade de Aveiro
-                                        </span>
-                                        <span className="Formacao_Concluida ml-5 mr-5 mb-2">
-                                            CONCLUÍDO
-                                        </span>
-                                    </div>
-                                </div>
+                                :
+                                users.Formacao.map(dados => {
+                                    return(
+                                        <div className="col-sm-12 col-lg-6 mt-lg-0 mt-5 px-0">
+                                            <div className="Formacao_Parte_2 mr-lg-5 pb-2 justify-content-center m-auto row">
+                                                <span className="Ano_Formacao ml-5 mr-5 mt-2">
+                                                    {dados.ano}
+                                                </span>
+                                                <span className="Tipo_Formacao1 ml-5 mr-5">
+                                                    Mestrado
+                                                </span>
+                                                <span className="Tipo_Formacao2 ml-5 mr-5">
+                                                    {dados.curso}
+                                                </span>
+                                                <span className="Local_Formacao ml-5 mr-5">
+                                                    {dados.faculdade}
+                                                </span>
+                                                <span className="Formacao_Concluida ml-5 mr-5 mb-2">
+                                                    {dados.estado === "Concluido" ?
+                                                        "CONCLUÍDO"
+                                                        :
+                                                        "A DECORRER"
+                                                    }
+
+                                                </span>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                             </span>
                     </div>
                 </div>
