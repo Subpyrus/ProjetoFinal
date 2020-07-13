@@ -9,7 +9,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                 { jobs && jobs.map(job => {
                     //console.log(jobs);
                     return(
-                        <Link to={'/empregos/detalhes/' + job.id}>
+                        <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                             <JobSummary job={job} key={job.id}/>
                         </Link>
                     )               
@@ -23,7 +23,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                     let nomes = job.NomeAnuncio.toLowerCase();
                     if (job.NomeAnuncio.startsWith(pesquisa) && job.AreaTrabalho == areaTrabalho && job.Localizacao == distrito || nomes.startsWith(pesquisa) && job.AreaTrabalho == areaTrabalho && job.Localizacao == distrito) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -38,7 +38,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                     let nomes = job.NomeAnuncio.toLowerCase();
                     if (job.NomeAnuncio.startsWith(pesquisa) && job.AreaTrabalho == areaTrabalho || nomes.startsWith(pesquisa) && job.AreaTrabalho == areaTrabalho) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -53,7 +53,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                     let nomes = job.NomeAnuncio.toLowerCase();
                     if (job.NomeAnuncio.startsWith(pesquisa) && job.Localizacao == distrito || nomes.startsWith(pesquisa) && job.Localizacao == distrito) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -67,7 +67,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                 { jobs && jobs.map(job => {
                     if (job.Localizacao == distrito && job.AreaTrabalho == areaTrabalho) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -82,7 +82,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                     let nomes = job.NomeAnuncio.toLowerCase();
                     if (job.NomeAnuncio.startsWith(pesquisa) || nomes.startsWith(pesquisa)) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -96,7 +96,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                 { jobs && jobs.map(job => {
                     if (job.AreaTrabalho == areaTrabalho) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )
@@ -110,7 +110,7 @@ const ListaEmpregos = ({ jobs, pesquisa, areaTrabalho, distrito }) =>  {
                 { jobs && jobs.map(job => {
                     if (job.Localizacao == distrito) {
                         return(
-                            <Link to={'/empregos/detalhes/' + job.id}>
+                            <Link to={'/empregos/detalhes/' + job.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <JobSummary job={job} key={job.id}/>
                             </Link>
                         )

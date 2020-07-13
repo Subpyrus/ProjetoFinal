@@ -8,7 +8,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
             <div>
                 { freelances && freelances.map(freelance => {
                     return(
-                        <Link to={'/freelance/detalhes/' + freelance.id}>
+                        <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                             <FreelanceSummary freelance={freelance} key={freelance.id}/>
                         </Link>
                     )
@@ -22,7 +22,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     let nomes = freelance.NomeAnuncio.toLowerCase();
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -37,7 +37,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     let nomes = freelance.NomeAnuncio.toLowerCase();
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -52,7 +52,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     let nomes = freelance.NomeAnuncio.toLowerCase();
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.distritoCriador == distrito) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -66,7 +66,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                 { freelances && freelances.map(freelance => {
                     if (freelance.distritoCriador == distrito && freelance.AreaTrabalho == areaTrabalho) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -81,7 +81,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     let nomes = freelance.NomeAnuncio.toLowerCase();
                     if (freelance.NomeAnuncio.startsWith(pesquisa) || nomes.startsWith(pesquisa)) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -95,7 +95,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                 { freelances && freelances.map(freelance => {
                     if (freelance.AreaTrabalho == areaTrabalho) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )
@@ -109,7 +109,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                 { freelances && freelances.map(freelance => {
                     if (freelance.distritoCriador == distrito) {
                         return (
-                            <Link to={'/freelance/detalhes/' + freelance.id}>
+                            <Link to={'/freelance/detalhes/' + freelance.id} style={{color: "inherit", textDecoration: "none"}}>
                                 <FreelanceSummary freelance={freelance} key={freelance.id}/>
                             </Link>
                         )

@@ -3,19 +3,22 @@ import '../../App.css';
 import {Link} from "react-router-dom";
 import Seta from '../../Imgs/Seta1.svg';
 import Seta2 from '../../Imgs/Seta2.svg';
-import Perfil from '../../Imgs/defaults/p1.png';
 import { connect } from 'react-redux'
 import  { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import moment from 'moment'
 import {storage} from "../../config/fbConfig";
+import emailjs from 'emailjs-com';
 
 class FreelanceDetalhes extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            imagemPerfil: ""
+            imagemPerfil: "",
+            primeiroNome: "",
+            ultimoNome: "",
+            nomeAnuncio: ""
         };
     }
 
@@ -29,11 +32,38 @@ class FreelanceDetalhes extends React.Component{
         })
     }
 
+    guardaInfo(primeiroNome, ultimoNome, nomeAnuncio){
+        if (this.state.primeiroNome === "" && this.state.ultimoNome === "" && this.state.nomeAnuncio === "") {
+            this.setState({
+                primeiroNome: primeiroNome,
+                ultimoNome: ultimoNome,
+                nomeAnuncio: nomeAnuncio
+            })
+        }
+    }
+
+    enviaMail(e, parametro){
+        e.preventDefault();
+        emailjs.send('gmail', 'template_Q9NRs6D7', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
+            .then((result) => {
+                console.log(result);
+                window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
+
 
     render() {
         const {freelance, auth, users} = this.props;
         console.log(freelance);
+
         if (freelance) {
+            {users && users.map(dados => {
+                if (dados.id === freelance.IdUser) {
+                    this.guardaInfo(dados.FirstName, dados.LastName, freelance.NomeAnuncio)
+                }
+            })}
             return (
                 <div>
                     <div className="container-fluid Body_Detalhes_Empregos">
@@ -110,14 +140,37 @@ class FreelanceDetalhes extends React.Component{
 
                                     <hr className="hr col-11"/>
                                     {auth.uid ?
-                                        <div className="col-12 row justify-content-center m-0">
-                                            <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2">Envia a tua
-                                                Candidatura!<img src={Seta2} className="ml-2" style={{
-                                                    width: "15px",
-                                                    height: "auto",
-                                                    verticalAlign: "text-bottom"
-                                                }}/></button>
-                                        </div>
+                                        users && users.map(dados => {
+                                            if (dados.id === auth.uid && dados.TipoUtilizador === 1){
+                                                return(
+                                                    <div className="col-12 row justify-content-center m-0">
+                                                        <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" onClick={(coisas) => this.enviaMail(coisas, this.state)}>
+                                                            Envia a tua
+                                                            Candidatura!
+                                                            <img src={Seta2} className="ml-2" style={{
+                                                                width: "15px",
+                                                                height: "auto",
+                                                                verticalAlign: "text-bottom"
+                                                            }}/>
+                                                        </button>
+                                                    </div>
+                                                )
+                                            } else if (dados.id === auth.uid && dados.TipoUtilizador !== 1) {
+                                                return(
+                                                    <div className="col-12 row justify-content-center m-0">
+                                                        <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" disabled>
+                                                            Envia a tua
+                                                            Candidatura!
+                                                            <img src={Seta2} className="ml-2" style={{
+                                                                width: "15px",
+                                                                height: "auto",
+                                                                verticalAlign: "text-bottom"
+                                                            }}/>
+                                                        </button>
+                                                    </div>
+                                                )
+                                            }
+                                        })
                                         :
                                         <div className="col-12 row justify-content-center m-0">
                                             <Link to="/registo">

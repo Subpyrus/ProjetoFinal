@@ -2,19 +2,112 @@ import React from 'react';
 import '../../App.css';
 import Imagem from '../../Imgs/Perfil.jpg';
 import { connect } from 'react-redux'
+import {storage} from "../../config/fbConfig";
 
+const TamanhoMaximo = 10485760  ; //bytes
+const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
+const Tipo2 = 'application/pdf';
+const arrayTiposAceites = TiposAceites.split(",").map((item) => {
+    return item.trim()
+});
 class FormEditarPerfil_Geral extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            imagem: ""
+        }
+    }
+
+    getImage = (image) => {
+        storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
+            if (this.state.imagem === "") {
+                this.setState({imagem: url})
+            }
+        })
+    };
+
+    adicionarImagem = () => {
+        document.getElementById('AddImagem').click();
+    };
+
+    verificarFicheiro = (file) => {
+        if (file && file.size > TamanhoMaximo) {
+            alert("Este ficheiro não é permitido. " + file.size + " bytes é demasiado grande.");
+            return false
+        } else if (!arrayTiposAceites.includes(file.type)) {
+            alert("Este ficheiro não é permitido. Por favor seleciona uma imagem.");
+            return false
+        } else {
+            return true
+        }
+    };
+
+    verificaPDF = (file) => {
+        if (file && file.size > TamanhoMaximo) {
+            alert("Este ficheiro não é permitido. " + file.size + " bytes é demasiado grande.");
+            return false
+        } else if (file.type !== Tipo2) {
+            alert("Este ficheiro não é permitido. Por favor seleciona um PDF.");
+            return false
+        } else {
+            return true
+        }
+    };
+
+    escolhaImagem = event => {
+        //console.log(event.target.files);
+        /*this.setState({
+            ficheiros: event.target.files[0]
+        });*/
+        //imageBase64Data
+        let currentFile = event.target.files[0];
+        //console.log(currentFile.type);
+        const verificar = this.verificarFicheiro(currentFile);
+        if (verificar) {
+            if (currentFile.type == "image/x-png" || currentFile.type == "image/png" || currentFile.type == "image/jpg" || currentFile.type == "image/jpeg") {
+                const reader = new FileReader();
+                reader.addEventListener("load", () => {
+                    //console.log(reader.result, currentFile);
+                    this.props.handleImagem(reader.result, currentFile);
+                }, false);
+                reader.readAsDataURL(currentFile);
+            }
+
+            //console.log(this.props.verificacaoFicheiros);
+            //console.log(this.state.ficheirosEnviar);
+        }
+    };
+
+    escolhaCV = event => {
+        let currentFile = event.target.files[0];
+        //console.log(currentFile.type);
+        const verificar = this.verificaPDF(currentFile);
+        if (verificar) {
+            if (currentFile.type === "application/pdf") {
+                //console.log(reader.result);
+                this.props.handleCV(currentFile);
+            }
+        }
+    };
 
     render() {
         const {valores, handleChange, handleSubmit,authError,authSuccess} = this.props;
+        this.getImage(valores.imagemPerfil);
         return (
             <div className="row col-12 mx-auto">
                 <span className="col-12 mt-3">
                     <h3 className="Editar_Perfil_Titulo">Informações gerais</h3>
                 </span>
                 <div className="col-sm-12 col-md-3 mt-2" style={{textAlign: "center"}}>
-                    <img src={Imagem} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
-                    <span className="btn-flat mt-1" style={{fontFamily: "Barlow Semibold, sans-serif"}}>Mudar Foto de perfil</span>
+                    {valores.imagemMostra === "" ?
+                        <img src={this.state.imagem} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
+                        :
+                        <img src={valores.imagemMostra} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
+                    }
+                    <span className="btn-flat mt-1" onClick={() => this.adicionarImagem()} style={{fontFamily: "Barlow Semibold, sans-serif"}}>Mudar Foto de perfil</span>
+                    <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
+                           multiple={false}/>
                 </div>
                 <div className="col-sm-12 col-md-9 mb-4 mt-2 editar_perfil_Geral">
                     <div className="row">
@@ -173,8 +266,21 @@ class FormEditarPerfil_Geral extends React.Component {
                                 className="materialize-textarea"
                                 onChange={handleChange('sobre')}
                                 defaultValue={valores.sobre}
+                                maxLength="100"
                             />
                             <label htmlFor="Sobre" className={valores.sobre != "" ? "active" : ""}>Sobre Si</label>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <input
+                                id="Curriculo"
+                                type="file"
+                                className="validate"
+                                onChange={this.escolhaCV}
+                                multiple={false}
+                            />
+                            <label htmlFor="Curriculo" className={valores.dataNascimento != "" ? "active" : ""}></label>
                         </div>
                     </div>
                 </div>

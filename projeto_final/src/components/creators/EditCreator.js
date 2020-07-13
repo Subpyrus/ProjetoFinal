@@ -18,6 +18,8 @@ class EditarPerfil extends React.Component{
         this.state = {
             selecionado: 1,
             imagemPerfil: "",
+            imagemMostra: "",
+            CV: "",
             primeiroNome: "",
             ultimoNome: "",
             dataNascimento: "",
@@ -68,6 +70,36 @@ class EditarPerfil extends React.Component{
             }  
         }
     }
+
+    handleCV = (ficheiro) => {
+        this.setState({
+            CV: ficheiro
+        });
+    };
+
+    handleImagem = (ficheiro, enviar) => {
+
+        //let d = new Date();
+        //let timestamp = d.getTime();
+        //let newName = enviar.name + "_project_" + timestamp;
+
+        /*let uploadTask = storage.ref(`files/${newName}`).put(enviar);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {},
+            error => {
+                console.log(error);
+            },
+            () => {
+                storage.ref("files").child(newName).getDownloadURL().then(url => {});
+            }
+        )*/
+
+        this.setState({
+            imagemPerfil: enviar,
+            imagemMostra: ficheiro
+        });
+    };
 
     muda = (valor) => {
         this.setState({selecionado: valor});
@@ -123,8 +155,8 @@ class EditarPerfil extends React.Component{
     
 
     render() {
-        const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
-        const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
+        const {imagemPerfil, imagemMostra, CV, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
+        const valores = {imagemPerfil, imagemMostra, CV, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
         const valores2 = {passwordAtual, passwordNova};
         const valores3 = {website, instagram, linkedin, facebook};
         const valores4 = {formacao, adicionaFormacao, formacaoAntes};
@@ -156,7 +188,7 @@ class EditarPerfil extends React.Component{
                             >Associar Website e Redes sociais</span>
                         </div>
                         <span className="col-12 row">
-                            <Link to="/perfil">
+                            <Link to={`/perfil/utilizador/${this.props.auth.uid}`}>
                                 <button className="Emprego_Det_But_Criar_Conta mt-3">
                                     <img className="mr-2" src={Seta2} style={{width: "20px", height: "auto", transform: "rotate(180deg)"}} />
                                     Voltar ao perfil</button>
@@ -169,6 +201,8 @@ class EditarPerfil extends React.Component{
                                 <FormEditarPerfil_Geral
                                 handleChange={this.handleChange}
                                 handleSubmit={this.handleSubmit}
+                                handleImagem={this.handleImagem}
+                                handleCV={this.handleCV}
                                 valores={valores}
                             />
                             <div className="row mb-0 col s12 pb-2 justify-content-end">

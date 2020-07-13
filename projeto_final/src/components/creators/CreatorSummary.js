@@ -25,7 +25,7 @@ class CreatorSummary extends React.Component {
     getImage2 = (image) => {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
             if (this.state.imagem2 === "") {
-                console.log(image);
+                //console.log(image);
                 this.setState({imagem2: url})
             }
         })
@@ -116,7 +116,9 @@ class CreatorSummary extends React.Component {
                                 this.getImage2(info.capa[0].Ficheiro);
                                 return(
                                     <div className="text-center">
-                                        <img src={this.state.imagem2} className="card_Imagem2 mb-2"/>
+                                        <Link to={`/projetos/detalhes/${info.id}`}>
+                                            <img src={this.state.imagem2} className="card_Imagem2 mb-2"/>
+                                        </Link>
                                     </div>
                                 )
                             }
