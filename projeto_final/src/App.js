@@ -8,6 +8,7 @@ import Vendas from './components/main_pages/Venda';
 import Projetos from './components/main_pages/Projeto';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import RecoverPassword from './components/auth/RecoverPassword';
 import CreateCreator from './components/creators/CreateCreator';
 import Sobre from './components/main_pages/Sobre';
 import ProjetosDetalhes from './components/projects/ProjectDetails';
@@ -56,6 +57,7 @@ function App() {
             <Route path="/perfil/empresa/:id" component={PerfilEmpresa}/>
             <Route path="/criadores" component={Criador}/>
             <Route path="/projetos/criar" component={CreateProject}/>
+            <Route path="/recuperarPassword" component={RecoverPassword}/>
         </Switch>
       <Footer/>  
     </BrowserRouter>

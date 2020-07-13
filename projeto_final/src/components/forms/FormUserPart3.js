@@ -18,7 +18,7 @@ class FormUserPart3 extends React.Component {
     };
 
     render() {
-        const {valores, handleChange, handleSubmit,auth,authError} = this.props;
+        const {valores, handleChange, handleSubmit,auth,signUpError} = this.props;
         if(auth.uid == null) {
             return (
                 <div>
@@ -48,7 +48,7 @@ class FormUserPart3 extends React.Component {
                     </div>
                     <div className="row justify-content-end of">
                         <div className="red-text center">
-                            {authError ? <p>{authError}</p> : null}
+                            {signUpError ? <p>{signUpError}</p> : null}
                         </div>
                         <div className="f">
                             <div className="col s6">
@@ -107,7 +107,7 @@ class FormUserPart3 extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError,
+        signUpError: state.auth.signUpError,
         auth: state.firebase.auth
     }
 }

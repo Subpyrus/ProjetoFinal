@@ -19,32 +19,42 @@ const authReducer = (state = initState, action) => {
         case 'SIGNUPUSER_SUCCESS':
             return {
                 ...state,
-                authError: null
+                signUpError: null
             }
         case 'SIGNUPUSER_ERROR':
             return{
                 ...state,
-                authError: action.err.message
+                signUpError: action.err.message
             }
         case 'SIGNUPENTERPRISE_SUCCESS':
             return {
                 ...state,
-                authError: null
+                signUpError: null
             }
         case 'SIGNUPENTERPRISE_ERROR':
             return{
                 ...state,
-                authError: action.err.message
+                signUpError: action.err.message
             }
         case 'EDITPROFILE_COMPLETE':
             return {
                 ...state,
-                authSuccess: "Sucesso"
+                editSuccess: "Sucesso"
             }
         case 'EDITPROFILE_ERROR':
             return {
                 ...state,
-                authError: action.err.message
+                editError: action.err.message
+            }
+        case 'RESET_PASSWORD_SUCCESS':
+            return {
+                ...state,
+                recoverSuccess: "Enviado email de recuperação"
+            }
+        case 'RESET_PASSWORD_ERROR':
+            return {
+                ...state,
+                recoverError: action.err.message
             }
         default:
             return state;

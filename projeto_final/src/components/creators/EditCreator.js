@@ -10,6 +10,7 @@ import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
 import { updateProfile } from '../../store/actions/authActions';
+import { recoverPassword } from '../../store/actions/authActions';
 
 class EditarPerfil extends React.Component{
     constructor(props){
@@ -30,6 +31,7 @@ class EditarPerfil extends React.Component{
             facebook: "",
             formacao: {},
             userId:"",
+            emailEnviar:"",
             adicionaFormacao: false,
             formacaoAntes: false
         }
@@ -113,13 +115,20 @@ class EditarPerfil extends React.Component{
         this.props.updateProfile(this.state);
     }
 
+    mudarPassword = (e) => {
+        e.preventDefault();
+        console.log(this.state.emailEnviar)
+        this.props.recoverPassword(this.state.emailEnviar);
+    }
+    
+
     render() {
         const {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
         const valores = {imagemPerfil, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
         const valores2 = {passwordAtual, passwordNova};
         const valores3 = {website, instagram, linkedin, facebook};
         const valores4 = {formacao, adicionaFormacao, formacaoAntes};
-        const {authError,authSuccess} = this.props;
+        const {editError,editSuccess,recoverError,recoverSuccess} = this.props;
         return (
             <div className="container-fluid Editar_Perfil_Body">
                 <div className="row col-12 mb-0 justify-content-center">
@@ -173,10 +182,10 @@ class EditarPerfil extends React.Component{
                                 </button>
                                 </div>
                                 <div className="red-text justify-content-end">
-                                    {authError ? <p>{authError}</p> : null}
+                                    {editError ? <p>{editError}</p> : null}
                                 </div>
                                 <div className="green-text justify-content-end">
-                                    {authSuccess ? <p>{authSuccess}</p> : null}
+                                    {editSuccess ? <p>{editSuccess}</p> : null}
                                 </div>
                             </div>
                         :
@@ -199,10 +208,10 @@ class EditarPerfil extends React.Component{
                                 </button>
                             </div>
                             <div className="red-text justify-content-end">
-                                {authError ? <p>{authError}</p> : null}
+                                {editError ? <p>{editError}</p> : null}
                             </div>
                             <div className="green-text justify-content-end">
-                                {authSuccess ? <p>{authSuccess}</p> : null}
+                                {editSuccess ? <p>{editSuccess}</p> : null}
                             </div>
                         </div>
                         :
@@ -217,16 +226,16 @@ class EditarPerfil extends React.Component{
                                     className="btn btnIn"
                                     type="button"
                                     id="nextBtn"
-                                    
+                                    onClick={this.mudarPassword}
                                 >
                                     Mudar Password
                                 </button>
                             </div>
                             <div className="red-text justify-content-end">
-                                {authError ? <p>{authError}</p> : null}
+                                {recoverError ? <p>{recoverError}</p> : null}   
                             </div>
                             <div className="green-text justify-content-end">
-                                {authSuccess ? <p>{authSuccess}</p> : null}
+                                {recoverSuccess ? <p>{recoverSuccess}</p> : null}
                             </div>
                         </div>
                         :
@@ -246,10 +255,10 @@ class EditarPerfil extends React.Component{
                                 </button>
                             </div>
                             <div className="red-text justify-content-end">
-                                {authError ? <p>{authError}</p> : null}
+                                {editError ? <p>{editError}</p> : null}
                             </div>
                             <div className="green-text justify-content-end">
-                                {authSuccess ? <p>{authSuccess}</p> : null}
+                                {editSuccess ? <p>{editSuccess}</p> : null}
                             </div>
                         </div>
                         }
@@ -265,8 +274,10 @@ const mapStateToProps = (state) => {
     //console.log(state);
     return {
         auth: state.firebase.auth,
-        authError: state.auth.authError,
-        authSuccess: state.auth.authSuccess,
+        editError: state.auth.editError,
+        editSuccess: state.auth.editSuccess,
+        recoverError: state.auth.recoverError,
+        recoverSuccess: state.auth.recoverSuccess,
         users: state.firestore.data.users
     }
 };
@@ -274,6 +285,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         updateProfile: (newValores) => dispatch(updateProfile(newValores)),
+        recoverPassword: (email) => dispatch(recoverPassword(email))
     }
 }
 

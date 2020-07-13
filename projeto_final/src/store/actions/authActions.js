@@ -112,10 +112,19 @@ export const signUpEnterprise = (newEnterprise) => {
         }).catch((err) => {
             dispatch({type: 'SIGNUPENTERPRISE_ERROR', err})
         })
-
     }
+}
 
 
-
-
+export const recoverPassword = (email) => {
+    return (dispatch, getState, { getFirebase }) => {
+        const firebase = getFirebase();
+        firebase.auth().sendPasswordResetEmail(email)
+            .then(() =>
+                dispatch({type: 'RESET_PASSWORD_SUCCESS'})
+            )
+            .catch((err) => {
+                dispatch({type: 'RESET_PASSWORD_ERROR',err});
+            });
+    }
 }

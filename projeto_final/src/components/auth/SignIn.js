@@ -3,7 +3,6 @@ import '../../App.css';
 import sg from '../../Imgs/sg.png';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
 import { signIn } from '../../store/actions/authActions'
 
 class SignIn extends React.Component {
@@ -47,7 +46,7 @@ class SignIn extends React.Component {
                                         <label htmlFor="password">Palavra-Passe</label>
                                     </div>
                                     <div className="text-center mb-3">
-                                        <Link to=''  className="text-decoration-none text-black-50">
+                                        <Link to='/recuperarPassword'  className="text-decoration-none text-black-50">
                                             <ins>Esqueci-me da palavra-passe</ins>
                                         </Link>
                                     </div>
