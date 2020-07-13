@@ -177,22 +177,6 @@ class FormEditarPerfil_Geral extends React.Component {
                             <label htmlFor="Sobre" className={valores.sobre != "" ? "active" : ""}>Sobre Si</label>
                         </div>
                     </div>
-                    <div className="row mb-0 col s12 justify-content-end">
-                            <button
-                                className="btn btnIn"
-                                type="button"
-                                id="nextBtn"
-                                onClick={handleSubmit}
-                            >
-                                Publicar
-                            </button>
-                    </div>
-                    <div className="red-text center">
-                        {authError ? <p>{authError}</p> : null}
-                    </div>
-                    <div className="green-text center">
-                        {authSuccess ? <p>{authSuccess}</p> : null}
-                    </div>
                 </div>
             </div>
         );

@@ -13,7 +13,6 @@ class Pag_Principal extends React.Component {
     render() {
 
         const {auth} = this.props;
-        console.log(auth);
         return (
             <div className="pagP container-fluid m-0 p-0">
                 <div className="inicial row m-0 p-0 justify-content-center">

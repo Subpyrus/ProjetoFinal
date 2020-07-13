@@ -23,7 +23,6 @@ class Projetos extends React.Component {
 
     componentDidMount() {
         $('.show').click(function () { //same as on('click', function(){}); I just prefer this syntax
-            console.log($(this).attr('data-target'));
             let target = $(this).attr('data-target'); //this will be card1 if the first is clicked.
             $('.' + target).slideToggle(`slow`); //add . for class selector and use target to find the right element
         });
@@ -54,12 +53,10 @@ class Projetos extends React.Component {
         this.setState({areaTrabalho: txt});
     };
     atualizaDistrito = (txt) => {
-        console.log(txt);
         this.setState({Distrito: txt});
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth,
         projects: state.firestore.ordered.projects,
