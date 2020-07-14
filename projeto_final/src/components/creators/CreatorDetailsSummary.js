@@ -139,7 +139,7 @@ class CreatorDetailsSummary extends React.Component {
                         <div className="col-sm-12 col-lg-7">
                                 <span className="ml-lg-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
-                                    <h1 className="Perfil_Info_Nome">Sou a {users.FirstName} {users.LastName}</h1>
+                                    <h1 className="Perfil_Info_Nome">Sou o/a {users.FirstName} {users.LastName}</h1>
                                     <h3 className="Perfil_Info_Trabalho">
                                         {users.AreaTrabalho === "3DAnimacao" ?
                                             "3D e Animação"
