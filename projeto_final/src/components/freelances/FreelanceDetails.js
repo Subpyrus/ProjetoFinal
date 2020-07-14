@@ -35,7 +35,7 @@ class FreelanceDetalhes extends React.Component{
     }
 
     guardaInfo(primeiroNome, nomeAnuncio, emailCandidato, areaTrabalho, emailAnuncio){
-        if (this.state.primeiroNome === "" && this.state.emailCandidato === "" && this.state.nomeAnuncio === "" && this.state.areaTrabalho === "" && this.state.emailAnuncio === "") {
+        if (this.state.primeiroNome === "" && this.state.nomeAnuncio === "" && this.state.emailCandidato === "" && this.state.areaTrabalho === "" && this.state.emailAnuncio === "") {
             this.setState({
                 primeiroNome: primeiroNome,
                 nomeAnuncio: nomeAnuncio,
@@ -48,7 +48,7 @@ class FreelanceDetalhes extends React.Component{
 
     enviaMail(e, parametro){
         e.preventDefault();
-        emailjs.send('gmail', 'template_Q9NRs6D7', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
+        emailjs.send('gmail', 'template_Q9NRs6D7', parametro)
             .then((result) => {
                 console.log(result);
                 window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
