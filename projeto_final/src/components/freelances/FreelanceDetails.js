@@ -17,8 +17,10 @@ class FreelanceDetalhes extends React.Component{
         this.state = {
             imagemPerfil: "",
             primeiroNome: "",
-            ultimoNome: "",
-            nomeAnuncio: ""
+            nomeAnuncio: "",
+            emailCandidato: "",
+            areaTrabalho: "",
+            emailAnuncio: ""
         };
     }
 
@@ -32,12 +34,14 @@ class FreelanceDetalhes extends React.Component{
         })
     }
 
-    guardaInfo(primeiroNome, ultimoNome, nomeAnuncio){
-        if (this.state.primeiroNome === "" && this.state.ultimoNome === "" && this.state.nomeAnuncio === "") {
+    guardaInfo(primeiroNome, nomeAnuncio, emailCandidato, areaTrabalho, emailAnuncio){
+        if (this.state.primeiroNome === "" && this.state.emailCandidato === "" && this.state.nomeAnuncio === "" && this.state.areaTrabalho === "" && this.state.emailAnuncio === "") {
             this.setState({
                 primeiroNome: primeiroNome,
-                ultimoNome: ultimoNome,
-                nomeAnuncio: nomeAnuncio
+                nomeAnuncio: nomeAnuncio,
+                emailCandidato: emailCandidato,
+                areaTrabalho: areaTrabalho,
+                emailAnuncio: emailAnuncio
             })
         }
     }
@@ -56,12 +60,14 @@ class FreelanceDetalhes extends React.Component{
 
     render() {
         const {freelance, auth, users} = this.props;
-        console.log(freelance);
+        //console.log(freelance);
+        //console.log(auth);
 
         if (freelance) {
             {users && users.map(dados => {
-                if (dados.id === freelance.IdUser) {
-                    this.guardaInfo(dados.FirstName, dados.LastName, freelance.NomeAnuncio)
+                if (dados.id === auth.uid) {
+                    //console.log(dados);
+                    this.guardaInfo(dados.FirstName, freelance.NomeAnuncio, auth.email, dados.AreaTrabalho, freelance.emailUtilizador)
                 }
             })}
             return (
@@ -141,7 +147,7 @@ class FreelanceDetalhes extends React.Component{
                                     <hr className="hr col-11"/>
                                     {auth.uid ?
                                         users && users.map(dados => {
-                                            if (dados.id === auth.uid && dados.TipoUtilizador === 1){
+                                            if (freelance.IdUser !== auth.uid && dados.id === auth.uid && dados.TipoUtilizador === 1){
                                                 return(
                                                     <div className="col-12 row justify-content-center m-0">
                                                         <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" onClick={(coisas) => this.enviaMail(coisas, this.state)}>
@@ -155,7 +161,7 @@ class FreelanceDetalhes extends React.Component{
                                                         </button>
                                                     </div>
                                                 )
-                                            } else if (dados.id === auth.uid && dados.TipoUtilizador !== 1) {
+                                            } else if (dados.id === auth.uid) {
                                                 return(
                                                     <div className="col-12 row justify-content-center m-0">
                                                         <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" disabled>
@@ -233,7 +239,7 @@ class FreelanceDetalhes extends React.Component{
 
                                                         }
                                                         <br/>
-                                                        E-mail: pedroaudiovisual00@gmail.com
+                                                        E-mail: {freelance.emailUtilizador}
                                                     </span>
                                                     <Link to={`/perfil/utilizador/${freelance.IdUser}`}>
                                                         <button className="Emprego_But_Visitar_Perfil mt-2">Ver Perfil

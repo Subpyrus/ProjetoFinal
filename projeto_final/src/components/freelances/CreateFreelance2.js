@@ -31,6 +31,7 @@ class CreateFreelance2 extends React.Component {
         DescricaoTrabalho: '',
         Ficheiro: '',
         IdUser: '',
+        emailUtilizador: '',
         distritoCriador: ''
     };
 
@@ -53,8 +54,8 @@ class CreateFreelance2 extends React.Component {
 
         const {auth} = this.props;
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, distritoCriador} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, distritoCriador};
+        const {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, emailUtilizador, distritoCriador} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Orcamento, DataEntrega, NumeroCandidatos, AreaTrabalho, DescricaoTrabalho, IdUser, emailUtilizador, distritoCriador};
         switch (Step) {
             case 1:
                 return (
