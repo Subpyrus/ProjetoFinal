@@ -29,8 +29,6 @@ class FormCreateProjeto4 extends React.Component{
             if (this.state.distrito === "") {
                 if (dados.id === this.props.auth.uid) {
                     this.setState({distrito: dados.Local})
-                } else {
-                    this.setState({distrito: ""})
                 }
             }
         }) }
