@@ -267,7 +267,7 @@ class FormEditarPerfil_Geral extends React.Component {
                                 className="materialize-textarea"
                                 onChange={handleChange('sobre')}
                                 defaultValue={valores.sobre}
-                                maxLength="4-00"
+                                maxLength="400"
                             />
                             <label htmlFor="Sobre" className={valores.sobre != "" ? "active" : ""}>Sobre Si</label>
                         </div>

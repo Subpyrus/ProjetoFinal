@@ -255,19 +255,22 @@ class ProjectDetails extends React.Component {
                                             )
                                         }
                                     })}
-                                    <div className="col-md-7 Proj_Det_Info1 d-none d-sm-block">
-                                        <h4 className="mb-3 Proj_Det_Info_Texto">
-                                            Mestre em Design e com licenciatura em Novas Tecnologias da Comunicação.
-                                            Atualmente trabalho como front-end developer, mas tenho um enorme pelo
-                                            Design
-                                            Digital, UX e Design de Comunicação.
-                                        </h4>
-                                        <span className="Proj_Det_Info_Texto2">Design Gráfico, Css e JavaScript.</span>
-                                        <br/>
-                                        <span className="Proj_Det_Info_Texto2">Visita o
-                                        <b><Link to="/perfil" className="navegar"> meu perfil </Link></b>
-                                        para veres os meus outros projetos.</span>
-                                    </div>
+                                    {users && users.map(info => {
+                                        if (info.id === dados.IdEmpregador) {
+                                            return(
+                                                <div className="col-md-7 Proj_Det_Info1 d-none d-sm-block">
+                                                    <h4 className="mb-3 Proj_Det_Info_Texto">
+                                                        {info.Descricao}
+                                                    </h4>
+                                                    <span className="Proj_Det_Info_Texto2">{info.Ocupation}.</span>
+                                                    <br/>
+                                                    <span className="Proj_Det_Info_Texto2">Visita o
+                                                    <b><Link to="/perfil" className="navegar"> meu perfil </Link></b>
+                                                    para veres os meus outros projetos.</span>
+                                                </div>
+                                            )
+                                        }
+                                    })}
                                 </div>
 
                                 <hr className="hr"/>
