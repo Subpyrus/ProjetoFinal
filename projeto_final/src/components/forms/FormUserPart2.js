@@ -25,7 +25,7 @@ class FormUserPart2 extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-12">
-                        <label>País</label>
+                        <label>Distrito</label>
                         <select
                             className="aparece"
                             onChange={handleChange('Distrito')}

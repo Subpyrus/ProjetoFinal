@@ -94,6 +94,7 @@ class FormEditarPerfil_Geral extends React.Component {
     render() {
         const {valores, handleChange, handleSubmit,authError,authSuccess} = this.props;
         this.getImage(valores.imagemPerfil);
+        console.log(valores)
         return (
             <div className="row col-12 mx-auto">
                 <span className="col-12 mt-3">
@@ -105,7 +106,7 @@ class FormEditarPerfil_Geral extends React.Component {
                         :
                         <img src={valores.imagemMostra} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
                     }
-                    <span className="btn-flat mt-1" onClick={() => this.adicionarImagem()} style={{fontFamily: "Barlow Semibold, sans-serif"}}>Mudar Foto de perfil</span>
+                    <span className="btn-flat mt-1" onClick={() => this.adicionarImagem()} style={{fontFamily: "Barlow Semibold, sans-serif"}}>Alterar Imagem</span>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
                 </div>
@@ -266,7 +267,7 @@ class FormEditarPerfil_Geral extends React.Component {
                                 className="materialize-textarea"
                                 onChange={handleChange('sobre')}
                                 defaultValue={valores.sobre}
-                                maxLength="100"
+                                maxLength="400"
                             />
                             <label htmlFor="Sobre" className={valores.sobre != "" ? "active" : ""}>Sobre Si</label>
                         </div>
