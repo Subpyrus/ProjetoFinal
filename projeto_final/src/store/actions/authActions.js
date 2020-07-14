@@ -39,6 +39,7 @@ export const signUpUser = (newUser) => {
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
                 ImagemPerfil: "p" + number + ".png",
+                Curriculo:"",
                 TipoUtilizador: 1,
                 Descricao:"",
                 Formacao:[],
@@ -60,6 +61,7 @@ export const signUpUser = (newUser) => {
 
 export const updateProfile = (newInfo) => {
     return (dispatch,getState,{getFirebase,getFirestore}) => {
+        console.log(newInfo);
         const firestore = getFirestore();
         return firestore.collection('users').doc(newInfo.userId).update({
             FirstName:newInfo.primeiroNome,
@@ -75,7 +77,8 @@ export const updateProfile = (newInfo) => {
             LinkWeb:newInfo.website,
             LinkInsta:newInfo.instagram,
             LinkLinked:newInfo.linkedin,
-            LinkFace:newInfo.facebook
+            LinkFace:newInfo.facebook,
+            Curriculo: newInfo.curriculo
         }).then(() => {
             dispatch({type:'EDITPROFILE_COMPLETE'})
         }).catch((err) =>{

@@ -11,15 +11,16 @@ import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
 import { updateProfile } from '../../store/actions/authActions';
 import { recoverPassword } from '../../store/actions/authActions';
+import {storage} from '../../config/fbConfig';
 
 class EditarPerfil extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            selecionado: 1,
+            selecionado: 0,
             imagemPerfil: "",
             imagemMostra: "",
-            CV: "",
+            curriculo: "",
             primeiroNome: "",
             ultimoNome: "",
             dataNascimento: "",
@@ -64,6 +65,7 @@ class EditarPerfil extends React.Component{
                         facebook: users[a].LinkFace ? users[a].LinkFace : "",
                         formacao: users[a].Formacao ? users[a].Formacao : {},
                         formacaoAntes: previous,
+                        curriculo: users[a].Curriculo,
                         userId: id
                     })
                 }
@@ -72,18 +74,35 @@ class EditarPerfil extends React.Component{
     }
 
     handleCV = (ficheiro) => {
+
+        let d = new Date();
+        let timestamp = d.getTime();
+        let newName = ficheiro.name + "_cv_" + timestamp;
+
+        let uploadTask = storage.ref(`cvs/${newName}`).put(ficheiro);
+        uploadTask.on(
+            "state_changed",
+            snapshot => {},
+            error => {
+                console.log(error);
+            },
+            () => {
+                storage.ref("cvs").child(newName).getDownloadURL().then(url => {});
+            }
+        )
+
         this.setState({
-            CV: ficheiro
+            curriculo: ficheiro.name
         });
     };
 
     handleImagem = (ficheiro, enviar) => {
 
-        //let d = new Date();
-        //let timestamp = d.getTime();
-        //let newName = enviar.name + "_project_" + timestamp;
+        let d = new Date();
+        let timestamp = d.getTime();
+        let newName = enviar.name + "_perfil_" + timestamp;
 
-        /*let uploadTask = storage.ref(`files/${newName}`).put(enviar);
+        let uploadTask = storage.ref(`files/${newName}`).put(enviar);
         uploadTask.on(
             "state_changed",
             snapshot => {},
@@ -93,10 +112,10 @@ class EditarPerfil extends React.Component{
             () => {
                 storage.ref("files").child(newName).getDownloadURL().then(url => {});
             }
-        )*/
+        )
 
         this.setState({
-            imagemPerfil: enviar,
+            imagemPerfil: newName,
             imagemMostra: ficheiro
         });
     };
@@ -144,6 +163,7 @@ class EditarPerfil extends React.Component{
     };
 
     handleSubmit = (e) => {
+        console.log(this.state)
         this.props.updateProfile(this.state);
     }
 
@@ -155,8 +175,8 @@ class EditarPerfil extends React.Component{
     
 
     render() {
-        const {imagemPerfil, imagemMostra, CV, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
-        const valores = {imagemPerfil, imagemMostra, CV, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
+        const {imagemPerfil, imagemMostra, curriculo, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
+        const valores = {imagemPerfil, imagemMostra, curriculo, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre};
         const valores2 = {passwordAtual, passwordNova};
         const valores3 = {website, instagram, linkedin, facebook};
         const valores4 = {formacao, adicionaFormacao, formacaoAntes};
@@ -273,6 +293,7 @@ class EditarPerfil extends React.Component{
                             </div>
                         </div>
                         :
+                        this.state.selecionado == 4 ?
                         <div className="col-12 mx-auto">
                             <FormEditarPerfil_Associar
                                     handleChange={this.handleChange}
@@ -294,6 +315,10 @@ class EditarPerfil extends React.Component{
                             <div className="green-text justify-content-end">
                                 {editSuccess ? <p>{editSuccess}</p> : null}
                             </div>
+                        </div>
+                        :
+                        <div className="col-12 mx-auto">
+                            {/*Coloca aqui a mensagem*/}
                         </div>
                         }
                     </div>
