@@ -4,6 +4,7 @@ export const createJob = (job) => {
         const firestore = getFirestore();
         firestore.collection('jobs').add({
             ...job,
+            candidatos:[],
             ListingTime: new Date()
         }).then(() => {
             dispatch( { type: 'CREATE_JOB', job}) 

@@ -9,6 +9,7 @@ import { compose } from 'redux'
 import moment from 'moment'
 import {storage} from "../../config/fbConfig";
 import emailjs from 'emailjs-com';
+import {addCandidatura} from '../../store/actions/freelanceActions'
 
 class FreelanceDetalhes extends React.Component{
 
@@ -47,10 +48,20 @@ class FreelanceDetalhes extends React.Component{
     }
 
     enviaMail(e, parametro){
+        let id = this.props.match.params.id;
+        const {freelance,auth} = this.props;
+        console.log(e)
+        console.log(parametro)
         e.preventDefault();
         emailjs.send('gmail', 'template_Q9NRs6D7', parametro)
             .then((result) => {
-                console.log(result);
+                let candidato={
+                    idFreelance: id,
+                    candidatos: freelance.candidatos
+                }
+                candidato.candidatos.push(auth.uid)
+                console.log(candidato)
+                //this.props.addCandidatura(candidato)
                 window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             }, (error) => {
                 console.log(error.text);
@@ -277,8 +288,15 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addCandidatura: (candidato) => dispatch(addCandidatura(candidato))
+    }
+}
+
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
         { collection: 'freelances' },
         { collection: 'users' }

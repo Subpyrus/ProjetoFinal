@@ -4,7 +4,7 @@ import Imagem from '../../Imgs/Perfil.jpg';
 import { connect } from 'react-redux'
 import {storage} from "../../config/fbConfig";
 
-const TamanhoMaximo = 10485760  ; //bytes
+const TamanhoMaximo = 20971520   ; //bytes
 const TiposAceites = 'image/x-png, image/png, image/jpg, image/jpeg';
 const Tipo2 = 'application/pdf';
 const arrayTiposAceites = TiposAceites.split(",").map((item) => {
