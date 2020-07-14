@@ -53,7 +53,7 @@ class Freelance extends React.Component {
                                                 {freelances && freelances.map(info => {
                                                     if (auth.uid === info.IdUser){
                                                         contador++;
-                                                        console.log(info);
+                                                        //console.log(info);
                                                         return(
                                                             <section className="pl-0 pl-sm-3 text-center text-sm-left" style={{width: "100%"}}>
                                                                 <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}</p>

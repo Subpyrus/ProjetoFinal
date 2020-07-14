@@ -53,6 +53,7 @@ class FormCreateFreelance2 extends React.Component{
     render() {
         const {auth, valores} = this.props;
         valores.IdUser = auth.uid;
+        valores.emailUtilizador = auth.email;
         return (
             <div>
                 <Link id="red" to="/freelance"/>

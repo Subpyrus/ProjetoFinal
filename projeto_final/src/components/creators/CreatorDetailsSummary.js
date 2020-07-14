@@ -90,9 +90,7 @@ class CreatorDetailsSummary extends React.Component {
                                 <span className="ml-auto Perfil_Info_Inicial_Esq">
                                     <img src={this.state.imagemPerfil} className="Foto_Perfil"/>
                                     {id_user === id_pass ?
-                                        <Link to="/perfil/editar">
-                                            <button className="Perfil_But_Seguir mt-5 text-uppercase">Editar perfil</button>
-                                        </Link>
+                                        <button className="Perfil_But_Seguir mt-5 text-uppercase" disabled>Seguir</button>
                                         :
                                         <button className="Perfil_But_Seguir mt-5 text-uppercase">Seguir</button>
                                     }
@@ -220,6 +218,17 @@ class CreatorDetailsSummary extends React.Component {
                                         <a href="">
                                             <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
                                         </a>
+                                        {id_user === id_pass ?
+                                            <Link to="/perfil/editar">
+                                                <button className="Perfil_But_Seguir mt-4 text-uppercase">Editar
+                                                    perfil
+                                                </button>
+                                            </Link>
+                                            :
+                                            <button className="Perfil_But_Seguir mt-4 text-uppercase d-none">Editar
+                                                perfil
+                                            </button>
+                                        }
                                     </span>
                                 </span>
                         </div>
@@ -239,7 +248,7 @@ class CreatorDetailsSummary extends React.Component {
                         <span className="col-12 justify-content-center mt-3">
                                 {
                                     this.state.valorF == 1 ?
-                                        <ListProjectsPerfil projects={projetos} id={id_pass}/>
+                                        <ListProjectsPerfil projects={projetos} id={id_pass} id_user={id_user}/>
                                         :
                                         <ListFavouritesPerfil/>
                                 }
@@ -344,10 +353,10 @@ class CreatorDetailsSummary extends React.Component {
                                         <div className="col-sm-12 col-lg-6 mt-lg-0 mt-5 px-0">
                                             <div className="Formacao_Parte_2 mr-lg-5 pb-2 justify-content-center m-auto row">
                                                 <span className="Ano_Formacao ml-5 mr-5 mt-2">
-                                                    {dados.ano}
+                                                    {dados.anoConclusao}
                                                 </span>
                                                 <span className="Tipo_Formacao1 ml-5 mr-5">
-                                                    Mestrado
+                                                    {dados.ano}
                                                 </span>
                                                 <span className="Tipo_Formacao2 ml-5 mr-5">
                                                     {dados.curso}

@@ -16,8 +16,10 @@ class EmpregosDetalhes extends React.Component{
         super(props);
         this.state = {
             imagemPerfil: "",
-            nomeEmpresa: "",
-            nomeAnuncio: ""
+            primeiroNome: "",
+            nomeAnuncio: "",
+            emailCandidato: "",
+            areaTrabalho: ""
         };
     }
 
@@ -31,14 +33,17 @@ class EmpregosDetalhes extends React.Component{
         })
     }
 
-    guardaInfo(nomeEmpresa, nomeAnuncio){
-        if (this.state.nomeEmpresa === "" && this.state.nomeAnuncio === "") {
+    guardaInfo(primeiroNome, nomeAnuncio, emailCandidato, areaTrabalho){
+        if (this.state.primeiroNome === "" && this.state.ultimoNome === "" && this.state.nomeAnuncio === "") {
             this.setState({
-                nomeEmpresa: nomeEmpresa,
-                nomeAnuncio: nomeAnuncio
+                primeiroNome: primeiroNome,
+                nomeAnuncio: nomeAnuncio,
+                emailCandidato: emailCandidato,
+                areaTrabalho: areaTrabalho
             })
         }
     }
+
 
     enviaMail(e, parametro){
         e.preventDefault();
@@ -55,8 +60,9 @@ class EmpregosDetalhes extends React.Component{
         const { job, auth, users } = this.props;
         if (job) {
             {users && users.map(dados => {
-                if (dados.id === job.IdUser) {
-                    this.guardaInfo(dados.NomeEmpresa, job.NomeAnuncio)
+                if (dados.id === auth.uid) {
+                    //console.log(dados);
+                    this.guardaInfo(dados.FirstName, job.NomeAnuncio, auth.email, dados.AreaTrabalho)
                 }
             })}
             return (
