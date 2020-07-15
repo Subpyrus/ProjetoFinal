@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import DrawerToggleButton from './DrawerToggleButton';
 import '../../App.css';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -9,25 +10,21 @@ import {firestoreConnect} from "react-redux-firebase";
 
 class NavB extends React.Component {
 
-    componentDidMount(){
-        const M = window.M;
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, {edge:"right", preventScrolling: "true"});
-        });
-    }
-
     render() {
-        const {auth, users} = this.props;
-        const links = auth.uid ?  <SignedInLinks id={auth.uid} users={users}/> : <SignedOutLinks/>;
+        const {auth, users, sideNavClickHandler} = this.props;
+        const links = auth.uid ?  <SignedInLinks nav_side={"0"} id={auth.uid} users={users}/> : <SignedOutLinks/>;
         return (
-            <nav className="nav-wrapper black">
-                <div className="container">
-                    <Link to='/' className="logo">HINAMIC</Link>
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
-                    {auth.isLoaded && links}
-                </div>
-            </nav>
+            <header className="navbar">
+                <nav className="navbar-navigation">
+                    <div className="navbar-logo"><Link to='/' className="">HINAMIC</Link></div>
+                    <div className="spacer"/>
+                    <div className="navbar-navigation-items">
+                        {auth.isLoaded && links}
+                    </div>
+                    <div className="buttonDiv"><DrawerToggleButton click={sideNavClickHandler}/></div>
+                </nav>
+            </header>
+            
         )
     }
 };

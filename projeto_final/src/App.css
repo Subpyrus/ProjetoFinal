@@ -1,26 +1,159 @@
 * {
     font-family: 'Barlow', sans-serif;
 }
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+#root {
+    height: 100%;
+}
 
 /*Navbar*/
-.logo {
+
+.navbar{
+    position: fixed;
+    background: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+}
+
+.navbar-navigation {
+    display: flex;
+    background: black;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navbar-logo {
+    display: flex;
+}
+.navbar-logo a {
     font-family: 'Barlow Bold', sans-serif;
-    
+    text-decoration: none;
     font-size: xx-large;
     letter-spacing: 1.2pt;
     font-weight: 700;
     color: #ec9400;
 }
-.logo:hover{
+.navbar-logo:hover a {
     text-decoration: none;
     color: #ec9400;  
 }
+
 .links {
     font-size: large;
+    color: white;
+    text-decoration: none;
 }
-.links:hover {
+.links:hover{
     text-decoration: none;
     color: #ec9400;  
+}
+.navbar-navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar-navigation-items li {
+    padding: 0 0.5rem;
+}
+
+@media (max-width:930px) {
+    .navbar-navigation-items{
+        display: none;
+    }
+}
+
+.spacer {
+    flex: 1;
+}
+
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    height: 25px;
+    width: 30px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+}
+.toggle-button:focus{
+    outline: none;
+}
+.toggle-button-line {
+    width: 30px;
+    height: 2px;
+    background: white;
+}
+@media (min-width:931px){
+    .sidenavClass{
+        display: none;
+    }
+    .buttonDiv{
+        display: none;
+    }
+}
+
+.sidenavClass{
+   height: 100%;
+   background: black;
+   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 70%;
+   max-width: 300px;
+   z-index: 1000;
+   transform: translateX(-100%);
+   transition: transform 0.5s ease-out;
+}
+
+.sidenavClass.open {
+    transform: translateX(0);
+}
+
+.sidenavClass ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+.sidenavClass li {
+    margin: 0.5rem 1.5rem;
+}
+
+.linkSideNav {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+.linkSideNav:hover {
+    text-decoration: none;
+    color: #ec9400; 
+}
+
+.backdropSide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 700;
 }
 
 /*Footer*/

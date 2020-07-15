@@ -17,15 +17,14 @@ class SignedInLinks extends React.Component {
             if (this.state.imagemPerfil == "") {
                 this.state.imagemPerfil = url;
                 this.setState(this.state);
-                //console.log(this.state);
             }
         })
     }
 
     render(){
-        return (
-            <span>
-                <ul className="right hide-on-med-and-down">
+        if(this.props.nav_side == "0"){
+            return (
+                <ul>
                     <li><NavLink className="links" to='/projetos'>PROJETOS</NavLink></li>
                     <li><NavLink className="links" to='/criadores'>CRIADORES</NavLink></li>
                     <li><NavLink className="links" to='/freelance'>FREELANCE</NavLink></li>
@@ -47,13 +46,10 @@ class SignedInLinks extends React.Component {
 
                 </ul>
 
-                <ul className="sidenav" id="mobile-demo">
-                    <li><NavLink className="links" to='/projetos'>PROJETOS</NavLink></li>
-                    <li><NavLink className="links" to='/criadores'>CRIADORES</NavLink></li>
-                    <li><NavLink className="links" to='/freelance'>FREEELANCE</NavLink></li>
-                    <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
-                    <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
-                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>SAIR</NavLink></li>
+            )
+        }else {
+            return (
+                <ul>
                     {this.props.users && this.props.users.map(info => {
                         if (info.id === this.props.id && info.TipoUtilizador === 1){
                             this.getImage(info.ImagemPerfil);
@@ -66,9 +62,17 @@ class SignedInLinks extends React.Component {
                             )
                         }
                     })}
+                    <li><NavLink className="links" to='/projetos'>PROJETOS</NavLink></li>
+                    <li><NavLink className="links" to='/criadores'>CRIADORES</NavLink></li>
+                    <li><NavLink className="links" to='/freelance'>FREELANCE</NavLink></li>
+                    <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
+                    <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
+                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>SAIR</NavLink></li>
                 </ul>
-            </span>
-        )
+
+            )
+        }
+        
     }
 };
 

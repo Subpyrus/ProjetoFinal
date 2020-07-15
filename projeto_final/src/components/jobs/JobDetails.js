@@ -215,7 +215,7 @@ class EmpregosDetalhes extends React.Component{
                                         :
                                         <div className="col-12 row justify-content-center m-0">
                                             <Link to="/registo">
-                                                <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2">Queres-te candidatar? Inscreve-te já na Hinamic!<img src={Seta2} className="ml-2" style={{width:"15px", height:"auto", verticalAlign: "text-bottom"}}/></button>
+                                                <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2">QUERES-TE CANDIDATAR? REGISTA-TE<img src={Seta2} className="ml-2" style={{width:"15px", height:"auto", verticalAlign: "text-bottom"}}/></button>
                                             </Link>
                                         </div>
                                     }
