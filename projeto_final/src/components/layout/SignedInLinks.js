@@ -31,7 +31,7 @@ class SignedInLinks extends React.Component {
                     <li><NavLink className="links" to='/freelance'>FREELANCE</NavLink></li>
                     <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
                     <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
-                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>LOG OUT</NavLink></li>
+                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>SAIR</NavLink></li>
                     {this.props.users && this.props.users.map(info => {
                         if (info.id === this.props.id && info.TipoUtilizador === 1){
                             this.getImage(info.ImagemPerfil);
@@ -53,7 +53,7 @@ class SignedInLinks extends React.Component {
                     <li><NavLink className="links" to='/freelance'>FREEELANCE</NavLink></li>
                     <li><NavLink className="links" to='/empregos'>EMPREGOS</NavLink></li>
                     <li><NavLink className="links" to='/vendas'>VENDAS</NavLink></li>
-                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>LOG OUT</NavLink></li>
+                    <li><NavLink onClick={this.props.signOut} className="links" to='/'>SAIR</NavLink></li>
                     {this.props.users && this.props.users.map(info => {
                         if (info.id === this.props.id && info.TipoUtilizador === 1){
                             this.getImage(info.ImagemPerfil);
