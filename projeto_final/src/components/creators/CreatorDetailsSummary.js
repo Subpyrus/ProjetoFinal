@@ -14,7 +14,8 @@ class CreatorDetailsSummary extends React.Component {
         this.state = {
             valorB: 1,
             valorF: 1,
-            imagemPerfil: ""
+            imagemPerfil: "",
+            cv: ""
         };
     }
 
@@ -78,10 +79,19 @@ class CreatorDetailsSummary extends React.Component {
         })
     }
 
+    getCV(curriculo) {
+        storage.ref('cvs').child(`Exercicio02_2020.pdf_cv_1594763235640`).getDownloadURL().then((url) => {
+            if (this.state.url === ""){
+                this.setState({cv: url})
+            }
+        })
+    }
+
     render() {
         const {users, id_user, id_pass, projetos} = this.props;
-        console.log(users);
+        //console.log(users.Curriculo);
         this.getImage(users.ImagemPerfil);
+        this.getCV(users.Curriculo);
         return (
             <div className="row mb-0">
                 <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
@@ -215,8 +225,8 @@ class CreatorDetailsSummary extends React.Component {
                                         <span className="d-none"/>
                                     }
                                     <span>
-                                        <a href="">
-                                            <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
+                                        <a href={this.state.cv}>
+                                            <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
                                         </a>
                                         {id_user === id_pass ?
                                             <Link to="/perfil/editar">

@@ -53,7 +53,7 @@ class FreelanceDetalhes extends React.Component{
         console.log(e)
         console.log(parametro)
         e.preventDefault();
-        emailjs.send('gmail', 'template_Q9NRs6D7', parametro)
+        emailjs.send('gmail', 'template_Q9NRs6D7', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
             .then((result) => {
                 let candidato={
                     idFreelance: id,

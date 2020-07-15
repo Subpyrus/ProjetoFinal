@@ -47,14 +47,14 @@ class ProjectDetails extends React.Component {
     getImage = (image) => {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
             if (this.state.imagem == "") {
-                //console.log(url);
+                console.log(url);
                 this.setState({imagem: url})
             }
         })
     };
 
     render() {
-        const {projects, users} = this.props;
+        const {auth, projects, users} = this.props;
         //console.log(projects);
         //console.log(this.props.match.params.id);
         return (
@@ -125,7 +125,7 @@ class ProjectDetails extends React.Component {
                                                 onClick={this.handleShowM}>Fases do Projeto
                                         </button>
                                             :
-                                            <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2"
+                                            <button className="Criador_But_Ver_Perfil_2 mt-sm-3 mt-md-2"
                                                     disabled>Fases do Projeto
                                             </button>
                                         }
@@ -151,23 +151,60 @@ class ProjectDetails extends React.Component {
                                         )
                                     })}
                                 </div>
+                                {auth.uid ?
+                                    <hr className="hr"/>
+                                    :
+                                    <hr className="hr d-none"/>
+                                }
+                                {auth.uid ?
+                                    <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
+                                        <img className="like" src={this.state.src_Img} width="75px" height="75px"
+                                             onClick={this.handleShowC}/>
+                                        <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
+                                    </div>
+                                    :
+                                    <div className="Proj_Det_Likes justify-content-center mt-5 mb-4 d-none">
+                                        <img className="like" src={this.state.src_Img} width="75px" height="75px"
+                                             onClick={this.handleShowC}/>
+                                        <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
+                                    </div>
+                                }
 
-                                <hr className="hr"/>
-
-                                <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
-                                    <img className="like" src={this.state.src_Img} width="75px" height="75px"
-                                         onClick={this.handleShowC}/>
-                                    <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
-                                </div>
-
-                                <hr className="hr"/>
-
-                                <div className="Proj_Det_Infos_final mt-4 mb-4">
-                                    <span className="Proj_Det_Infos_final_Texto">Ferramentas:</span>
-                                    <span>{dados.ferramentas}</span>
-                                    <span className="Proj_Det_Infos_final_Texto">Empresas:</span>
-                                    <span>{dados.empresasProjeto}</span>
-                                </div>
+                                {dados.ferramentas !== "" || dados.empresasProjeto !== "" ?
+                                    <hr className="hr"/>
+                                    :
+                                    <hr className="hr d-none"/>
+                                }
+                                {dados.ferramentas !== "" || dados.empresasProjeto !== "" ?
+                                    <div className="Proj_Det_Infos_final mt-4 mb-4">
+                                        {dados.ferramentas !== "" ?
+                                            <span className="Proj_Det_Infos_final">
+                                                <span className="Proj_Det_Infos_final_Texto">Ferramentas:</span>
+                                                <span>{dados.ferramentas}</span>
+                                            </span>
+                                            :
+                                            <span className="d-none">
+                                                <span className="Proj_Det_Infos_final_Texto">Ferramentas:</span>
+                                                <span>{dados.ferramentas}</span>
+                                            </span>
+                                        }
+                                        {dados.empresasProjeto !== "" ?
+                                            <span className="Proj_Det_Infos_final">
+                                                <span className="Proj_Det_Infos_final_Texto">Empresas:</span>
+                                                <span>{dados.empresasProjeto}</span>
+                                            </span>
+                                            :
+                                            <span className="d-none">
+                                                <span className="Proj_Det_Infos_final_Texto">Empresas:</span>
+                                                <span>{dados.empresasProjeto}</span>
+                                            </span>
+                                        }
+                                    </div>
+                                    :
+                                    <div className="Proj_Det_Infos_final mt-4 mb-4 d-none">
+                                        <span>nada</span>
+                                    </div>
+                                }
 
                                 <hr className="hr"/>
 
@@ -250,7 +287,11 @@ class ProjectDetails extends React.Component {
                                                                                 info.Local
                                                     }
                                                 </span>
-                                                <button className="Criador_But_Ver_Perfil mt-1 disabled">SEGUIR</button>
+                                                {auth.uid ?
+                                                    <button className="Criador_But_Ver_Perfil mt-1">SEGUIR</button>
+                                                    :
+                                                    <button className="Criador_But_Ver_Perfil_2 mt-1 disabled">SEGUIR</button>
+                                                }
                                             </div>
                                             )
                                         }
@@ -265,7 +306,7 @@ class ProjectDetails extends React.Component {
                                                     <span className="Proj_Det_Info_Texto2">{info.Ocupation}.</span>
                                                     <br/>
                                                     <span className="Proj_Det_Info_Texto2">Visita o
-                                                    <b><Link to="/perfil" className="navegar"> meu perfil </Link></b>
+                                                    <b><Link to={`/perfil/utilizador/${info.id}`} className="navegar"> meu perfil </Link></b>
                                                     para veres os meus outros projetos.</span>
                                                 </div>
                                             )
@@ -273,13 +314,27 @@ class ProjectDetails extends React.Component {
                                     })}
                                 </div>
 
-                                <hr className="hr"/>
+                                {auth.uid ?
+                                    <hr className="hr d-none"/>
+                                    :
+                                    <hr className="hr"/>
+                                }
 
-                                <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2">
-                                <span className="Proj_Det_Texto_Registar">Para deixares aqui o teu comentário
-                                    <b><Link to="/entrar" className="navegar"> entra</Link></b> na tua conta ou
-                                    <b><Link to="/registar" className="navegar"> cria uma conta</Link></b>.</span>
-                                </div>
+                                {auth.uid ?
+                                    <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 d-none">
+                                        <span className="Proj_Det_Texto_Registar">Para deixares aqui o teu comentário
+                                            <b><Link to="/entrar" className="navegar"> entra</Link></b> na tua conta ou
+                                            <b><Link to="/registar" className="navegar"> cria uma conta</Link></b>.
+                                        </span>
+                                    </div>
+                                    :
+                                    <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2">
+                                        <span className="Proj_Det_Texto_Registar">Para deixares aqui o teu comentário
+                                            <b><Link to="/entrar" className="navegar"> entra</Link></b> na tua conta ou
+                                            <b><Link to="/registar" className="navegar"> cria uma conta</Link></b>.
+                                        </span>
+                                    </div>
+                                }
 
                             </div>
                                 <div id="myModal" className="modal fade">
@@ -340,6 +395,7 @@ class ProjectDetails extends React.Component {
 const mapStateToProps = (state) => {
     //console.log(state);
     return {
+        auth: state.firebase.auth,
         projects: state.firestore.ordered.projects,
         users: state.firestore.ordered.users
     }

@@ -533,7 +533,7 @@
 }
 
 .navegar {
-    text-decoration: nome;
+    text-decoration: none;
     color: #73767a;
 }
 .navegar:hover {
@@ -1633,6 +1633,16 @@
     border: none;
     border-radius: 5px;
     color: white;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
+.Criador_But_Ver_Perfil_2{
+    font-family: 'Barlow', sans-serif;
+    background-color: darkgrey;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    color: grey;
     padding: 7px 30px;
     text-transform: uppercase;
 }
