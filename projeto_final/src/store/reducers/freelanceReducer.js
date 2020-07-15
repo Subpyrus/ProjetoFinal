@@ -6,6 +6,10 @@ const jobReducer = (state = initState, action) => {
             return state;
         case "CREATE_FREE_ERROR":
             return state;
+        case "ADDCAND_COMPLETE":
+            return state;
+        case "ADDCAND_ERROR":
+            return state;
         default :
             return state;
     }

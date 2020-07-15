@@ -9,6 +9,7 @@ import { compose } from 'redux'
 import moment from 'moment'
 import {storage} from "../../config/fbConfig";
 import emailjs from "emailjs-com";
+import {addCandidatura} from '../../store/actions/jobActions'
 
 class EmpregosDetalhes extends React.Component{
 
@@ -46,11 +47,20 @@ class EmpregosDetalhes extends React.Component{
 
 
     enviaMail(e, parametro){
+        let id = this.props.match.params.id;
+        const {job,auth} = this.props;
         e.preventDefault();
         emailjs.send('gmail', 'template_Q9NRs6D7', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
             .then((result) => {
-                console.log(result);
-                window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+                let candidato={
+                    idJob: id,
+                    candidatos: []
+                }
+                candidato.candidatos.push(...job.candidatos)
+                candidato.candidatos.push(auth.uid)
+                console.log(candidato)
+                this.props.addCandidatura(candidato)
+                //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             }, (error) => {
                 console.log(error.text);
             });
@@ -299,9 +309,16 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addCandidatura: (candidato) => dispatch(addCandidatura(candidato))
+    }
+}
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
-        { collection: 'jobs' }
+        { collection: 'jobs' },
+        { collection: 'users' }
     ])
 )(EmpregosDetalhes)

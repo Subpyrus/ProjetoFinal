@@ -18,7 +18,7 @@ export const addCandidatura = (candidato) => {
     return(dispatch, getState, { getFirebase , getFirestore }) => {
         
         const firestore = getFirestore();
-        return firestore.collection('freelances').doc(candidato.id).update({
+        return firestore.collection('freelances').doc(candidato.idFreelance).update({
             candidatos: candidato.candidatos
         }).then(() => {
             dispatch({type:'ADDCAND_COMPLETE'})

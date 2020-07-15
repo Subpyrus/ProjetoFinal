@@ -50,19 +50,18 @@ class FreelanceDetalhes extends React.Component{
     enviaMail(e, parametro){
         let id = this.props.match.params.id;
         const {freelance,auth} = this.props;
-        console.log(e)
-        console.log(parametro)
         e.preventDefault();
         emailjs.send('gmail', 'template_Q9NRs6D7', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
             .then((result) => {
                 let candidato={
                     idFreelance: id,
-                    candidatos: freelance.candidatos
+                    candidatos: []
                 }
+                candidato.candidatos.push(...freelance.candidatos)
                 candidato.candidatos.push(auth.uid)
                 console.log(candidato)
-                //this.props.addCandidatura(candidato)
-                window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+                this.props.addCandidatura(candidato)
+                //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             }, (error) => {
                 console.log(error.text);
             });

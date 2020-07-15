@@ -13,3 +13,18 @@ export const createJob = (job) => {
         })
     }
 };
+
+export const addCandidatura = (candidato) => {
+    return(dispatch, getState, { getFirebase , getFirestore }) => {
+        
+        const firestore = getFirestore();
+        return firestore.collection('jobs').doc(candidato.idJob).update({
+            candidatos: candidato.candidatos
+        }).then(() => {
+            dispatch({type:'ADDCAND_JOB_SUCCESS'})
+        }).catch((err) =>{
+            dispatch({type:'ADDCAND_JOB_ERROR', err})
+        })
+
+    }
+};
