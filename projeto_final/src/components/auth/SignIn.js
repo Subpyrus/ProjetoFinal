@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import sg from '../../Imgs/sg.png';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 
@@ -20,6 +20,14 @@ class SignIn extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state);
+        setTimeout(this.redirect,1000);
+    }
+
+    redirect = (e) => {
+        const {auth} = this.props;
+        if(auth.uid != null) {
+            document.getElementById('red').click();
+        }
     }
 
     render() {
@@ -69,6 +77,7 @@ class SignIn extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <Link id="red" to="/"></Link>
                 </div>
             )
         
