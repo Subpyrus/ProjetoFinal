@@ -74,7 +74,6 @@ class CreatorDetailsSummary extends React.Component {
             if (this.state.imagemPerfil == "") {
                 this.state.imagemPerfil = url;
                 this.setState(this.state);
-                //console.log(this.state);
             }
         })
     }
