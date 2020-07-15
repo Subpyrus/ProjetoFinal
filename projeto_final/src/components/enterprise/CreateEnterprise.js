@@ -5,6 +5,7 @@ import FormEnterprisePart1 from '../forms/FormEnterprisePart1';
 import FormEnterprisePart2 from '../forms/FormEnterprisePart2';
 import FormEnterprisePart3 from '../forms/FormEnterprisePart3';
 import {signUpEnterprise} from "../../store/actions/authActions"
+import {signOut} from '../../store/actions/authActions'
 import {connect} from "react-redux"
 
 class CreateEnterprise extends React.Component {
@@ -37,6 +38,11 @@ class CreateEnterprise extends React.Component {
 
     handleSubmit = (e) => {
         this.props.signUpEnterprise(this.state);
+        setTimeout(this.signOutRegisto,1000);
+    }
+
+    signOutRegisto = (e) =>{
+        this.props.signOut()
     }
 
     render() {
@@ -127,7 +133,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        signUpEnterprise: (newEnterprise) => dispatch(signUpEnterprise(newEnterprise))
+        signUpEnterprise: (newEnterprise) => dispatch(signUpEnterprise(newEnterprise)),
+        signOut: () => dispatch(signOut())
     }
 }
 

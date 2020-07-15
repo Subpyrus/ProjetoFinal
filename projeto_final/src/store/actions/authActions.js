@@ -22,23 +22,24 @@ export const signOut = () => {
     }
 }
 
+
 export const signUpUser = (newUser) => {
-    return (dispatch,getState,{getFirebase,getFirestore}) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firebase = getFirebase();
         const firestore = getFirestore();
         firebase.auth().createUserWithEmailAndPassword(
             newUser.Email,
             newUser.Password
-        ).then((resp) => {
+        ).then((response) => {
             const number = Math.floor(Math.random() * 20) + 1;
-            return firestore.collection('users').doc(resp.user.uid).set({
+            firestore.collection('users').doc(response.user.uid).set({
                 FirstName:newUser.PrimeiroNome,
                 LastName:newUser.UltimoNome,
                 BirthDate:newUser.DataNascimento,
                 Local:newUser.Distrito,
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
-                ImagemPerfil: "p" + number + ".png",
+                ImagemPerfil: "p"+number+".png",
                 Curriculo:"",
                 TipoUtilizador: 1,
                 Descricao:"",
@@ -47,21 +48,19 @@ export const signUpUser = (newUser) => {
                 LinkInsta:"",
                 LinkLinked:"",
                 LinkFace:""
+            }).then(() => {
+                dispatch({ type: 'SIGNUPUSER_SUCCESS' })
             })
-        }).then(() => {
-            firebase.auth().signOut().then(()=>{
-                dispatch({type: 'SIGNUPUSER_SUCCESS'})
-            });
         }).catch((err) => {
-            dispatch({type: 'SIGNUPUSER_ERROR', err})
+            dispatch({ type: 'SIGNUPUSER_ERROR', err })
         })
-
     }
 }
 
+
+
 export const updateProfile = (newInfo) => {
     return (dispatch,getState,{getFirebase,getFirestore}) => {
-        console.log(newInfo);
         const firestore = getFirestore();
         return firestore.collection('users').doc(newInfo.userId).update({
             FirstName:newInfo.primeiroNome,
@@ -98,7 +97,7 @@ export const signUpEnterprise = (newEnterprise) => {
             newEnterprise.Password
         ).then((resp) => {
             const number = Math.floor(Math.random() * 20) + 1;
-            return firestore.collection('users').doc(resp.user.uid).set({
+            firestore.collection('users').doc(resp.user.uid).set({
                 NomeEmpresa:newEnterprise.NomeEmpresa,
                 TamanhoEmpresa:newEnterprise.TamanhoEmpresa,
                 DataCriacao:newEnterprise.DataCriacao,
@@ -109,9 +108,7 @@ export const signUpEnterprise = (newEnterprise) => {
                 TipoUtilizador: 2
             })
         }).then(() => {
-            firebase.auth().signOut().then(()=>{
-                dispatch({type: 'SIGNUPENTERPRISE_SUCCESS'})
-            });
+            dispatch({type: 'SIGNUPENTERPRISE_SUCCESS'})
         }).catch((err) => {
             dispatch({type: 'SIGNUPENTERPRISE_ERROR', err})
         })

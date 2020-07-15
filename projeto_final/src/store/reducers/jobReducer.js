@@ -3,15 +3,25 @@ const initState = {}
 const jobReducer = (state = initState, action) => {
     switch (action.type) {
         case "CREATE_JOB":
-            return state;
+            return {
+                ...state
+            }
         case "CREATE_JOB_ERROR":
-            return state;
+            return {
+                ...state
+            }
         case "ADDCAND_JOB_SUCCESS":
-            return state;
+            return {
+                ...state
+            }
         case "ADDCAND_JOB_ERROR":
-            return state;
+            return {
+                ...state
+            }
         default :
-            return state;
+            return {
+                ...state
+            }
     }
 }
 

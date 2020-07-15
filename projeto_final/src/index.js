@@ -27,7 +27,8 @@ const rrfProps = {
   firebase,
   config: fbConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
+  createFirestoreInstance,
+  useFirestoreForProfile: true
 };
 
 ReactDOM.render(

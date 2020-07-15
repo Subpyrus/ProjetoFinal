@@ -3,15 +3,25 @@ const initState = {}
 const jobReducer = (state = initState, action) => {
     switch (action.type) {
         case "CREATE_FREE":
-            return state;
+            return {
+                ...state
+            }
         case "CREATE_FREE_ERROR":
-            return state;
+            return {
+                ...state
+            }
         case "ADDCAND_COMPLETE":
-            return state;
+            return {
+                ...state
+            }
         case "ADDCAND_ERROR":
-            return state;
+            return {
+                ...state
+            }
         default :
-            return state;
+            return {
+                ...state
+            }
     }
 }
 

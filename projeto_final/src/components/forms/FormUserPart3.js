@@ -99,7 +99,7 @@ class FormUserPart3 extends React.Component {
             )
         }else{
             return(
-                <Redirect to="/" />
+                <Redirect to="/entrar" />
             )
         }   
     }

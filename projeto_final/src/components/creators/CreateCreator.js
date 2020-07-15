@@ -39,7 +39,11 @@ class CreateCreator extends React.Component {
 
     handleSubmit = (e) => {
         this.props.signUpUser(this.state);
-        document.getElementById('red').click();
+        setTimeout(this.signOutRegisto,1000);
+    }
+
+    signOutRegisto = (e) =>{
+        this.props.signOut()
     }
 
     render() {
@@ -132,6 +136,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         signUpUser: (newUser) => dispatch(signUpUser(newUser)),
+        signOut: () => dispatch(signOut())
     }
 }
 
