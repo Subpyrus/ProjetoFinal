@@ -45,7 +45,7 @@ class Sobre extends React.Component {
                     </div>
                     <div className="col-lg-3 col-sm-12 mr-2 ml-2">
                         <div><img src={xambre} alt="" width="auto" className=""/></div>
-                        <h4 className="nickname mt-3">Abelha Programadora</h4>
+                        <h4 className="nickname mt-3">Abelha Webmaster</h4>
                         <p className="nsobre">Diogo Xambre</p>
                         <p>Este é o Diogo Xambre, a Abelha Programadora. Está no 3º ano da Licenciatura em Novas Tecnologias da Comunicação,
                             na Universidade de Aveiro. Tal como o seu nome indica ele é o programador. Tem uma capacidade enorme de entender
