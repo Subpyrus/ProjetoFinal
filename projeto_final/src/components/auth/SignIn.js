@@ -25,6 +25,7 @@ class SignIn extends React.Component {
 
     redirect = (e) => {
         const {auth} = this.props;
+        console.log(auth)
         if(auth.uid != null) {
             document.getElementById('red').click();
         }
