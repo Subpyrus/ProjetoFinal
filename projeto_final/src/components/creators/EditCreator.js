@@ -92,7 +92,7 @@ class EditarPerfil extends React.Component{
         )
 
         this.setState({
-            curriculo: ficheiro.name
+            curriculo: newName
         });
     };
 
