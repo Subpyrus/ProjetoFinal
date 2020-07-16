@@ -45,7 +45,7 @@ class ProjectSummary extends React.Component{
                             </button>
                         </div>
                         <span className="card-text Proj_Info3">
-                                    <i className="fa fa-eye mr-2"/><span className="mr-2 nums">533</span>
+                                    <i className="fa fa-eye mr-2"/><span className="mr-2 nums">{info.Vis}</span>
                                     <i className="fa fa-heart-o mr-2"/><span className="mr-2 nums">42</span>
                                 </span>
                     </div>

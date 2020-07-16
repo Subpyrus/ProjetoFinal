@@ -21,7 +21,9 @@ class ProjectDetails extends React.Component {
             setShowM: false,
             setShowC: false,
             src_Img: Coracao,
-            imagem: ""
+            imagem: "",
+            imagem2: "",
+            comentario:""
         }
     }
 
@@ -61,6 +63,17 @@ class ProjectDetails extends React.Component {
                 this.setState({imagem: url})
             }
         })
+    };
+    getImage2 = (image) => {
+        storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
+            if (this.state.imagem2 == "") {
+                this.setState({imagem2: url})
+            }
+        })
+    };
+
+    handleChange = input => e => {
+        this.setState({comentario: e.target.value});
     };
 
     render() {
@@ -321,18 +334,42 @@ class ProjectDetails extends React.Component {
                                     })}
                                 </div>
 
-                                {auth.uid ?
-                                    <hr className="hr d-none"/>
-                                    :
-                                    <hr className="hr"/>
-                                }
+                                <hr className="hr"/>
 
                                 {auth.uid ?
-                                    <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 d-none">
-                                        <span className="Proj_Det_Texto_Registar">Para deixares aqui o teu comentário
-                                            <b><Link to="/entrar" className="navegar"> entra</Link></b> na tua conta ou
-                                            <b><Link to="/registar" className="navegar"> cria uma conta</Link></b>.
-                                        </span>
+                                    <div className="Proj_Det_Comentarios mt-4 mb-2">
+                                        <h3 className="nome_uti pl-2 pl-md-0">Comentários</h3>
+                                        {users && users.map(dados => {
+                                            if (dados.id === auth.uid){
+                                                this.getImage2(dados.ImagemPerfil);
+                                                return(
+                                                    <div className="row justify-content-center">
+                                                        <div className="col-2 text-center d-none d-lg-block pr-0">
+                                                            <img src={this.state.imagem2} style={{width: "75%"}}/>
+                                                        </div>
+                                                        <div className="col-11 col-md-10 col-lg-7 my-auto pl-0 text-right">
+                                                            <div className="input-field col-12">
+                                                                <textarea
+                                                                    id="comentario"
+                                                                    className="materialize-textarea"
+                                                                    maxLength="400"
+                                                                    onChange={this.handleChange('comentario')}
+                                                                />
+                                                                <label htmlFor="comentario" className="col-12">Deixar Comentário</label>
+                                                                <button
+                                                                    className="btn btnIn"
+                                                                    type="button"
+                                                                    id="nextBtn"
+                                                                    onClick={this.nextStep}>
+                                                                    Publicar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        }
+                                        )}
                                     </div>
                                     :
                                     <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 ml-2 ml-md-0">
