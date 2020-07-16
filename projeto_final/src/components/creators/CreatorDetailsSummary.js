@@ -78,18 +78,9 @@ class CreatorDetailsSummary extends React.Component {
         })
     }
 
-    getCV(curriculo) {
-        storage.ref('cvs').child(`Exercicio02_2020.pdf_cv_1594763235640`).getDownloadURL().then((url) => {
-            if (this.state.url === ""){
-                this.setState({cv: url})
-            }
-        })
-    }
-
     render() {
         const {users, id_user, id_pass, projetos,auth} = this.props;
         this.getImage(users.ImagemPerfil);
-        this.getCV(users.Curriculo);
         let suf;
         if(users.Gender == "masc"){
             suf = "o"
@@ -232,9 +223,10 @@ class CreatorDetailsSummary extends React.Component {
                                         {!auth.uid || users.Curriculo == null ?
                                             <button className="Perfil_But_Seguir_2 mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
                                             :
-                                            <a href={this.state.cv}>
+                                            <a href={users.Curriculo} download={users.Curriculo}>
                                                 <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
                                             </a>
+                                            
                                         }
                                         {id_user === id_pass ?
                                             <Link to="/perfil/editar">
