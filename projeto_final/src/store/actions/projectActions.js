@@ -29,3 +29,19 @@ export const addVis = (valor) => {
         
     };
 };
+
+
+export const addComment = (valor) => {
+    return(dispatch, getState, { getFirebase , getFirestore }) => {
+        
+        const firestore = getFirestore();
+        return firestore.collection('projects').doc(valor.id).update({
+            Comments: valor.comment
+        }).then(() => {
+            dispatch( { type: 'ADD_COMMENT'})
+        }).catch((err) => {
+            dispatch( { type: 'ADD_COMMENT_ERROR', err})
+        })
+        
+    };
+};

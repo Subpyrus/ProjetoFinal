@@ -11,6 +11,7 @@ import Info from './InfoList';
 import {storage} from "../../config/fbConfig";
 import FasesList from "./FasesList";
 import  { addVis } from '../../store/actions/projectActions'
+import { addComment } from '../../store/actions/projectActions'
 
 
 class ProjectDetails extends React.Component {
@@ -38,6 +39,29 @@ class ProjectDetails extends React.Component {
                 this.props.addVis(valor);
             }
         }
+    }
+
+
+    handleComment = ()  => {
+        const {auth,projects} = this.props;
+        let obj = {
+            id: this.props.match.params.id,
+            comment: []
+        }
+        for (var a in projects) {
+            if(projects[a].id == this.props.match.params.id){
+                obj.comment.push(...projects[a].Comments)
+            }
+        }
+        obj.comment.push({
+            id: auth.uid,
+            comment:this.state.comentario
+        })
+        this.props.addComment(obj);
+        document.getElementById('comentario').value="";        
+        this.setState({
+            comentario:""
+        })
     }
 
     handleCloseM = () => {
@@ -360,7 +384,7 @@ class ProjectDetails extends React.Component {
                                                                     className="btn btnIn"
                                                                     type="button"
                                                                     id="nextBtn"
-                                                                    onClick={this.nextStep}>
+                                                                    onClick={this.handleComment}>
                                                                     Publicar
                                                                 </button>
                                                             </div>
@@ -447,7 +471,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addVis: (valor) => dispatch(addVis(valor))
+        addVis: (valor) => dispatch(addVis(valor)),
+        addComment: (obj) => dispatch(addComment(obj))
     }
 }
 

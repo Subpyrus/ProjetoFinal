@@ -18,6 +18,14 @@ const projectReducer = (state = initState, action) => {
             return {
                 ...state
             }
+        case "ADD_COMMENT":
+            return {
+                ...state
+            }
+        case "ADD_COMMENT_ERROR":
+            return {
+                ...state
+            }
         default :
             return {
                 ...state
