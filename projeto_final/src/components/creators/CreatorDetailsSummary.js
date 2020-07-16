@@ -88,7 +88,6 @@ class CreatorDetailsSummary extends React.Component {
 
     render() {
         const {users, id_user, id_pass, projetos} = this.props;
-        //console.log(users.Curriculo);
         this.getImage(users.ImagemPerfil);
         this.getCV(users.Curriculo);
         return (

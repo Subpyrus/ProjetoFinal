@@ -9,14 +9,10 @@ class Perfil extends React.Component {
 
     render() {
         const {auth, otherUsers, projects} = this.props;
-        //console.log(this.props.match.params.id);
-        //console.log(auth);
-        //console.log(users);
         return (
             <div className="Perfil_Body">
                 {otherUsers && otherUsers.map(dados => {
                         if (dados.id === this.props.match.params.id && dados.TipoUtilizador === 1) {
-                            //console.log("olá");
                             return (
                                 <div className="Perfil_Body">
                                     <CreatorDetailsSummary users={dados} projetos={projects} id_user={auth.uid} id_pass={this.props.match.params.id}/>
@@ -32,7 +28,6 @@ class Perfil extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    //console.log(state);
     return {
         auth: state.firebase.auth,
         otherUsers: state.firestore.ordered.users,
