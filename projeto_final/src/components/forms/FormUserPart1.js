@@ -52,10 +52,24 @@ class FormUserPart1 extends React.Component {
                         <label htmlFor="data" className={valores.DataNascimento != "" ? "active col-12" : "col-12"}></label>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <label>Género</label>
+                        <select
+                            className="aparece"
+                            onChange={handleChange('Genero')}
+                            defaultValue={valores.Genero}
+                        >
+                            <option value="" disabled selected>Escolhe o teu Género</option>
+                            <option value="masc">Masculino</option>
+                            <option value="fem">Feminino</option>
+                        </select>
+                    </div>
+                </div>
                 <div className="row justify-content-end of">
                     <div className="f">
                         <div className="col s6">
-                            {valores.PrimeiroNome == "" || valores.UltimoNome == "" || valores.DataNascimento == "" ?
+                            {valores.PrimeiroNome == "" || valores.UltimoNome == "" || valores.DataNascimento == "" || valores.Genero == "" ?
                                 <button
                                     className="btn btnIn"
                                     type="button"

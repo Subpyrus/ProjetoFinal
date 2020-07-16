@@ -87,9 +87,15 @@ class CreatorDetailsSummary extends React.Component {
     }
 
     render() {
-        const {users, id_user, id_pass, projetos} = this.props;
+        const {users, id_user, id_pass, projetos,auth} = this.props;
         this.getImage(users.ImagemPerfil);
         this.getCV(users.Curriculo);
+        let suf;
+        if(users.Gender == "masc"){
+            suf = "o"
+        }else {
+            suf = "a"
+        }
         return (
             <div className="row mb-0">
                 <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
@@ -97,8 +103,8 @@ class CreatorDetailsSummary extends React.Component {
                         <div className="col-sm-12 col-lg-4">
                                 <span className="ml-auto Perfil_Info_Inicial_Esq">
                                     <img src={this.state.imagemPerfil} className="Foto_Perfil"/>
-                                    {id_user === id_pass ?
-                                        <button className="Perfil_But_Seguir mt-5 text-uppercase" disabled>Seguir</button>
+                                    {id_user === id_pass || !auth.uid ?
+                                        <button className="Perfil_But_Seguir_2 mt-5 text-uppercase" disabled>Seguir</button>
                                         :
                                         <button className="Perfil_But_Seguir mt-5 text-uppercase">Seguir</button>
                                     }
@@ -145,7 +151,7 @@ class CreatorDetailsSummary extends React.Component {
                         <div className="col-sm-12 col-lg-7">
                                 <span className="ml-lg-5 Perfil_Info_Inicial_Dir">
                                     <h3 className="Perfil_Info_Intro">Olá Profissionais</h3>
-                                    <h1 className="Perfil_Info_Nome">Sou o/a {users.FirstName} {users.LastName}</h1>
+                                    <h1 className="Perfil_Info_Nome">Sou {suf} {users.FirstName} {users.LastName}</h1>
                                     <h3 className="Perfil_Info_Trabalho">
                                         {users.AreaTrabalho === "3DAnimacao" ?
                                             "3D e Animação"
@@ -223,9 +229,13 @@ class CreatorDetailsSummary extends React.Component {
                                         <span className="d-none"/>
                                     }
                                     <span>
-                                        <a href={this.state.cv}>
-                                            <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
-                                        </a>
+                                        {!auth.uid || users.Curriculo == null ?
+                                            <button className="Perfil_But_Seguir_2 mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
+                                            :
+                                            <a href={this.state.cv}>
+                                                <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
+                                            </a>
+                                        }
                                         {id_user === id_pass ?
                                             <Link to="/perfil/editar">
                                                 <button className="Perfil_But_Seguir mt-4 text-uppercase">Editar

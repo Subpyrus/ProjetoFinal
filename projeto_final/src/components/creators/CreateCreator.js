@@ -19,6 +19,7 @@ class CreateCreator extends React.Component {
         AreaTrabalho: '',
         Ocupacao: '',
         Email:'',
+        Genero:'',
         Password:''
     };
 

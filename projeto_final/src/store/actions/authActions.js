@@ -39,6 +39,7 @@ export const signUpUser = (newUser) => {
                 Local:newUser.Distrito,
                 AreaTrabalho:newUser.AreaTrabalho,
                 Ocupation:newUser.Ocupacao,
+                Gender: newUser.Genero,
                 ImagemPerfil: "p"+number+".png",
                 Curriculo:"",
                 TipoUtilizador: 1,

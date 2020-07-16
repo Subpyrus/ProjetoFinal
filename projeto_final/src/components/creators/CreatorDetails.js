@@ -15,7 +15,7 @@ class Perfil extends React.Component {
                         if (dados.id === this.props.match.params.id && dados.TipoUtilizador === 1) {
                             return (
                                 <div className="Perfil_Body">
-                                    <CreatorDetailsSummary users={dados} projetos={projects} id_user={auth.uid} id_pass={this.props.match.params.id}/>
+                                    <CreatorDetailsSummary auth={auth} users={dados} projetos={projects} id_user={auth.uid} id_pass={this.props.match.params.id}/>
                                 </div>
                             )
                         }

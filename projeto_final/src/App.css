@@ -1633,6 +1633,18 @@ body {
     font-family: 'Barlow Semibold', sans-serif;
 }
 
+.Perfil_But_Seguir_2{
+    float: left;
+    font-family: 'Barlow', sans-serif;
+    background-color: grey;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+}
+
+
 /* Perfil Empresa */
 
 .Perfil_Empresa_Inicial{

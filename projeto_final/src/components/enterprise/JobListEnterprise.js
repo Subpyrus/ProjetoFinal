@@ -12,7 +12,7 @@ class ListaEmpregosEmpresa extends React.Component{
         console.log(info);
         return (
             <div>
-                <Link to="/freelance/detalhes" style={this.estilo}>
+                <Link to={`/empregos/detalhes/${info.id}`} style={this.estilo}>
                     <div className="Emprego_Listado row">
                         <span className="col-12 col-sm-9 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
                             <span className="mb-1 Titulo_Emprego_List">{info.NomeAnuncio}</span>
