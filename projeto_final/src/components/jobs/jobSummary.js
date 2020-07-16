@@ -1,7 +1,7 @@
 import React from 'react'
 import Imagem from "../../Imgs/Logo_Ubi.jpg";
 
-const JobSummary = ({job}) => {
+const JobSummary = ({job, users}) => {
 
     return (
         <div className="Emprego_Listado row">
@@ -39,7 +39,8 @@ const JobSummary = ({job}) => {
                         "Part-Time"
                     }
                     </span>
-                <span className="Area_Emprego">
+                <span className="zona_da_area">
+                    <span className="Area_Emprego mr-lg-3 mb-2 mr-2 mb-sm-0">
                     {job.AreaTrabalho === "3DAnimacao" ?
                         "3D e Animação"
                         :
@@ -76,6 +77,16 @@ const JobSummary = ({job}) => {
                                                                 "Outros Trabalhos"
 
                     }
+                </span>
+                    {job && job.candidatos.map(dados => {
+                        if (users === dados){
+                            return(
+                                <span className="Area_Emprego_2 mr-lg-3 mb-2 mr-2 mb-sm-0">
+                                    Candidatura submetida
+                                </span>
+                            )
+                        }
+                    })}
                 </span>
             </span>
             <span className="col-2 Emprego_List_Info_Princ_Final d-sm-block d-none">

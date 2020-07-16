@@ -121,9 +121,9 @@ class ProjectDetails extends React.Component {
                                     </div>
                                     <div className="align-items-lg-end d-flex flex-column col-md-12 col-lg-3">
                                         {dados.fases.length > 0 ?
-                                        <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2"
-                                                onClick={this.handleShowM}>Fases do Projeto
-                                        </button>
+                                            <button className="Criador_But_Ver_Perfil mt-sm-3 mt-md-2"
+                                                    onClick={this.handleShowM}>Fases do Projeto
+                                            </button>
                                             :
                                             <button className="Criador_But_Ver_Perfil_2 mt-sm-3 mt-md-2"
                                                     disabled>Fases do Projeto
@@ -222,9 +222,9 @@ class ProjectDetails extends React.Component {
                                     {users && users.map(info => {
                                         if (info.id === dados.IdEmpregador) {
                                             return (
-                                            <div className="col-md-2 Proj_Det_Info1 pl-sm-2">
-                                                <h3 className="nome_uti">{info.FirstName} {info.LastName}</h3>
-                                                <span className="mb-1" style={{color: "#D56D00"}}>
+                                                <div className="col-md-2 Proj_Det_Info1 pl-sm-2">
+                                                    <h3 className="nome_uti">{info.FirstName} {info.LastName}</h3>
+                                                    <span className="mb-1" style={{color: "#D56D00"}}>
                                                     {info.AreaTrabalho === "3DAnimacao" ?
                                                         "3D e Animação"
                                                         :
@@ -262,7 +262,7 @@ class ProjectDetails extends React.Component {
 
                                                     }
                                                 </span>
-                                                <span className="mb-1">
+                                                    <span className="mb-1">
                                                     {info.Local === "Braganca" ?
                                                         "Bragança"
                                                         :
@@ -287,12 +287,12 @@ class ProjectDetails extends React.Component {
                                                                                 info.Local
                                                     }
                                                 </span>
-                                                {auth.uid ?
-                                                    <button className="Criador_But_Ver_Perfil mt-1">SEGUIR</button>
-                                                    :
-                                                    <button className="Criador_But_Ver_Perfil_2 mt-1 disabled">SEGUIR</button>
-                                                }
-                                            </div>
+                                                    {auth.uid ?
+                                                        <button className="Criador_But_Ver_Perfil mt-1">SEGUIR</button>
+                                                        :
+                                                        <button className="Criador_But_Ver_Perfil_2 mt-1 disabled">SEGUIR</button>
+                                                    }
+                                                </div>
                                             )
                                         }
                                     })}
@@ -328,7 +328,7 @@ class ProjectDetails extends React.Component {
                                         </span>
                                     </div>
                                     :
-                                    <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2">
+                                    <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 ml-2 ml-md-0">
                                         <span className="Proj_Det_Texto_Registar">Para deixares aqui o teu comentário
                                             <b><Link to="/entrar" className="navegar"> entra</Link></b> na tua conta ou
                                             <b><Link to="/registar" className="navegar"> cria uma conta</Link></b>.

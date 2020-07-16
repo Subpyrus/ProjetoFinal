@@ -2,14 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import FreelanceSummary from "./freelanceSummary";
 
-const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcamento }) =>  {
+const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcamento, users }) =>  {
     if (pesquisa == "" && areaTrabalho == "" && distrito == "") {
         return (
             <div>
                 { freelances && freelances.map(freelance => {
                     return(
                         <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                            <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                            <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                         </Link>
                     )
                 })}
@@ -23,7 +23,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho && freelance.distritoCriador == distrito) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -38,7 +38,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho || nomes.startsWith(pesquisa) && freelance.AreaTrabalho == areaTrabalho) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -53,7 +53,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.NomeAnuncio.startsWith(pesquisa) && freelance.distritoCriador == distrito || nomes.startsWith(pesquisa) && freelance.distritoCriador == distrito) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -67,7 +67,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.distritoCriador == distrito && freelance.AreaTrabalho == areaTrabalho) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -82,7 +82,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.NomeAnuncio.startsWith(pesquisa) || nomes.startsWith(pesquisa)) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -96,7 +96,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.AreaTrabalho == areaTrabalho) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
@@ -110,7 +110,7 @@ const ListaFreelance = ({ freelances, pesquisa, areaTrabalho, distrito, orcament
                     if (freelance.distritoCriador == distrito) {
                         return (
                             <Link to={'/freelance/detalhes/' + freelance.id} freelanceID={freelance.id} style={{color: "inherit", textDecoration: "none"}}>
-                                <FreelanceSummary freelance={freelance} key={freelance.id}/>
+                                <FreelanceSummary freelance={freelance} key={freelance.id} users={users}/>
                             </Link>
                         )
                     }
