@@ -10,6 +10,8 @@ import moment from 'moment'
 import {storage} from "../../config/fbConfig";
 import emailjs from 'emailjs-com';
 import {addCandidatura} from '../../store/actions/freelanceActions'
+import {Modal} from "react-bootstrap";
+import FasesList from "../projects/FasesList";
 
 class FreelanceDetalhes extends React.Component{
 
@@ -21,9 +23,19 @@ class FreelanceDetalhes extends React.Component{
             nomeAnuncio: "",
             emailCandidato: "",
             areaTrabalho: "",
-            emailAnuncio: ""
+            emailAnuncio: "",
+            setShowM: false
         };
     }
+
+    handleCloseM = () => {
+        this.setState({setShowM: false})
+
+    };
+    handleShowM = () => {
+        //console.log("oi");
+        this.setState({setShowM: true})
+    };
 
     getImage(image) {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
@@ -61,6 +73,7 @@ class FreelanceDetalhes extends React.Component{
                 candidato.candidatos.push(auth.uid)
                 console.log(candidato)
                 this.props.addCandidatura(candidato)
+                this.handleCloseM();
                 //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             }, (error) => {
                 console.log(error.text);
@@ -72,6 +85,7 @@ class FreelanceDetalhes extends React.Component{
         const {freelance, auth, users} = this.props;
         //console.log(freelance);
         //console.log(auth);
+        let contador1 = 0;
 
         if (freelance) {
             {users && users.map(dados => {
@@ -92,7 +106,7 @@ class FreelanceDetalhes extends React.Component{
                             </span>
                             <div className="col-sm-12 col-lg-7 mt-4 mb-sm-2 mb-lg-4 p-0">
                                 <div className="Main_Detalhes_Emprego">
-                                    <div className="col-12 row justify-content-center">
+                                    <div className="col-12 row justify-content-center m-0">
                                          <span className="col-10 pl-4 Emprego_List_Info_Princ">
                                             <span className="mb-1 Titulo_Emprego_List">{freelance.NomeAnuncio}</span>
                                             <span
@@ -146,7 +160,7 @@ class FreelanceDetalhes extends React.Component{
 
                                     <hr className="hr col-11"/>
 
-                                    <div className="col-12 row justify-content-center">
+                                    <div className="col-12 row justify-content-center m-0">
                                          <span className="col-12 pl-4 Emprego_List_Info_Princ">
                                             <span className="mb-1 Titulo_Emprego_List">Descrição do trabalho:</span>
                                             <span
@@ -160,15 +174,31 @@ class FreelanceDetalhes extends React.Component{
                                             if (freelance.IdUser !== auth.uid && dados.id === auth.uid && dados.TipoUtilizador === 1){
                                                 return(
                                                     <div className="col-12 row justify-content-center m-0">
-                                                        <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" onClick={(coisas) => this.enviaMail(coisas, this.state)}>
-                                                            Envia a tua
-                                                            Candidatura!
-                                                            <img src={Seta2} className="ml-2" style={{
-                                                                width: "15px",
-                                                                height: "auto",
-                                                                verticalAlign: "text-bottom"
-                                                            }}/>
-                                                        </button>
+                                                        {freelance.candidatos.map(info => {
+                                                            if (dados.id === info){
+                                                                contador1++;
+                                                                return(
+                                                                    <button className="Emprego_Det_But_Criar_Conta_3 mt-2 mb-2" disabled>
+                                                                        A tua candidatura foi enviada!
+                                                                    </button>
+                                                                )
+                                                            }
+                                                        })}
+                                                        {contador1 === 0 ?
+                                                            <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" onClick={() => this.handleShowM()}>
+                                                                Envia a tua
+                                                                Candidatura!
+                                                                <img src={Seta2} className="ml-2" style={{
+                                                                    width: "15px",
+                                                                    height: "auto",
+                                                                    verticalAlign: "text-bottom"
+                                                                }}/>
+                                                            </button>
+                                                            :
+                                                            <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2 d-none">
+                                                                nada
+                                                            </button>
+                                                        }
                                                     </div>
                                                 )
                                             } else if (dados.id === auth.uid) {
@@ -262,6 +292,43 @@ class FreelanceDetalhes extends React.Component{
                             }
                         </div>
                     </div>
+                    <div id="myModal" className="modal fade">
+                        <Modal
+                            className="bg-transparent mh-100"
+                            size="lg"
+                            show={this.state.setShowM}
+                            onHide={this.handleCloseM}
+                            backdrop="static"
+                            keyboard={false}
+                            aria-labelledby="example-custom-modal-styling-title">
+                            <Modal.Header closeButton>
+                                <Modal.Title id="example-custom-modal-styling-title"
+                                             className="titulomodal">
+                                    Enviar Candidatura</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body id="modalbody">
+                                <div className="container p-0 mt-3 mb-3 cont-fases texto_Modal">
+                                    Tens a certeza que queres enviar a tua candidatura? Se confirmares, irá ser enviado para o utilizador que publicou o anúncio um email com o teu nome, àrea de trabalho e email para que ele te possa contactar no futuro.
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                    <button
+                                        className="btn btnIn mr-3"
+                                        type="button"
+                                        id="nextBtn"
+                                        onClick={() => this.handleCloseM()}>
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        className="btn btnIn"
+                                        type="button"
+                                        id="nextBtn"
+                                        onClick={(coisas) => this.enviaMail(coisas, this.state)}>
+                                        Enviar
+                                    </button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
                 </div>
             );
         } else {
@@ -272,7 +339,7 @@ class FreelanceDetalhes extends React.Component{
             )
         }
     }
-        
+
 }
 
 const mapStateToProps = (state, ownProps) => {

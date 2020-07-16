@@ -12,6 +12,8 @@ import {firestoreConnect} from "react-redux-firebase";
 import { updateProfile } from '../../store/actions/authActions';
 import { recoverPassword } from '../../store/actions/authActions';
 import {storage} from '../../config/fbConfig';
+import Back from "../../Imgs/back.svg";
+import Text from "../../Imgs/text.svg";
 
 class EditarPerfil extends React.Component{
     constructor(props){
@@ -47,7 +49,7 @@ class EditarPerfil extends React.Component{
         for (var a in users){
             if(users[a].TipoUtilizador == 1) {
                 if(users[a].Formacao.length != 0) {
-                    previous = true; 
+                    previous = true;
                 }
                 if(a == id) {
                     this.setState({
@@ -69,7 +71,7 @@ class EditarPerfil extends React.Component{
                         userId: id
                     })
                 }
-            }  
+            }
         }
     }
 
@@ -134,14 +136,14 @@ class EditarPerfil extends React.Component{
             newArray.push(this.state.formacao[a])
         }
         let objetoGuardado = {
-            faculdade: "", 
-            curso: "", 
-            ano: "", 
-            estado: "", 
+            faculdade: "",
+            curso: "",
+            ano: "",
+            estado: "",
             anoConclusao: ""
         };
         newArray.push(objetoGuardado);
-        this.setState({ 
+        this.setState({
             formacao: newArray,
             adicionaFormacao: true
         });
@@ -172,7 +174,7 @@ class EditarPerfil extends React.Component{
         console.log(this.state.emailEnviar)
         this.props.recoverPassword(this.state.emailEnviar);
     }
-    
+
 
     render() {
         const {imagemPerfil, imagemMostra, curriculo, primeiroNome, ultimoNome, dataNascimento, Distrito, areaTrabalho, ocupacao, sobre, passwordAtual, passwordNova, website, instagram, linkedin, facebook, formacao, adicionaFormacao, formacaoAntes} = this.state;
@@ -219,21 +221,21 @@ class EditarPerfil extends React.Component{
                         {this.state.selecionado == 1 ?
                             <div className="col-12 mx-auto">
                                 <FormEditarPerfil_Geral
-                                handleChange={this.handleChange}
-                                handleSubmit={this.handleSubmit}
-                                handleImagem={this.handleImagem}
-                                handleCV={this.handleCV}
-                                valores={valores}
-                            />
-                            <div className="row mb-0 col s12 pb-2 justify-content-end">
-                                <button
-                                    className="btn btnIn"
-                                    type="button"
-                                    id="nextBtn"
-                                    onClick={this.handleSubmit}
-                                >
-                                    Guardar Alterações
-                                </button>
+                                    handleChange={this.handleChange}
+                                    handleSubmit={this.handleSubmit}
+                                    handleImagem={this.handleImagem}
+                                    handleCV={this.handleCV}
+                                    valores={valores}
+                                />
+                                <div className="row mb-0 col s12 pb-2 justify-content-end">
+                                    <button
+                                        className="btn btnIn"
+                                        type="button"
+                                        id="nextBtn"
+                                        onClick={this.handleSubmit}
+                                    >
+                                        Guardar Alterações
+                                    </button>
                                 </div>
                                 <div className="red-text justify-content-end">
                                     {editError ? <p>{editError}</p> : null}
@@ -242,84 +244,87 @@ class EditarPerfil extends React.Component{
                                     {editSuccess ? <p>{editSuccess}</p> : null}
                                 </div>
                             </div>
-                        :
-                        this.state.selecionado == 2 ?
-                        <div className="col-12 mx-auto">
-                            <FormEditarPerfil_Formacao
-                                valores={valores4}
-                                guardaCampo={this.guardaCampo}
-                                handleChange={this.alteraFormacao}
-                                handleApagar={this.apagaFormacao}
-                            />
-                            <div className="row mb-0 col s12 pb-2 justify-content-end">
-                                <button
-                                    className="btn btnIn"
-                                    type="button"
-                                    id="nextBtn"
-                                    onClick={this.handleSubmit}
-                                >
-                                    Guardar Alterações
-                                </button>
-                            </div>
-                            <div className="red-text justify-content-end">
-                                {editError ? <p>{editError}</p> : null}
-                            </div>
-                            <div className="green-text justify-content-end">
-                                {editSuccess ? <p>{editSuccess}</p> : null}
-                            </div>
-                        </div>
-                        :
-                        this.state.selecionado == 3 ?
-                        <div className="col-12 mx-auto">
-                            <FormEditarPerfil_Password
-                                handleChange={this.handleChange}
-                                valores={valores2}
-                            />
-                            <div className="row mb-0 col s12 pb-2 justify-content-end">
-                                <button
-                                    className="btn btnIn"
-                                    type="button"
-                                    id="nextBtn"
-                                    onClick={this.mudarPassword}
-                                >
-                                    Mudar Password
-                                </button>
-                            </div>
-                            <div className="red-text justify-content-end">
-                                {recoverError ? <p>{recoverError}</p> : null}   
-                            </div>
-                            <div className="green-text justify-content-end">
-                                {recoverSuccess ? <p>{recoverSuccess}</p> : null}
-                            </div>
-                        </div>
-                        :
-                        this.state.selecionado == 4 ?
-                        <div className="col-12 mx-auto">
-                            <FormEditarPerfil_Associar
-                                    handleChange={this.handleChange}
-                                    valores={valores3}
-                            />
-                            <div className="row mb-0 col s12 pb-2 justify-content-end">
-                                <button
-                                    className="btn btnIn"
-                                    type="button"
-                                    id="nextBtn"
-                                    onClick={this.handleSubmit}
-                                >
-                                    Guardar Alterações
-                                </button>
-                            </div>
-                            <div className="red-text justify-content-end">
-                                {editError ? <p>{editError}</p> : null}
-                            </div>
-                            <div className="green-text justify-content-end">
-                                {editSuccess ? <p>{editSuccess}</p> : null}
-                            </div>
-                        </div>
-                        :
-                        <div className="col-12 mx-auto">
-                            {/*Coloca aqui a mensagem*/}
-                        </div>
+                            :
+                            this.state.selecionado == 2 ?
+                                <div className="col-12 mx-auto">
+                                    <FormEditarPerfil_Formacao
+                                        valores={valores4}
+                                        guardaCampo={this.guardaCampo}
+                                        handleChange={this.alteraFormacao}
+                                        handleApagar={this.apagaFormacao}
+                                    />
+                                    <div className="row mb-0 col s12 pb-2 justify-content-end">
+                                        <button
+                                            className="btn btnIn"
+                                            type="button"
+                                            id="nextBtn"
+                                            onClick={this.handleSubmit}
+                                        >
+                                            Guardar Alterações
+                                        </button>
+                                    </div>
+                                    <div className="red-text justify-content-end">
+                                        {editError ? <p>{editError}</p> : null}
+                                    </div>
+                                    <div className="green-text justify-content-end">
+                                        {editSuccess ? <p>{editSuccess}</p> : null}
+                                    </div>
+                                </div>
+                                :
+                                this.state.selecionado == 3 ?
+                                    <div className="col-12 mx-auto">
+                                        <FormEditarPerfil_Password
+                                            handleChange={this.handleChange}
+                                            valores={valores2}
+                                        />
+                                        <div className="row mb-0 col s12 pb-2 justify-content-end">
+                                            <button
+                                                className="btn btnIn"
+                                                type="button"
+                                                id="nextBtn"
+                                                onClick={this.mudarPassword}
+                                            >
+                                                Mudar Password
+                                            </button>
+                                        </div>
+                                        <div className="red-text justify-content-end">
+                                            {recoverError ? <p>{recoverError}</p> : null}
+                                        </div>
+                                        <div className="green-text justify-content-end">
+                                            {recoverSuccess ? <p>{recoverSuccess}</p> : null}
+                                        </div>
+                                    </div>
+                                    :
+                                    this.state.selecionado == 4 ?
+                                        <div className="col-12 mx-auto">
+                                            <FormEditarPerfil_Associar
+                                                handleChange={this.handleChange}
+                                                valores={valores3}
+                                            />
+                                            <div className="row mb-0 col s12 pb-2 justify-content-end">
+                                                <button
+                                                    className="btn btnIn"
+                                                    type="button"
+                                                    id="nextBtn"
+                                                    onClick={this.handleSubmit}
+                                                >
+                                                    Guardar Alterações
+                                                </button>
+                                            </div>
+                                            <div className="red-text justify-content-end">
+                                                {editError ? <p>{editError}</p> : null}
+                                            </div>
+                                            <div className="green-text justify-content-end">
+                                                {editSuccess ? <p>{editSuccess}</p> : null}
+                                            </div>
+                                        </div>
+                                        :
+                                        <div className="col-12 mx-auto my-auto area_PreVisualizar text-center">
+                            <span>
+                                <h1 className="titulo_EditarPerfil">EDITAR PERFIL</h1>
+                                <span className="titulo_SubtituloProjeto">Seleciona a àrea que queres editar e altera o campo que desejas!</span>
+                            </span>
+                                        </div>
                         }
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import moment from 'moment'
 import {storage} from "../../config/fbConfig";
 import emailjs from "emailjs-com";
 import {addCandidatura} from '../../store/actions/jobActions'
+import {Modal} from "react-bootstrap";
 
 class EmpregosDetalhes extends React.Component{
 
@@ -20,7 +21,9 @@ class EmpregosDetalhes extends React.Component{
             primeiroNome: "",
             nomeAnuncio: "",
             emailCandidato: "",
-            areaTrabalho: ""
+            areaTrabalho: "",
+            emailAnuncio: "",
+            setShowM: false
         };
     }
 
@@ -34,17 +37,26 @@ class EmpregosDetalhes extends React.Component{
         })
     }
 
-    guardaInfo(primeiroNome, nomeAnuncio, emailCandidato, areaTrabalho){
-        if (this.state.primeiroNome === "" && this.state.ultimoNome === "" && this.state.nomeAnuncio === "") {
+    guardaInfo(primeiroNome, nomeAnuncio, emailCandidato, areaTrabalho, emailAnuncio){
+        if (this.state.primeiroNome === "" && this.state.nomeAnuncio === "" && this.state.emailCandidato === "" && this.state.areaTrabalho === "" && this.state.emailAnuncio === "") {
             this.setState({
                 primeiroNome: primeiroNome,
                 nomeAnuncio: nomeAnuncio,
                 emailCandidato: emailCandidato,
-                areaTrabalho: areaTrabalho
+                areaTrabalho: areaTrabalho,
+                emailAnuncio: emailAnuncio
             })
         }
     }
 
+    handleCloseM = () => {
+        this.setState({setShowM: false})
+
+    };
+    handleShowM = () => {
+        //console.log("oi");
+        this.setState({setShowM: true})
+    };
 
     enviaMail(e, parametro){
         let id = this.props.match.params.id;
@@ -60,6 +72,7 @@ class EmpregosDetalhes extends React.Component{
                 candidato.candidatos.push(auth.uid)
                 console.log(candidato)
                 this.props.addCandidatura(candidato)
+                this.handleCloseM();
                 //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             }, (error) => {
                 console.log(error.text);
@@ -68,11 +81,13 @@ class EmpregosDetalhes extends React.Component{
 
     render(){
         const { job, auth, users } = this.props;
+        let contador1 = 0;
         if (job) {
+            console.log(job);
             {users && users.map(dados => {
                 if (dados.id === auth.uid) {
                     //console.log(dados);
-                    this.guardaInfo(dados.FirstName, job.NomeAnuncio, auth.email, dados.AreaTrabalho)
+                    this.guardaInfo(dados.FirstName, job.NomeAnuncio, auth.email, dados.AreaTrabalho, job.emailUtilizador)
                 }
             })}
             return (
@@ -159,7 +174,7 @@ class EmpregosDetalhes extends React.Component{
                                                 }
                                             </span>
                                         </span>
-                                            <span className="col-2 Emprego_List_Info_Princ_Final">
+                                        <span className="col-2 Emprego_List_Info_Princ_Final">
                                             <span className="Info_Emprego_List">{moment(job.ListingTime.toDate()).calendar()}</span>
                                         </span>
                                     </div>
@@ -184,22 +199,37 @@ class EmpregosDetalhes extends React.Component{
                                             if (dados.id === auth.uid && dados.TipoUtilizador === 1) {
                                                 return (
                                                     <div className="col-12 row justify-content-center m-0">
-                                                        <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2"
-                                                                onClick={(coisas) => this.enviaMail(coisas, this.state)}>
-                                                            Envia a tua
-                                                            Candidatura!
-                                                            <img src={Seta2} className="ml-2" style={{
-                                                                width: "15px",
-                                                                height: "auto",
-                                                                verticalAlign: "text-bottom"
-                                                            }}/>
-                                                        </button>
+                                                        {job.candidatos.map(info => {
+                                                            if (dados.id === info){
+                                                                contador1++;
+                                                                return(
+                                                                    <button className="Emprego_Det_But_Criar_Conta_3 mt-2 mb-2" disabled>
+                                                                        A tua candidatura foi enviada!
+                                                                    </button>
+                                                                )
+                                                            }
+                                                        })}
+                                                        {contador1 === 0 ?
+                                                            <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" onClick={() => this.handleShowM()}>
+                                                                Envia a tua
+                                                                Candidatura!
+                                                                <img src={Seta2} className="ml-2" style={{
+                                                                    width: "15px",
+                                                                    height: "auto",
+                                                                    verticalAlign: "text-bottom"
+                                                                }}/>
+                                                            </button>
+                                                            :
+                                                            <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2 d-none">
+                                                                nada
+                                                            </button>
+                                                        }
                                                     </div>
                                                 )
                                             } else if (dados.id === auth.uid && dados.TipoUtilizador !== 1) {
                                                 return (
                                                     <div className="col-12 row justify-content-center m-0">
-                                                        <button className="Emprego_Det_But_Criar_Conta mt-2 mb-2" disabled>
+                                                        <button className="Emprego_Det_But_Criar_Conta_2 mt-2 mb-2" disabled>
                                                             Envia a tua
                                                             Candidatura!
                                                             <img src={Seta2} className="ml-2" style={{
@@ -271,7 +301,7 @@ class EmpregosDetalhes extends React.Component{
                                                                                                     "Outros Trabalhos"
                                                         }
                                                         <br/>
-                                                        E-mail: pedroaudiovisual00@gmail.com
+                                                        E-mail: {job.emailUtilizador}
                                                     </span>
                                                     <Link to={`/perfil/empresa/${job.IdUser}`}>
                                                         <button className="Emprego_But_Visitar_Perfil mt-2">Ver Perfil</button>
@@ -281,9 +311,46 @@ class EmpregosDetalhes extends React.Component{
                                         )
                                     }
                                 })
-                                }
+                            }
 
                         </div>
+                    </div>
+                    <div id="myModal" className="modal fade">
+                        <Modal
+                            className="bg-transparent mh-100"
+                            size="lg"
+                            show={this.state.setShowM}
+                            onHide={this.handleCloseM}
+                            backdrop="static"
+                            keyboard={false}
+                            aria-labelledby="example-custom-modal-styling-title">
+                            <Modal.Header closeButton>
+                                <Modal.Title id="example-custom-modal-styling-title"
+                                             className="titulomodal">
+                                    Enviar Candidatura</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body id="modalbody">
+                                <div className="container p-0 mt-3 mb-3 cont-fases texto_Modal">
+                                    Tens a certeza que queres enviar a tua candidatura? Se confirmares, irá ser enviado para o utilizador que publicou o anúncio um email com o teu nome, àrea de trabalho e email para que ele te possa contactar no futuro.
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <button
+                                    className="btn btnIn mr-3"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={() => this.handleCloseM()}>
+                                    Cancelar
+                                </button>
+                                <button
+                                    className="btn btnIn"
+                                    type="button"
+                                    id="nextBtn"
+                                    onClick={(coisas) => this.enviaMail(coisas, this.state)}>
+                                    Enviar
+                                </button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
             )

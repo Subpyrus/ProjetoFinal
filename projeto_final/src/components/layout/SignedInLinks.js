@@ -38,8 +38,9 @@ class SignedInLinks extends React.Component {
                                 <li><NavLink to={`/perfil/utilizador/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover"}}></NavLink></li>
                             )
                         } else if (info.id === this.props.id && info.TipoUtilizador === 2) {
+                            this.getImage(info.ImagemPerfil);
                             return(
-                                <li><NavLink to={`/perfil/empresa/${this.props.id}`} className="btn-small btn-floating yellow"></NavLink></li>
+                                <li><NavLink to={`/perfil/empresa/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover", width:"50px", height:"50px"}}></NavLink></li>
                             )
                         }
                     })}
@@ -57,8 +58,9 @@ class SignedInLinks extends React.Component {
                                 <li><NavLink to={`/perfil/utilizador/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover", width:"50px", height:"50px"}}></NavLink></li>
                             )
                         } else if (info.id === this.props.id && info.TipoUtilizador === 2) {
+                            this.getImage(info.ImagemPerfil);
                             return(
-                                <li><NavLink to={`/perfil/empresa/${this.props.id}`} className="btn-small btn-floating yellow"></NavLink></li>
+                                <li><NavLink to={`/perfil/empresa/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover", width:"50px", height:"50px"}}></NavLink></li>
                             )
                         }
                     })}

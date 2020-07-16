@@ -7,6 +7,9 @@ import  { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux'
 import ListaEmpregos from "../jobs/JobList";
+import {Modal} from "react-bootstrap";
+import {storage} from "../../config/fbConfig";
+import ListaCandidatos from '../freelances/ListaCandidatos'
 
 class Freelance extends React.Component {
 
@@ -16,9 +19,19 @@ class Freelance extends React.Component {
             pesquisa: "",
             areaTrabalho: "",
             Distrito: "",
-            orcamento: ""
+            orcamento: "",
+            setShowM: false
         }
     }
+
+    handleCloseM = () => {
+        this.setState({setShowM: false})
+
+    };
+    handleShowM = () => {
+        //console.log("oi");
+        this.setState({setShowM: true})
+    };
 
     render() {
         let contador = 0;
@@ -31,7 +44,7 @@ class Freelance extends React.Component {
                     <div className="row col-12 mb-0 justify-content-center mx-auto">
                         <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4">
                             {freelances && freelances.length > 0 ?
-                                <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} orcamento={this.state.orcamento}/>
+                                <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} orcamento={this.state.orcamento} users={auth.uid}/>
                                 :
                                 <p className="no_jobs">Não foi ainda publicado qualquer tipo de anúncio freelance.<br/>
                                     <span className="no_jobs_sub">Podes sempre procurar por <b>empregos</b>!</span></p>
@@ -53,13 +66,17 @@ class Freelance extends React.Component {
                                                 {freelances && freelances.map(info => {
                                                     if (auth.uid === info.IdUser){
                                                         contador++;
-                                                        //console.log(info);
+                                                        console.log(info);
                                                         return(
                                                             <section className="pl-0 pl-sm-3 text-center text-sm-left" style={{width: "100%"}}>
                                                                 <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}</p>
-                                                                <span className="pt-2 area_meus_anuncios_candidatos justify-content-center justify-content-sm-start">
-                                                                    <i className="fa fa-users fa-2x pb-2"></i>
-                                                                    <span className="mb-0 pl-2" style={{position: "relative", top: "-4px"}}>0/{info.NumeroCandidatos} candidatos</span>
+                                                                <span className="btn btn-flat pt-0 pl-0 area_meus_anuncios_candidatos justify-content-center justify-content-sm-start" onClick={() => this.handleShowM()}>
+                                                                    {info.candidatos.length > 0 ?
+                                                                        <i className="fa fa-users fa-2x pb-2" style={{color: "orange"}}></i>
+                                                                        :
+                                                                        <i className="fa fa-users fa-2x pb-2"></i>
+                                                                    }
+                                                                    <span className="mb-0 pl-2" style={{position: "relative", top: "-4px"}}>{info.candidatos.length}/{info.NumeroCandidatos} candidatos</span>
                                                                 </span>
                                                             </section>
                                                         )
@@ -69,7 +86,7 @@ class Freelance extends React.Component {
                                                     <section className="text-center">
                                                         <p className="area_meus_anuncios_inicial_texto pt-2 pb-2 mb-0">Ainda não tens anúncios</p>
                                                     </section>
-                                                        :
+                                                    :
                                                     <section className="text-center d-none">
                                                         <p className="area_meus_anuncios_inicial_texto pt-2 pb-2 mb-0">Ainda não tens anúncios</p>
                                                     </section>
@@ -95,6 +112,48 @@ class Freelance extends React.Component {
                         }
                     </div>
                 </div>
+                {users && users.map(dados => {
+                    if (auth.uid === dados.id && dados.TipoUtilizador === 1) {
+                        return (
+                            <div id="myModal" className="modal fade">
+                                <Modal
+                                    className="bg-transparent mh-100"
+                                    size="lg"
+                                    show={this.state.setShowM}
+                                    onHide={this.handleCloseM}
+                                    backdrop="static"
+                                    keyboard={false}
+                                    aria-labelledby="example-custom-modal-styling-title">
+                                    <Modal.Header closeButton>
+                                        <Modal.Title id="example-custom-modal-styling-title"
+                                                     className="titulomodal">
+                                            Utilizadores inscritos</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body id="modalbody">
+                                        <div className="container p-0 mt-3 cont-fases">
+                                            {freelances && freelances.map(info => {
+                                                if (auth.uid === info.IdUser){
+                                                    return(
+                                                        <div className="col-12">
+                                                            {info.candidatos.map(coisas => {
+                                                                return(
+                                                                    <span>
+                                                                        <ListaCandidatos candidatos={coisas}/>
+                                                                        <hr/>
+                                                                    </span>
+                                                                )
+                                                            })}
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </Modal.Body>
+                                </Modal>
+                            </div>
+                        )
+                    }
+                })}
             </div>
         )
     }

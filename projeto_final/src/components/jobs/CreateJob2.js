@@ -35,7 +35,8 @@ class CreateJob2 extends React.Component {
         Localizacao: '',
         Requisitos: '',
         Beneficios: '',
-        IdUser: ''
+        IdUser: '',
+        emailUtilizador: ''
     };
 
     // Próximo Step
@@ -57,8 +58,8 @@ class CreateJob2 extends React.Component {
 
         const {auth} = this.props;
         const { Step } = this.state;
-        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser} = this.state;
-        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser};
+        const {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser, emailUtilizador} = this.state;
+        const valores = {TipoAnuncio, NomeAnuncio, Salario, TipoTrabalho, NumeroCandidatos, AreaTrabalho, Descricao, Localizacao, Requisitos, Beneficios, IdUser, emailUtilizador};
 
         if(!auth.uid) return <Redirect to='/entrar'/>
 

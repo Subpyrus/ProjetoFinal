@@ -1240,6 +1240,18 @@ body {
     border-radius: 5px;
 }
 
+.Area_Emprego_2{
+    padding: 5px 20px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+
+.zona_da_area{
+    display: flex;
+    flex-direction: row;
+}
+
 .Titulo_Emprego_List{
     font-family: 'Barlow Semibold', sans-serif;
     font-size: 17px;
@@ -1404,6 +1416,19 @@ body {
 .Emprego_Det_But_Criar_Conta{
     font-family: 'Barlow Medium', sans-serif;
     background-color: #ec9400;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+.Emprego_Det_But_Criar_Conta_3{
+    font-family: 'Barlow Medium', sans-serif;
+    background-color: green;
     font-size: 15px;
     border: none;
     border-radius: 5px;
@@ -1781,6 +1806,17 @@ body {
     padding: 7px 30px;
     text-transform: uppercase;
 }
+.Candidatos_But_Visitar_Perfil{
+    font-family: 'Barlow Medium', sans-serif;
+    background-color: #ec9400;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
 .Criador_But_Ver_Perfil_2{
     font-family: 'Barlow', sans-serif;
     background-color: darkgrey;
@@ -1799,6 +1835,51 @@ body {
     transition: all 0.4s ease-in-out;
 }
 /* Criar Projeto */
+
+.Emprego_Det_But_Criar_Conta_2{
+    font-family: 'Barlow Medium', sans-serif;
+    background-color: grey;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+
+.texto_Modal{
+    font-family: "Barlow Semibold", sans-serif;
+    font-size: 17px;
+}
+
+.texto_Candidatos{
+    font-size: 25px;
+    color: black;
+}
+.texto_Candidatos:hover{
+    font-size: 25px;
+    font-family: "Barlow Semibold", sans-serif;
+    color: #ec9400;
+    transition: 0.4s;
+}
+
+.Criador_But_Ver_Perfil_2{
+    font-family: 'Barlow', sans-serif;
+    background-color: grey;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
+
+.titulo_EditarPerfil{
+    font-family: "Barlow ExtraBold", sans-serif;
+    font-size: 50px;
+}
 
 .body_CriarProjeto{
     background-color: #f2f2f2;
@@ -2105,6 +2186,11 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    .zona_da_area{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .P_Ini_seg{
         padding-top: 5vh;
@@ -2121,7 +2207,9 @@ body {
         flex-direction: column;
         align-items: flex-start;
     }
-
+    .Emprego_List_Info_Princ_Final{
+        display: none;
+    }
     .Titulo_Formacao_3{
         font-family: 'Barlow ExtraBold', sans-serif;
         font-size: 10vw;
