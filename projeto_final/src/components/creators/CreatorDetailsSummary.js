@@ -223,7 +223,7 @@ class CreatorDetailsSummary extends React.Component {
                                         {!auth.uid || users.Curriculo == null ?
                                             <button className="Perfil_But_Seguir_2 mt-4 mr-4 text-uppercase" disabled>Transferir CV</button>
                                             :
-                                            <a href={users.Curriculo} download={users.Curriculo}>
+                                            <a href={users.Curriculo} target="_blank">
                                                 <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
                                             </a>
                                             
