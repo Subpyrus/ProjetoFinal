@@ -54,7 +54,7 @@ class SignedInLinks extends React.Component {
                         if (info.id === this.props.id && info.TipoUtilizador === 1){
                             this.getImage(info.ImagemPerfil);
                             return(
-                                <li><NavLink to={`/perfil/utilizador/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover"}}></NavLink></li>
+                                <li><NavLink to={`/perfil/utilizador/${this.props.id}`} className="btn-small btn-floating" style={{backgroundImage: `url("${this.state.imagemPerfil}")`, backgroundSize: "cover", width:"50px", height:"50px"}}></NavLink></li>
                             )
                         } else if (info.id === this.props.id && info.TipoUtilizador === 2) {
                             return(

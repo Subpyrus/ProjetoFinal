@@ -11,6 +11,8 @@
     "emailjs-com": "^2.4.1",
     "firebase": "^7.15.5",
     "jquery": "^3.5.1",
+    "materialize": "^1.0.0",
+    "materialize-css": "^1.0.0",
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
