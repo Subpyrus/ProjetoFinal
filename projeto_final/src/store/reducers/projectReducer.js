@@ -10,10 +10,18 @@ const projectReducer = (state = initState, action) => {
             return {
                 ...state
             }
+        case "ADD_VIS":
+            return {
+                ...state
+            }
+        case "ADD_VIS_ERROR":
+            return {
+                ...state
+            }
         default :
-        return {
-            ...state
-        }
+            return {
+                ...state
+            }
     }
 }
 

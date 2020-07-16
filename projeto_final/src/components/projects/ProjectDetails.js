@@ -10,6 +10,7 @@ import {firestoreConnect} from "react-redux-firebase";
 import Info from './InfoList';
 import {storage} from "../../config/fbConfig";
 import FasesList from "./FasesList";
+import  { addVis } from '../../store/actions/projectActions'
 
 
 class ProjectDetails extends React.Component {
@@ -24,12 +25,24 @@ class ProjectDetails extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const {auth, projects, users} = this.props;
+        for (var a in projects) {
+            if(projects[a].id == this.props.match.params.id){
+                let valor = {
+                    vis:projects[a].Vis + 1 ,
+                    id:projects[a].id
+                }
+                this.props.addVis(valor);
+            }
+        }
+    }
+
     handleCloseM = () => {
         this.setState({setShowM: false})
 
     };
     handleShowM = () => {
-        //console.log("oi");
         this.setState({setShowM: true})
     };
 
@@ -37,17 +50,14 @@ class ProjectDetails extends React.Component {
         this.setState({setShowC: !this.state.setShowC});
         if (this.state.setShowC === true) {
             this.setState({src_Img: Coracao2});
-            //console.log(this.state.src_Img);
         } else {
             this.setState({src_Img: Coracao});
-            //console.log(this.state.src_Img);
         }
     };
 
     getImage = (image) => {
         storage.ref('files').child(`${image}`).getDownloadURL().then((url) => {
             if (this.state.imagem == "") {
-                console.log(url);
                 this.setState({imagem: url})
             }
         })
@@ -55,13 +65,10 @@ class ProjectDetails extends React.Component {
 
     render() {
         const {auth, projects, users} = this.props;
-        //console.log(projects);
-        //console.log(this.props.match.params.id);
         return (
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
                 {projects && projects.map(dados => {
                     if (dados.id === this.props.match.params.id) {
-                        console.log(dados);
                         return (
                             <span className="col-lg-10 col-md-12">
                             <div className="Proj_Det_Conteudo pl-0 pl-sm-5 pr-sm-5 pr-0">
@@ -133,7 +140,7 @@ class ProjectDetails extends React.Component {
                                      d-flex flex-lg-column flex-md-row mt-4">
                                             <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
                                             <span className="mt-1">
-                                        <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">533</span>
+                                    <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
                                         <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">42</span>
                                         <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">1</span>
                                             <i className="fa fa-star-o fa-lg"/>
@@ -401,8 +408,15 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addVis: (valor) => dispatch(addVis(valor))
+    }
+}
+
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
         {collection: 'projects'},
         {collection: 'users'}
