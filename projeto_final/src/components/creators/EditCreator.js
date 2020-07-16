@@ -87,13 +87,13 @@ class EditarPerfil extends React.Component{
                 console.log(error);
             },
             () => {
-                storage.ref("cvs").child(newName).getDownloadURL().then(url => {});
+                storage.ref("cvs").child(newName).getDownloadURL().then(url => {
+                    this.setState({
+                        curriculo: url
+                    });
+                });
             }
         )
-
-        this.setState({
-            curriculo: newName
-        });
     };
 
     handleImagem = (ficheiro, enviar) => {
