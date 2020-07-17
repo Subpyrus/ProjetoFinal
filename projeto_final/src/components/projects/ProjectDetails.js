@@ -376,11 +376,6 @@ class ProjectDetails extends React.Component {
                                                                                 info.Local
                                                     }
                                                 </span>
-                                                    {auth.uid ?
-                                                        <button className="Criador_But_Ver_Perfil mt-1">SEGUIR</button>
-                                                        :
-                                                        <button className="Criador_But_Ver_Perfil_2 mt-1 disabled">SEGUIR</button>
-                                                    }
                                                 </div>
                                             )
                                         }
