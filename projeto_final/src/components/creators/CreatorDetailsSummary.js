@@ -87,6 +87,7 @@ class CreatorDetailsSummary extends React.Component {
         }else {
             suf = "a"
         }
+        console.log(users);
         return (
             <div className="row mb-0">
                 <div className="Perfil_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
@@ -194,24 +195,30 @@ class CreatorDetailsSummary extends React.Component {
                                     {users.LinkFace && users.LinkFace !== "" || users.LinkLinked && users.LinkLinked !== "" || users.LinkInsta && users.LinkInsta !== "" || users.LinkWeb && users.LinkWeb !== "" ?
                                         <span>
                                             {users.LinkFace && users.LinkFace !== "" ?
-                                                <a href={users.LinkFace}>
+                                                <a href={users.LinkFace} style={{textDecoration: "none"}}>
                                                     <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
                                                 </a>
                                                 :
                                                 <i className="fa fa-facebook fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkLinked && users.LinkLinked !== "" ?
-                                                <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
+                                                <a href={users.LinkLinked} style={{textDecoration: "none"}}>
+                                                    <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
+                                                </a>
                                                 :
                                                 <i className="fa fa-linkedin fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkInsta && users.LinkInsta !== "" ?
-                                                <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
+                                                <a href={users.LinkInsta} style={{textDecoration: "none"}}>
+                                                    <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
+                                                </a>
                                                 :
                                                 <i className="fa fa-instagram fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkWeb && users.LinkWeb !== "" ?
-                                                <span className="Perfil_Website">website</span>
+                                                <a href={users.LinkWeb} style={{textDecoration: "none"}}>
+                                                    <span className="Perfil_Website">website</span>
+                                                </a>
                                                 :
                                                 <span className="Perfil_Website d-none">website</span>
                                             }
@@ -260,7 +267,7 @@ class CreatorDetailsSummary extends React.Component {
                                     this.state.valorF == 1 ?
                                         <ListProjectsPerfil projects={projetos} id={id_pass} id_user={id_user}/>
                                         :
-                                        <ListFavouritesPerfil/>
+                                        <ListFavouritesPerfil favoritos={users.Favoritos} projects={projetos}/>
                                 }
                             </span>
                         <span className="col-12 d-block d-md-none" style={{display: "flex"}}>

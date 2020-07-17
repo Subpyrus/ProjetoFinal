@@ -77,35 +77,7 @@ class Filtros extends React.Component {
                             <option value="Viseu">Viseu</option>
                         </select>
                     </span>
-                    {this.state.pagina == "projeto" || this.state.pagina == "criador" ?
-                    <span className="col-6 col-lg-2 item_Filtro">
-                        <select
-                            className="aparece"
-                            onChange={this.handleChange('Destaques')}
-                        >
-                            <option value="" disabled selected>Destaques</option>
-                            <option value="Mango">Mango</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Apple">Apple</option>
-                        </select>
-                    </span>
-                        :
-                        <span className="col-6 col-lg-2 item_Filtro">
-                            <select
-                                className="aparece"
-                                onChange={this.handleChange('Orcamento')}
-                            >
-                                <option value="" disabled selected>Orçamento</option>
-                                <option value="">Todos</option>
-                                <option value="0">0 a 250€</option>
-                                <option value="251">251 a 500€</option>
-                                <option value="501">501€ a 750€</option>
-                                <option value="751">751€ a 1000€</option>
-                                <option value="1001">1001€ +</option>
-                            </select>
-                        </span>
-                    }
-                        <span className="col-6 col-lg-3 item_Filtro2">
+                    <span className="col-12 col-lg-4 item_Filtro2">
                         <div className="input-field">
                             <input
                                 id="Pesquisa"

@@ -1267,7 +1267,12 @@ body {
     font-family: 'Barlow Semibold', sans-serif;
     color: #797c80;
 }
-
+.batatas_fritas{
+    display: block;
+}
+.batatas_fritas_2{
+    display: none;
+}
 .Empregos_Criar_Conta{
     height: auto;
     width: 100%;
@@ -1375,6 +1380,9 @@ body {
     font-family: "Barlow Semibold", sans-serif;
     font-size: 17px;
 }
+.icon_creators{
+    float: right;
+}
 .area_meus_anuncios_inicial_texto_1{
     font-family: "Barlow Semibold", sans-serif;
     font-size: 20px;
@@ -1383,6 +1391,12 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.area_meus_anuncios_candidatos:hover{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: inherit;
 }
 .no_jobs {
     font-family: "Barlow ExtraBold", sans-serif;
@@ -2142,6 +2156,12 @@ body {
         width: 50%;
         height: auto;
     }
+    .batatas_fritas{
+        display: none;
+    }
+    .batatas_fritas_2{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -2186,7 +2206,10 @@ body {
         -moz-box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
         box-shadow: 10px 10px 20px -3px rgba(0,0,0,0.42);
     }
-
+    .icon_creators{
+        float: none;
+        padding-left: 15px;
+    }
     .alinha_categorias_Empresas{
         display: flex;
         flex-direction: column;
