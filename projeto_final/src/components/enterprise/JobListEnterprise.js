@@ -16,7 +16,30 @@ class ListaEmpregosEmpresa extends React.Component{
                     <div className="Emprego_Listado row">
                         <span className="col-12 col-sm-9 pl-sm-4 ml-0 pl-0 mr-0 pr-0 Emprego_List_Info_Princ">
                             <span className="mb-1 Titulo_Emprego_List">{info.NomeAnuncio}</span>
-                            <span className="mb-1 Info_Emprego_List">Localização: {info.Localizacao}</span>
+                            <span className="mb-1 Info_Emprego_List">Localização: {info.Localizacao === "Braganca" ?
+                                    "Bragança"
+                                    :
+                                    info.Localizacao === "CasteloBranco" ?
+                                        "Castelo Branco"
+                                        :
+                                        info.Localizacao === "Evora" ?
+                                            "Évora"
+                                            :
+                                            info.Localizacao === "Santarem" ?
+                                                "Santarém"
+                                                :
+                                                info.Localizacao === "Setubal" ?
+                                                    "Setúbal"
+                                                    :
+                                                    info.Localizacao === "VianaCastelo" ?
+                                                        "Viana do Castelo"
+                                                        :
+                                                        info.Localizacao === "VilaReal" ?
+                                                            "Vila Real"
+                                                            :
+                                                            info.Localizacao
+                                }
+                                </span>
                             <span className="mb-3 Info_Emprego_List">
                                 {info.TipoTrabalho === "FullTime" ?
                                     "Full-Time"

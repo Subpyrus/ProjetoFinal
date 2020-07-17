@@ -37,8 +37,8 @@ class Empregos extends React.Component{
             <div>
                 <Filtros pagina="emprego" search={this.atualiza} areaTrabalho={this.atualizaArea} distrito={this.atualizaDistrito}/>
                 <div className="container-fluid Body_Empregos">
-                    <div className="row col-12 mb-0 justify-content-center">
-                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5">
+                    <div className="row col-12 mb-0 justify-content-center mx-auto">
+                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 ml-5 batatas_fritas">
                             {jobs && jobs.length > 0 ?
                                 <ListaEmpregos jobs={jobs} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} users={auth.uid}/>
                                 :
@@ -50,7 +50,7 @@ class Empregos extends React.Component{
                             users.map(dados => {
                                 if (auth.uid === dados.id && dados.TipoUtilizador === 2){
                                     return(
-                                        <div className="col-12 col-md-8 col-lg-3 mt-lg-5 ml-lg-4 mb-5">
+                                        <div className="col-12 col-md-8 col-lg-3 mt-4 mt-lg-5 ml-lg-4 mb-0 mb-lg-5">
                                             <Link to="/empregos/criar">
                                                 <button className="Emprego_But_Criar_Anuncio_Freelance col-12" style={{width: "100%"}}>Criar anúncio</button>
                                             </Link>
@@ -105,6 +105,14 @@ class Empregos extends React.Component{
                                 </div>
                             </div>
                         }
+                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 batatas_fritas_2">
+                            {jobs && jobs.length > 0 ?
+                                <ListaEmpregos jobs={jobs} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} users={auth.uid}/>
+                                :
+                                <p className="no_jobs">Não foi ainda publicado qualquer tipo de emprego.<br/>
+                                    <span className="no_jobs_sub">Podes sempre procurar por trabalhos de <b>Freelance</b>!</span></p>
+                            }
+                        </div>
                     </div>
                 </div>
                 {users && users.map(dados => {

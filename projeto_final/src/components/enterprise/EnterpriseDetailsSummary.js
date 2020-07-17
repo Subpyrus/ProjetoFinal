@@ -38,11 +38,11 @@ class EnterpriseDetailsSummary extends React.Component{
                                 <span className="m-auto Perfil_Info_Inicial_Esq">
                                     <img src={this.state.imagemPerfil} className="Foto_Perfil_Empresa"/>
                                     {id_user === id_pass ?
-                                        <Link to="/perfil/editar">
+                                        <Link to="/perfil/empresa/editar">
                                             <button className="Perfil_But_Seguir mt-5 text-uppercase">Editar perfil</button>
                                         </Link>
                                         :
-                                        <button className="Perfil_But_Seguir mt-5 text-uppercase">Seguir</button>
+                                        <button className="Perfil_But_Seguir mt-5 text-uppercase d-none">nada</button>
                                     }
                                     <span className="mt-3">
                                         <img src={localizacao} className="Icone_Localizacao" height="20px"
@@ -71,16 +71,6 @@ class EnterpriseDetailsSummary extends React.Component{
                                                                     users.Local
                                         }
                                     </span>
-                                    </span>
-                                    <span className="mt-3 row">
-                                        <span className="col-6 Perfil_Seguidores">
-                                            <span className="Seguidores">200</span>
-                                            <span className="Texto_Seguir">SEGUIDORES</span>
-                                        </span>
-                                        <span className="col-6 Perfil_Seguidores">
-                                            <span className="Seguidores">63</span>
-                                            <span className="Texto_Seguir">A SEGUIR</span>
-                                        </span>
                                     </span>
                                 </span>
                         </div>

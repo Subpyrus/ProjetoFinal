@@ -42,7 +42,7 @@ class Freelance extends React.Component {
                 <Filtros pagina="freelance" search={this.atualiza} areaTrabalho={this.atualizaArea} distrito={this.atualizaDistrito} orcamento={this.atualizaOrcamento}/>
                 <div className="container-fluid Body_Empregos">
                     <div className="row col-12 mb-0 justify-content-center mx-auto">
-                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4">
+                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 batatas_fritas">
                             {freelances && freelances.length > 0 ?
                                 <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} orcamento={this.state.orcamento} users={auth.uid}/>
                                 :
@@ -55,7 +55,7 @@ class Freelance extends React.Component {
                                 //console.log(dados);
                                 if (auth.uid === dados.id && dados.TipoUtilizador === 1){
                                     return(
-                                        <div className="col-12 col-md-8 col-lg-3 mt-lg-5 ml-lg-4 mb-5">
+                                        <div className="col-12 col-md-8 col-lg-3 mt-4 mt-lg-5 ml-lg-4 mb-0 mb-lg-5">
                                             <Link to="/freelance/criar">
                                                 <button className="Emprego_But_Criar_Anuncio_Freelance col-12" style={{width: "100%"}}>Criar anúncio</button>
                                             </Link>
@@ -69,7 +69,9 @@ class Freelance extends React.Component {
                                                         console.log(info);
                                                         return(
                                                             <section className="pl-0 pl-sm-3 text-center text-sm-left" style={{width: "100%"}}>
-                                                                <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}</p>
+                                                                <span>
+                                                                    <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}<span className="pr-3 icon_creators"><i className="fa fa-trash"/></span></p>
+                                                                </span>
                                                                 <span className="btn btn-flat pt-0 pl-0 area_meus_anuncios_candidatos justify-content-center justify-content-sm-start" onClick={() => this.handleShowM()}>
                                                                     {info.candidatos.length > 0 ?
                                                                         <i className="fa fa-users fa-2x pb-2" style={{color: "orange"}}></i>
@@ -110,6 +112,14 @@ class Freelance extends React.Component {
                                 </div>
                             </div>
                         }
+                        <div className="col-sm-12 col-lg-7 mt-5 mb-sm-2 mb-lg-4 batatas_fritas_2">
+                            {freelances && freelances.length > 0 ?
+                                <ListaFreelance freelances={freelances} pesquisa={this.state.pesquisa} areaTrabalho={this.state.areaTrabalho} distrito={this.state.Distrito} orcamento={this.state.orcamento} users={auth.uid}/>
+                                :
+                                <p className="no_jobs">Não foi ainda publicado qualquer tipo de anúncio freelance.<br/>
+                                    <span className="no_jobs_sub">Podes sempre procurar por <b>empregos</b>!</span></p>
+                            }
+                        </div>
                     </div>
                 </div>
                 {users && users.map(dados => {

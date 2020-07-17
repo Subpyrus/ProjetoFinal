@@ -22,6 +22,7 @@ import FreelanceDetalhes from './components/freelances/FreelanceDetails';
 import CreateFreelance1 from './components/freelances/CreateFreelance';
 import CreateFreelance2 from './components/freelances/CreateFreelance2';
 import EditarPerfil from './components/creators/EditCreator';
+import EditarEnterprise from './components/enterprise/EditEnterprise';
 import CreateJob1 from './components/jobs/CreateJob';
 import CreateJob2 from './components/jobs/CreateJob2';
 import PerfilEmpresa from './components/enterprise/EnterpriseDetails';
@@ -77,6 +78,7 @@ class App extends Component {
               <Route exact path="/freelance/criar" component={CreateFreelance1}/>
               <Route path="/freelance/criar/:id" component={CreateFreelance2}/>
               <Route path="/perfil/editar" component={EditarPerfil}/>
+              <Route path="/perfil/empresa/editar" component={EditarEnterprise}/>
               <Route exact path="/empregos/criar" component={CreateJob1}/>
               <Route path="/empregos/criar/:id" component={CreateJob2}/>
               <Route path="/perfil/empresa/:id" component={PerfilEmpresa}/>

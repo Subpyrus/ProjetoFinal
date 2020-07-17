@@ -211,17 +211,22 @@ class ProjectDetails extends React.Component {
                                             </button>
                                         }
                                         <div className="Proj_Det_Subtitulo_Parte2 align-items-lg-end
-                                     d-flex flex-lg-column flex-md-row mt-4">
+                                        d-flex flex-lg-column flex-md-row mt-4">
                                             <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
                                             <span className="mt-1">
-                                    <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
+                                        <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
                                         <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">42</span>
-                                        <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">1</span>
-                                        <span  onClick={this.handleFav}>
-                                            <i className="fa fa-star-o fa-lg"/>
+                                        <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">{dados.Comments.length}</span>
+                                                {auth.uid ?
+                                                    <span  onClick={this.handleFav}>
+                                                        <i className="fa fa-star-o fa-lg"/>
+                                                    </span>
+                                                    :
+                                                    <span className="d-none">
+                                                        nada
+                                                    </span>
+                                                }
                                         </span>
-                                            
-                                    </span>
                                         </div>
                                     </div>
                                 </div>
@@ -371,11 +376,6 @@ class ProjectDetails extends React.Component {
                                                                                 info.Local
                                                     }
                                                 </span>
-                                                    {auth.uid ?
-                                                        <button className="Criador_But_Ver_Perfil mt-1">SEGUIR</button>
-                                                        :
-                                                        <button className="Criador_But_Ver_Perfil_2 mt-1 disabled">SEGUIR</button>
-                                                    }
                                                 </div>
                                             )
                                         }
@@ -434,13 +434,6 @@ class ProjectDetails extends React.Component {
                                             }
                                         }
                                         )}
-                                            <div className="seccao_comentarios">
-                                            {dados.Comments.map(info => {
-                                                return(
-                                                    <ComentariosList info={info} users={users}/>
-                                                )
-                                            })}
-                                            </div>
                                     </div>
                                     :
                                     <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 ml-2 ml-md-0">
@@ -450,7 +443,13 @@ class ProjectDetails extends React.Component {
                                         </span>
                                     </div>
                                 }
-
+                                    <div className="seccao_comentarios">
+                                        {dados.Comments.map(info => {
+                                            return(
+                                                <ComentariosList info={info} users={users}/>
+                                            )
+                                        })}
+                                    </div>
                             </div>
                                 <div id="myModal" className="modal fade">
                                     <Modal
