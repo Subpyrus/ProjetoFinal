@@ -123,7 +123,7 @@ class ProjectDetails extends React.Component {
             const isFavIn = (element) => element == auth.uid;
             const indexArray = obj.idLikes.findIndex(isFavIn)
             if(indexArray == -1) {
-                obj.idProj.push(this.props.match.params.id)
+                obj.idLikes.push(this.props.match.params.id)
             }else{
                 console.log("ja deste")
             }
