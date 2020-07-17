@@ -106,7 +106,8 @@ class FormEditarPerfil_Geral extends React.Component {
                         :
                         <img src={valores.imagemMostra} alt="" style={{maxWidth: "100%", height: "auto", borderRadius: "10px"}}/>
                     }
-                    <span className="btn-flat mt-1" onClick={() => this.adicionarImagem()} style={{fontFamily: "Barlow Semibold, sans-serif"}}>Alterar Imagem</span>
+                    <button className="alterar_img mt-1 mb-3" onClick={() => this.adicionarImagem()}>Editar</button>
+                    <p>*Obrigatório imagem com uma proporção de 1:1.</p>
                     <input type="file" hidden id="AddImagem" onChange={this.escolhaImagem}
                            multiple={false}/>
                 </div>
