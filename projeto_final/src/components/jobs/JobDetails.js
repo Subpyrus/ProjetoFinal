@@ -175,7 +175,7 @@ class EmpregosDetalhes extends React.Component{
                                             </span>
                                         </span>
                                         <span className="col-2 Emprego_List_Info_Princ_Final">
-                                            <span className="Info_Emprego_List">{moment(job.ListingTime.toDate()).calendar()}</span>
+                                            <span className="Info_Emprego_List">{moment(job.ListingTime.toDate()).format('L')}</span>
                                         </span>
                                     </div>
                                     <hr className="hr col-11"/>

@@ -13,7 +13,9 @@ import FasesList from "./FasesList";
 import  { addVis } from '../../store/actions/projectActions'
 import { addComment } from '../../store/actions/projectActions'
 import { add_remFav } from '../../store/actions/authActions';
+import { addLike } from '../../store/actions/projectActions';
 import ComentariosList from './ComentariosList'
+import moment from 'moment'
 
 
 class ProjectDetails extends React.Component {
@@ -100,21 +102,41 @@ class ProjectDetails extends React.Component {
         this.props.add_remFav(obj);
     }
 
+    handleLike = ()  => {
+        const {auth, projects} = this.props;
+        let obj = {
+            id: this.props.match.params.id,
+            likes: 0,
+            idLikes: []
+        }
+
+        for (var a in projects) {
+            if(projects[a].id == this.props.match.params.id){
+                obj.likes = projects[a].Likes
+                obj.idLikes.push(...projects[a].idLikes)
+            }
+        }
+        if(obj.idLikes.length == 0) {
+            obj.idLikes.push(auth.uid)
+            obj.likes = obj.likes +  1
+        }else {
+            const isFavIn = (element) => element == auth.uid;
+            const indexArray = obj.idLikes.findIndex(isFavIn)
+            if(indexArray == -1) {
+                obj.idProj.push(this.props.match.params.id)
+            }else{
+                console.log("ja deste")
+            }
+        }
+        this.props.addLike(obj)
+    }
+
     handleCloseM = () => {
         this.setState({setShowM: false})
 
     };
     handleShowM = () => {
         this.setState({setShowM: true})
-    };
-
-    handleShowC = () => {
-        this.setState({setShowC: !this.state.setShowC});
-        if (this.state.setShowC === true) {
-            this.setState({src_Img: Coracao2});
-        } else {
-            this.setState({src_Img: Coracao});
-        }
     };
 
     getImage = (image) => {
@@ -142,7 +164,6 @@ class ProjectDetails extends React.Component {
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
                 {projects && projects.map(dados => {
                     if (dados.id === this.props.match.params.id) {
-                        console.log(dados);
                         return (
                             <span className="col-lg-10 col-md-12">
                             <div className="Proj_Det_Conteudo pl-0 pl-sm-5 pr-sm-5 pr-0">
@@ -212,10 +233,10 @@ class ProjectDetails extends React.Component {
                                         }
                                         <div className="Proj_Det_Subtitulo_Parte2 align-items-lg-end
                                         d-flex flex-lg-column flex-md-row mt-4">
-                                            <span className="mt-md-1 mt-lg-0 d-none d-lg-block">15 de Julho, 2018</span>
+                                            <span className="mt-md-1 mt-lg-0 d-none d-lg-block">{moment(dados.ListingTime.toDate()).format('L')}</span>
                                             <span className="mt-1">
                                         <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
-                                        <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">42</span>
+                                        <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">{dados.Likes}</span>
                                         <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">{dados.Comments.length}</span>
                                                 {auth.uid ?
                                                     <span  onClick={this.handleFav}>
@@ -247,16 +268,11 @@ class ProjectDetails extends React.Component {
                                 }
                                 {auth.uid ?
                                     <div className="Proj_Det_Likes justify-content-center mt-5 mb-4">
-                                        <img className="like" src={this.state.src_Img} width="75px" height="75px"
-                                             onClick={this.handleShowC}/>
-                                        <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
+                                        <img className="like" onClick={this.handleLike} src={this.state.src_Img} width="75px" height="75px"/>
+                                        <h1 className="ml-3 Proj_Det_Nr_Likes">{dados.Likes}</h1>
                                     </div>
                                     :
-                                    <div className="Proj_Det_Likes justify-content-center mt-5 mb-4 d-none">
-                                        <img className="like" src={this.state.src_Img} width="75px" height="75px"
-                                             onClick={this.handleShowC}/>
-                                        <h1 className="ml-3 Proj_Det_Nr_Likes">42</h1>
-                                    </div>
+                                    <div></div>
                                 }
 
                                 {dados.ferramentas !== "" || dados.empresasProjeto !== "" ?
@@ -519,7 +535,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addVis: (valor) => dispatch(addVis(valor)),
         addComment: (obj) => dispatch(addComment(obj)),
-        add_remFav: (obj) => dispatch(add_remFav(obj))
+        add_remFav: (obj) => dispatch(add_remFav(obj)),
+        addLike: (obj) => dispatch(addLike(obj))
     }
 }
 

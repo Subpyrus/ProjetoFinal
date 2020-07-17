@@ -6,6 +6,8 @@ export const createProject = (project) => {
             ...project,
             Comments: [],
             Vis:0,
+            Likes:0,
+            idLikes:[],
             ListingTime: new Date()
         }).then(() => {
             dispatch( { type: 'CREATE_PROJECT', project})
@@ -45,3 +47,19 @@ export const addComment = (valor) => {
         
     };
 };
+
+export const addLike = (valor) => {
+    return(dispatch, getState, { getFirebase , getFirestore }) => {
+        
+        const firestore = getFirestore();
+        return firestore.collection('projects').doc(valor.id).update({
+            Likes: valor.likes,
+            idLikes: valor.idLikes
+        }).then(() => {
+            dispatch( { type: 'ADD_LIKE'})
+        }).catch((err) => {
+            dispatch( { type: 'ADD_LIKE_ERROR', err})
+        })
+        
+    };
+}

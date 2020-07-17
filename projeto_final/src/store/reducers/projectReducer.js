@@ -26,6 +26,14 @@ const projectReducer = (state = initState, action) => {
             return {
                 ...state
             }
+        case "ADD_LIKE":
+            return {
+                ...state
+            }
+        case "ADD_LIKE_ERROR":
+            return {
+                ...state
+            }
         default :
             return {
                 ...state

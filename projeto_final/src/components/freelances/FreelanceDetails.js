@@ -154,7 +154,7 @@ class FreelanceDetalhes extends React.Component{
                                         </span>
                                         <span className="col-2 Emprego_List_Info_Princ_Final">
                                             <span
-                                                className="Info_Emprego_List">{moment(freelance.ListingTime.toDate()).calendar()}</span>
+                                                className="Info_Emprego_List">{moment(freelance.ListingTime.toDate()).format('L')}</span>
                                         </span>
                                     </div>
 
