@@ -124,6 +124,7 @@ class ProjectDetails extends React.Component {
             const indexArray = obj.idLikes.findIndex(isFavIn)
             if(indexArray == -1) {
                 obj.idLikes.push(this.props.match.params.id)
+                obj.likes = obj.likes +  1
             }else{
                 console.log("ja deste")
             }
