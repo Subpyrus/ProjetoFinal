@@ -5,6 +5,8 @@ import localizacao from "../../Imgs/map-marker-alt-solid.svg";
 import {Link} from "react-router-dom";
 import ListaEmpregosEmpresa from "./JobListEnterprise";
 import {storage} from "../../config/fbConfig";
+import emailjs from "emailjs-com";
+import {Modal} from "react-bootstrap";
 
 
 class EnterpriseDetailsSummary extends React.Component{
@@ -12,8 +14,28 @@ class EnterpriseDetailsSummary extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            imagemPerfil: ""
+            imagemPerfil: "",
+            NomeEmpresa: "",
+            NomeUser: "",
+            curriculo: "",
+            emailCandidato: "",
+            areaTrabalho: "",
+            emailEmpresa: "",
+            setShowM: false
         };
+    }
+
+    guardaInfo(NomeEmpresa, NomeUser, emailCandidato, areaTrabalho, emailEmpresa, curriculo){
+        if (this.state.NomeEmpresa === "" && this.state.NomeUser === "" && this.state.emailCandidato === "" && this.state.areaTrabalho === "" && this.state.emailEmpresa === "" && this.state.curriculo === "") {
+            this.setState({
+                NomeEmpresa: NomeEmpresa,
+                NomeUser: NomeUser,
+                curriculo: curriculo,
+                emailCandidato: emailCandidato,
+                areaTrabalho: areaTrabalho,
+                emailEmpresa: emailEmpresa
+            })
+        }
     }
 
     getImage(image) {
@@ -26,10 +48,36 @@ class EnterpriseDetailsSummary extends React.Component{
         })
     }
 
+    enviaMail(e, parametro){
+        e.preventDefault();
+        emailjs.send('gmail', 'email_para_enviar', parametro, 'user_UAnswsOL1vNOW5D8EghtO')
+            .then((result) => {
+                this.handleShowM();
+                //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
+
+    handleCloseM = () => {
+        this.setState({setShowM: false})
+
+    };
+    handleShowM = () => {
+        //console.log("oi");
+        this.setState({setShowM: true})
+    };
+
     render() {
-        const {users, id_user, id_pass, job} = this.props;
+        const {users, utils, id_user, id_pass, job, auth} = this.props;
         console.log(users);
         this.getImage(users.ImagemPerfil);
+        {utils && utils.map(dados => {
+            if (dados.id === auth.uid) {
+                console.log(dados);
+                this.guardaInfo(users.NomeEmpresa, dados.FirstName, auth.email, dados.AreaTrabalho, users.EmailEmpresa, dados.Curriculo)
+            }
+        })}
         return (
             <div className="row mb-0">
                 <div className="Perfil_Empresa_Inicial mb-0 col-12 justify-content-center pb-5 pb-lg-0">
@@ -116,19 +164,63 @@ class EnterpriseDetailsSummary extends React.Component{
 
                                         }
                                     </h3>
-                                    <span className="Perfil_Info_Texto mb-4">
-                                        Nas bases de uma grande paixão pela tecnologia, começou a nossa história em 2007. Esta paixão cresceu, e com o tempo evoluiu para uma forte vontade de criar um futuro melhor para gerações futuras.
-                                        A nossa equipa diversificou-se e os nossos parceiros impulsionaram a nossa jornada de constante desenvolvimento de soluções de software centradas no utilizador.
-                                    </span>
-                                    <span>
-                                        <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
-                                        <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
-                                        <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
-                                        <span className="Perfil_Website">website</span>
-                                    </span>
-                                    <span>
-                                        <button className="Perfil_But_Seguir mt-4 mr-4" disabled>Enviar CV</button>
-                                    </span>
+                                    {users.Descricao && users.Descricao !== "" ?
+                                        <span className="Perfil_Info_Texto mb-4">
+                                            {users.Descricao}
+                                        </span>
+                                        :
+                                        <span className="d-none">
+                                            nada
+                                        </span>
+                                    }
+                                    <span className="Perfil_Info_Areas mb-4">{users.Ocupation}</span>
+                                    {users.LinkFace && users.LinkFace !== "" || users.LinkLinked && users.LinkLinked !== "" || users.LinkInsta && users.LinkInsta !== "" || users.LinkWeb && users.LinkWeb !== "" ?
+                                        <span>
+                                            {users.LinkFace && users.LinkFace !== "" ?
+                                                <a href={users.LinkFace} target="_blank" style={{textDecoration: "none"}}>
+                                                    <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
+                                                </a>
+                                                :
+                                                <i className="fa fa-facebook fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkLinked && users.LinkLinked !== "" ?
+                                                <a href={users.LinkLinked} target="_blank" style={{textDecoration: "none"}}>
+                                                    <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
+                                                </a>
+                                                :
+                                                <i className="fa fa-linkedin fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkInsta && users.LinkInsta !== "" ?
+                                                <a href={users.LinkInsta} target="_blank" style={{textDecoration: "none"}}>
+                                                    <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
+                                                </a>
+                                                :
+                                                <i className="fa fa-instagram fa-lg mr-3 icones_perfil d-none"/>
+                                            }
+                                            {users.LinkWeb && users.LinkWeb !== "" ?
+                                                <a href={users.LinkWeb} target="_blank" style={{textDecoration: "none"}}>
+                                                    <span className="Perfil_Website">website</span>
+                                                </a>
+                                                :
+                                                <span className="Perfil_Website d-none">website</span>
+                                            }
+                                        </span>
+                                        :
+                                        <span className="d-none"/>
+                                    }
+                                    {utils && utils.map(dados => {
+                                        if (dados.id === auth.uid) {
+                                            return(
+                                                <span>
+                                                    {dados.TipoUtilizador === 1 && dados.Curriculo !== null ?
+                                                        <button className="Perfil_But_Seguir mt-4 mr-4" onClick={(coisas) => this.enviaMail(coisas, this.state)}>Enviar CV</button>
+                                                        :
+                                                        <button className="Perfil_But_Seguir_2 mt-4 mr-4" disabled>Enviar CV</button>
+                                                    }
+                                                </span>
+                                            )
+                                        }
+                                    })}
                                 </span>
                         </div>
                     </div>
@@ -151,6 +243,36 @@ class EnterpriseDetailsSummary extends React.Component{
                             })}
                         </div>
                     </div>
+                </div>
+                <div id="myModal" className="modal fade">
+                    <Modal
+                        className="bg-transparent mh-100"
+                        size="lg"
+                        show={this.state.setShowM}
+                        onHide={this.handleCloseM}
+                        backdrop="static"
+                        keyboard={false}
+                        aria-labelledby="example-custom-modal-styling-title">
+                        <Modal.Header closeButton>
+                            <Modal.Title id="example-custom-modal-styling-title"
+                                         className="titulomodal">
+                                Enviar CV</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body id="modalbody">
+                            <div className="container p-0 mt-3 mb-3 cont-fases texto_Modal">
+                                O teu currículo foi enviado!
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <button
+                                className="btn btnIn mr-3"
+                                type="button"
+                                id="nextBtn"
+                                onClick={() => this.handleCloseM()}>
+                                Fechar
+                            </button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         );
