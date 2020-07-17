@@ -119,18 +119,6 @@ class FormCreateProjeto4 extends React.Component{
                             <label htmlFor="EmpresasProjeto" className={valores.EmpresasProjeto != "" ? "active" : ""}>Empresas, marcas, etc</label>
                         </div>
                     </div>
-                    <div className="input-field col s12">
-                        <select
-                            className="aparece"
-                            onChange={this.props.handleChange('equipa')}
-                            defaultValue={valores.equipa}
-                        >
-                            <option value="" disabled selected>Equipa</option>
-                            <option value="Mango">Mango</option>
-                            <option value="Orange">Orange</option>
-                            <option value="Apple">Apple</option>
-                        </select>
-                    </div>
                     <div className="row mb-0 col s12 justify-content-end">
                         <button
                             className="btn btnIn mr-3"

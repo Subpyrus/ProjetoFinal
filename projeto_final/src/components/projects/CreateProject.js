@@ -24,7 +24,6 @@ class CreateProject extends React.Component {
             nomeProjeto: "",
             areaTrabalhoProjeto: "",
             ferramentasUsadas: "",
-            equipa: "",
             descricaoProjeto: "",
             EmpresasProjeto: ""
         };

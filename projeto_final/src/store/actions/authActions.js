@@ -118,6 +118,7 @@ export const signUpEnterprise = (newEnterprise) => {
                 NomeEmpresa:newEnterprise.NomeEmpresa,
                 TamanhoEmpresa:newEnterprise.TamanhoEmpresa,
                 DataCriacao:newEnterprise.DataCriacao,
+                EmailEmpresa:newEnterprise.Email,
                 Local:newEnterprise.Distrito,
                 AreaTrabalho:newEnterprise.AreaTrabalho,
                 Ocupation:newEnterprise.Ocupacao,
