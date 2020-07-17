@@ -308,7 +308,7 @@ class FreelanceDetalhes extends React.Component{
                             </Modal.Header>
                             <Modal.Body id="modalbody">
                                 <div className="container p-0 mt-3 mb-3 cont-fases texto_Modal">
-                                    Tens a certeza que queres enviar a tua candidatura? Se confirmares, irá ser enviado para o utilizador que publicou o anúncio um email com o teu nome, àrea de trabalho e email para que ele te possa contactar no futuro.
+                                    Tens a certeza que queres enviar a tua candidatura? Se confirmares, irá ser enviado para o utilizador que publicou o anúncio um email com o teu nome, área de trabalho e email para que ele te possa contactar no futuro.
                                 </div>
                             </Modal.Body>
                             <Modal.Footer>
