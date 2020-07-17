@@ -10,6 +10,7 @@ import ListaEmpregos from "../jobs/JobList";
 import {Modal} from "react-bootstrap";
 import {storage} from "../../config/fbConfig";
 import ListaCandidatos from '../freelances/ListaCandidatos'
+import {eliminaFree} from '../../store/actions/freelanceActions'
 
 class Freelance extends React.Component {
 
@@ -32,6 +33,11 @@ class Freelance extends React.Component {
         //console.log("oi");
         this.setState({setShowM: true})
     };
+
+    handleEliminar = (valor) => {
+        console.log(valor)
+        this.props.eliminaFree(valor)
+    }
 
     render() {
         let contador = 0;
@@ -66,11 +72,10 @@ class Freelance extends React.Component {
                                                 {freelances && freelances.map(info => {
                                                     if (auth.uid === info.IdUser){
                                                         contador++;
-                                                        console.log(info);
                                                         return(
                                                             <section className="pl-0 pl-sm-3 text-center text-sm-left" style={{width: "100%"}}>
                                                                 <span>
-                                                                    <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}<span className="pr-3 icon_creators"><i className="fa fa-trash"/></span></p>
+                                                                    <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}<span className="pr-3 icon_creators" onClick={() => this.handleEliminar(info.id)}><i className="fa fa-trash"/></span></p>
                                                                 </span>
                                                                 <span className="btn btn-flat pt-0 pl-0 area_meus_anuncios_candidatos justify-content-center justify-content-sm-start" onClick={() => this.handleShowM()}>
                                                                     {info.candidatos.length > 0 ?
@@ -194,8 +199,14 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        eliminaFree: (valor) => dispatch(eliminaFree(valor))
+    }
+}
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
         { collection: 'freelances' },
         { collection: 'users' }

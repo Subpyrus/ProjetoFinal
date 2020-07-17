@@ -18,6 +18,14 @@ const jobReducer = (state = initState, action) => {
             return {
                 ...state
             }
+        case "ELIMINAJOB_COMPLETE":
+            return {
+                ...state
+            }
+        case "ELIMINAJOB_ERROR":
+            return {
+                ...state
+            }
         default :
             return {
                 ...state

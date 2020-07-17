@@ -28,3 +28,17 @@ export const addCandidatura = (candidato) => {
 
     }
 };
+
+export const eliminaJob = (valor) => {
+    return(dispatch, getState, { getFirebase , getFirestore }) => {
+        
+        const firestore = getFirestore();
+        return firestore.collection("jobs").doc(valor).delete().then(function() {
+            dispatch({type:'ELIMINAJOB_COMPLETE'})
+        }).catch(function(err) {
+            dispatch({type:'ELIMINAJOB_ERROR', err})
+        });
+
+
+    }
+}

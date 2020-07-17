@@ -28,3 +28,17 @@ export const addCandidatura = (candidato) => {
 
     }
 };
+
+export const eliminaFree = (valor) => {
+    return(dispatch, getState, { getFirebase , getFirestore }) => {
+        
+        const firestore = getFirestore();
+        return firestore.collection("freelances").doc(valor).delete().then(function() {
+            dispatch({type:'ELIMINAFREE_COMPLETE'})
+        }).catch(function(err) {
+            dispatch({type:'ELIMINAFREE_ERROR', err})
+        });
+
+
+    }
+}

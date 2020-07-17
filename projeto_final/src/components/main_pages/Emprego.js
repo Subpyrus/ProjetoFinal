@@ -8,6 +8,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux'
 import {Modal} from "react-bootstrap";
 import ListaCandidatos from "../freelances/ListaCandidatos";
+import {eliminaJob} from '../../store/actions/jobActions'
 
 class Empregos extends React.Component{
     constructor(props){
@@ -28,6 +29,11 @@ class Empregos extends React.Component{
         //console.log("oi");
         this.setState({setShowM: true})
     };
+
+    handleEliminar = (valor) => {
+        console.log(valor)
+        this.props.eliminaJob(valor)
+    }
 
 
     render () {
@@ -56,7 +62,7 @@ class Empregos extends React.Component{
                                             </Link>
                                             <div className="col-12 area_meus_anuncios p-0 mt-3">
                                                 <section className="area_meus_anuncios_inicial">
-                                                    <p className="area_meus_anuncios_inicial_texto_1 pt-2 pb-2 pl-3 mb-0">OS MEUS ANÚNCIOS<span className="pr-3 icon_creators"><i className="fa fa-trash"/></span></p>
+                                                    <p className="area_meus_anuncios_inicial_texto_1 pt-2 pb-2 pl-3 mb-0">OS MEUS ANÚNCIOS</p>
                                                 </section>
                                                 {jobs && jobs.map(info => {
                                                     if (auth.uid === info.IdUser){
@@ -64,7 +70,7 @@ class Empregos extends React.Component{
                                                         //console.log(info);
                                                         return(
                                                             <section className="pl-0 pl-sm-3 text-center text-sm-left" style={{width: "100%"}}>
-                                                                <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}</p>
+                                                                <p className="area_meus_anuncios_inicial_texto pt-2 mb-0">{info.NomeAnuncio}<span className="pr-3 icon_creators" onClick={() => this.handleEliminar(info.id)}><i className="fa fa-trash"/></span></p>
                                                                 <span className="btn btn-flat pt-0 pl-0 area_meus_anuncios_candidatos justify-content-center justify-content-sm-start" onClick={() => this.handleShowM()}>
                                                                     {info.candidatos.length > 0 ?
                                                                         <i className="fa fa-users fa-2x pb-2" style={{color: "orange"}}></i>
@@ -185,8 +191,15 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        eliminaJob: (valor) => dispatch(eliminaJob(valor))
+    }
+}
+
+
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     firestoreConnect([
         { collection: 'jobs' },
         { collection: 'users' }
