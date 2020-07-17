@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import perfil from "../../Imgs/Logo_Ubi.jpg";
-import localizacao from "../../Imgs/map-marker-alt-solid.svg";
+import localizacao from "../../Imgs/map-marker-alt-solid_1.svg";
 import {Link} from "react-router-dom";
 import ListaEmpregosEmpresa from "./JobListEnterprise";
 import {storage} from "../../config/fbConfig";

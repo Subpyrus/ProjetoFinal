@@ -86,12 +86,7 @@ class ListaEmpregosEmpresa extends React.Component{
 
                                     }
                                 </span>
-                                <span className="Area_Emprego2 d-md-none d-block mt-2">Ver Candidatos</span>
                             </span>
-                        </span>
-                        <span className="col-12 col-md-3 Emprego_List_Info_Princ_Final pr-4 d-md-inline-flex d-none">
-                            <span className="Info_Emprego_List">3 de Março</span>
-                            <span className="Area_Emprego2 Ver_Candidatos_Perfil">Ver Candidatos</span>
                         </span>
                         <div className="go-corner">
                             <div className="go-arrow">

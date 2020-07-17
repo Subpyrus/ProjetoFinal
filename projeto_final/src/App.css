@@ -1421,7 +1421,7 @@ body {
 
 .Info_Emprego_Detalhes{
     margin-top: -5px;
-    font-family: 'Barlow Semibold', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-size: 15px;
     color: black;
 }
@@ -2541,4 +2541,17 @@ body {
     -webkit-box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
     box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
     transition: all 0.4s ease-in-out;
+}
+
+.Empresa_But_Criar_Anuncio:hover{
+    font-family: "Barlow SemiBold";
+    background-color: #d56d00;
+    -webkit-box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 12px 50px;
 }
