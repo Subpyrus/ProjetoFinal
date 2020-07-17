@@ -2514,3 +2514,31 @@ body {
         left: 8px;
     }
 }
+
+.Perfil_But_Seguir:hover {
+    background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}
+
+.alterar_img {
+    font-family: 'Barlow Medium', sans-serif;
+    background-color: #ec9400;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 6px 55px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
+.alterar_img:hover {
+    background: #d56d00;
+    font-family: "Barlow SemiBold";
+    -webkit-box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    box-shadow: 0px 11px 15px -3px rgba(20, 20, 20, 0.50);
+    transition: all 0.4s ease-in-out;
+}

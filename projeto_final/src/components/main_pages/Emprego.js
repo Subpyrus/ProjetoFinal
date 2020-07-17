@@ -56,7 +56,7 @@ class Empregos extends React.Component{
                                             </Link>
                                             <div className="col-12 area_meus_anuncios p-0 mt-3">
                                                 <section className="area_meus_anuncios_inicial">
-                                                    <p className="area_meus_anuncios_inicial_texto_1 pt-2 pb-2 pl-3 mb-0">OS MEUS ANÚNCIOS</p>
+                                                    <p className="area_meus_anuncios_inicial_texto_1 pt-2 pb-2 pl-3 mb-0">OS MEUS ANÚNCIOS<span className="pr-3 icon_creators"><i className="fa fa-trash"/></span></p>
                                                 </section>
                                                 {jobs && jobs.map(info => {
                                                     if (auth.uid === info.IdUser){
