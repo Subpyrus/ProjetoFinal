@@ -865,6 +865,12 @@ body {
     box-shadow: 0px 11px 20px -3px rgba(20, 20, 20, 0.50);
 }
 
+.coiso_e_tal{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .Perfil_Info_Inicial_Esq{
     position: relative;
     top: 50%;
@@ -2187,6 +2193,11 @@ body {
         align-items: center;
     }
     .zona_da_area{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .coiso_e_tal{
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -141,6 +141,7 @@ class ProjectDetails extends React.Component {
             <div className="Proj_Det_Body container-fluid row col-12 justify-content-center m-0 p-0">
                 {projects && projects.map(dados => {
                     if (dados.id === this.props.match.params.id) {
+                        console.log(dados);
                         return (
                             <span className="col-lg-10 col-md-12">
                             <div className="Proj_Det_Conteudo pl-0 pl-sm-5 pr-sm-5 pr-0">
@@ -432,6 +433,13 @@ class ProjectDetails extends React.Component {
                                             }
                                         }
                                         )}
+                                            <div className="seccao_comentarios">
+                                            {dados.Comments.map(info => {
+                                                return(
+                                                    <ComentariosList info={info} users={users}/>
+                                                )
+                                            })}
+                                            </div>
                                     </div>
                                     :
                                     <div className="Proj_Det_Comentarios justify-content-center mt-4 mb-2 ml-2 ml-md-0">
