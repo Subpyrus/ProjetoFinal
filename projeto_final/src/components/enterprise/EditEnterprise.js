@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 import {compose} from "redux";
 import connect from "react-redux/es/connect/connect";
 import {firestoreConnect} from "react-redux-firebase";
-import {updateProfile} from '../../store/actions/authActions';
+import {updateProfileEmp} from '../../store/actions/authActions';
 import {recoverPassword} from '../../store/actions/authActions';
 import {storage} from '../../config/fbConfig';
 import Back from "../../Imgs/back.svg";
@@ -98,7 +98,7 @@ class EditarEnterprise extends React.Component {
 
     handleSubmit = (e) => {
         console.log(this.state)
-        this.props.updateProfile(this.state);
+        this.props.updateProfileEmp(this.state);
     }
 
     mudarPassword = (e) => {
@@ -257,7 +257,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateProfile: (newValores) => dispatch(updateProfile(newValores)),
+        updateProfileEmp: (newValores) => dispatch(updateProfileEmp(newValores)),
         recoverPassword: (email) => dispatch(recoverPassword(email))
     }
 }

@@ -134,9 +134,32 @@ export const signUpEnterprise = (newEnterprise) => {
 }
 
 
+export const updateProfileEmp = (newInfo) => {
+    return (dispatch,getState,{getFirebase,getFirestore}) => {
+        const firestore = getFirestore();
+        return firestore.collection('users').doc(newInfo.userId).update({
+            AreaTrabalho: newInfo.areaTrabalho,
+            LinkWeb:newInfo.website,
+            LinkInsta:newInfo.instagram,
+            LinkLinked:newInfo.linkedin,
+            LinkFace:newInfo.facebook,
+            ImagemPerfil: newInfo.imagemPerfil,
+            Ocupation:newInfo.ocupacao,
+            Descricao:newInfo.sobre,
+            TamanhoEmpresa:newInfo.tamanho
+        }).then(() => {
+            dispatch({type:'EDITPROFILE_COMPLETE'})
+        }).catch((err) =>{
+            dispatch({type:'EDITPROFILE_ERROR', err})
+        })
+
+    }
+}
+
 export const recoverPassword = (email) => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase();
+        console.log(email)
         firebase.auth().sendPasswordResetEmail(email)
             .then(() =>
                 dispatch({type: 'RESET_PASSWORD_SUCCESS'})

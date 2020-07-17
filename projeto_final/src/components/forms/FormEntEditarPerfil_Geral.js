@@ -221,7 +221,7 @@ class FormEntEditarPerfil_Geral extends React.Component {
                                 onChange={handleChange('tamanho')}
                                 defaultValue={valores.tamanho}
                             />
-                            <label htmlFor="tamanho" className={valores.tamanho != "" ? "active col-12 col-md-6" : "col-12 col-md-6"}>Tamano da empresa</label>
+                            <label htmlFor="tamanho" className={valores.tamanho != "" ? "active col-12 col-md-6" : "col-12 col-md-6"}>Tamanho da empresa</label>
                         </div>
                     </div>
                     <div className="row">
