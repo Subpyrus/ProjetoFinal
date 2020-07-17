@@ -13,6 +13,7 @@ import FasesList from "./FasesList";
 import  { addVis } from '../../store/actions/projectActions'
 import { addComment } from '../../store/actions/projectActions'
 import { add_remFav } from '../../store/actions/authActions';
+import ComentariosList from './ComentariosList'
 
 
 class ProjectDetails extends React.Component {
