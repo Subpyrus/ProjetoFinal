@@ -95,10 +95,16 @@ class CreatorDetailsSummary extends React.Component {
                         <div className="col-sm-12 col-lg-4">
                                 <span className="ml-auto Perfil_Info_Inicial_Esq">
                                     <img src={this.state.imagemPerfil} className="Foto_Perfil"/>
-                                    {id_user === id_pass || !auth.uid ?
-                                        <button className="Perfil_But_Seguir_2 mt-5 text-uppercase" disabled>Seguir</button>
+                                    {id_user === id_pass ?
+                                        <Link to="/perfil/editar">
+                                            <button className="Perfil_But_Seguir mt-4 text-uppercase">Editar
+                                                perfil
+                                            </button>
+                                        </Link>
                                         :
-                                        <button className="Perfil_But_Seguir mt-5 text-uppercase">Seguir</button>
+                                        <button className="Perfil_But_Seguir mt-4 text-uppercase d-none">Editar
+                                            perfil
+                                        </button>
                                     }
                                     <span className="mt-3">
                                         <img src={localizacao} className="Icone_Localizacao" height="20px"
@@ -126,16 +132,6 @@ class CreatorDetailsSummary extends React.Component {
                                                                     :
                                                                     users.Local
                                         }
-                                        </span>
-                                    </span>
-                                    <span className="mt-3 row">
-                                        <span className="col-6 Perfil_Seguidores">
-                                            <span className="Seguidores">200</span>
-                                            <span className="Texto_Seguir">SEGUIDORES</span>
-                                        </span>
-                                        <span className="col-6 Perfil_Seguidores">
-                                            <span className="Seguidores">63</span>
-                                            <span className="Texto_Seguir">A SEGUIR</span>
                                         </span>
                                     </span>
                                 </span>
@@ -195,28 +191,28 @@ class CreatorDetailsSummary extends React.Component {
                                     {users.LinkFace && users.LinkFace !== "" || users.LinkLinked && users.LinkLinked !== "" || users.LinkInsta && users.LinkInsta !== "" || users.LinkWeb && users.LinkWeb !== "" ?
                                         <span>
                                             {users.LinkFace && users.LinkFace !== "" ?
-                                                <a href={users.LinkFace} style={{textDecoration: "none"}}>
+                                                <a href={users.LinkFace} target="_blank" style={{textDecoration: "none"}}>
                                                     <i className="fa fa-facebook fa-lg mr-3 icones_perfil"/>
                                                 </a>
                                                 :
                                                 <i className="fa fa-facebook fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkLinked && users.LinkLinked !== "" ?
-                                                <a href={users.LinkLinked} style={{textDecoration: "none"}}>
+                                                <a href={users.LinkLinked} target="_blank" style={{textDecoration: "none"}}>
                                                     <i className="fa fa-linkedin fa-lg mr-3 icones_perfil"/>
                                                 </a>
                                                 :
                                                 <i className="fa fa-linkedin fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkInsta && users.LinkInsta !== "" ?
-                                                <a href={users.LinkInsta} style={{textDecoration: "none"}}>
+                                                <a href={users.LinkInsta} target="_blank" style={{textDecoration: "none"}}>
                                                     <i className="fa fa-instagram fa-lg mr-3 icones_perfil"/>
                                                 </a>
                                                 :
                                                 <i className="fa fa-instagram fa-lg mr-3 icones_perfil d-none"/>
                                             }
                                             {users.LinkWeb && users.LinkWeb !== "" ?
-                                                <a href={users.LinkWeb} style={{textDecoration: "none"}}>
+                                                <a href={users.LinkWeb} target="_blank" style={{textDecoration: "none"}}>
                                                     <span className="Perfil_Website">website</span>
                                                 </a>
                                                 :
@@ -234,17 +230,6 @@ class CreatorDetailsSummary extends React.Component {
                                                 <button className="Perfil_But_Seguir mt-4 mr-4 text-uppercase">Transferir CV</button>
                                             </a>
                                             
-                                        }
-                                        {id_user === id_pass ?
-                                            <Link to="/perfil/editar">
-                                                <button className="Perfil_But_Seguir mt-4 text-uppercase">Editar
-                                                    perfil
-                                                </button>
-                                            </Link>
-                                            :
-                                            <button className="Perfil_But_Seguir mt-4 text-uppercase d-none">Editar
-                                                perfil
-                                            </button>
                                         }
                                     </span>
                                 </span>
