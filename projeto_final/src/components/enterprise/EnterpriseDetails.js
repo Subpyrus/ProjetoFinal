@@ -19,7 +19,7 @@ class PerfilEmpresa extends React.Component {
                     {otherUsers && otherUsers.map(dados => {
                         if (dados.id === this.props.match.params.id && dados.TipoUtilizador === 2) {
                             return (
-                                <EnterpriseDetailsSummary users={dados} job={jobs} id_user={auth.uid} id_pass={this.props.match.params.id}/>
+                                <EnterpriseDetailsSummary users={dados} utils={otherUsers} job={jobs} id_user={auth.uid} id_pass={this.props.match.params.id} auth={auth}/>
                             )
                         }
                     })}

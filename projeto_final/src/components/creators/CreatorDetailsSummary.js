@@ -352,7 +352,7 @@ class CreatorDetailsSummary extends React.Component {
                                 :
                                 users.Formacao.map(dados => {
                                     return(
-                                        <div className="col-sm-12 col-lg-6 mt-lg-0 mt-5 px-0">
+                                        <div className="col-sm-12 col-lg-6 mt-lg-0 mt-5 mb-0 mb-md-4 px-0">
                                             <div className="Formacao_Parte_2 mr-lg-5 pb-2 justify-content-center m-auto row">
                                                 <span className="Ano_Formacao ml-5 mr-5 mt-2">
                                                     {dados.anoConclusao}
