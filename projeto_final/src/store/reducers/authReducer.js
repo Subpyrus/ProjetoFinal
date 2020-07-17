@@ -54,6 +54,14 @@ const authReducer = (state = initState, action) => {
                 ...state,
                 recoverError: action.err.message
             }
+        case 'ADDREMFAV_ERROR':
+            return {
+                ...state,
+            }
+        case 'ADDREMFAV_SUCCESS':
+            return {
+                ...state,
+            }
         default:
             return state;
     }

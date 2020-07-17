@@ -12,6 +12,7 @@ import {storage} from "../../config/fbConfig";
 import FasesList from "./FasesList";
 import  { addVis } from '../../store/actions/projectActions'
 import { addComment } from '../../store/actions/projectActions'
+import { add_remFav } from '../../store/actions/authActions';
 
 
 class ProjectDetails extends React.Component {
@@ -62,6 +63,40 @@ class ProjectDetails extends React.Component {
         this.setState({
             comentario:""
         })
+    }
+
+    handleFav = () => {
+        const {auth,users, projects} = this.props;
+        let obj = {
+            idProj: [],
+            idUser: auth.uid
+        }
+        for (var a in users) {
+            if(users[a].id == auth.uid){
+                obj.idProj.push(...users[a].Favoritos)
+                for(var c in projects){
+                    if(projects[c].id == this.props.match.params.id) {
+                        if(users[a].id == projects[c].IdEmpregador) {
+                            //teu projeto
+                        }else{
+                            if(users[a].Favoritos.length == 0) {
+                                obj.idProj.push(this.props.match.params.id)
+                            }else {
+                                const isFavIn = (element) => element == this.props.match.params.id;
+                                const indexArray = obj.idProj.findIndex(isFavIn)
+                                if(indexArray == -1) {
+                                    obj.idProj.push(this.props.match.params.id)
+                                }else {
+                                    obj.idProj.splice(indexArray,1)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            } 
+        }
+        this.props.add_remFav(obj);
     }
 
     handleCloseM = () => {
@@ -180,7 +215,10 @@ class ProjectDetails extends React.Component {
                                     <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
                                         <i className="fa fa-heart-o fa-lg mr-1"/><span className="mr-3">42</span>
                                         <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">1</span>
+                                        <span  onClick={this.handleFav}>
                                             <i className="fa fa-star-o fa-lg"/>
+                                        </span>
+                                            
                                     </span>
                                         </div>
                                     </div>
@@ -472,7 +510,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addVis: (valor) => dispatch(addVis(valor)),
-        addComment: (obj) => dispatch(addComment(obj))
+        addComment: (obj) => dispatch(addComment(obj)),
+        add_remFav: (obj) => dispatch(add_remFav(obj))
     }
 }
 

@@ -45,6 +45,7 @@ export const signUpUser = (newUser) => {
                 TipoUtilizador: 1,
                 Descricao:"",
                 Formacao:[],
+                Favoritos:[],
                 LinkWeb:"",
                 LinkInsta:"",
                 LinkLinked:"",
@@ -87,6 +88,21 @@ export const updateProfile = (newInfo) => {
 
     }
 }
+
+export const add_remFav = (obj) => {
+    return (dispatch,getState,{getFirebase,getFirestore}) => {
+        const firestore = getFirestore();
+        return firestore.collection('users').doc(obj.idUser).update({
+            Favoritos:  obj.idProj
+        }).then(() => {
+            dispatch({type:'ADDREMFAV_SUCCESS'})
+        }).catch((err) =>{
+            dispatch({type:'ADDREMFAV_ERROR', err})
+        })
+
+    }
+}
+
 
 export const signUpEnterprise = (newEnterprise) => {
 
