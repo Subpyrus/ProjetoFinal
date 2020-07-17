@@ -46,7 +46,7 @@ class ProjectFavsSummary extends React.Component{
                         </div>
                         <span className="card-text Proj_Info3">
                                     <i className="fa fa-eye mr-2"/><span className="mr-2 nums">{info.Vis}</span>
-                                    <i className="fa fa-heart-o mr-2"/><span className="mr-2 nums">42</span>
+                                    <i className="fa fa-heart-o mr-2"/><span className="mr-2 nums">{info.idLikes.length}</span>
                                 </span>
                     </div>
                     <div className={`card-reveal ${abrir}${info.id}`}>

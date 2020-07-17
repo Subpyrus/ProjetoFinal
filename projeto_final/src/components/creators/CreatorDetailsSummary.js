@@ -259,84 +259,8 @@ class CreatorDetailsSummary extends React.Component {
                                 <h3 className={"btn-flat Titulo_Formacao_3 mb-4 mt-2 pl-3"}>PROJETOS FAVORITOS</h3>
                             </span>
                         <span className="col-12 justify-content-center mt-3 d-block d-md-none">
-                                <ListFavouritesPerfil/>
+                                <ListFavouritesPerfil favoritos={users.Favoritos} projects={projetos}/>
                             </span>
-                    </div>
-                </div>
-                <div className="Perfil_Testemunhos mb-0 col-12 justify-content-center">
-                    <div className="Perfil_Info_Testemunhos row col-10 my-5 mx-auto">
-                        <h1 className="Titulo_Testemunhos col-12">TESTEMUNHOS</h1>
-                        <div className="col-lg-12 col-xl-3 justify-content-center">
-                            <div className="Testemunhos_Esquerda mb-3 text-center d-none d-md-block">
-                                    <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
-                                        <div className="btn mr-3 p-0 mb-4"
-                                             style={this.state.valorB == 1 ? this.card_Testemunhos_Active : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(1)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
-                                        <div className="btn mr-3 p-0 mb-4"
-                                             style={this.state.valorB == 2 ? this.card_Testemunhos_Active : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(2)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
-                                        <div className="btn mr-3 p-0 mb-4"
-                                             style={this.state.valorB == 3 ? this.card_Testemunhos_Active : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(3)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center itens_esquerda">
-                                        <div className="btn mr-3 p-0 mb-4"
-                                             style={this.state.valorB == 4 ? this.card_Testemunhos_Active : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(4)}>
-                                        </div>
-                                    </span>
-                            </div>
-                            <div className="Testemunhos_Esquerda mb-3 text-center d-block d-md-none">
-                                    <span className="col-6 col-md-4 col-xl-12 text-center">
-                                        <div className="btn mr-0 p-0 mb-4"
-                                             style={this.state.valorB == 1 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(1)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center">
-                                        <div className="btn mr-0 p-0 mb-4"
-                                             style={this.state.valorB == 2 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(2)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center">
-                                        <div className="btn mr-0 p-0 mb-4"
-                                             style={this.state.valorB == 3 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(3)}>
-                                        </div>
-                                    </span>
-                                <span className="col-6 col-md-4 col-xl-12 text-center">
-                                        <div className="btn mr-0 p-0 mb-4"
-                                             style={this.state.valorB == 4 ? this.card_Testemunhos_Active2 : this.card_Testemunhos}
-                                             onClick={() => this.testemunhoB(4)}>
-                                        </div>
-                                    </span>
-                            </div>
-                        </div>
-                        <div className="col-lg-12 col-xl-9 mb-5 p-0">
-                            <div className="Testemunhos_Direita pt-5 pb-5 justify-content-center m-auto row">
-                                    <span className="col-md-1 col-lg-1 mr-2 px-4 px-md-0 my-auto">
-                                        <i className="fa fa-quote-right fa-3x icones_perfil"/>
-                                    </span>
-                                <span className="col-md-6 col-lg-8 my-auto px-4 px-md-0 Texto_Testemunho">
-                                        {this.state.valorB == 1 ?
-                                            "Excelente profissional. Muito criativa, com excelentes capacidades no design gráfico. Cumpriu o prazo sem falta!" :
-                                            this.state.valorB == 2 ?
-                                                "Excelente profissional." :
-                                                this.state.valorB == 3 ?
-                                                    "Excelente profissional. Muito criativa, com excelentes capacidades de programação. Cumpriu tudo o que pedi!" :
-                                                    "Fez um excelente trabalho!"
-                                        }
-                                    </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div className="Perfil_Formacao mb-0 col-12">

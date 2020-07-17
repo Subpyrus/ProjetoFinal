@@ -237,7 +237,11 @@ class ProjectDetails extends React.Component {
                                             <span className="mt-md-1 mt-lg-0 d-none d-lg-block">{moment(dados.ListingTime.toDate()).format('L')}</span>
                                             <span className="mt-1">
                                         <i className="fa fa-eye fa-lg mr-1"/><span className="mr-3">{dados.Vis}</span>
-                                        <i className="fa fa-heart-o fa-lg mr-1" onClick={this.handleLike}/><span className="mr-3">{dados.Likes}</span>
+                                                {auth.uid ?
+                                                    <span><i className="fa fa-heart-o fa-lg mr-1" onClick={this.handleLike}/><span className="mr-3">{dados.Likes}</span></span>
+                                                    :
+                                                    <span><i className="fa fa-heart-o fa-lg mr-1" disabled/><span className="mr-3">{dados.Likes}</span></span>
+                                                }
                                         <i className="fa fa-comment-o fa-lg mr-1"/><span className="mr-3">{dados.Comments.length}</span>
                                                 {auth.uid ?
                                                     <span  onClick={this.handleFav}>

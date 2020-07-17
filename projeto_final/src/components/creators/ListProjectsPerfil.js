@@ -2,8 +2,9 @@ import React from 'react';
 import '../../App.css';
 import Adicionar from '../../Imgs/Adicionar.png'
 import {Link} from "react-router-dom";
-import ProjectSummary from '../projects/ProjectSummary';
+import ProjectListSummary from './ProjectListSummary';
 import $ from "jquery";
+import ProjectFavsSummary from "./ProjectFavsSummary";
 
 const $x = "show";
 class ListProjectsPerfil extends React.Component {
@@ -32,9 +33,7 @@ class ListProjectsPerfil extends React.Component {
 
     render() {
         return (
-            <div>
-
-                <div className="row col-12 mt-4 mb-5 m-auto">
+                <div className="col-12 mt-4 mb-5 m-auto">
                     <span className="row">
                         {this.props.id === this.props.id_user ?
                             <div className="col-12 col-md-6 col-lg-3 m-0">
@@ -70,16 +69,17 @@ class ListProjectsPerfil extends React.Component {
                             </div>
                         }
 
-                        {this.props.projects && this.props.projects.map(dados => {
-                            if(this.props.id === dados.IdEmpregador){
+                        {this.props.projects && this.props.projects.map(info => {
+                            if (info.IdEmpregador === this.props.id) {
                                 return (
-                                    <ProjectSummary info={dados} abrir={$x}/>
+                                    <span className="col-12 col-md-6 col-lg-3 m-0 pr-2">
+                                        <ProjectListSummary info={info} abrir={$x}/>
+                                    </span>
                                 )
                             }
                         })}
                     </span>
                 </div>
-            </div>
         );
     }
 
